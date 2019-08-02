@@ -1,0 +1,266 @@
+/**
+ * Contributor: themebeez
+ * Plugin url: https://themebeez.com/plugins/simple-gdpr-cookie-compliance
+ */
+
+ /* Styles for Simple GDPR compliance notice dashboard page */
+
+
+/**
+* Plugin page at dashboard 
+*/
+
+
+.sgcc-main-page-wrap {
+
+	color: #444444;
+	line-height: 1.6;
+	margin-left: -20px;
+	box-sizing: border-box;
+}
+
+.sgcc-main-page-wrap .sgcc-inner {
+
+	max-width: 1170px;
+    margin: 40px auto;
+    padding: 80px;
+	background-color: #ffffff;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.04);
+	-moz-box-shadow: 0 1px 1px rgba(0,0,0,.04);
+	-o-box-shadow: 0 1px 1px rgba(0,0,0,.04);
+	-ms-box-shadow: 0 1px 1px rgba(0,0,0,.04);
+	box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+
+.sgcc-main-page-wrap * {
+
+	box-sizing: border-box;
+}
+
+.sgcc-main-page-wrap h1,
+.sgcc-main-page-wrap h2,
+.sgcc-main-page-wrap h3,
+.sgcc-main-page-wrap h4,
+.sgcc-main-page-wrap h5,
+.sgcc-main-page-wrap h6  {
+
+	line-height: 1.3;
+	color: #444444;
+	padding: 0;
+	margin: 0;
+}
+
+.sgcc-main-page-wrap p {
+
+	line-height: 1.8;
+	font-size: 14px;
+	margin: 0;
+	color: #444444;
+}
+
+.sgcc-main-page-wrap textarea,
+.sgcc-main-page-wrap input[type="text"],
+.sgcc-main-page-wrap input[type="number"] {
+
+	height: 41px;
+	width: 100%;
+	max-width: 100%;
+	padding: 0 15px;
+	border: 1px solid #eeeeee;
+	box-shadow: none;
+}
+
+.sgcc-main-page-wrap textarea:focus,
+.sgcc-main-page-wrap input[type="text"]:focus,
+.sgcc-main-page-wrap input[type="number"]:focus {
+
+	border: 1px solid #b9d1ef;
+	outline: none;
+}
+
+.sgcc-main-page-wrap textarea {
+
+	height: 160px;
+	padding: 20px;
+}
+
+.sgcc-white-bg {
+
+	background-color: #ffffff;
+}
+
+.sgcc-section-spacing {
+
+	margin-bottom: 40px;
+}
+
+.sgcc-section-shadow {
+	
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.04);
+	-moz-box-shadow: 0 1px 1px rgba(0,0,0,.04);
+	-o-box-shadow: 0 1px 1px rgba(0,0,0,.04);
+	-ms-box-shadow: 0 1px 1px rgba(0,0,0,.04);
+	box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+
+.clearfix {
+
+	clear: both;
+}
+
+
+
+/* welcome section */
+
+.sgcc-welcome-section {
+
+	padding: 30px;
+	border: 1px solid #eee;
+}
+
+.sgcc-welcome-section h2 {
+
+	text-transform: uppercase;
+	font-size: 26px;
+	font-weight: 800;
+	margin: 0;
+	padding: 0;
+    margin-bottom: 20px;
+}
+
+.sgcc-welcome-section .sgcc-plugin-intro >p {
+
+	overflow: hidden;
+}
+
+.sgcc-welcome-section .sgcc-plugin-intro >p:first-child:first-letter {
+
+	color: #444444;
+    float: left;
+    font-size:75px;
+    font-weight:bold;
+    line-height: 65px;
+    padding: 5px 7px 6px 7px;
+    margin-right: 15px;
+    border: 1px solid #444444;
+    border-radius: 2px;
+}
+
+
+/* Table for settings & options */
+
+.sgcc-main-page-wrap form {
+
+	display: block;
+	width: 100%;
+}
+
+.sgcc-main-page-wrap .form-table {
+	
+	display: block;
+	width: 100%;
+	height: 100%;
+	margin-top: 30px;
+}
+
+.sgcc-main-page-wrap .form-table tbody {
+
+	display: block;
+	width: 100%;
+}
+
+.sgcc-main-page-wrap .form-table tr {
+	
+	 display: flex;
+	 flex-direction: row;
+	 flex-wrap: wrap;
+	 align-items: center;
+     margin-bottom: 30px;
+     padding: 30px;
+     border: 1px solid #eee;
+}
+
+.sgcc-main-page-wrap .form-table tbody tr:last-child {
+
+	margin-bottom: 0;
+}
+
+.sgcc-main-page-wrap .form-table th {
+	
+	position: relative;
+ 	flex: 0 0 200px;
+ 	max-width: 200px;
+ 	padding: 0;
+ 	margin: 0;
+ 	text-transform: uppercase;
+ 	font-weight: bold;
+}
+
+.sgcc-main-page-wrap .form-table th:after {
+
+	content: '';
+	position: absolute;
+	z-index: 10;
+    background-color: #f10000;
+    width: 30px;
+    height: 2px;
+    left: 0;
+    bottom: -5px;
+}
+
+.sgcc-main-page-wrap .form-table td {
+
+	flex: 0 0 calc( 100% - 200px);
+	max-width: calc( 100% - 200px);
+	padding: 0;
+	margin: 0;
+}
+
+.sgcc-main-page-wrap form .submit {
+
+	padding: 0;
+	margin-top: 40px;
+}
+
+.sgcc-main-page-wrap form .button-primary {
+
+	padding-left: 40px;
+	padding-right: 40px;
+	height: 43px;
+}
+
+
+/* Media query */ 
+
+
+@media ( max-width: 1200px ) {
+
+	.sgcc-main-page-wrap .sgcc-inner {
+
+		max-width: 100%;
+    	margin: 30px;
+    	padding: 30px;
+	}
+}
+
+@media ( max-width: 768px ) { 
+
+	.sgcc-main-page-wrap .form-table th {
+
+		flex: 0 0 100%;
+		max-width: 100%;
+		margin-bottom: 30px;
+	}
+
+	.sgcc-main-page-wrap .form-table td {
+
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
+
+
+
