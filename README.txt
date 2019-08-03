@@ -65,6 +65,14 @@ Click on Simple GDPR on your dashboard. It will lead you to the plugin's page wh
 Yes, we do. Kindly visit us at [support page](https://themebeez.com/support-forum/simple-gdpr-cookie-compliance-support/) & ask for support. 
 
 
+== Screenshots ==
+
+1. Simple GDPR cookie compliance plugin at dashboard
+2. Simple GDPR cookie compliance plugin page at dashboard
+3. Simple GDPR cookie compliance plugin at dashboard screenshot two
+4. Simple GDPR cookie compliance plugin at front-end of website
+
+
 == Changelog ==
 
 = 1.0.0 - 2 August, 2019 =
