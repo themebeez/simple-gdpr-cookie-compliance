@@ -7,14 +7,15 @@
 
     $(document).ready(function() {
 
-
+        var expireTime = Number( noticeObj.cookie_expire_time );
+        
     	// on click set cookie
 
         $('.close-sgcc').on('click', function() {
 
             $('.sgcc-main-wrapper').hide();
             
-            $.cookie('sgcc_cookie', true, { expires: noticeObj->cookie_expire_time });
+            $.cookie('sgcc_cookie', true, { expires: expireTime });
 
         });
 
