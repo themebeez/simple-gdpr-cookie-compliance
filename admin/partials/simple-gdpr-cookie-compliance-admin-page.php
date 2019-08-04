@@ -25,6 +25,9 @@
 
             </div><!-- .sgcc-plugin-intro -->
         </section><!-- .sgcc-welcome-section.sgcc-white-bg.sgcc-section-spacing.sgcc-section-shadow -->
+
+        <?php settings_errors(); ?>
+
         <section class="sgcc-options-settings-wrap">
             <form action='options.php' method='post'>
                 <?php
