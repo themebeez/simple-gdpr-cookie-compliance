@@ -22,7 +22,7 @@ $simple_gdpr_cookie_compliance_options = get_option( 'simple_gdpr_cookie_complia
         <div class="message-block">
 	        <p>
 	        	<?php
-	        	$notice_text = ! empty( $simple_gdpr_cookie_compliance_options['notice_text'] ) ? $simple_gdpr_cookie_compliance_options['notice_text'] : __( 'We use cookie to improve your browsing experience.By continuing to use the site, you agree to the use of cookies.', 'simple-gdpr-cookie-compliance' );
+	        	$notice_text = ! empty( $simple_gdpr_cookie_compliance_options['notice_text'] ) ? $simple_gdpr_cookie_compliance_options['notice_text'] : __( 'Our website uses cookies to make your online experience easier and better. By using our website, you consent to our use of cookies. For more information, read our <a href="https://yourwebsite.com/policy/">cookie policy</a> here.', 'simple-gdpr-cookie-compliance' );
 	        	 echo wp_kses_post( $notice_text ); ?> 
 				<?php
 				if( ! empty( $simple_gdpr_cookie_compliance_options['link']['link_title'] ) && ! empty( $simple_gdpr_cookie_compliance_options['link']['link_url'] ) ) {
