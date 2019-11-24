@@ -37,7 +37,7 @@
     position: absolute;
     left: 15px;
     right:auto;
-    top: 30px;
+    top: 35px;
     bottom:auto;
     font-size: 26px;
     color:$sgcc-cookie-icon-colour;
@@ -95,9 +95,9 @@
     line-height:1;
     height:auto;
     padding:12px 20px;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
     -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
     -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
     -ms-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
@@ -123,9 +123,9 @@
     color:$sgcc-cookies-compliance-button-hover-color;
     background:$sgcc-cookies-compliance-button-hover-bg;
     border-color:$sgcc-cookies-compliance-button-border-hover-color;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
 }
 
 
