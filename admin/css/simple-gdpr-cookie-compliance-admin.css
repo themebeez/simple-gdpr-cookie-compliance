@@ -238,6 +238,30 @@
 	height: 43px;
 }
 
+.sgcc-main-page-wrap form .s_gdpr_c_n_color_options_field p {
+
+	margin: 0;
+	padding: 13px 0;
+	border-bottom: 1px solid #eeeeee;
+}
+
+.sgcc-main-page-wrap form .s_gdpr_c_n_color_options_field p:firt-child {
+
+	padding-top: 0;
+}
+
+.sgcc-main-page-wrap form .s_gdpr_c_n_color_options_field {
+
+	border-left: 1px solid #eeeeee;
+	padding-left: 30px;
+}
+
+.sgcc-main-page-wrap form .s_gdpr_c_n_color_options_field p:last-child {
+
+	padding-bottom: 0;
+	border-bottom: none;
+}
+
 
 /* Media query */ 
 

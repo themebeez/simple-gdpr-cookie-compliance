@@ -1,0 +1,173 @@
+
+// custom styles for GDPR notice box
+
+.sgcc-main-wrapper {
+
+    position: fixed;
+    z-index: 99999999;
+    right: 30px;
+    bottom: 30px;
+    opacity: 1;
+    visibility: visible;
+    width:450px;
+    background-color: $sgcc-box-bg-colour;
+    border-radius: 3px;
+    transition: opacity .2s linear 1s, visibility .2s linear 1s;
+    -webkit-animation: 0.9s 0.7s sgccfadeinup both;
+    animation: 0.9s 0.7s sgccfadeinup both;
+    -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .1);
+    -ms-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .1);
+}
+
+.sgcc-main-wrapper.hidden {
+
+    display:none; 
+}
+
+.sgcc-main-wrapper .sgcc-cookies {
+
+    position: relative;
+    padding: 30px 30px 30px 55px;
+}
+
+.sgcc-main-wrapper .sgcc-cookies .cookie-icon {
+    
+    position: absolute;
+    left: 15px;
+    right:auto;
+    top: 30px;
+    bottom:auto;
+    font-size: 26px;
+    color:$sgcc-cookie-icon-colour;
+}
+
+.sgcc-main-wrapper .message-block {
+
+    margin-bottom: 15px;
+}
+
+.sgcc-main-wrapper .sgcc-cookies {
+
+    color: $sgcc-box-text-colour;
+}
+
+.sgcc-main-wrapper .sgcc-cookies p {
+
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.sgcc-main-wrapper .sgcc-cookies a {
+
+    display: inline;
+    color: $sgcc-links-colour;
+    text-transform: inherit;
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+.sgcc-main-wrapper .sgcc-cookies a:hover {
+
+    color: $sgcc-links-hover-colour;
+    text-decoration:underline;
+    text-transform:inherit;
+}
+
+.sgcc-main-wrapper .sgcc-cookies a:focus {
+
+    outline:none;
+}
+
+.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button {
+    
+    color:$sgcc-cookies-compliance-button-color;
+    background:transparent;
+    background-color:$sgcc-cookies-compliance-button-bg;
+    border:1px solid $sgcc-cookies-compliance-button-border-color;
+    text-decoration:none;
+    font-size: 15px;
+    font-weight:normal;
+    line-height:1;
+    height:auto;
+    padding:12px 20px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
+    -ms-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button:focus {
+
+    outline:none;
+}
+
+.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button:hover {
+    
+    font-size: 15px;
+    font-weight:normal;
+    line-height:1;
+    height:auto;
+    color:$sgcc-cookies-compliance-button-hover-color;
+    background:$sgcc-cookies-compliance-button-hover-bg;
+    border-color:$sgcc-cookies-compliance-button-border-hover-color;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+
+// close icon 
+
+.sgcc-main-wrapper .sgcc-cookies .close {
+
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    line-height: 34px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #333333;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -o-border-radius: 100%;
+    -ms-border-radius: 100%;
+    border-radius: 100%;
+    -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .2);
+    -ms-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .2);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .2);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.sgcc-main-wrapper .sgcc-cookies .close:focus {
+
+    outline:none;
+}
+
+.sgcc-main-wrapper .sgcc-cookies .close:hover {
+    
+    color:$sgcc-close-btn-hover-colour;
+    background-color:$sgcc-close-btn-hover-bg-colour;
+}

@@ -81,13 +81,6 @@ class Simple_GDPR_Cookie_Compliance_Admin_Settings {
 			'simple_gdpr_cookie_compliance_fields_section' 
 		);
 
-		add_settings_field( 's_gdpr_c_c_link', 
-			__( 'Link', 'simple-gdpr-cookie-compliance' ), 
-			array( $this, 'link_fields' ), 
-			'simple_gdpr_cookie_compliance_settings', 
-			'simple_gdpr_cookie_compliance_fields_section' 
-		);
-
 		add_settings_field( 's_gdpr_c_c_cookie', 
 			__( 'Cookie', 'simple-gdpr-cookie-compliance' ), 
 			array( $this, 'cookie_fields' ), 
@@ -120,35 +113,12 @@ class Simple_GDPR_Cookie_Compliance_Admin_Settings {
 	 */
 	public function notice_field() {
 
-		$notice = ! empty( $this->options['notice_text'] ) ? $this->options['notice_text'] : __( 'By continuing to use the site, you agree to the use of cookies.', 'simple-gdpr-cookie-compliance' );
+		$notice = ! empty( $this->options['notice_text'] ) ? $this->options['notice_text'] : __( 'Our website uses cookies to make your online experience easier and better. By using our website, you consent to our use of cookies. For more information, read our <a href="https://yourwebsite.com/policy/">cookie policy</a> here.', 'simple-gdpr-cookie-compliance' );
 		?>
 		<div class="s_gdpr_c_c_field" id="s_gdpr_c_c_notice_text">
 			<p>
 				<textarea name="simple_gdpr_cookie_compliance_options[notice_text]" class="s_gdpr_c_c_textarea" cols="50" rows="5"><?php echo wp_kses_post( $notice ); ?></textarea>
 				<small class="description"><?php echo __( 'Enter the notice message. You can also insert &lt;span class=&quot;..&quot;&gt;...&lt;/span&gt;, &lt;a href=&quot;..&quot; target=&quot;..&quot; class=&quot;..&quot; title=&quot;..&quot;&gt;...&lt;/a&gt;, and &lt;i class=&quot;..&quot;&gt;...&lt;/i&gt; HTML tags along with the message.', 'simple-gdpr-cookie-compliance' ); ?></small>
-			</p>
-		</div>
-		<?php
-	}
-
-	/**
-	 * Link setting fields.
-	 *
-	 * @since    1.0.0
-	 */
-	public function link_fields() {
-
-		$link_title = ! empty( $this->options['link']['link_title'] ) ? $this->options['link']['link_title'] : __( 'More Information', 'simple-gdpr-cookie-compliance' );
-		$link_url = ! empty( $this->options['link']['link_url'] ) ? $this->options['link']['link_url'] : '';
-		?>
-		<div class="s_gdpr_c_c_field" id="s_gdpr_c_c_link">
-			<p>
-				<label for="simple_gdpr_cookie_compliance_options[link][link_title]"><?php _e( 'Title', 'simple-gdpr-cookie-compliance' ); ?></label>
-				<input type="text" id="simple_gdpr_cookie_compliance_options[link][link_title]" name="simple_gdpr_cookie_compliance_options[link][link_title]" class="s_gdpr_c_c_text" value="<?php echo esc_attr( $link_title ); ?>">
-			</p>
-			<p>
-				<label for="simple_gdpr_cookie_compliance_options[link][link_url]"><?php _e( 'URL', 'simple-gdpr-cookie-compliance' ); ?></label>
-				<input type="text" id="simple_gdpr_cookie_compliance_options[link][link_url]" name="simple_gdpr_cookie_compliance_options[link][link_url]" class="s_gdpr_c_c_text" value="<?php echo esc_attr( $link_url ); ?>">
 			</p>
 		</div>
 		<?php
@@ -180,28 +150,109 @@ class Simple_GDPR_Cookie_Compliance_Admin_Settings {
 	public function color_fields() {
 
 
-		$notice_background_color = ! empty( $this->options['color']['notice_background'] ) ? $this->options['color']['notice_background'] : '#ffb5b5';
-		$notice_text_color = ! empty( $this->options['color']['notice_text'] ) ? $this->options['color']['notice_text'] : '#444444';
-		$notice_link_color = ! empty( $this->options['color']['notice_link_color'] ) ? $this->options['color']['notice_link_color'] : '#ff4249';
-		$notice_link_hover_color = ! empty( $this->options['color']['notice_link_hover_color'] ) ? $this->options['color']['notice_link_hover_color'] : '#6c83fb';
+		$notice_background_color = ! empty( $this->options['color']['notice_background'] ) ? $this->options['color']['notice_background'] : '#fbf01e';
+
+		$notice_text_color = ! empty( $this->options['color']['notice_text'] ) ? $this->options['color']['notice_text'] : '#222222';
+
+		$notice_link_color = ! empty( $this->options['color']['notice_link_color'] ) ? $this->options['color']['notice_link_color'] : '#222222';
+
+		$notice_link_hover_color = ! empty( $this->options['color']['notice_link_hover_color'] ) ? $this->options['color']['notice_link_hover_color'] : '#4CC500';
+
+		$notice_cookie_icon_color = ! empty( $this->options['color']['notice_cookie_icon_color'] ) ? $this->options['color']['notice_cookie_icon_color'] : '#222222';
+
+		$notice_compliance_button_bg = ! empty( $this->options['color']['notice_compliance_button_bg'] ) ? $this->options['color']['notice_compliance_button_bg'] : '#222222';
+
+		$notice_compliance_button_hover_bg_color = ! empty( $this->options['color']['notice_compliance_button_hover_bg_color'] ) ? $this->options['color']['notice_compliance_button_hover_bg_color'] : '#4cc500';
+
+		$notice_compliance_button_border_color = ! empty( $this->options['color']['notice_compliance_button_border_color'] ) ? $this->options['color']['notice_compliance_button_border_color'] : '#222222';
+
+		$notice_compliance_button_hover_border_color = ! empty( $this->options['color']['notice_compliance_button_hover_border_color'] ) ? $this->options['color']['notice_compliance_button_hover_border_color'] : '#4cc500';
+
+		$notice_compliance_button_text_color = ! empty( $this->options['color']['notice_compliance_button_text_color'] ) ? $this->options['color']['notice_compliance_button_text_color'] : '#ffffff';
+
+		$notice_compliance_button_hover_text_color = ! empty( $this->options['color']['notice_compliance_button_hover_text_color'] ) ? $this->options['color']['notice_compliance_button_hover_text_color'] : '#ffffff';
+
+		$notice_box_close_btn_bg_color = ! empty( $this->options['color']['notice_box_close_btn_bg_color'] ) ? $this->options['color']['notice_box_close_btn_bg_color'] : '#222222';
+
+		$notice_box_close_btn_bg_hover_color = ! empty( $this->options['color']['notice_box_close_btn_bg_hover_color'] ) ? $this->options['color']['notice_box_close_btn_bg_hover_color'] : '#4cc500';
+
+		$notice_box_close_btn_text_color = ! empty( $this->options['color']['notice_box_close_btn_text_color'] ) ? $this->options['color']['notice_box_close_btn_text_color'] : '#ffffff';
+
+		$notice_box_close_btn_hover_text_color = ! empty( $this->options['color']['notice_box_close_btn_hover_text_color'] ) ? $this->options['color']['notice_box_close_btn_hover_text_color'] : '#ffffff';
+
 		?>
-		<div class="s_gdpr_c_c_field" id="s_gdpr_c_c_link">
+		<div class="s_gdpr_c_n_field s_gdpr_c_n_color_options_field" id="s_gdpr_c_n_link">
 			<p>
+				<input type="text" id="simple_gdpr_cookie_compliance_options[color][notice_background]" name="simple_gdpr_cookie_compliance_options[color][notice_background]" class="s_gdpr_c_n_color" value="<?php echo esc_attr( $notice_background_color ); ?>">
 				<label for="simple_gdpr_cookie_compliance_options[color][notice_background]"><?php _e( 'Notice -  Background Color', 'simple-gdpr-cookie-compliance' ); ?></label>
-				<input type="text" id="simple_gdpr_cookie_compliance_options[color][notice_background]" name="simple_gdpr_cookie_compliance_options[color][notice_background]" class="s_gdpr_c_c_color" value="<?php echo esc_attr( $notice_background_color ); ?>">
 			</p>
 			<p>
+				<input type="text" id="simple_gdpr_cookie_compliance_options[color][notice_cookie_icon_color]" name="simple_gdpr_cookie_compliance_options[color][notice_cookie_icon_color]" class="s_gdpr_c_n_color" value="<?php echo esc_attr( $notice_cookie_icon_color ); ?>">
+				<label for="simple_gdpr_cookie_compliance_options[color][notice_cookie_icon_color]"><?php _e( 'Notice Cookie Icon - Color', 'simple-gdpr-cookie-compliance' ); ?></label>
+			</p>
+			<p>
+				<input type="text" id="simple_gdpr_cookie_compliance_options[color][notice_text]" name="simple_gdpr_cookie_compliance_options[color][notice_text]" class="s_gdpr_c_n_color" value="<?php echo esc_attr( $notice_text_color ); ?>">
 				<label for="simple_gdpr_cookie_compliance_options[color][notice_text]"><?php _e( 'Notice Text - Color', 'simple-gdpr-cookie-compliance' ); ?></label>
-				<input type="text" id="simple_gdpr_cookie_compliance_options[color][notice_text]" name="simple_gdpr_cookie_compliance_options[color][notice_text]" class="s_gdpr_c_c_color" value="<?php echo esc_attr( $notice_text_color ); ?>">
 			</p>
 			<p>
+				<input type="text" id="simple_gdpr_cookie_compliance_options[color][notice_link_color]" name="simple_gdpr_cookie_compliance_options[color][notice_link_color]" class="s_gdpr_c_n_color" value="<?php echo esc_attr( $notice_link_color ); ?>">
 				<label for="simple_gdpr_cookie_compliance_options[color][notice_link_color]"><?php _e( 'Notice Link - Color', 'simple-gdpr-cookie-compliance' ); ?></label>
-				<input type="text" id="simple_gdpr_cookie_compliance_options[color][notice_link_color]" name="simple_gdpr_cookie_compliance_options[color][notice_link_color]" class="s_gdpr_c_c_color" value="<?php echo esc_attr( $notice_link_color ); ?>">
 			</p>
 			<p>
+				<input type="text" id="simple_gdpr_cookie_compliance_options[color][notice_link_hover_color]" name="simple_gdpr_cookie_compliance_options[color][notice_link_hover_color]" class="s_gdpr_c_n_color" value="<?php echo esc_attr( $notice_link_hover_color ); ?>">
 				<label for="simple_gdpr_cookie_compliance_options[color][notice_link_hover_color]"><?php _e( 'Notice Link - Hover Color', 'simple-gdpr-cookie-compliance' ); ?></label>
-				<input type="text" id="simple_gdpr_cookie_compliance_options[color][notice_link_hover_color]" name="simple_gdpr_cookie_compliance_options[color][notice_link_hover_color]" class="s_gdpr_c_c_color" value="<?php echo esc_attr( $notice_link_hover_color ); ?>">
 			</p>
+
+			<p>
+				<input type="text" id="simple_gdpr_cookie_compliance_options[color][notice_box_close_btn_bg_color]" name="simple_gdpr_cookie_compliance_options[color][notice_box_close_btn_bg_color]" class="s_gdpr_c_n_color" value="<?php echo esc_attr( $notice_box_close_btn_bg_color ); ?>">
+				<label for="simple_gdpr_cookie_compliance_options[color][notice_box_close_btn_bg_color]"><?php _e( 'Notice Box Close Button - Background Color', 'simple-gdpr-cookie-compliance' ); ?></label>
+			</p>
+
+			<p>
+				<input type="text" id="simple_gdpr_cookie_compliance_options[color][notice_box_close_btn_bg_hover_color]" name="simple_gdpr_cookie_compliance_options[color][notice_box_close_btn_bg_hover_color]" class="s_gdpr_c_n_color" value="<?php echo esc_attr( $notice_box_close_btn_bg_hover_color ); ?>">
+				<label for="simple_gdpr_cookie_compliance_options[color][notice_box_close_btn_bg_hover_color]"><?php _e( 'Notice Box Close Button Hover - Background Color', 'simple-gdpr-cookie-compliance' ); ?></label>
+			</p>
+
+			<p>
+				<input type="text" id="simple_gdpr_cookie_compliance_options[color][notice_box_close_btn_text_color]" name="simple_gdpr_cookie_compliance_options[color][notice_box_close_btn_text_color]" class="s_gdpr_c_n_color" value="<?php echo esc_attr( $notice_box_close_btn_text_color ); ?>">
+				<label for="simple_gdpr_cookie_compliance_options[color][notice_box_close_btn_text_color]"><?php _e( 'Notice Box Close Button - Text Color', 'simple-gdpr-cookie-compliance' ); ?></label>
+			</p>
+
+			<p>
+				<input type="text" id="simple_gdpr_cookie_compliance_options[color][notice_box_close_btn_hover_text_color]" name="simple_gdpr_cookie_compliance_options[color][notice_box_close_btn_hover_text_color]" class="s_gdpr_c_n_color" value="<?php echo esc_attr( $notice_box_close_btn_hover_text_color ); ?>">
+				<label for="simple_gdpr_cookie_compliance_options[color][notice_box_close_btn_hover_text_color]"><?php _e( 'Notice Box Close Button Hover - Text Color', 'simple-gdpr-cookie-compliance' ); ?></label>
+			</p>
+
+			<p>
+				<input type="text" id="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_bg]" name="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_bg]" class="s_gdpr_c_n_color" value="<?php echo esc_attr( $notice_compliance_button_bg ); ?>">
+				<label for="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_bg]"><?php _e( 'Accept Button - Background Color', 'simple-gdpr-cookie-compliance' ); ?></label>
+			</p>
+
+			<p>
+				<input type="text" id="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_hover_bg_color]" name="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_hover_bg_color]" class="s_gdpr_c_n_color" value="<?php echo esc_attr( $notice_compliance_button_hover_bg_color ); ?>">
+				<label for="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_hover_bg_color]"><?php _e( 'Accept Button Hover - Background Color', 'simple-gdpr-cookie-compliance' ); ?></label>
+			</p>
+
+			<p>
+				<input type="text" id="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_border_color]" name="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_border_color]" class="s_gdpr_c_n_color" value="<?php echo esc_attr( $notice_compliance_button_border_color ); ?>">
+				<label for="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_border_color]"><?php _e( 'Accept Button - Border Color', 'simple-gdpr-cookie-compliance' ); ?></label>
+			</p>
+
+			<p>
+				<input type="text" id="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_hover_border_color]" name="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_hover_border_color]" class="s_gdpr_c_n_color" value="<?php echo esc_attr( $notice_compliance_button_hover_border_color ); ?>">
+				<label for="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_hover_border_color]"><?php _e( 'Accept Button Hover - Border Color', 'simple-gdpr-cookie-compliance' ); ?></label>
+			</p>
+
+			<p>
+				<input type="text" id="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_text_color]" name="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_text_color]" class="s_gdpr_c_n_color" value="<?php echo esc_attr( $notice_compliance_button_text_color ); ?>">
+				<label for="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_text_color]"><?php _e( 'Accept Button - Text Color', 'simple-gdpr-cookie-compliance' ); ?></label>
+			</p>
+
+			<p>
+				<input type="text" id="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_hover_text_color]" name="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_hover_text_color]" class="s_gdpr_c_n_color" value="<?php echo esc_attr( $notice_compliance_button_hover_text_color ); ?>">
+				<label for="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_hover_text_color]"><?php _e( 'Accept Button Hover -  Text Color', 'simple-gdpr-cookie-compliance' ); ?></label>
+			</p>
+
 		</div>
 		<?php
 	}
@@ -250,10 +301,6 @@ class Simple_GDPR_Cookie_Compliance_Admin_Settings {
 	    );
 
 		$inputs['notice_text'] = wp_kses( $inputs['notice_text'], $allowed_html_tags );
-
-		$inputs['link']['link_title'] = sanitize_text_field( $inputs['link']['link_title'] );
-
-		$inputs['link']['link_url'] = esc_url_raw( $inputs['link']['link_url'] );
 
 		$inputs['color']['notice_background'] = sanitize_hex_color( $inputs['color']['notice_background'] );
 

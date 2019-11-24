@@ -1,0 +1,30 @@
+// responsive
+
+@media ( max-width: 600px ) { 
+
+    .sgcc-main-wrapper {
+
+       max-width: 400px;
+    }
+}
+
+@media ( max-width: 460px ) { 
+
+    .sgcc-main-wrapper {
+
+       max-width: 300px;
+    }
+
+    .sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button {
+
+    	padding:12px 20px;
+    }
+}
+
+@media ( max-width: 360px ) { 
+
+    .sgcc-main-wrapper {
+
+       max-width: 270px;
+    }
+}
