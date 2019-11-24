@@ -75,10 +75,9 @@ Yes, we do. Kindly visit us at [support page](https://themebeez.com/support-foru
 
 == Changelog ==
 
-= 1.0.1 - 4 August, 2019 =
+= 1.0.1 - 24 November, 2019 =
 
-* JS issue fixed
-* Form notice added
+* Added: Color option
 
 = 1.0.0 - 2 August, 2019 =
 
