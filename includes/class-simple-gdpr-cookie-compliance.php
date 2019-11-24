@@ -56,7 +56,7 @@ class Simple_GDPR_Cookie_Compliance {
 		if ( defined( 'SIMPLE_GDPR_COOKIE_COMPLIANCE_VERSION' ) ) {
 			$this->version = SIMPLE_GDPR_COOKIE_COMPLIANCE_VERSION;
 		} else {
-			$this->version = '1.0.0';
+			$this->version = '1.0.1';
 		}
 		$this->plugin_name = 'simple-gdpr-cookie-compliance';
 

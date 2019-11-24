@@ -152,6 +152,12 @@
 
 /* Table for settings & options */
 
+#setting-error-s_gdpr_c_c_form_notice {
+
+	margin: 0px;
+	margin-bottom: 30px;
+}
+
 .sgcc-main-page-wrap form {
 
 	display: block;
