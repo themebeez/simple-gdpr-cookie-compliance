@@ -18,80 +18,68 @@ msgstr ""
 msgid "Simple GDPR Cookie Compliance"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:72
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:70
 msgid "Configure Settings"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:78
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:76
 msgid "Notice"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:85
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:83
 msgid "Link"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:92
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:90
 msgid "Cookie"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:99
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:97
 msgid "Colors"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:123, public/partials/simple-gdpr-cookie-compliance-public-display.php:23
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:120, public/partials/simple-gdpr-cookie-compliance-public-display.php:23
 msgid "By continuing to use the site, you agree to the use of cookies."
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:128
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:125
 msgid "Enter the notice message. You can also insert &lt;span class=&quot;..&quot;&gt;...&lt;/span&gt;, &lt;a href=&quot;..&quot; target=&quot;..&quot; class=&quot;..&quot; title=&quot;..&quot;&gt;...&lt;/a&gt;, and &lt;i class=&quot;..&quot;&gt;...&lt;/i&gt; HTML tags along with the message."
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:141
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:138
 msgid "More Information"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:146
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:143
 msgid "Title"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:150
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:147
 msgid "URL"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:168
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:165
 msgid "Expire Time"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:170
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:167
 msgid "Cookie expire time is in number of days. For example, if you set Expire Time to 1 then, cookie will expire after a day."
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:190
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:187
 msgid "Notice -  Background Color"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:194
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:191
 msgid "Notice Text - Color"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:198
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:195
 msgid "Notice Link - Color"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:202
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:199
 msgid "Notice Link - Hover Color"
-msgstr ""
-
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:230
-msgid "Your settings have been successfully saved."
-msgstr ""
-
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:235
-msgid "Your settings have been successfully updated."
-msgstr ""
-
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:242
-msgid "Sorry! There was error while saving your settings."
 msgstr ""
 
 #: admin/partials/simple-gdpr-cookie-compliance-admin-page.php:24
