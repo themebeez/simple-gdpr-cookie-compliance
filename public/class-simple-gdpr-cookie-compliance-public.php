@@ -61,8 +61,14 @@ class Simple_GDPR_Cookie_Compliance_Public {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
+		if( is_rtl() ) {
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/simple-gdpr-cookie-compliance-public.css', array(), $this->version, 'all' );
+			wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'assets/build/css/simple-gdpr-cookie-compliance-public-rtl.css', array(), $this->version, 'all' );
+		} else {
+
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'assets/build/css/simple-gdpr-cookie-compliance-public.css', array(), $this->version, 'all' );
+
+		}
 
 	}
 
@@ -85,9 +91,7 @@ class Simple_GDPR_Cookie_Compliance_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( 'jquery-cookie', plugin_dir_url( __FILE__ ) . 'js/jquery.cookie.js', array( 'jquery' ), $this->version, true );
-
-		wp_register_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/simple-gdpr-cookie-compliance-public.js', array( 'jquery' ), $this->version, true );
+		wp_register_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'assets/build/js/simple-gdpr-cookie-compliance-public.js', array( 'jquery' ), $this->version, true );
 
 		$simple_gdpr_cookie_compliance_options = get_option( 'simple_gdpr_cookie_compliance_options' );
 
@@ -125,13 +129,38 @@ class Simple_GDPR_Cookie_Compliance_Public {
 
 		$simple_gdpr_cookie_compliance_options = get_option( 'simple_gdpr_cookie_compliance_options' );
 
-		$notice_background = ! empty( $simple_gdpr_cookie_compliance_options['color']['notice_background'] ) ? $simple_gdpr_cookie_compliance_options['color']['notice_background'] : '#ffb5b5';
+		$notice_background = ! empty( $simple_gdpr_cookie_compliance_options['color']['notice_background'] ) ? $simple_gdpr_cookie_compliance_options['color']['notice_background'] : '#fbf01e';
 
-		$notice_text_color = ! empty( $simple_gdpr_cookie_compliance_options['color']['notice_text'] ) ? $simple_gdpr_cookie_compliance_options['color']['notice_text'] : '#444444';
+		$notice_text_color = ! empty( $simple_gdpr_cookie_compliance_options['color']['notice_text'] ) ? $simple_gdpr_cookie_compliance_options['color']['notice_text'] : '#222222';
 
-		$notice_link_color = ! empty( $simple_gdpr_cookie_compliance_options['color']['notice_link_color'] ) ? $simple_gdpr_cookie_compliance_options['color']['notice_link_color'] : '#ff4249';
+		$notice_link_color = ! empty( $simple_gdpr_cookie_compliance_options['color']['notice_link_color'] ) ? $simple_gdpr_cookie_compliance_options['color']['notice_link_color'] : '#222222';
 
 		$notice_link_hover_color = ! empty( $simple_gdpr_cookie_compliance_options['color']['notice_link_hover_color'] ) ? $simple_gdpr_cookie_compliance_options['color']['notice_link_hover_color'] : '#6c83fb';
+
+		// added on update 1.0.1
+
+		$notice_cookie_icon_color = ! empty( $simple_gdpr_cookie_compliance_options['color']['notice_cookie_icon_color'] ) ? $simple_gdpr_cookie_compliance_options['color']['notice_cookie_icon_color'] : '#222222';
+
+		$notice_compliance_button_bg = ! empty( $simple_gdpr_cookie_compliance_options['color']['notice_compliance_button_bg'] ) ? $simple_gdpr_cookie_compliance_options['color']['notice_compliance_button_bg'] : '#222222';
+
+		$notice_compliance_button_hover_bg_color = ! empty( $simple_gdpr_cookie_compliance_options['color']['notice_compliance_button_hover_bg_color'] ) ? $simple_gdpr_cookie_compliance_options['color']['notice_compliance_button_hover_bg_color'] : '#4cc500';
+
+		$notice_compliance_button_border_color = ! empty( $simple_gdpr_cookie_compliance_options['color']['notice_compliance_button_border_color'] ) ? $simple_gdpr_cookie_compliance_options['color']['notice_compliance_button_border_color'] : '#222222';
+
+		$notice_compliance_button_hover_border_color = ! empty( $simple_gdpr_cookie_compliance_options['color']['notice_compliance_button_hover_border_color'] ) ? $simple_gdpr_cookie_compliance_options['color']['notice_compliance_button_hover_border_color'] : '#4cc500';
+
+		$notice_compliance_button_text_color = ! empty( $simple_gdpr_cookie_compliance_options['color']['notice_compliance_button_text_color'] ) ? $simple_gdpr_cookie_compliance_options['color']['notice_compliance_button_text_color'] : '#ffffff';
+
+		$notice_compliance_button_hover_text_color = ! empty( $simple_gdpr_cookie_compliance_options['color']['notice_compliance_button_hover_text_color'] ) ? $simple_gdpr_cookie_compliance_options['color']['notice_compliance_button_hover_text_color'] : '#ffffff';
+
+		$notice_box_close_btn_bg_color = ! empty( $simple_gdpr_cookie_compliance_options['color']['notice_box_close_btn_bg_color'] ) ? $simple_gdpr_cookie_compliance_options['color']['notice_box_close_btn_bg_color'] : '#222222';
+
+		$notice_box_close_btn_bg_hover_color = ! empty( $simple_gdpr_cookie_compliance_options['color']['notice_box_close_btn_bg_hover_color'] ) ? $simple_gdpr_cookie_compliance_options['color']['notice_box_close_btn_bg_hover_color'] : '#4cc500';
+
+		$notice_box_close_btn_text_color = ! empty( $simple_gdpr_cookie_compliance_options['color']['notice_box_close_btn_text_color'] ) ? $simple_gdpr_cookie_compliance_options['color']['notice_box_close_btn_text_color'] : '#ffffff';
+
+		$notice_box_close_btn_hover_text_color = ! empty( $simple_gdpr_cookie_compliance_options['color']['notice_box_close_btn_hover_text_color'] ) ? $simple_gdpr_cookie_compliance_options['color']['notice_box_close_btn_hover_text_color'] : '#ffffff';
+		
 		?>
 		<style>
 			<?php
@@ -167,6 +196,107 @@ class Simple_GDPR_Cookie_Compliance_Public {
 				.sgcc-main-wrapper .sgcc-cookies a:hover {
 
 					color: <?php echo esc_attr( $notice_link_hover_color ); ?>;
+				}
+				<?php
+			}
+
+			// added on update 1.0.1
+
+			if( ! empty( $notice_cookie_icon_color ) ) {
+				?>
+				.sgcc-main-wrapper .sgcc-cookies .cookie-icon {
+
+					color: <?php echo esc_attr( $notice_cookie_icon_color ); ?>;
+				}
+				<?php
+			}
+
+			if( ! empty( $notice_compliance_button_bg ) ) {
+				?>
+				.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button {
+
+					background-color: <?php echo esc_attr( $notice_compliance_button_bg ); ?>;
+				}
+				<?php
+			}
+
+			if( ! empty( $notice_compliance_button_hover_bg_color ) ) {
+				?>
+				.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button {
+
+					background-color: <?php echo esc_attr( $notice_compliance_button_hover_bg_color ); ?>;
+				}
+				<?php
+			}
+
+			if( ! empty( $notice_compliance_button_border_color ) ) {
+				?>
+				.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button {
+
+					border-color: <?php echo esc_attr( $notice_compliance_button_border_color ); ?>;
+				}
+				<?php
+			}
+
+			if( ! empty( $notice_compliance_button_hover_border_color ) ) {
+				?>
+				.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button:hover {
+
+					border-color: <?php echo esc_attr( $notice_compliance_button_hover_border_color ); ?>;
+				}
+				<?php
+			}
+
+			if( ! empty( $notice_compliance_button_text_color ) ) {
+				?>
+				.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button {
+
+					color: <?php echo esc_attr( $notice_compliance_button_text_color ); ?>;
+				}
+				<?php
+			}
+
+			if( ! empty( $notice_compliance_button_hover_text_color ) ) {
+				?>
+				.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button:hover {
+
+					color: <?php echo esc_attr( $notice_compliance_button_hover_text_color ); ?>;
+				}
+				<?php
+			}
+
+			if( ! empty( $notice_box_close_btn_bg_color ) ) {
+				?>
+				.sgcc-main-wrapper .sgcc-cookies .close {
+
+					background-color: <?php echo esc_attr( $notice_box_close_btn_bg_color ); ?>;
+				}
+				<?php
+			}
+
+			if( ! empty( $notice_box_close_btn_bg_hover_color ) ) {
+				?>
+				.sgcc-main-wrapper .sgcc-cookies .close:hover {
+
+					background-color: <?php echo esc_attr( $notice_box_close_btn_bg_hover_color ); ?>;
+				}
+				<?php
+			}
+
+			if( ! empty( $notice_box_close_btn_text_color ) ) {
+				?>
+				.sgcc-main-wrapper .sgcc-cookies .close {
+
+					color: <?php echo esc_attr( $notice_box_close_btn_text_color ); ?>;
+				}
+				<?php
+			}
+
+			if( ! empty( $notice_box_close_btn_hover_text_color ) ) {
+				?>
+				.sgcc-main-wrapper .sgcc-cookies .close:hover {
+
+					color: <?php echo esc_attr( $notice_box_close_btn_hover_text_color ); ?>;
 				}
 				<?php
 			}
