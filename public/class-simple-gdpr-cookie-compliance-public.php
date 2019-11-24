@@ -222,7 +222,7 @@ class Simple_GDPR_Cookie_Compliance_Public {
 
 			if( ! empty( $notice_compliance_button_hover_bg_color ) ) {
 				?>
-				.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button {
+				.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button:hover {
 
 					background-color: <?php echo esc_attr( $notice_compliance_button_hover_bg_color ); ?>;
 				}
