@@ -4,7 +4,7 @@ Contributors: themebeez
 Donate link: https://themebeez.com/
 Tags: gdpr, cookie, cookies, notice, notification, notify, notifier, gdpr compliance, privacy, privacy directive, cookie notice, simple notice, cookie compliance
 Requires at least: 4.8.0
-Tested up to: 5.2.2
+Tested up to: 5.3
 Requires PHP: 5.6
 Stable tag: 1.0.1
 License: GPLv2 or later
@@ -75,9 +75,10 @@ Yes, we do. Kindly visit us at [support page](https://themebeez.com/support-foru
 
 == Changelog ==
 
-= 1.0.1 - 24 November, 2019 =
+= 1.0.1 - December 2, 2019 =
 
-* Added: Color option
+* Added: Color options
+* Added: Link type options
 
 = 1.0.0 - 2 August, 2019 =
 

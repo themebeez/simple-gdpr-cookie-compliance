@@ -23,69 +23,161 @@ msgid "Configure Settings"
 msgstr ""
 
 #: admin/class-simple-gdpr-cookie-compliance-settings.php:76
-msgid "Notice"
+msgid "Notice Content"
 msgstr ""
 
 #: admin/class-simple-gdpr-cookie-compliance-settings.php:83
-msgid "Link"
-msgstr ""
-
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:90
 msgid "Cookie"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:97
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:90
 msgid "Colors"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:120, public/partials/simple-gdpr-cookie-compliance-public-display.php:23
-msgid "By continuing to use the site, you agree to the use of cookies."
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:113, public/partials/simple-gdpr-cookie-compliance-public-display.php:25
+msgid "Our website uses cookies to provide you the best experience. However, by continuing to use our website, you agree to our use of cookies. For more information, read our <a href=\"#\">Cookie Policy</a>."
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:125
-msgid "Enter the notice message. You can also insert &lt;span class=&quot;..&quot;&gt;...&lt;/span&gt;, &lt;a href=&quot;..&quot; target=&quot;..&quot; class=&quot;..&quot; title=&quot;..&quot;&gt;...&lt;/a&gt;, and &lt;i class=&quot;..&quot;&gt;...&lt;/i&gt; HTML tags along with the message."
-msgstr ""
-
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:138
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:123
 msgid "More Information"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:143
-msgid "Title"
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:127, public/partials/simple-gdpr-cookie-compliance-public-display.php:85
+msgid "Accept"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:147
-msgid "URL"
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:134
+msgid "Message"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:165
-msgid "Expire Time"
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:136
+msgid "Enter the notice message. You can also insert &lt;span class=&quot;..&quot;&gt;...&lt;/span&gt;, &lt;a href=&quot;..&quot; target=&quot;..&quot; class=&quot;..&quot; title=&quot;..&quot;&gt;...&lt;/a&gt;, and &lt;i class=&quot;..&quot;&gt;...&lt;/i&gt; HTML tags along with the message."
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:167
-msgid "Cookie expire time is in number of days. For example, if you set Expire Time to 1 then, cookie will expire after a day."
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:141
+msgid "Link Type"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:187
-msgid "Notice -  Background Color"
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:144
+msgid "No Link"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:191
-msgid "Notice Text - Color"
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:145
+msgid "Custom Link"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:195
-msgid "Notice Link - Color"
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:146
+msgid "Page"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:199
-msgid "Notice Link - Hover Color"
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:162
+msgid "Link Content"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:163
+msgid "Link content will be appended after the message."
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:166
+msgid "Text Before Link"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:171
+msgid "Text After Link"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:177
+msgid "Custom Link Title"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:182
+msgid "Custom URL"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:189
+msgid "Link Page"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:196
+msgid "Select Page"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:206
+msgid "Show link in a new tab"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:211
+msgid "Accept Button Title"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:230
+msgid "Cookie Expire Time"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:232
+msgid "Once the user clicks on Accept button, cookie notice will disappear. Expire Time sets the time duration for which cookie notice will disappear. Set &quot;0&quot; for SESSION cookie."
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:278
+msgid "Notice Background Color"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:282
+msgid "Cookie Icon - Color"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:286
+msgid "Notice Text Color"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:290
+msgid "Notice Link Color"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:294
+msgid "Notice Link Color - On Hover"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:299
+msgid "Close Button Background Color"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:304
+msgid "Close Button Background Color - On Hover"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:309
+msgid "Close Button Text Color"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:314
+msgid "Close Button Text Color - On Hover"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:319
+msgid "Accept Button Background Color"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:324
+msgid "Accept Button Background Color - On Hover"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:329
+msgid "Accept Button Border Color"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:334
+msgid "Accept Button Border Color - On Hover"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:339
+msgid "Accept Button Text Color"
+msgstr ""
+
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:344
+msgid "Accept Button Text Color - On Hover"
 msgstr ""
 
 #: admin/partials/simple-gdpr-cookie-compliance-admin-page.php:24
 msgid "Simple GDPR Cookie Compliance is a simple and minimal WordPress plugin that helps you become GDPR compliant and notify users about your website&rsquo;s cookie policy or privacy policy. This plugin adds a small notice box at the bottom of right side of your website. You can easily set notify message as well as customize your notice with color options."
-msgstr ""
-
-#: public/partials/simple-gdpr-cookie-compliance-public-display.php:20
-msgid "✕"
 msgstr ""
