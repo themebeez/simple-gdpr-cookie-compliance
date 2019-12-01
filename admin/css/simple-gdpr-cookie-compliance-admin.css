@@ -61,9 +61,33 @@
 	color: #444444;
 }
 
+.form-table td .s_gdpr_c_n_field p {
+
+	margin-bottom: 15px;
+}
+
+.s_gdpr_c_n_field .description {
+	
+	display: block;
+	margin-bottom: 10px;
+}
+
+.s_gdpr_c_n_field p:last-child {
+
+	margin-bottom: 0px;
+}
+
+.sgcc-main-page-wrap label {
+
+	font-weight: 500;
+	margin-bottom: 5px;
+    display: inline-block;
+}
+
 .sgcc-main-page-wrap textarea,
 .sgcc-main-page-wrap input[type="text"],
-.sgcc-main-page-wrap input[type="number"] {
+.sgcc-main-page-wrap input[type="number"],
+.sgcc-main-page-wrap select {
 
 	height: 41px;
 	width: 100%;
@@ -85,6 +109,11 @@
 
 	height: 160px;
 	padding: 20px;
+}
+
+.s_gdpr_c_n_color_options_field .wp-picker-container {
+
+	display: block;
 }
 
 .sgcc-white-bg {
@@ -111,6 +140,11 @@
 	clear: both;
 }
 
+
+.sgdpr_hidden {
+
+	display: none;
+}
 
 
 /* welcome section */
@@ -235,8 +269,32 @@
 .sgcc-main-page-wrap form .s_gdpr_c_n_color_options_field p {
 
 	margin: 0;
-	padding: 13px 0;
+	padding: 15px 0;
 	border-bottom: 1px solid #eeeeee;
+}
+
+.s_gdpr_c_n_field_link_content_wrapper {
+
+	padding: 30px;
+	border: 1px solid #eeeeee;
+	margin-bottom: 15px;
+}
+
+.sgcc-main-page-wrap form .s_gdpr_c_n_color_options_field .wp-color-result-text {
+
+	padding: 3.5px 7px;
+}
+
+.sgcc-main-page-wrap form .s_gdpr_c_n_color_options_field .wp-picker-container input[type=text].wp-color-picker {
+
+	height: 34px;
+	width: 80px;
+}
+
+.sgcc-main-page-wrap form .s_gdpr_c_n_color_options_field .wp-picker-input-wrap .wp-picker-clear {
+
+	height: 34px;
+	margin-left: 5px;
 }
 
 .sgcc-main-page-wrap form .s_gdpr_c_n_color_options_field p:firt-child {
