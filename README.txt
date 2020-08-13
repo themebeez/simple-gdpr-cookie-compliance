@@ -3,10 +3,10 @@
 Contributors: themebeez
 Donate link: https://themebeez.com/
 Tags: gdpr, cookie, cookies, notice, notification, notify, notifier, gdpr compliance, privacy, privacy directive, cookie notice, simple notice, cookie compliance
-Requires at least: 4.8.0
-Tested up to: 5.3
-Requires PHP: 5.6
-Stable tag: 1.0.2
+Requires at least: 5.0.0
+Tested up to: 5.5
+Requires PHP: 7.0.0
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,9 +42,9 @@ NOTE: INSTALLING THIS PLUGIN ALONE DOES NOT MAKE YOUR SITE GDPR COMPLIANT. SINCE
 
 == Get Involved  == 
 
-* If you're a developer and want to contribute, you can do on [https://github.com/themebeez/simple-gdpr-cookie-compliance].
+* If you're a developer and want to contribute, you can do on [Github repo.](https://github.com/themebeez/simple-gdpr-cookie-compliance).
 * If you love this plugin, and you want the plugin to be translated in your local language. Feel free to contribute on this [translation page](https://translate.wordpress.org/projects/wp-plugins/simple-gdpr-cookie-compliance/) for translation.
-* If you're a user and you need support or find any issues related to the plugin, please raise it on [https://github.com/themebeez/simple-gdpr-cookie-compliance/issues] or post it on [https://themebeez.com/support-forum/simple-gdpr-cookie-compliance-support/]
+* If you're a user and you need support or find any issues related to the plugin, please raise it on [Github repo.](https://github.com/themebeez/simple-gdpr-cookie-compliance/issues) or post it on [our support forum.](https://themebeez.com/support-forum/simple-gdpr-cookie-compliance-support/)
 
 
 == Important Links == 
@@ -74,6 +74,10 @@ Yes, we do. Kindly visit us at [support page](https://themebeez.com/support-foru
 
 
 == Changelog ==
+
+= 1.0.3 - August 13, 2020 = 
+
+* Testing: Tested on WordPress version 5.5
 
 = 1.0.2 - 1 December, 2019 =
 
