@@ -395,6 +395,11 @@ class Simple_GDPR_Cookie_Compliance_Public {
 						bottom: 0;
 						left: 0;
 						z-index: 99999998;
+						-webkit-transition: all 0.5s ease;
+    					-moz-transition: all 0.5s ease;
+    					-ms-transition: all 0.5s ease;
+    					-o-transition: all 0.5s ease;
+    					transition: all 0.5s ease;
 					';
 
 					if ( isset( $dynamic_options['color']['notice_bg_overlay_color'] ) ) {
@@ -420,24 +425,23 @@ class Simple_GDPR_Cookie_Compliance_Public {
 
 				$css .= '
 					.s-gdpr-c-c-pop-up {
-						position: absolute;
+
+						position: fixed;
+						z-index: 99999999;
   						left: 50%;
   						top: 50%;
+  						right:unset;
+  						bottom:unset;
 						-webkit-transform: translate(-50%, -50%);
   						transform: translate(-50%, -50%);
+  						-webkit-animation: none;
+    					animation:none;
 					}';
 
 				$css .= '
 					.sgcc-main-wrapper .sgcc-cookies .close:hover {
 						color: ' . $dynamic_options['color']['notice_box_close_btn_hover_text_color'] . ';
 					}';
-
-				if ( isset( $dynamic_options['style']['width'] ) ) {
-					$css .= '
-						.sgcc-main-wrapper .sgcc-cookies .close:hover {
-							width: ' . $dynamic_options['style']['width'] . 'px;
-						}';	
-				}
 
 				if ( isset( $dynamic_options['style']['enable_bg_overlay'] ) && isset( $dynamic_options['color']['notice_bg_overlay_color'] ) ) {
 					$css .= '
