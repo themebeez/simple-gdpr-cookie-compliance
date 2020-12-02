@@ -460,10 +460,17 @@ class Simple_GDPR_Cookie_Compliance_Public {
 
 					$css .= '
 						.s-gdpr-c-c-fullwidth {
+
 							left: 0;
 							right: 0;
 							width: 100%;
-							border-radius: 0px;
+							border-radius: 0;
+							-webkit-animation:none;
+							-moz-animation:none;
+							animation:none;
+    						-webkit-box-shadow: none;
+    						-ms-box-shadow: none;
+    						box-shadow: none;
 						}';
 
 					if ( ! $show_cookie_icon ) {
@@ -491,17 +498,65 @@ class Simple_GDPR_Cookie_Compliance_Public {
 							transform: translateY(-50%);
 						}
 						.s-gdpr-c-c-fullwidth .sgcc-notice-content {
-							display: flex;
-							flex-direction: row;
-							flex-wrap: wrap;
-							align-items: center;
+
+							display: -webkit-box;
+						    display: -ms-flexbox;
+						    display: flex;
+						    -webkit-box-orient: horizontal;
+						    -webkit-box-direction: normal;
+						        -ms-flex-direction: row;
+						            flex-direction: row;
+						    -ms-flex-wrap: wrap;
+						        flex-wrap: wrap;
+						    -webkit-box-align: center;
+						        -ms-flex-align: center;
+						            align-items: center;
 						}
 						.s-gdpr-c-c-fullwidth .sgcc-notice-content .message-block {
 							margin-bottom: 0px;
 						}
 
+						.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-cookies p {
+
+							line-height:1.3;
+						}
+
+						.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .cookie-compliance-button-block .cookie-compliance-button {
+
+							padding: 10px 15px;
+    						border-radius: 2px;
+    						-webkit-box-shadow: none;
+    						-ms-box-shadow: none;
+    						box-shadow: none;
+						}
+
 						.s-gdpr-c-c-fullwidth .sgcc-notice-content .cookie-compliance-button-block {
 							margin-left: 15px;
+						}
+
+						@media(max-width:600px) {
+
+							.sgcc-main-wrapper.s-gdpr-c-c-fullwidth {
+
+								max-width:100%;
+							}
+
+							.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-cookies {
+
+								padding:10px 15px;
+							}
+
+							.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-cookies .close,
+							.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-cookies .cookie-icon {
+
+								display:none;
+							}
+
+							.s-gdpr-c-c-fullwidth .sgcc-notice-content .cookie-compliance-button-block {
+
+								margin-left:0;
+								margin-top:10px;
+							}
 						}';
 
 					if ( $dynamic_options['style']['fullwidth_position'] == 'top' ) {
