@@ -143,10 +143,14 @@ class Simple_GDPR_Cookie_Compliance {
 	 */
 	private function define_admin_hooks() {
 
+		global $pagenow;
+
 		$plugin_admin = new Simple_GDPR_Cookie_Compliance_Admin( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		if ( 'admin.php' == $pagenow && isset( $_GET['page'] ) && 'simple-gdpr-cookie-compliance' == $_GET['page'] ) {
+			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		}
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'plugin_menu' );
 
 		$plugin_options = new Simple_GDPR_Cookie_Compliance_Admin_Settings( $this->get_plugin_name(), $this->get_version() );
@@ -166,11 +170,12 @@ class Simple_GDPR_Cookie_Compliance {
 
 		$plugin_public = new Simple_GDPR_Cookie_Compliance_Public( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-
-		$this->loader->add_action( 'wp_footer', $plugin_public, 'display_notice' );
-		$this->loader->add_action( 'wp_head', $plugin_public, 'dynamic_style' );
+		if ( ! isset( $_COOKIE['s_gdpr_c_c_cookie'] ) ) {
+			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
+			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+			$this->loader->add_action( 'wp_footer', $plugin_public, 'display_notice' );
+			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'print_dynamic_style' );
+		}
 
 	}
 
