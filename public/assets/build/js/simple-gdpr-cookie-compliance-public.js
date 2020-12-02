@@ -1,3 +1,4 @@
+
 (function($) {
 
     'use strict';
@@ -54,6 +55,8 @@
 
     	var no_Days 		= noticeObj.cookie_expire_time;
 
+        var bgOverlayEle = $('#s-gdpr-c-c-bg-overlay');
+
     	if( s_GDPR_C_C_Cookie.getCookie( 's_gdpr_c_c_cookie' ) == 'on' ) {
 
     		$('.sgcc-main-wrapper').addClass('hidden');
@@ -65,6 +68,10 @@
     	$( 'body' ).on( 'click', '#close-sgcc', function() { 
 
             $('.sgcc-main-wrapper').addClass('hidden');
+
+            if ( bgOverlayEle ) {
+                bgOverlayEle.hide();
+            }
         } );
 
         $( 'body' ).on( 'click', '#sgcc-accept', function(e) {
@@ -74,6 +81,10 @@
         	s_GDPR_C_C_Cookie.setCookie( 's_gdpr_c_c_cookie', 'on', no_Days );
 
             $('.sgcc-main-wrapper').addClass('hidden');
+
+            if ( bgOverlayEle ) {
+                bgOverlayEle.hide();
+            }
         } );
     } );
 

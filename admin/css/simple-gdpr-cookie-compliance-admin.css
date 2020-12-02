@@ -26,10 +26,8 @@
     padding: 80px;
 	background-color: #ffffff;
 	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
 	border-radius: 10px;
 	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.04);
-	-moz-box-shadow: 0 1px 1px rgba(0,0,0,.04);
 	-o-box-shadow: 0 1px 1px rgba(0,0,0,.04);
 	-ms-box-shadow: 0 1px 1px rgba(0,0,0,.04);
 	box-shadow: 0 1px 1px rgba(0,0,0,.04);
@@ -129,7 +127,6 @@
 .sgcc-section-shadow {
 	
 	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.04);
-	-moz-box-shadow: 0 1px 1px rgba(0,0,0,.04);
 	-o-box-shadow: 0 1px 1px rgba(0,0,0,.04);
 	-ms-box-shadow: 0 1px 1px rgba(0,0,0,.04);
 	box-shadow: 0 1px 1px rgba(0,0,0,.04);
@@ -288,7 +285,7 @@
 .sgcc-main-page-wrap form .s_gdpr_c_n_color_options_field .wp-picker-container input[type=text].wp-color-picker {
 
 	height: 34px;
-	width: 80px;
+	width: 80px !important;
 }
 
 .sgcc-main-page-wrap form .s_gdpr_c_n_color_options_field .wp-picker-input-wrap .wp-picker-clear {
@@ -302,18 +299,56 @@
 	padding-top: 0;
 }
 
-.sgcc-main-page-wrap form .s_gdpr_c_n_color_options_field {
-
-	border-left: 1px solid #eeeeee;
-	padding-left: 30px;
-}
-
 .sgcc-main-page-wrap form .s_gdpr_c_n_color_options_field p:last-child {
 
 	padding-bottom: 0;
 	border-bottom: none;
 }
 
+.s_gdpr_c_n_group_wrapper {
+
+	border-bottom: 1px solid #eeeeee;
+	margin-bottom: 30px;
+	padding-bottom: 30px;
+}
+
+.s_gdpr_c_n_group_wrapper:last-child {
+
+	border-bottom: none;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.s_gdpr_c_n_group {
+
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+.s_gdpr_c_n_group_field {
+
+	-webkit-box-flex: 0;
+	-ms-flex: 0 0 33.33%;
+	flex: 0 0 33.33%;
+	max-width: 33.33%;
+	margin-top: 30px;
+}
+
+.s_gdpr_c_n_group-4 .s_gdpr_c_n_group_field {
+
+	-webkit-box-flex: 0;
+	-ms-flex: 0 0 20%;
+	flex: 0 0 20%;
+	max-width: 20%;
+	margin-top: 30px;
+}
 
 /* Media query */ 
 
