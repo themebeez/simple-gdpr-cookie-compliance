@@ -151,7 +151,10 @@ class Simple_GDPR_Cookie_Compliance {
 			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		}
+
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'plugin_menu' );
+
+		$this->loader->add_filter( 'plugin_action_links', $plugin_admin, 'plugin_page_links' );
 
 		$plugin_options = new Simple_GDPR_Cookie_Compliance_Admin_Settings( $this->get_plugin_name(), $this->get_version() );
 

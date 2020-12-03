@@ -114,4 +114,17 @@ class Simple_GDPR_Cookie_Compliance_Admin {
 
 		require_once plugin_dir_path( __FILE__ ) . 'partials/simple-gdpr-cookie-compliance-admin-page.php';
 	}
+
+	/**
+	 * Register plugin page links.
+	 *
+	 * @since    1.0.4
+	 */
+	public function plugin_page_links( $actions ) {
+
+		$actions[] = '<a href="' . esc_url( admin_url( 'admin.php?page=simple-gdpr-cookie-compliance' ) ) . '">' . __( 'Settings', 'simple-gdpr-cookie-compliance' ) . '</a>';
+
+		return $actions;
+
+	}
 }

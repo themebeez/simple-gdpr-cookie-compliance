@@ -25,20 +25,21 @@ if ( $args['enable_bg_overlay'] == true ) {
 <div class="sgcc-main-wrapper hidden <?php echo ( $args['wrapper_class'] ) ? esc_attr( $args['wrapper_class'] ) : ''; ?>">
     <div class="sgcc-cookies">
     	<?php
-    	if ( $args['show_cookie_icon'] ) {
+    	if ( $args['show_cookie_icon'] && $args['notice_type'] != 'full_width' ) {
 	    	?>
 	    	<span class="cookie-icon"><i class="sgcc sgcc-icon-cookie"></i></span>
 	    	<?php
-	    }
-    	if ( $args['show_close_btn'] ) {
-	    	?>
-	        <span id="close-sgcc" class="close close-sgcc"><i class="sgcc sgcc-icon-close"></i></span>
-	        <?php 
 	    }
 	    ?>
 	    <div class="sgcc-notice-content">
 		    <?php
 	        if ( $args['notice'] ) {
+
+	        	if ( $args['show_cookie_icon'] && $args['notice_type'] == 'full_width' ) {
+			    	?>
+			    	<span class="cookie-icon"><i class="sgcc sgcc-icon-cookie"></i></span>
+			    	<?php
+			    }
 	        	?>
 		        <div class="message-block">
 			        <p>
@@ -87,6 +88,13 @@ if ( $args['enable_bg_overlay'] == true ) {
 			}
 			?>
 		</div>
+		<?php
+		if ( $args['show_close_btn'] ) {
+	    	?>
+	        <span id="close-sgcc" class="close close-sgcc"><i class="sgcc sgcc-icon-close"></i></span>
+	        <?php 
+	    }
+		?>
     </div>
 </div>
 
