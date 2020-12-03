@@ -3,7 +3,7 @@
 /**
  * Plugin Name:       Simple GDPR Cookie Compliance
  * Plugin URI:        https://themebeez.com/plugins/simple-gdpr-cookie-compliance
- * Description:       Simple GDPR Cookie Compliance is a simple notifier to notify users that your site make uses of cookies and to comply with EU GDPR regulations.
+ * Description:       Simple GDPR Cookie Compliance is a simple notifier to inform users that your site uses of cookies and show your complies with EU GDPR cookie law and CCPA regulations.
  * Version:           1.0.4
  * Author:            themebeez
  * Author URI:        https://themebeez.com/

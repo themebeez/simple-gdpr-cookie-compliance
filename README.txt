@@ -10,12 +10,12 @@ Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Simple GDPR Cookie Compliance is a simple notifier to notify users that your site make uses of cookies and to comply with EU GDPR regulations.
+Simple GDPR Cookie Compliance is a simple notifier to inform users that your site uses of cookies and show your complies with EU GDPR cookie law and CCPA regulations.
 
 
 == Description ==
 
-Simple GDPR Cookie Compliance is a simple notifier to notify users that your site make uses of cookies and to comply with EU GDPR regulations.
+Simple GDPR Cookie Compliance is a simple notifier to inform users that your site uses of cookies and show your complies with EU GDPR cookie law and CCPA regulations.
 
 
 NOTE: INSTALLING THIS PLUGIN ALONE DOES NOT MAKE YOUR SITE GDPR COMPLIANT. SINCE EACH SITE USES DIFFERENT COOKIES, YOU MAY NEED TO ENSURE YOU HAVE NECESSARY CONFIGURATIONS IN PLACE.
@@ -75,7 +75,7 @@ Yes, we do. Kindly visit us at [support page](https://themebeez.com/support-foru
 
 == Changelog ==
 
-= 1.0.4 - Dec 2, 2020 =
+= 1.0.4 - Dec 3, 2020 =
 
 * Added: Options customization options.
 * Fix: Other minor issues

@@ -360,19 +360,19 @@ class Simple_GDPR_Cookie_Compliance_Admin_Settings {
 				<h4 class="s_grpd_c_n_group_title"><?php echo __( 'Offsets', 'simple-gdpr-cookie-compliance' ); ?></h4>
 				<div class="s_gdpr_c_n_group s_gdpr_c_n_group-4">
 					<div class="s_gdpr_c_n_group_field" id="s_gdpr_c_n_top_offset_group_field">
-						<label for="simple_gdpr_cookie_compliance_options[style][top_offset]"><?php echo __( 'Top', 'simple-gdpr-cookie-compliance' ); ?></label>
+						<label for="simple_gdpr_cookie_compliance_options[style][top_offset]"><?php echo __( 'Top (px)', 'simple-gdpr-cookie-compliance' ); ?></label>
 						<input type="number" id="simple_gdpr_cookie_compliance_options[style][top_offset]" name="simple_gdpr_cookie_compliance_options[style][top_offset]" class="s_gdpr_c_n_number" value="<?php echo esc_attr( $top_offset ); ?>">
 					</div>
 					<div class="s_gdpr_c_n_group_field" id="s_gdpr_c_n_right_offset_group_field">
-						<label for="simple_gdpr_cookie_compliance_options[style][right_offset]"><?php echo __( 'Right', 'simple-gdpr-cookie-compliance' ); ?></label>
+						<label for="simple_gdpr_cookie_compliance_options[style][right_offset]"><?php echo __( 'Right (px)', 'simple-gdpr-cookie-compliance' ); ?></label>
 						<input type="number" id="simple_gdpr_cookie_compliance_options[style][right_offset]" name="simple_gdpr_cookie_compliance_options[style][right_offset]" class="s_gdpr_c_n_number" value="<?php echo esc_attr( $right_offset ); ?>">
 					</div>					
 					<div class="s_gdpr_c_n_group_field" id="s_gdpr_c_n_bottom_offset_group_field">
-						<label for="simple_gdpr_cookie_compliance_options[style][bottom_offset]"><?php echo __( 'Bottom', 'simple-gdpr-cookie-compliance' ); ?></label>
+						<label for="simple_gdpr_cookie_compliance_options[style][bottom_offset]"><?php echo __( 'Bottom (px)', 'simple-gdpr-cookie-compliance' ); ?></label>
 						<input type="number" id="simple_gdpr_cookie_compliance_options[style][bottom_offset]" name="simple_gdpr_cookie_compliance_options[style][bottom_offset]" class="s_gdpr_c_n_number" value="<?php echo esc_attr( $bottom_offset ); ?>">
 					</div>
 					<div class="s_gdpr_c_n_group_field" id="s_gdpr_c_n_left_offset_group_field">
-						<label for="simple_gdpr_cookie_compliance_options[style][left_offset]"><?php echo __( 'Left', 'simple-gdpr-cookie-compliance' ); ?></label>
+						<label for="simple_gdpr_cookie_compliance_options[style][left_offset]"><?php echo __( 'Left (px)', 'simple-gdpr-cookie-compliance' ); ?></label>
 						<input type="number" id="simple_gdpr_cookie_compliance_options[style][left_offset]" name="simple_gdpr_cookie_compliance_options[style][left_offset]" class="s_gdpr_c_n_number" value="<?php echo esc_attr( $left_offset ); ?>">
 					</div>
 				</div>
@@ -530,7 +530,7 @@ class Simple_GDPR_Cookie_Compliance_Admin_Settings {
 		<div class="s_gdpr_c_n_field" id="s_gdpr_c_n_custom_css">
 			<p>
 				<label for="simple_gdpr_cookie_compliance_options[custom_css]"><?php echo __( 'CSS Codes', 'simple-gdpr-cookie-compliance' ); ?></label>
-				<textarea id="simple_gdpr_cookie_compliance_options[custom_css]" name="simple_gdpr_cookie_compliance_options[custom_css]" class="s_gdpr_c_n_number"><?php echo esc_attr( $custom_css ); ?></textarea>
+				<textarea id="simple_gdpr_cookie_compliance_options[custom_css]" name="simple_gdpr_cookie_compliance_options[custom_css]" class="s_gdpr_c_n_number"><?php echo esc_html( $custom_css ); ?></textarea>
 			</p>
 		<?php
 	}
@@ -636,7 +636,7 @@ class Simple_GDPR_Cookie_Compliance_Admin_Settings {
 
 		$inputs['cookie_expire_time'] = isset( $inputs['cookie_expire_time'] ) ? absint( $inputs['cookie_expire_time'] ) : 0;
 
-		$inputs['custom_css'] = isset( $inputs['custom_css'] ) ? sanitize_textarea_field( $inputs['cookie_expire_time'] ) : '';
+		$inputs['custom_css'] = isset( $inputs['custom_css'] ) ? sanitize_textarea_field( $inputs['custom_css'] ) : '';
 
 		return $inputs;		
 	}
