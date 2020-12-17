@@ -141,7 +141,7 @@ class Simple_GDPR_Cookie_Compliance_Public {
 			if ( isset( $options['link']['link_type'] ) ) {
 				$args['link_type'] = $options['link']['link_type'];
 				switch ( $options['link']['link_type'] ) {
-					case 'custom_link' :
+					case 'custom_url' :
 						if( isset( $options['link']['link_title'] ) ) {
 							$args['link_title'] = $options['link']['link_title'];
 						}
@@ -172,8 +172,8 @@ class Simple_GDPR_Cookie_Compliance_Public {
 				}
 			}
 
-			if ( isset( $options['link']['show_in_new_tab'] ) ) {
-				$args['show_in_new_tab'] = $options['link']['show_in_new_tab'];
+			if ( isset( $options['show_in_new_tab'] ) ) {
+				$args['show_in_new_tab'] = $options['show_in_new_tab'];
 			}
 
 			if ( isset( $options['accept_btn_title'] ) ) {

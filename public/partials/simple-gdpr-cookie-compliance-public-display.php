@@ -51,26 +51,26 @@ if ( $args['enable_bg_overlay'] == true ) {
 
 				        	$link_url = '';
 
-				        	$before_link = '';
+				        	$before_link = isset( $args['before_link'] ) ? esc_html( $args['before_link'] ) : '';
 
-				        	$after_link = '';
+				        	$after_link = isset( $args['after_link'] ) ? esc_html( $args['after_link'] ) : '';
 
 				        	if( $args['link_type'] == 'custom_url' ) {
 
-				        		$link_title = $args['link_title'];
-				        		$link_url = $args['link_url'];
+				        		$link_title = isset( $args['link_title'] ) ? $args['link_title'] : '';
+				        		$link_url = isset( $args['link_url'] ) ? $args['link_url'] : '';
 				        	}
 
 				        	if ( $args['link_type'] == 'page' ) {
-				        		$link_title = $args['page_title'];
-				        		$link_url = $args['page_link'];
+				        		$link_title = isset( $args['page_title'] ) ? $args['page_title'] : '';
+				        		$link_url = isset( $args['page_link'] ) ? $args['page_link'] : '';
 				        	}
 
-				        	$link = ( $args['before_link'] ) ? esc_html( $args['before_link'] ) : '';
-				        	$link .= '<a href="' . esc_url( $link_url ) . '" ' . ( ( $args['show_in_new_tab'] ) ? 'target="_blank"' : 'target="_self"' ) . '>' . esc_html( $link_title ) . '</a>';
-				        	$link .= ( $args['after_link'] ) ? esc_html( $args['after_link'] ) : ''; 
+				        	$link = $before_link . ' ';
+				        	$link .= '<a href="' . esc_url( $link_url ) . '" ' . ( ( isset( $args['show_in_new_tab'] ) && $args['show_in_new_tab'] == true ) ? 'target="_blank"' : 'target="_self"' ) . '>' . esc_html( $link_title ) . ' </a>';
+				        	$link .=  ' ' . $after_link;
 
-				        	echo wp_kses_post( $args['notice'] ) . $link;
+				        	echo wp_kses_post( $args['notice'] ) . ' ' . $link;
 			        	}
 			        	?>
 					</p>
