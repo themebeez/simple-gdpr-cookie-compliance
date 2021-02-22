@@ -14,7 +14,7 @@
  * @author     themebeez <themebeez@gmail.com>
  */
 class Simple_GDPR_Cookie_Compliance {
-​
+
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
 	 * the plugin.
@@ -24,7 +24,7 @@ class Simple_GDPR_Cookie_Compliance {
 	 * @var      Simple_GDPR_Cookie_Compliance_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
-​
+
 	/**
 	 * The unique identifier of this plugin.
 	 *
@@ -33,7 +33,7 @@ class Simple_GDPR_Cookie_Compliance {
 	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
 	 */
 	protected $plugin_name;
-​
+
 	/**
 	 * The current version of the plugin.
 	 *
@@ -42,7 +42,7 @@ class Simple_GDPR_Cookie_Compliance {
 	 * @var      string    $version    The current version of the plugin.
 	 */
 	protected $version;
-​
+
 	/**
 	 * Define the core functionality of the plugin.
 	 *
@@ -59,14 +59,14 @@ class Simple_GDPR_Cookie_Compliance {
 			$this->version = '1.0.1';
 		}
 		$this->plugin_name = 'simple-gdpr-cookie-compliance';
-​
+
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-​
+
 	}
-​
+
 	/**
 	 * Load the required dependencies for this plugin.
 	 *
@@ -84,39 +84,39 @@ class Simple_GDPR_Cookie_Compliance {
 	 * @access   private
 	 */
 	private function load_dependencies() {
-​
+
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-simple-gdpr-cookie-compliance-loader.php';
-​
+
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-simple-gdpr-cookie-compliance-i18n.php';
-​
+
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-simple-gdpr-cookie-compliance-admin.php';
-​
+
 		/**
 		 * The class responsible for defining all settings in plugin page.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-simple-gdpr-cookie-compliance-settings.php';
-​
+
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-simple-gdpr-cookie-compliance-public.php';
-​
+
 		$this->loader = new Simple_GDPR_Cookie_Compliance_Loader();
-​
+
 	}
-​
+
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
@@ -127,13 +127,13 @@ class Simple_GDPR_Cookie_Compliance {
 	 * @access   private
 	 */
 	private function set_locale() {
-​
+
 		$plugin_i18n = new Simple_GDPR_Cookie_Compliance_i18n();
-​
+
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
-​
+
 	}
-​
+
 	/**
 	 * Register all of the hooks related to the admin area functionality
 	 * of the plugin.
@@ -142,27 +142,29 @@ class Simple_GDPR_Cookie_Compliance {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-​
+
 		global $pagenow;
-​
+
 		$plugin_admin = new Simple_GDPR_Cookie_Compliance_Admin( $this->get_plugin_name(), $this->get_version() );
-​
+
 		if ( 'admin.php' == $pagenow && isset( $_GET['page'] ) && 'simple-gdpr-cookie-compliance' == $_GET['page'] ) {
 			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		}
-​
+
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'plugin_menu' );
-​
+
 		// $this->loader->add_filter( 'plugin_action_links', $plugin_admin, 'plugin_page_links' );
 		$plugin_basename = SIMPLE_GDPR_COOKIE_COMPLIANCE_BASENAME;
-​
+
+		$this->loader->add_filter( "plugin_action_links_{$plugin_basename}", $plugin_admin, 'plugin_page_links' );
+
 		$plugin_options = new Simple_GDPR_Cookie_Compliance_Admin_Settings( $this->get_plugin_name(), $this->get_version() );
-​
+
 		$this->loader->add_action( 'admin_init', $plugin_options, 'register_settings' );
-​
+
 	}
-​
+
 	/**
 	 * Register all of the hooks related to the public-facing functionality
 	 * of the plugin.
@@ -171,18 +173,18 @@ class Simple_GDPR_Cookie_Compliance {
 	 * @access   private
 	 */
 	private function define_public_hooks() {
-​
+
 		$plugin_public = new Simple_GDPR_Cookie_Compliance_Public( $this->get_plugin_name(), $this->get_version() );
-​
+
 		if ( ! isset( $_COOKIE['s_gdpr_c_c_cookie'] ) ) {
 			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 			$this->loader->add_action( 'wp_footer', $plugin_public, 'display_notice' );
 			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'print_dynamic_style' );
 		}
-​
+
 	}
-​
+
 	/**
 	 * Run the loader to execute all of the hooks with WordPress.
 	 *
@@ -191,7 +193,7 @@ class Simple_GDPR_Cookie_Compliance {
 	public function run() {
 		$this->loader->run();
 	}
-​
+
 	/**
 	 * The name of the plugin used to uniquely identify it within the context of
 	 * WordPress and to define internationalization functionality.
@@ -202,7 +204,7 @@ class Simple_GDPR_Cookie_Compliance {
 	public function get_plugin_name() {
 		return $this->plugin_name;
 	}
-​
+
 	/**
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
@@ -212,7 +214,7 @@ class Simple_GDPR_Cookie_Compliance {
 	public function get_loader() {
 		return $this->loader;
 	}
-​
+
 	/**
 	 * Retrieve the version number of the plugin.
 	 *
@@ -222,5 +224,5 @@ class Simple_GDPR_Cookie_Compliance {
 	public function get_version() {
 		return $this->version;
 	}
-​
+
 }
