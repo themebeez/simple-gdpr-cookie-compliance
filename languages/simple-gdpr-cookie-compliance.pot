@@ -1,4 +1,4 @@
-# Copyright (C) 2020 Simple GDPR Cookie Compliance
+# Copyright (C) 2021 Simple GDPR Cookie Compliance
 # This file is distributed under the same license as the Simple GDPR Cookie Compliance package.
 msgid ""
 msgstr ""
@@ -45,7 +45,7 @@ msgstr ""
 msgid "Custom CSS"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:127
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:127, public/class-simple-gdpr-cookie-compliance-public.php:146
 msgid "Our website uses cookies to provide you the best experience. However, by continuing to use our website, you agree to our use of cookies. For more information, read our <a href=\"#\">Cookie Policy</a>."
 msgstr ""
 
@@ -275,4 +275,12 @@ msgstr ""
 
 #: admin/partials/simple-gdpr-cookie-compliance-admin-page.php:24
 msgid "Simple GDPR Cookie Compliance is a simple and minimal WordPress plugin that helps you become GDPR compliant and notify users about your website&rsquo;s cookie policy or privacy policy. This plugin adds a small notice box at the bottom of right side of your website. You can easily set notify message as well as customize your notice with color options."
+msgstr ""
+
+#: public/class-simple-gdpr-cookie-compliance-public.php:144
+msgid "Notice regarding cookie compliance is not set. Go to %s to set the notice."
+msgstr ""
+
+#: public/class-simple-gdpr-cookie-compliance-public.php:144
+msgid "Dashboard > Simple GDPR"
 msgstr ""
