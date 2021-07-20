@@ -62,9 +62,14 @@ class Simple_GDPR_Cookie_Compliance_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( 'wp-color-picker' );
+		global $pagenow;
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/simple-gdpr-cookie-compliance-admin.css', array(), $this->version, 'all' );
+		if ( 'admin.php' == $pagenow && ( isset( $_GET['page'] ) && 'simple-gdpr-cookie-compliance' == $_GET['page'] ) ) {
+
+			wp_enqueue_style( 'wp-color-picker' );
+
+			wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/simple-gdpr-cookie-compliance-admin.css', array(), $this->version, 'all' );
+		}
 
 	}
 
@@ -87,11 +92,16 @@ class Simple_GDPR_Cookie_Compliance_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( 'wp-color-picker' );
+		global $pagenow;
 
-		wp_enqueue_script( 'wp-color-picker-alpha', plugin_dir_url( __FILE__ ) . 'js/wp-color-picker-alpha.js', array( 'jquery', 'wp-color-picker' ), $this->version, false );
+		if ( 'admin.php' == $pagenow && ( isset( $_GET['page'] ) && 'simple-gdpr-cookie-compliance' == $_GET['page'] ) ) {
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/simple-gdpr-cookie-compliance-admin.js', array( 'jquery' ), $this->version, false );
+			wp_enqueue_script( 'wp-color-picker' );
+
+			wp_enqueue_script( 'wp-color-picker-alpha', plugin_dir_url( __FILE__ ) . 'js/wp-color-picker-alpha.js', array( 'jquery', 'wp-color-picker' ), $this->version, false );
+
+			wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/simple-gdpr-cookie-compliance-admin.js', array( 'jquery' ), $this->version, false );
+		}
 
 	}
 

@@ -13,11 +13,11 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: admin/class-simple-gdpr-cookie-compliance-admin.php:105, admin/partials/simple-gdpr-cookie-compliance-admin-page.php:21
+#: admin/class-simple-gdpr-cookie-compliance-admin.php:115, admin/partials/simple-gdpr-cookie-compliance-admin-page.php:21
 msgid "Simple GDPR Cookie Compliance"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-admin.php:125
+#: admin/class-simple-gdpr-cookie-compliance-admin.php:135
 msgid "Settings"
 msgstr ""
 
