@@ -131,10 +131,23 @@ class Simple_GDPR_Cookie_Compliance_Public {
 
 		$options = get_option( 'simple_gdpr_cookie_compliance_options' );
 
-		$args = array();
+		$args = array(
+			'enable_bg_overlay' => false,
+			'show_cookie_icon' => false,
+			'notice' => '',
+			'btn_title' => '',
+			'show_close_btn' => false,
+			'link_type' => 'no_link'
+		); 
+
+		if ( is_admin() || current_user_can( 'manage_options' ) ) {
+			$args['notice'] = sprintf( __( 'Notice regarding cookie compliance is not set. Go to %s to set the notice.', 'simple-gdpr-cookie-compliance' ), '<a href="' . esc_url( admin_url( 'admin.php?page=simple-gdpr-cookie-compliance' ) ) . '">' . __( 'Dashboard > Simple GDPR', 'simple-gdpr-cookie-compliance' ) . '</a>' );
+		} else {
+			$args['notice'] = __( 'Our website uses cookies to provide you the best experience. However, by continuing to use our website, you agree to our use of cookies. For more information, read our <a href="#">Cookie Policy</a>.', 'simple-gdpr-cookie-compliance' );
+		}
 
 		if ( $options ) {
-			if ( isset( $options['notice_text'] ) ) {
+			if ( isset( $options['notice_text'] ) && ! empty( $options['notice_text'] ) ) {
 				$args['notice'] = $options['notice_text'];
 			}
 
