@@ -1,6 +1,6 @@
 === Simple GDPR Cookie Compliance ===
 
-Contributors: themebeez
+Contributors: themebeez, addonify
 Donate link: https://themebeez.com/
 Tags: gdpr, cookie, cookies, notice, notification, notify, notifier, gdpr compliance, privacy, privacy directive, cookie notice, simple notice, cookie compliance
 Requires at least: 5.0.0
