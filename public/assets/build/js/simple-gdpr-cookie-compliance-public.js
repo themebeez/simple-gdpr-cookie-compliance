@@ -3,34 +3,46 @@
 
     'use strict';
 
-    var s_GDPR_C_C_Cookie = {
+	
 
-    	setCookie : function( name, value, days ) {
+    var simpleGDPRCCCookie = {
+
+    	setCookie : function( name, value, expires ) {
 
     		var todayDate 	= new Date(); 
     		var expireDate 	= new Date();
-    		var cookie_dfn	= '';
+    		var cookieDefinition	= '';
 		
-			if( days > 0 ) {
-
-				expireDate.setTime( todayDate.getTime() + ( days * 24 * 60 * 60 * 1000 ) );
-
-				cookie_dfn = name + "=" + value +"; expires=" + expireDate.toUTCString() + "; path=/";
+			if( expires > 0 ) {
+				expireDate.setTime( todayDate.getTime() + ( expires * 24 * 60 * 60 * 1000 ) );
+				cookieDefinition = name + "=" + value +"; expires=" + expireDate.toUTCString();
 			} else {
-
-				cookie_dfn = name + "=" + value + "; path=/";
+				cookieDefinition = name + "=" + value;
 			}
 
-			document.cookie = cookie_dfn;
+			if ( simpleGDPRCCJsObj.isMultisite === '1' ) {
+				if ( simpleGDPRCCJsObj.subdomainInstall !== '1' ) {
+					cookieDefinition += "; path=" + simpleGDPRCCJsObj.path;
+				} else {
+					cookieDefinition += "; path=/";
+				}
+			}
+
+			console.log( cookieDefinition); 
+
+			document.cookie = cookieDefinition;
+
+			console.log( document.cookie); 
     	},
 
     	getCookie : function( name ) {
 
     		var cookieName = name + "=";
 			var decodedCookie = decodeURIComponent( document.cookie );
+
 			var ca = decodedCookie.split(';');
 
-			for( var i = 0; i <ca.length; i++ ) {
+			for( var i = 0; i < ca.length; i++ ) {
 
 				var c = ca[i];
 
@@ -53,11 +65,13 @@
 
     $(document).ready(function() {
 
-    	var no_Days 		= noticeObj.cookie_expire_time;
+		// console.log( document.cookie );
+
+    	var cookieExpireDays = parseInt(simpleGDPRCCJsObj.cookieExpireTime);
 
         var bgOverlayEle = $('#s-gdpr-c-c-bg-overlay');
 
-    	if( s_GDPR_C_C_Cookie.getCookie( 's_gdpr_c_c_cookie' ) == 'on' ) {
+    	if( simpleGDPRCCCookie.getCookie( 's_gdpr_c_c_cookie' ) == 'on' ) {
 
     		$('.sgcc-main-wrapper').addClass('hidden');
     	} else {
@@ -78,7 +92,7 @@
 
         	e.preventDefault(); 
 
-        	s_GDPR_C_C_Cookie.setCookie( 's_gdpr_c_c_cookie', 'on', no_Days );
+        	simpleGDPRCCCookie.setCookie( 's_gdpr_c_c_cookie', 'on', cookieExpireDays );
 
             $('.sgcc-main-wrapper').addClass('hidden');
 
