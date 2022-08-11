@@ -96,15 +96,22 @@ class Simple_GDPR_Cookie_Compliance_Public {
 		$simple_gdpr_cookie_compliance_options = get_option( 'simple_gdpr_cookie_compliance_options' );
 
 		$noticeObjArray = array(
-			'cookie_expire_time' => 1,
+			'cookieExpireTime' => (int) $simple_gdpr_cookie_compliance_options['cookie_expire_time'],
 		);
 
-		if( ! empty( $simple_gdpr_cookie_compliance_options['cookie_expire_time'] ) ) {
-
-			$noticeObjArray['cookie_expire_time'] = absint( $simple_gdpr_cookie_compliance_options['cookie_expire_time'] );
+		if ( is_multisite() ) {
+			$noticeObjArray['isMultisite'] = true;
+			if ( SUBDOMAIN_INSTALL === false ) {
+				$noticeObjArray['subdomainInstall'] = false;
+				$noticeObjArray['path'] = get_site()->path;
+			} else {
+				$noticeObjArray['subdomainInstall'] = true;
+			}
+		} else {
+			$noticeObjArray['isMultisite'] = false;
 		}
 
-		wp_localize_script( $this->plugin_name, 'noticeObj', $noticeObjArray );
+		wp_localize_script( $this->plugin_name, 'simpleGDPRCCJsObj', $noticeObjArray );
 
 		wp_enqueue_script( $this->plugin_name );
 

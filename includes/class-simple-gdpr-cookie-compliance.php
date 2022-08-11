@@ -182,7 +182,6 @@ class Simple_GDPR_Cookie_Compliance {
 			$this->loader->add_action( 'wp_footer', $plugin_public, 'display_notice' );
 			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'print_dynamic_style' );
 		}
-
 	}
 
 	/**
