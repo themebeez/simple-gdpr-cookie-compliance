@@ -1,38 +1,20 @@
 /**
 =======================================================
 
-- File: Main master file
-
 - Project : Simple GDPR Cookie Complience
 
 - Author: Themebeez
 
 - Author url : https://themebeez.com/
 
-- Scss version: 1.0.1
-
-- Last updated: 24 Nov, 2019
-
 ======================================================================================
 */
 
-
-// Import Variables
-
 @import 'variable/variables';
-
-
-// Import font
 
 @import 'font/font';
 
-
-// Import custom styles
-
 @import 'custom/custom';
 @import 'custom/responsive';
-
-
-// Import keyframes
 
 @import 'custom/keyframe';
