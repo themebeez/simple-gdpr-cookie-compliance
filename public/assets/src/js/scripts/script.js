@@ -105,8 +105,6 @@
 
     $(document).ready(function () {
 
-        setCookie();
-        getCookie();
         closeNotice();
         acceptCookie();
         showNotice();
