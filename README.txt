@@ -4,9 +4,9 @@ Contributors: themebeez, addonify
 Donate link: https://themebeez.com/
 Tags: gdpr, cookie, cookies, notice, notification, notify, notifier, gdpr compliance, privacy, privacy directive, cookie notice, simple notice, cookie compliance
 Requires at least: 5.0.0
-Tested up to: 6.0.2
+Tested up to: 6.1.1
 Requires PHP: 7.0.0
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,17 +17,21 @@ Simple GDPR Cookie Compliance is a simple notifier to inform users that your sit
 
 Simple GDPR Cookie Compliance is a simple notifier to inform users that your site uses of cookies and show your complies with EU GDPR cookie law and CCPA regulations.
 
+Note: Installing this plugin alone does not make your site GDPR compliant. Since each site uses different cookies, you may need to ensure you have necessary configurations in place.
 
-NOTE: INSTALLING THIS PLUGIN ALONE DOES NOT MAKE YOUR SITE GDPR COMPLIANT. SINCE EACH SITE USES DIFFERENT COOKIES, YOU MAY NEED TO ENSURE YOU HAVE NECESSARY CONFIGURATIONS IN PLACE.
 
+== Main Features ==
 
-== Simple GDPR Cookie Compliance Feautres ==
-
-* Custom message support
-* Color customization of notice
-* Set cookie expiration date
-* Translation ready
-* SEO friendly
+* Simple & light-weight.
+* Three different layouts.
+* Choose placement to display notice.
+* Custom message support.
+* Color options for notice.
+* Display/Hide close button.
+* Display/Hide cookie icon.
+* Set cookie expiration date.
+* Translation ready.
+* Coded according to WordPress plugin standard.
 
 
 == Installation ==
@@ -67,13 +71,20 @@ Yes, we do. Kindly visit us at [support page](https://themebeez.com/support-foru
 
 == Screenshots ==
 
-1. Simple GDPR cookie compliance plugin at dashboard
-2. Simple GDPR cookie compliance plugin page at dashboard
-3. Simple GDPR cookie compliance plugin at dashboard screenshot two
-4. Simple GDPR cookie compliance plugin at front-end of website
+1. Simple GDPR cookie compliance plugin at dashboard.
+2. Simple GDPR cookie compliance plugin page at dashboard.
+3. Simple GDPR cookie compliance plugin at dashboard.
+4. Simple GDPR cookie compliance default notice.
+5. Simple GDPR cookie compliance default notice layout 2.
+6. Simple GDPR cookie compliance default notice layout 3.
 
 
 == Changelog ==
+
+= 1.1.1 - 20 February, 2023 = 
+
+- Added: Basic CSS style for the notice overlay.
+- Added: UDP agent support.
 
 = 1.1.0 - 31 August, 2022 =
 

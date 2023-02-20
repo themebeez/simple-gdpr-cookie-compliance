@@ -171,3 +171,10 @@
     color:$sgcc-close-btn-hover-colour;
     background-color:$sgcc-close-btn-hover-bg-colour;
 }
+
+// Overlay 
+
+.s-gdpr-c-c-bg-overlay {
+
+    backdrop-filter: blur(4px);
+}
