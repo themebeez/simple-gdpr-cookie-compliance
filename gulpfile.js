@@ -37,7 +37,7 @@ const scriptPath = {
 }
 const outputJavaScriptFileName = "simple-gdpr-cookie-compliance-public.js";
 
-var conditionalScriptPath = {
+let conditionalScriptPath = {
     conditionalScriptSource: [
 
         './public/assets/src/js/conditional/*.js',
@@ -58,7 +58,7 @@ const sassPath = {
 }
 const compiledSassCssFileName = "simple-gdpr-cookie-compliance-public.css";
 
-var conditionalSassPath = {
+let conditionalSassPath = {
     conditionalSassSource: [
 
         "./public/assets/src/scss/conditional/**"
@@ -76,7 +76,7 @@ const rtlCssPath = {
 
 // 4# zip file path
 
-var outputBuildFileZip = 'simple-gdpr-cookie-compliance.zip';
+let outputBuildFileZip = 'simple-gdpr-cookie-compliance.zip';
 
 const sourceFilesDirsToCompress = {
 
@@ -136,7 +136,7 @@ gulp.task('conditionalScriptsTask', function () {
 // Task to compile SASS/SCSS files.
 
 gulp.task('sassTask', function () {
-    var onError = function (err) {
+    let onError = function (err) {
         notify.onError({
             title: "Gulp",
             subtitle: "Failure!",
@@ -156,7 +156,7 @@ gulp.task('sassTask', function () {
 });
 
 gulp.task('conditionalSassTask', function () {
-    var onError = function (err) {
+    let onError = function (err) {
         notify.onError({
             title: "Gulp",
             subtitle: "Failure!",
@@ -207,7 +207,6 @@ gulp.task('default', shell.task(
 ));
 
 gulp.task('zip', gulp.series('zipProductionFiles', (done) => {
-
     done();
 }));
 

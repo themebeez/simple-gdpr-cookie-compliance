@@ -113,6 +113,11 @@ class Simple_GDPR_Cookie_Compliance {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-simple-gdpr-cookie-compliance-public.php';
 
+		/**
+		 * Load UDP agent class.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/udp/init.php';
+
 		$this->loader = new Simple_GDPR_Cookie_Compliance_Loader();
 
 	}
