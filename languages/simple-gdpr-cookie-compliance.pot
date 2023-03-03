@@ -1,20 +1,39 @@
-# Copyright (C) 2021 Simple GDPR Cookie Compliance
-# This file is distributed under the same license as the Simple GDPR Cookie Compliance package.
+# Copyright (C) 2023 themebeez
+# This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Simple GDPR Cookie Compliance\n"
+"Project-Id-Version: Simple GDPR Cookie Compliance 1.1.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/simple-gdpr-cookie-compliance\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: *.js\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: 2023-03-03T06:22:18+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: simple-gdpr-cookie-compliance\n"
 
-#: admin/class-simple-gdpr-cookie-compliance-admin.php:115, admin/partials/simple-gdpr-cookie-compliance-admin-page.php:21
+#. Plugin Name of the plugin
+#: admin/class-simple-gdpr-cookie-compliance-admin.php:115
+#: admin/partials/simple-gdpr-cookie-compliance-admin-page.php:21
 msgid "Simple GDPR Cookie Compliance"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://themebeez.com/plugins/simple-gdpr-cookie-compliance"
+msgstr ""
+
+#. Description of the plugin
+msgid "Simple GDPR Cookie Compliance is a simple notifier to inform users that your site uses of cookies and show your complies with EU GDPR cookie law and CCPA regulations."
+msgstr ""
+
+#. Author of the plugin
+msgid "themebeez"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://themebeez.com/"
 msgstr ""
 
 #: admin/class-simple-gdpr-cookie-compliance-admin.php:135
@@ -45,7 +64,8 @@ msgstr ""
 msgid "Custom CSS"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:127, public/class-simple-gdpr-cookie-compliance-public.php:146
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:127
+#: public/class-simple-gdpr-cookie-compliance-public.php:153
 msgid "Our website uses cookies to provide you the best experience. However, by continuing to use our website, you agree to our use of cookies. For more information, read our <a href=\"#\">Cookie Policy</a>."
 msgstr ""
 
@@ -157,7 +177,8 @@ msgstr ""
 msgid "Width"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:314, admin/class-simple-gdpr-cookie-compliance-settings.php:333
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:314
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:333
 msgid "Position"
 msgstr ""
 
@@ -221,7 +242,10 @@ msgstr ""
 msgid "Overlay Color"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:435, admin/class-simple-gdpr-cookie-compliance-settings.php:445, admin/class-simple-gdpr-cookie-compliance-settings.php:471, admin/class-simple-gdpr-cookie-compliance-settings.php:493
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:435
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:445
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:471
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:493
 msgid "Background"
 msgstr ""
 
@@ -233,7 +257,9 @@ msgstr ""
 msgid "Cookie Icon"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:453, admin/class-simple-gdpr-cookie-compliance-settings.php:479, admin/class-simple-gdpr-cookie-compliance-settings.php:509
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:453
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:479
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:509
 msgid "Text"
 msgstr ""
 
@@ -249,11 +275,13 @@ msgstr ""
 msgid "Close Button Color"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:475, admin/class-simple-gdpr-cookie-compliance-settings.php:497
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:475
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:497
 msgid "Background - On Hover"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:483, admin/class-simple-gdpr-cookie-compliance-settings.php:513
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:483
+#: admin/class-simple-gdpr-cookie-compliance-settings.php:513
 msgid "Text - On Hover"
 msgstr ""
 
@@ -277,10 +305,39 @@ msgstr ""
 msgid "Simple GDPR Cookie Compliance is a simple and minimal WordPress plugin that helps you become GDPR compliant and notify users about your website&rsquo;s cookie policy or privacy policy. This plugin adds a small notice box at the bottom of right side of your website. You can easily set notify message as well as customize your notice with color options."
 msgstr ""
 
-#: public/class-simple-gdpr-cookie-compliance-public.php:144
+#: includes/udp/class-udp-agent.php:116
+msgid "Allow Anonymous Tracking"
+msgstr ""
+
+#: includes/udp/class-udp-agent.php:160
+msgid "Become a super contributor by sharing your non-sensitive WordPress data. We guarantee no sensitive data is collected."
+msgstr ""
+
+#: includes/udp/class-udp-agent.php:161
+msgid " What data do we collect?"
+msgstr ""
+
+#. translators: %s: agent name
+#: includes/udp/init.php:99
+msgid "%s is asking to allow tracking your non-sensitive WordPress data?"
+msgstr ""
+
+#: includes/udp/init.php:107
+msgid "Allow"
+msgstr ""
+
+#: includes/udp/init.php:114
+msgid "Do not show again"
+msgstr ""
+
+#: includes/udp/init.php:121
+msgid "Later"
+msgstr ""
+
+#: public/class-simple-gdpr-cookie-compliance-public.php:151
 msgid "Notice regarding cookie compliance is not set. Go to %s to set the notice."
 msgstr ""
 
-#: public/class-simple-gdpr-cookie-compliance-public.php:144
+#: public/class-simple-gdpr-cookie-compliance-public.php:151
 msgid "Dashboard > Simple GDPR"
 msgstr ""
