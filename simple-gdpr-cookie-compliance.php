@@ -1,10 +1,15 @@
 <?php
-
 /**
+ * Simple GDPR Cookie Compliance
+ *
+ * @link              https://themebeez.com/
+ * @since             1.0.0
+ * @package           Simple_GDPR_Cookie_Compliance
+ *
  * Plugin Name:       Simple GDPR Cookie Compliance
  * Plugin URI:        https://themebeez.com/plugins/simple-gdpr-cookie-compliance
  * Description:       Simple GDPR Cookie Compliance is a simple notifier to inform users that your site uses of cookies and show your complies with EU GDPR cookie law and CCPA regulations.
- * Version:           1.1.2
+ * Version:           1.1.3
  * Author:            themebeez
  * Author URI:        https://themebeez.com/
  * License:           GPL-2.0+
@@ -23,7 +28,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'SIMPLE_GDPR_COOKIE_COMPLIANCE_VERSION', '1.1.2' );
+define( 'SIMPLE_GDPR_COOKIE_COMPLIANCE_VERSION', '1.1.3' );
 define( 'SIMPLE_GDPR_COOKIE_COMPLIANCE_BASENAME', plugin_basename( __FILE__ ) );
 
 /**
@@ -35,8 +40,8 @@ function activate_simple_gdpr_cookie_compliance() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-simple-gdpr-cookie-compliance-activator.php';
 
 	$activator = new Simple_GDPR_Cookie_Compliance_Activator();
-	
-	$activator -> activate();
+
+	$activator->activate();
 }
 
 /**
@@ -46,7 +51,7 @@ function activate_simple_gdpr_cookie_compliance() {
 function deactivate_simple_gdpr_cookie_compliance() {
 
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-simple-gdpr-cookie-compliance-deactivator.php';
-	
+
 	Simple_GDPR_Cookie_Compliance_Deactivator::deactivate();
 }
 
@@ -68,9 +73,9 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-simple-gdpr-cookie-complia
  *
  * @since    1.0.0
  */
-function run_simple_gdpr_cookie_compliance() {
+function simple_gdpr_cookie_compliance_start() {
 
 	$plugin = new Simple_GDPR_Cookie_Compliance();
 	$plugin->run();
 }
-run_simple_gdpr_cookie_compliance();
+simple_gdpr_cookie_compliance_start();
