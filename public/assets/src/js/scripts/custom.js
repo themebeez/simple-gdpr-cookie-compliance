@@ -10,6 +10,14 @@
 const bgOverlayEle = document.getElementById('s-gdpr-c-c-bg-overlay');
 const cookieName = 's_gdpr_c_c_cookie';
 
+
+/**
+*
+* Check if the browser supports cookies.
+* If browser doesn't support cookies, we don't need to display the notice.
+*/
+
+
 /**
 *
 * Set cookie with name, value and expiration time in days.
@@ -20,13 +28,37 @@ const cookieName = 's_gdpr_c_c_cookie';
 * @since: 1.1.4
 */
 
-const setCookie = (name, value, days) => {
+const setCookie = (name, value, expires = 0) => {
 
-    const date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    const expires = `expires=${date.toUTCString()}`;
-    const path = '; path=/';
-    document.cookie = `${name}=${value}; ${expires}${path}`;
+    let todayDate = new Date();
+    let expireDate = new Date();
+    let cookieDefinition = '';
+
+    if (expires > 0) {
+
+        expireDate.setTime(todayDate.getTime() + (expires * 24 * 60 * 60 * 1000));
+        cookieDefinition = name + "=" + value + "; expires=" + expireDate.toUTCString();
+
+    } else {
+
+        cookieDefinition = name + "=" + value;
+    }
+
+    if (simpleGDPRCCJsObj.isMultisite == '1') {
+
+        if (simpleGDPRCCJsObj.subdomainInstall !== '1') {
+
+            cookieDefinition += "; path=" + simpleGDPRCCJsObj.path;
+
+        } else {
+
+            cookieDefinition += "; path=/";
+        }
+    }
+
+    // Set the cookie.
+    document.cookie = cookieDefinition;
+
 };
 
 
@@ -79,6 +111,7 @@ const closeNotice = () => {
         closeBtn.addEventListener('click', (e) => {
 
             e.preventDefault();
+
             const mainWrapper = document.querySelector('.sgcc-main-wrapper');
             mainWrapper.classList.add('hidden');
 
@@ -102,13 +135,14 @@ const acceptCookie = () => {
 
     const cookieExpireDays = parseInt(simpleGDPRCCJsObj.cookieExpireTime);
 
-    const acceptBtn = document.querySelector('#sgcc-accept');
+    const acceptBtn = document.getElementById('sgcc-accept');
 
     if (acceptBtn) {
 
         acceptBtn.addEventListener('click', (e) => {
 
             e.preventDefault();
+
             setCookie(cookieName, 'on', cookieExpireDays);
 
             const mainWrapper = document.querySelector('.sgcc-main-wrapper');
@@ -137,7 +171,24 @@ const acceptCookie = () => {
 
 const showNotice = () => {
 
+    const mainWrapper = document.querySelector('.sgcc-main-wrapper');
     const isCookieSet = getCookie(cookieName) === 'on';
+
+    // If the browser doesn't support cookies, do not display the notice.
+    if (navigator.cookieEnabled === false) {
+
+        if (mainWrapper) {
+
+            mainWrapper.classList.add('hidden');
+        }
+
+        if (bgOverlayEle) {
+
+            bgOverlayEle.style.display = 'none';
+        }
+
+        return;
+    }
 
     if ((isCookieSet === undefined) || (isCookieSet === null) || (isCookieSet === '')) {
 
@@ -145,8 +196,6 @@ const showNotice = () => {
         console.log('Simple GDPR Cookie Consent: Cookie is not set!!!');
 
     } else {
-
-        const mainWrapper = document.querySelector('.sgcc-main-wrapper');
 
         mainWrapper.classList.toggle('hidden', isCookieSet);
     }
