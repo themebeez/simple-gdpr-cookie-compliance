@@ -107,7 +107,7 @@ class Simple_GDPR_Cookie_Compliance_Public {
 		wp_register_script(
 			$this->plugin_name,
 			plugin_dir_url( __FILE__ ) . 'assets/build/js/simple-gdpr-cookie-compliance-public.js',
-			array( 'jquery' ),
+			array(),
 			$this->version,
 			true
 		);
