@@ -143,7 +143,6 @@ const acceptCookie = () => {
 
             e.preventDefault();
 
-            console.log('=> Invoking funciton setCookie()...');
             setCookie(cookieName, 'on', cookieExpireDays);
 
             const mainWrapper = document.querySelector('.sgcc-main-wrapper');
