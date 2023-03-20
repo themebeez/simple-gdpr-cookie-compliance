@@ -6,7 +6,7 @@ Tags: gdpr, cookie, cookies, notice, notification, notify, notifier, gdpr compli
 Requires at least: 5.0.0
 Tested up to: 6.1.1
 Requires PHP: 7.0.0
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,10 @@ Yes, we do. Kindly visit us at [support page](https://themebeez.com/support-foru
 
 
 == Changelog ==
+
+= 1.1.4 - 20 March, 2023 =
+
+- Tweak: Public custom JavaScript. Converted jQuery code to vanilla JavaScript.
 
 = 1.1.3 - 07 March, 2023 =
 
