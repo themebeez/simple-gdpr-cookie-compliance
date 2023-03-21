@@ -81,7 +81,7 @@ Yes, we do. Kindly visit us at [support page](https://themebeez.com/support-foru
 
 == Changelog ==
 
-= 1.1.4 - 20 March, 2023 =
+= 1.1.4 - 21 March, 2023 =
 
 - Tweak: Public custom JavaScript. Converted jQuery code to vanilla JavaScript.
 
