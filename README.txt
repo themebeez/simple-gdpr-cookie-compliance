@@ -81,10 +81,9 @@ Yes, we do. Kindly visit us at [support page](https://themebeez.com/support-foru
 
 == Changelog ==
 
-= 1.1.5 - 20 April, 2023 =
+= 1.1.5 - 21 April, 2023 =
 
 - Fix: Wrong cookie path while accepting cookie notice #43
-
 
 = 1.1.4 - 21 March, 2023 =
 
