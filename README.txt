@@ -3,10 +3,10 @@
 Contributors: themebeez, addonify
 Donate link: https://themebeez.com/
 Tags: gdpr, cookie, cookies, notice, notification, notify, notifier, gdpr compliance, privacy, privacy directive, cookie notice, simple notice, cookie compliance
-Requires at least: 5.0.0
-Tested up to: 6.1.1
-Requires PHP: 7.0.0
-Stable tag: 1.1.5
+Requires at least: 6.0.0
+Tested up to: 6.3.0
+Requires PHP: 7.4.0
+Stable tag: 1.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,11 @@ Yes, we do. Kindly visit us at [support page](https://themebeez.com/support-foru
 
 
 == Changelog ==
+
+= 1.1.6 - 14 August, 2023 =
+
+- Tested: WordPress version 6.3.0
+- Updated: POT file.
 
 = 1.1.5 - 21 April, 2023 =
 
