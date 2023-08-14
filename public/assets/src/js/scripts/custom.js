@@ -7,16 +7,8 @@
 * @since: 1.1.4
 */
 
-const bgOverlayEle = document.getElementById('s-gdpr-c-c-bg-overlay');
 const cookieName = 's_gdpr_c_c_cookie';
-
-
-/**
-*
-* Check if the browser supports cookies.
-* If browser doesn't support cookies, we don't need to display the notice.
-*/
-
+const bgOverlayEle = document.getElementById('s-gdpr-c-c-bg-overlay');
 
 /**
 *
@@ -44,13 +36,44 @@ const setCookie = (name, value, expires = 0) => {
         cookieDefinition = name + "=" + value;
     }
 
-    if (simpleGDPRCCJsObj.isMultisite == '1') {
+    /**
+    *
+    * Check if the site is a multisite before setting the cookie path.
+    * Set the cookie path conditionally.
+    * 
+    * @since: 1.1.5
+    */
+
+    if (simpleGDPRCCJsObj.isMultisite !== '1') {
+
+        cookieDefinition += "; path=/";
+
+    } else {
+
+        /**
+        *
+        * Case: It's a multisite.
+        * Multiple can be installed in subdirectory or subdomain.
+        *
+        */
 
         if (simpleGDPRCCJsObj.subdomainInstall !== '1') {
+
+            /**
+            *
+            * Case: It's a sub-directory installed multisite.
+            *
+            */
 
             cookieDefinition += "; path=" + simpleGDPRCCJsObj.path;
 
         } else {
+
+            /**
+            *
+            * Case: It's a subdomain installed multisite.
+            *
+            */
 
             cookieDefinition += "; path=/";
         }
@@ -58,7 +81,6 @@ const setCookie = (name, value, expires = 0) => {
 
     // Set the cookie.
     document.cookie = cookieDefinition;
-
 };
 
 
