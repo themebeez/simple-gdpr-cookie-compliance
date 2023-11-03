@@ -1,26 +1,28 @@
 === Simple GDPR Cookie Compliance ===
 
 Contributors: themebeez, addonify
-Donate link: https://themebeez.com/
+Donate link: https://creamcode.org/contact
 Tags: gdpr, cookie, cookies, notice, notification, notify, notifier, gdpr compliance, privacy, privacy directive, cookie notice, simple notice, cookie compliance
 Requires at least: 6.0.0
-Tested up to: 6.3.0
+Tested up to: 6.4.0
 Requires PHP: 7.4.0
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Simple GDPR Cookie Compliance is a simple notifier to inform users that your site uses of cookies and show your complies with EU GDPR cookie law and CCPA regulations.
+Simple GDPR Cookie Compliance is a simple plugin that helps to display cookie notice on your WordPress website.
 
 
 == Description ==
 
-Simple GDPR Cookie Compliance is a simple notifier to inform users that your site uses of cookies and show your complies with EU GDPR cookie law and CCPA regulations.
+Simple GDPR Cookie Compliance is a simple plugin that helps to display cookie notice on your WordPress website. It helps to show your complies with EU GDPR cookie law and CCPA regulations. It is a lightweight plugin that comes with three different layouts. 
 
-Note: Installing this plugin alone does not make your site GDPR compliant. Since each site uses different cookies, you may need to ensure you have necessary configurations in place.
+> *Simple yet powerful plugin. Display cookie notice with just in few clicks. Adds just 2KB of pure vanilla JavaScript!* 
+
+💁 Note: Installing this plugin alone does not make your site GDPR compliant. Since each site uses different cookies, you may need to ensure you have necessary configurations in place.
 
 
-== Main Features ==
+== 🦄 Main Features ==
 
 * Simple & light-weight.
 * Three different layouts.
@@ -40,25 +42,36 @@ Note: Installing this plugin alone does not make your site GDPR compliant. Since
 * Click on Add New button
 * On search field, type "Simple GDPR Cookie Compliance"
 * Once you find the plugin, click on Install Now button
-* After successfull installation of the plugin, click on Activate button to activate plugin
+* After successful installation of the plugin, click on Activate button to activate plugin
 
 
+== 🎭 Get Involved  == 
 
-== Get Involved  == 
-
-* If you're a developer and want to contribute, you can do on [Github repo.](https://github.com/themebeez/simple-gdpr-cookie-compliance).
+* If you're a developer and want to contribute, you can do on [Github](https://github.com/themebeez/simple-gdpr-cookie-compliance).
 * If you love this plugin, and you want the plugin to be translated in your local language. Feel free to contribute on this [translation page](https://translate.wordpress.org/projects/wp-plugins/simple-gdpr-cookie-compliance/) for translation.
-* If you're a user and you need support or find any issues related to the plugin, please raise it on [Github repo.](https://github.com/themebeez/simple-gdpr-cookie-compliance/issues) or post it on [our support forum.](https://themebeez.com/support-forum/simple-gdpr-cookie-compliance-support/)
+* If you're a user and you need support or find any issues related to the plugin, please raise it on [Github](https://github.com/themebeez/simple-gdpr-cookie-compliance/issues) or post it on [our support forum.](https://themebeez.com/support-forum/simple-gdpr-cookie-compliance-support/)
+
+
+== 💰 Financial Contributors & Sponsors == 
+
+Following are the list of financial contributors & sponsors who have contributed to this plugin.
+
+* [Darko Pečanac](http://www.zadarko.hr/)
+
+Become a financial contributor/sponsor and help us sustain Simple GDPR Cookie Compliance plugin. Interested?  Contact us to [Contribute](https://creamcode.org/contact/).
 
 
 == Important Links == 
 
-* Plugin page: [Click here](https://themebeez.com/plugins/simple-gdpr-cookie-compliance)
-* Plugin review/feedback: [Click here](https://wordpress.org/support/plugin/simple-gdpr-cookie-compliance/reviews/)
-* Plugin support/bug report: [Click here](https://themebeez.com/support-forum/simple-gdpr-cookie-compliance-support/)
-
+* Source code - [Github](https://github.com/themebeez/simple-gdpr-cookie-compliance)
+* Feedback - [Here](https://wordpress.org/support/plugin/simple-gdpr-cookie-compliance/reviews/)
+* Report an issue - [Here](https://themebeez.com/support-forum/simple-gdpr-cookie-compliance-support/)
 
 == Frequently Asked Questions ==
+
+= Is this a free plugin? =
+
+Yes, it is. Simple GDPR Cookie Compliance will remain free forever.
 
 = How do I customize my message? =
 
@@ -80,6 +93,11 @@ Yes, we do. Kindly visit us at [support page](https://themebeez.com/support-foru
 
 
 == Changelog ==
+
+= 1.1.7 - 03 November, 2023 =
+
+- Tested: WordPress version 6.4.0
+- Updated: Readme.
 
 = 1.1.6 - 14 August, 2023 =
 
