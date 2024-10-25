@@ -92,7 +92,6 @@ class Simple_GDPR_Cookie_Compliance_Admin {
 				'all'
 			);
 		}
-
 	}
 
 	/**
@@ -124,6 +123,8 @@ class Simple_GDPR_Cookie_Compliance_Admin {
 			)
 		) {
 
+			wp_enqueue_editor();
+
 			wp_enqueue_script( 'wp-color-picker' );
 
 			wp_enqueue_script(
@@ -131,7 +132,7 @@ class Simple_GDPR_Cookie_Compliance_Admin {
 				plugin_dir_url( __FILE__ ) . 'js/wp-color-picker-alpha.js',
 				array( 'jquery', 'wp-color-picker' ),
 				$this->version,
-				false
+				true
 			);
 
 			wp_enqueue_script(
@@ -139,10 +140,9 @@ class Simple_GDPR_Cookie_Compliance_Admin {
 				plugin_dir_url( __FILE__ ) . 'js/simple-gdpr-cookie-compliance-admin.js',
 				array( 'jquery' ),
 				$this->version,
-				false
+				true
 			);
 		}
-
 	}
 
 	/**
@@ -177,12 +177,37 @@ class Simple_GDPR_Cookie_Compliance_Admin {
 	 *
 	 * @since    1.0.4
 	 *
-	 * @param array $actions Actions.
+	 * @param array $links Plugin action links.
+	 * @return array
 	 */
-	public function plugin_page_links( $actions ) {
+	public function plugin_page_links( $links ) {
 
-		$actions[] = '<a href="' . esc_url( admin_url( 'admin.php?page=simple-gdpr-cookie-compliance' ) ) . '">' . esc_html__( 'Settings', 'simple-gdpr-cookie-compliance' ) . '</a>';
+		$action_links = array(
+			'settings' => '<a href="' . esc_url( admin_url( 'admin.php?page=simple-gdpr-cookie-compliance' ) ) . '">' . esc_html__( 'Settings', 'simple-gdpr-cookie-compliance' ) . '</a>',
+		);
 
-		return $actions;
+		return array_merge( $action_links, $links );
+	}
+
+	/**
+	 * Show row meta on the plugin screen.
+	 *
+	 * @param mixed $links Plugin Row Meta.
+	 * @param mixed $file  Plugin Base file.
+	 *
+	 * @return array
+	 */
+	public function plugin_row_meta( $links, $file ) {
+
+		if ( SIMPLE_GDPR_COOKIE_COMPLIANCE_BASENAME !== $file ) {
+			return $links;
+		}
+
+		$row_meta = array(
+			'github'  => '<a href="https://github.com/themebeez/simple-gdpr-cookie-compliance" aria-label="' . esc_attr__( 'View Simple GDPR Cookie Compliance GitHub link', 'simple-gdpr-cookie-compliance' ) . '" target="_blank">' . esc_html__( 'GitHub', 'simple-gdpr-cookie-compliance' ) . '</a>',
+			'support' => '<a href="https://wordpress.org/support/plugin/simple-gdpr-cookie-compliance/" aria-label="' . esc_attr__( 'Visit community forums', 'simple-gdpr-cookie-compliance' ) . '" target="_blank">' . esc_html__( 'Community support', 'simple-gdpr-cookie-compliance' ) . '</a>',
+		);
+
+		return array_merge( $links, $row_meta );
 	}
 }

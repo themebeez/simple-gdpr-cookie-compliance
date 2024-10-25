@@ -162,60 +162,21 @@ class Simple_GDPR_Cookie_Compliance_Public {
 			'notice'            => '',
 			'btn_title'         => '',
 			'show_close_btn'    => false,
-			'link_type'         => 'no_link',
 		);
 
 		if ( is_admin() || current_user_can( 'manage_options' ) ) {
 			$args['notice'] = sprintf(
 				/* translators: %s is link to plugin's setting page*/
 				__( 'Notice regarding cookie compliance is not set. Go to %s to set the notice.', 'simple-gdpr-cookie-compliance' ),
-				'<a href="' . esc_url( admin_url( 'admin.php?page=simple-gdpr-cookie-compliance' ) ) . '">' . __( 'Dashboard > Simple GDPR', 'simple-gdpr-cookie-compliance' ) . '</a>'
+				'<a href="' . esc_url( admin_url( 'admin.php?page=simple-gdpr-cookie-compliance' ) ) . '">' . esc_html__( 'Dashboard > Simple GDPR', 'simple-gdpr-cookie-compliance' ) . '</a>'
 			);
 		} else {
-			$args['notice'] = __( 'Our website uses cookies to provide you the best experience. However, by continuing to use our website, you agree to our use of cookies. For more information, read our <a href="#">Cookie Policy</a>.', 'simple-gdpr-cookie-compliance' );
+			$args['notice'] = esc_html__( 'Our website uses cookies to provide you the best experience. However, by continuing to use our website, you agree to our use of cookies. For more information, read our <a href="#">Cookie Policy</a>.', 'simple-gdpr-cookie-compliance' );
 		}
 
 		if ( $options ) {
 			if ( isset( $options['notice_text'] ) && ! empty( $options['notice_text'] ) ) {
 				$args['notice'] = $options['notice_text'];
-			}
-
-			if ( isset( $options['link']['link_type'] ) ) {
-				$args['link_type'] = $options['link']['link_type'];
-				switch ( $options['link']['link_type'] ) {
-					case 'custom_url':
-						if ( isset( $options['link']['link_title'] ) ) {
-							$args['link_title'] = $options['link']['link_title'];
-						}
-						if ( isset( $options['link']['link_url'] ) ) {
-							$args['link_url'] = $options['link']['link_url'];
-						}
-						if ( isset( $options['link']['before_link'] ) ) {
-							$args['before_link'] = $options['link']['before_link'];
-						}
-						if ( isset( $options['link']['after_link'] ) ) {
-							$args['after_link'] = $options['link']['after_link'];
-						}
-						break;
-					case 'page':
-						if ( isset( $options['link']['page'] ) ) {
-							$args['page_title'] = get_the_title( absint( $options['link']['page'] ) );
-							$args['page_link']  = get_the_permalink( absint( $options['link']['page'] ) );
-						}
-						if ( isset( $options['link']['before_link'] ) ) {
-							$args['before_link'] = $options['link']['before_link'];
-						}
-						if ( isset( $options['link']['after_link'] ) ) {
-							$args['after_link'] = $options['link']['after_link'];
-						}
-						break;
-					default:
-						break;
-				}
-			}
-
-			if ( isset( $options['show_in_new_tab'] ) ) {
-				$args['show_in_new_tab'] = $options['show_in_new_tab'];
 			}
 
 			if ( isset( $options['accept_btn_title'] ) ) {

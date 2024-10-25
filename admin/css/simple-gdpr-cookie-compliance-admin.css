@@ -250,6 +250,10 @@
 	margin: 0;
 }
 
+.sgdpr_label:hover {
+	cursor: pointer;
+}
+
 .sgcc-main-page-wrap form .submit {
 
 	padding: 0;

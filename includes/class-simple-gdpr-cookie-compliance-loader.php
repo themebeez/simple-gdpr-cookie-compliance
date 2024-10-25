@@ -106,7 +106,6 @@ class Simple_GDPR_Cookie_Compliance_Loader {
 		);
 
 		return $hooks;
-
 	}
 
 	/**
