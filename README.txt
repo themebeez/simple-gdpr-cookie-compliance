@@ -94,7 +94,7 @@ Yes, we do. Kindly visit us at [support page](https://themebeez.com/support-foru
 
 == Changelog ==
 
-= 1.1.8 - October, 2024 =
+= 1.1.8 - 29 October, 2024 =
 
 - Added: 'aria-label' property to cookie icon, close button, and accept button for accessibility.
 - Updated: Message textarea field to TinyMCE field.
