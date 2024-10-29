@@ -79,7 +79,6 @@ class Simple_GDPR_Cookie_Compliance {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-
 	}
 
 	/**
@@ -104,37 +103,36 @@ class Simple_GDPR_Cookie_Compliance {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-simple-gdpr-cookie-compliance-loader.php';
+		require_once plugin_dir_path( __DIR__ ) . 'includes/class-simple-gdpr-cookie-compliance-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-simple-gdpr-cookie-compliance-i18n.php';
+		require_once plugin_dir_path( __DIR__ ) . 'includes/class-simple-gdpr-cookie-compliance-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-simple-gdpr-cookie-compliance-admin.php';
+		require_once plugin_dir_path( __DIR__ ) . 'admin/class-simple-gdpr-cookie-compliance-admin.php';
 
 		/**
 		 * The class responsible for defining all settings in plugin page.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-simple-gdpr-cookie-compliance-settings.php';
+		require_once plugin_dir_path( __DIR__ ) . 'admin/class-simple-gdpr-cookie-compliance-settings.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-simple-gdpr-cookie-compliance-public.php';
+		require_once plugin_dir_path( __DIR__ ) . 'public/class-simple-gdpr-cookie-compliance-public.php';
 
 		/**
 		 * Load UDP agent class.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/udp/init.php';
+		require_once plugin_dir_path( __DIR__ ) . 'includes/udp/init.php';
 
 		$this->loader = new Simple_GDPR_Cookie_Compliance_Loader();
-
 	}
 
 	/**
@@ -151,7 +149,6 @@ class Simple_GDPR_Cookie_Compliance {
 		$plugin_i18n = new Simple_GDPR_Cookie_Compliance_i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
-
 	}
 
 	/**
@@ -167,6 +164,8 @@ class Simple_GDPR_Cookie_Compliance {
 
 		$plugin_admin = new Simple_GDPR_Cookie_Compliance_Admin( $this->get_plugin_name(), $this->get_version() );
 
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'plugin_menu' );
+
 		if (
 			'admin.php' === $pagenow &&
 			isset( $_GET['page'] ) && // phpcs:ignore
@@ -176,16 +175,14 @@ class Simple_GDPR_Cookie_Compliance {
 			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		}
 
-		$this->loader->add_action( 'admin_menu', $plugin_admin, 'plugin_menu' );
+		// custom link in plugins.php page in wp-admin.
+		$this->loader->add_filter( 'plugin_action_links_' . SIMPLE_GDPR_COOKIE_COMPLIANCE_BASENAME, $plugin_admin, 'plugin_page_links', 10, 2 );
 
-		$plugin_basename = SIMPLE_GDPR_COOKIE_COMPLIANCE_BASENAME;
-
-		$this->loader->add_filter( "plugin_action_links_{$plugin_basename}", $plugin_admin, 'plugin_page_links' );
+		$this->loader->add_filter( 'plugin_row_meta', $plugin_admin, 'plugin_row_meta', 10, 2 );
 
 		$plugin_options = new Simple_GDPR_Cookie_Compliance_Settings( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_init', $plugin_options, 'register_settings' );
-
 	}
 
 	/**
@@ -246,5 +243,4 @@ class Simple_GDPR_Cookie_Compliance {
 	public function get_version() {
 		return $this->version;
 	}
-
 }

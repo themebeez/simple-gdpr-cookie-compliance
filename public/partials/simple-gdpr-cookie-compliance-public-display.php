@@ -38,7 +38,7 @@ if (
 			)
 		) {
 			?>
-			<span class="cookie-icon"><i class="sgcc sgcc-icon-cookie"></i></span>
+			<span class="cookie-icon"><i class="sgcc sgcc-icon-cookie" aria-label="<?php echo esc_html__( 'Cookie Icon', 'simple-gdpr-cookie-compliance' ); ?>"></i></span>
 			<?php
 		}
 		?>
@@ -57,59 +57,19 @@ if (
 					)
 				) {
 					?>
-					<span class="cookie-icon"><i class="sgcc sgcc-icon-cookie"></i></span>
+					<span class="cookie-icon"><i class="sgcc sgcc-icon-cookie" aria-label="<?php echo esc_html__( 'Cookie Icon', 'simple-gdpr-cookie-compliance' ); ?>"></i></span>
 					<?php
 				}
 				?>
 				<div class="message-block">
-					<p>
-						<?php
-						if (
-							isset( $args['link_type'] ) &&
-							'no_link' === $args['link_type']
-						) {
-							echo wp_kses_post( $args['notice'] );
-						} else {
-							$link_title = '';
-
-							$link_url = '';
-
-							$before_link = isset( $args['before_link'] ) ? esc_html( $args['before_link'] ) : '';
-
-							$after_link = isset( $args['after_link'] ) ? esc_html( $args['after_link'] ) : '';
-
-							if (
-								isset( $args['link_type'] ) &&
-								'custom_url' === $args['link_type']
-							) {
-
-								$link_title = isset( $args['link_title'] ) ? $args['link_title'] : '';
-								$link_url   = isset( $args['link_url'] ) ? $args['link_url'] : '';
-							}
-
-							if (
-								isset( $args['link_type'] ) &&
-								'page' === $args['link_type']
-							) {
-								$link_title = isset( $args['page_title'] ) ? $args['page_title'] : '';
-								$link_url   = isset( $args['page_link'] ) ? $args['page_link'] : '';
-							}
-
-							$message_link  = $before_link . ' ';
-							$message_link .= '<a href="' . esc_url( $link_url ) . '" ' . ( ( isset( $args['show_in_new_tab'] ) && true === $args['show_in_new_tab'] ) ? 'target="_blank"' : 'target="_self"' ) . '>' . esc_html( $link_title ) . ' </a>';
-							$message_link .= ' ' . $after_link;
-
-							echo wp_kses_post( $args['notice'] . ' ' . $message_link );
-						}
-						?>
-					</p>
+					<p><?php echo wp_kses_post( $args['notice'] ); ?></p>
 				</div>
 				<?php
 			}
 			if ( isset( $args['btn_title'] ) && ! empty( $args['btn_title'] ) ) {
 				?>
 				<p class="cookie-compliance-button-block">
-					<button id="sgcc-accept" class="close-sgcc cookie-compliance-button">
+					<button id="sgcc-accept" class="close-sgcc cookie-compliance-button" aria-label="<?php echo esc_html__( 'Accept Cookies', 'simple-gdpr-cookie-compliance' ); ?>">
 						<?php echo esc_html( $args['btn_title'] ); ?>
 					</button>
 				</p>
@@ -123,7 +83,7 @@ if (
 			true === $args['show_close_btn']
 		) {
 			?>
-			<span id="close-sgcc" class="close close-sgcc"><i class="sgcc sgcc-icon-close"></i></span>
+			<span id="close-sgcc" class="close close-sgcc"><i class="sgcc sgcc-icon-close" aria-label="<?php echo esc_html__( 'Close Cookie Compliance Notice', 'simple-gdpr-cookie-compliance' ); ?>"></i></span>
 			<?php
 		}
 		?>
