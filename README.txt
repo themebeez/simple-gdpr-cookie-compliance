@@ -4,9 +4,9 @@ Contributors: themebeez, addonify
 Donate link: https://creamcode.org/contact
 Tags: gdpr, cookie, cookies, notice, notification, notify, notifier, gdpr compliance, privacy, privacy directive, cookie notice, simple notice, cookie compliance
 Requires at least: 6.0.0
-Tested up to: 6.7.1.
+Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.1.10
+Stable tag: 1.1.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -94,13 +94,18 @@ Yes, we do. Kindly visit us at [support page](https://themebeez.com/support-foru
 
 == Changelog ==
 
+= 1.1.11 - 15 January, 2025 =
+
+- Updated: Cookie expire time setting field's description
+- Tested: WordPress version 6.7
+
 = 1.1.10 - 26 December, 2024 =
 
 - Added: Tested and required up-to tag in main class.
 
 = 1.1.9 - 13 December, 2024 =
 
-- Tested: WordPress version 6.7.1.
+- Tested: WordPress version 6.7
 
 = 1.1.8 - 29 October, 2024 =
 

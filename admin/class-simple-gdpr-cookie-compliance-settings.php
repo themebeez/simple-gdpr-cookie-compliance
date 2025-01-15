@@ -195,7 +195,7 @@ class Simple_GDPR_Cookie_Compliance_Settings {
 			<p>
 				<label class="sgdpr_label" for="simple_gdpr_cookie_compliance_options_cookie_expire_time"><?php echo esc_html__( 'Cookie Expire Time', 'simple-gdpr-cookie-compliance' ); ?></label>
 				<input type="number" id="simple_gdpr_cookie_compliance_options_cookie_expire_time" name="simple_gdpr_cookie_compliance_options[cookie_expire_time]" class="s_gdpr_c_n_number" value="<?php echo esc_attr( $cookie_expire_time ); ?>">
-				<small><?php echo esc_html__( 'Once the user clicks on Accept button, cookie notice will disappear. Expire Time sets the time duration for which cookie notice will disappear. Set &quot;0&quot; for SESSION cookie.', 'simple-gdpr-cookie-compliance' ); ?></small>
+				<small><?php echo esc_html__( 'Once the user clicks on Accept button, cookie notice will disappear. Expire Time sets the time duration in days for which cookie notice will disappear. Set &quot;0&quot; for SESSION cookie.', 'simple-gdpr-cookie-compliance' ); ?></small>
 			</p>
 		<?php
 	}
