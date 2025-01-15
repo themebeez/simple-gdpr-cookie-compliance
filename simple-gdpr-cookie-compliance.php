@@ -10,7 +10,7 @@
  * Plugin URI:        https://themebeez.com/plugins/simple-gdpr-cookie-compliance
  * Description:       Simple GDPR Cookie Compliance is a simple plugin that helps to display cookie notice on your WordPress website.
  * Version:           1.1.11
- * Requires at least: 6.0.0
+ * Requires at least: 6.0
  * Requires PHP:      7.4
  * Tested up to:      6.7
  * Author:            themebeez
@@ -19,6 +19,7 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       simple-gdpr-cookie-compliance
  * Domain Path:       /languages
+ * Tags:              cookie notice, GDPR, CCPA, cookie privacy, cookie consent
  */
 
 // If this file is called directly, abort.

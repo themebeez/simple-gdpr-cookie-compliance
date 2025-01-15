@@ -3,7 +3,7 @@
 Contributors: themebeez, addonify
 Donate link: https://creamcode.org/contact
 Tags: gdpr, cookie, cookies, notice, notification, notify, notifier, gdpr compliance, privacy, privacy directive, cookie notice, simple notice, cookie compliance
-Requires at least: 6.0.0
+Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
 Stable tag: 1.1.11
