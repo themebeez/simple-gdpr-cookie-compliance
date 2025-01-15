@@ -120,7 +120,6 @@ msgstr ""
 
 #: admin/class-simple-gdpr-cookie-compliance-settings.php:198
 msgid "Once the user clicks on Accept button, cookie notice will disappear. Expire Time sets the time duration in days for which cookie notice will disappear. Set &quot;0&quot; for SESSION cookie."
-msgstr ""
 
 #: admin/class-simple-gdpr-cookie-compliance-settings.php:230
 msgid "Width Style"
