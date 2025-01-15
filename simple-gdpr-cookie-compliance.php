@@ -12,13 +12,14 @@
  * Version:           1.1.11
  * Requires at least: 5.6
  * Requires PHP:      7.4
- * Tested up to:      6.7.1
+ * Tested up to:      6.7
  * Author:            themebeez
  * Author URI:        https://themebeez.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       simple-gdpr-cookie-compliance
  * Domain Path:       /languages
+ * Tags:              cookie notice, GDPR, CCPA, cookie privacy, cookie consent
  */
 
 // If this file is called directly, abort.
