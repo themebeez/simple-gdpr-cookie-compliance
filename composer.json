@@ -1,0 +1,5 @@
+{
+    "require": {
+        "kucrut/vite-for-wp": "^0.10.0"
+    }
+}

@@ -1,0 +1,29 @@
+{
+	/* Visit https://aka.ms/tsconfig to read more about this file */
+	"compilerOptions": {
+		"jsx": "react",
+		"target": "ESNext",
+		"esModuleInterop": true,
+		"strict": true /* Enable all strict type-checking options. */,
+		"noEmit": true,
+		"skipLibCheck": true /* Skip type checking all .d.ts files. */,
+		"moduleResolution": "node",
+		"allowSyntheticDefaultImports": true,
+		"incremental": true,
+		"resolveJsonModule": true,
+		"allowJs": true,
+		"paths": {
+			"@/*": ["./app/src/*"]
+		}
+	},
+	"exclude": ["node_modules"],
+	"include": [
+		"**/*.ts",
+		"**/*.tsx",
+		"**/*.d.ts",
+		"vite.config.ts",
+		"tailwind.config.ts",
+		"postcss.config.cts",
+		"app/src/stores/options.ts"
+	]
+}

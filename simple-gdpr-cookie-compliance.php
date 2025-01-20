@@ -41,6 +41,9 @@ define( 'SIMPLE_GDPR_COOKIE_COMPLIANCE_BASENAME', plugin_basename( __FILE__ ) );
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-simple-gdpr-cookie-compliance.php';
 
+require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+
+require plugin_dir_path( __FILE__ ) . 'app.php';
 /**
  * Begins execution of the plugin.
  *
