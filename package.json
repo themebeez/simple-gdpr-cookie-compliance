@@ -12,6 +12,7 @@
 	},
 	"dependencies": {
 		"@fontsource-variable/inter": "^5.1.1",
+		"@wordpress/i18n": "^5.16.0",
 		"lucide-react": "^0.473.0",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
