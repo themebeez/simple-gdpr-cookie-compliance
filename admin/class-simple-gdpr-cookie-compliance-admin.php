@@ -60,18 +60,6 @@ class Simple_GDPR_Cookie_Compliance_Admin {
 	 */
 	public function enqueue_styles() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Simple_GDPR_Cookie_Compliance_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Simple_GDPR_Cookie_Compliance_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
 		global $pagenow;
 
 		if (
@@ -92,6 +80,17 @@ class Simple_GDPR_Cookie_Compliance_Admin {
 				'all'
 			);
 		}
+
+		if (
+			'admin.php' === $pagenow &&
+			(
+				isset( $_GET['page'] ) && // phpcs:ignore
+				'simple-gdpr-cookie-compliance-v2' == sanitize_text_field( wp_unslash( $_GET['page'] ) ) // phpcs:ignore
+			)
+		) {
+
+			//require_once plugin_dir_path( __FILE__ ) . 'app.php';
+		}
 	}
 
 	/**
@@ -100,18 +99,6 @@ class Simple_GDPR_Cookie_Compliance_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Simple_GDPR_Cookie_Compliance_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Simple_GDPR_Cookie_Compliance_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
 
 		global $pagenow;
 
@@ -160,6 +147,15 @@ class Simple_GDPR_Cookie_Compliance_Admin {
 			array( $this, 'plugin_page' ),
 			'dashicons-lock'
 		);
+
+		add_menu_page(
+			esc_html__( 'Simple GDPR Cookie Compliance', 'simple-gdpr-cookie-compliance' ),
+			esc_html__( 'Simple V2', 'simple-gdpr-cookie-compliance' ),
+			'manage_options',
+			'simple-gdpr-cookie-compliance-v2',
+			array( $this, 'plugin_page' ),
+			'dashicons-lock'
+		);
 	}
 
 	/**
@@ -169,7 +165,29 @@ class Simple_GDPR_Cookie_Compliance_Admin {
 	 */
 	public function plugin_page() {
 
-		require_once plugin_dir_path( __FILE__ ) . 'partials/simple-gdpr-cookie-compliance-admin-page.php';
+		global $pagenow;
+
+		if (
+			'admin.php' === $pagenow &&
+			(
+				isset( $_GET['page'] ) && // phpcs:ignore
+				'simple-gdpr-cookie-compliance' == sanitize_text_field( wp_unslash( $_GET['page'] ) ) // phpcs:ignore
+			)
+		) {
+			require_once plugin_dir_path( __FILE__ ) . 'partials/simple-gdpr-cookie-compliance-admin-page.php';
+		}
+
+		if (
+			'admin.php' === $pagenow &&
+			(
+				isset( $_GET['page'] ) && // phpcs:ignore
+				'simple-gdpr-cookie-compliance-v2' == sanitize_text_field( wp_unslash( $_GET['page'] ) ) // phpcs:ignore
+			)
+		) {
+			?>
+			<div id="simple-gdpr-cookie-compliance-app"></div>
+			<?php
+		}
 	}
 
 	/**
