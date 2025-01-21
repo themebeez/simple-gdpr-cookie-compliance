@@ -29,3 +29,9 @@ html {
 #simple-gdpr-cookie-compliance-app * {
 	@apply antialiased box-border;
 }
+
+@layer base {
+  :root {
+		--radius: 0.5rem;
+	}
+}

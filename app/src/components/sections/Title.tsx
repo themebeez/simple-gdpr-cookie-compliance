@@ -4,14 +4,14 @@ import { ChevronRight } from "lucide-react";
 
 interface Props {
 	title: string;
-	link?: string;
+	link?: string | undefined;
 }
 
 export default function SectionTitle({ title, link }: Props) {
 	const linkToDoc = link || "https://docs.addonify.com";
 
 	return (
-		<div className="pb-4 mb-8 w-full flex flex-row items-center justify-between border-b border-gray-200">
+		<div className="pb-4 w-full flex flex-row items-center justify-between border-b border-gray-200">
 			<div className="flex-basis-0">
 				<h3 className="p-0 m-0 flex font-sans text-xl font-medium text-gray-800">
 					{title}

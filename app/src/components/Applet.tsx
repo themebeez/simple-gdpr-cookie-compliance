@@ -1,10 +1,20 @@
-import React from "react";
+import Options from "@/options.json";
+import React, { useEffect } from "react";
+import { useOptions } from "@/stores/options";
 
 import Box from "@/components/sections/Box";
 import Help from "@/components/widgets/Help";
 import Container from "@/components/Container";
+import Skeleton from "@/components/global/Skeleton";
 
 export default function Applet() {
+	const { values, sections } = Options;
+
+	useEffect(() => {
+		useOptions.setState({ data: values });
+		useOptions.setState({ options: sections as any });
+	}, []);
+
 	return (
 		<Container className="mt-[140px]">
 			<Branding />
@@ -12,7 +22,8 @@ export default function Applet() {
 				id="Applet"
 				className="mt-10 w-full flex items-stretch justify-between relative"
 			>
-				<Content />
+				{sections ? <Content /> : <Skeleton />}
+
 				<Sidebar />
 			</main>
 		</Container>
@@ -30,10 +41,15 @@ const Branding = () => {
 };
 
 const Content = () => {
+	const sections = useOptions((state) => state.options);
+
 	return (
-		<>
-			<Box />
-		</>
+		<aside className="w-full flex flex-col gap-12">
+			{sections &&
+				Object.entries(sections).map(([k, section], index) => (
+					<Box key={k} section={k} />
+				))}
+		</aside>
 	);
 };
 
