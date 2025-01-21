@@ -13,7 +13,7 @@ export default function SectionTitle({ title, link }: Props) {
 	return (
 		<div className="pb-4 w-full flex flex-row items-center justify-between border-b border-gray-200">
 			<div className="flex-basis-0">
-				<h3 className="p-0 m-0 flex font-sans text-xl font-medium text-gray-800">
+				<h3 className="p-0 m-0 flex font-sans text-lg font-medium text-gray-800">
 					{title}
 				</h3>
 			</div>

@@ -18,7 +18,7 @@ export default function SectionBox({ section }: Props) {
 	const sec = state[k] as Section;
 
 	return (
-		<section className="m-0 p-8 w-full min-h-[600px] flex flex-col gap-8 relative bg-white rounded-2xl shadow-[0_10px_40px_10px_rgba(0,0,0,0.08)]">
+		<section className="m-0 p-8 w-full min-h-[300px] flex flex-col gap-8 relative bg-white rounded-2xl shadow-[0_10px_40px_10px_rgba(0,0,0,0.08)]">
 			<Title title={sec.section_title} link={sec.doc_link} />
 
 			<div className="options w-full flex flex-col gap-6">
