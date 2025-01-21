@@ -1,0 +1,152 @@
+{
+	"status": true,
+	"values": {
+		"enable_plugin": true,
+		"notice_content": "<p>Elementor Extras is a premium plugin that extends the functionality of Elementor. It is developed by <a href=\"https://www.wpmet.com/\" target=\"_blank\">WP Met</a>.</p>",
+		"cookie_expiry": 1,
+		"accept_button_label": "Accept",
+		"display_close_button": false,
+		"display_cookie_icon": true,
+		"layout": "bar",
+		"notice_background_color": "#fde047",
+		"cookie_icon_color": "#1f2937",
+		"text_color": "#1f2937",
+		"link_color": "#3f3f46",
+		"link_hover_color": "#1f2937",
+		"accept_button_background_color": "#1f2937",
+		"accept_button_hover_background_color": "#3f3f46",
+		"accept_button_label_color": "#FFFFFF",
+		"accept_button_hover_label_color": "#FFFFFF",
+		"accept_button_border_color": "rgba(255, 255, 255, 0)",
+		"accept_button_hover_border_color": "rgba(255, 255, 255, 0)",
+		"close_button_background_color": "#3f3f46",
+		"close_button_hover_background_color": "#1f2937",
+		"close_button_label_color": "#FFFFFF",
+		"close_button_hover_label_color": "#FFFFFF",
+		"custom_css": ""
+	},
+	"sections": {
+		"basic": {
+			"section_title": "Basic options",
+			"doc_link": "https://docs.addonify.com",
+			"fields": {
+				"enable_plugin": {
+					"type": "switch",
+					"label": "Enable cookie notice",
+					"description": "Enable this option to activate cookie notice."
+				},
+				"cookie_expiry": {
+					"type": "number",
+					"label": "Cookie expiry duration",
+					"unit": "days",
+					"description": "Set how long the notice should be hidden after the user accepts it. Set to 0 to show the notice every time the page is loaded."
+				},
+				"notice_content": {
+					"type": "editor",
+					"label": "Cookie notice message",
+					"description": "Actual content of the notice."
+				},
+				"display_cookie_icon": {
+					"type": "switch",
+					"label": "Display cookie icon in the notice"
+				}
+			}
+		},
+		"layout": {
+			"section_title": "Layout options",
+			"fields": {
+				"layout": {
+					"type": "radio",
+					"label": "Notice layout",
+					"description": "Choose how should the notice be look on the website.",
+					"full_width": true
+				},
+				"notice_background_color": {
+					"type": "color",
+					"label": "Notice background color"
+				},
+				"cookie_icon_color": {
+					"type": "color",
+					"label": "Cookie icon color"
+				},
+				"text_color": {
+					"type": "color",
+					"label": "Text color inside the notice"
+				},
+				"link_color": {
+					"type": "color",
+					"label": "Link color inside the notice"
+				},
+				"link_hover_color": {
+					"type": "color",
+					"label": "Link color on hover inside the notice"
+				}
+			}
+		},
+		"buttons": {
+			"section_title": "Button options",
+			"fields": {
+				"accept_button_label": {
+					"type": "text",
+					"label": "Accept button label"
+				},
+				"display_close_button": {
+					"type": "switch",
+					"label": "Display close button"
+				},
+				"accept_button_background_color": {
+					"type": "color",
+					"label": "Accept button background color"
+				},
+				"accept_button_hover_background_color": {
+					"type": "color",
+					"label": "Accept button background color on hover"
+				},
+				"accept_button_label_color": {
+					"type": "color",
+					"label": "Accept button label color"
+				},
+				"accept_button_hover_label_color": {
+					"type": "color",
+					"label": "Accept button label color on hover"
+				},
+				"accept_button_border_color": {
+					"type": "color",
+					"label": "Accept button border color"
+				},
+				"accept_button_hover_border_color": {
+					"type": "color",
+					"label": "Accept button border color on hover"
+				},
+				"close_button_background_color": {
+					"type": "color",
+					"label": "Close button background color"
+				},
+				"close_button_hover_background_color": {
+					"type": "color",
+					"label": "Close button background color on hover"
+				},
+				"close_button_label_color": {
+					"type": "color",
+					"label": "Close button label color"
+				},
+				"close_button_hover_label_color": {
+					"type": "color",
+					"label": "Close button label color on hover"
+				}
+			}
+		},
+		"developer": {
+			"section_title": "Developer",
+			"fields": {
+				"custom_css": {
+					"type": "textarea",
+					"label": "Custom CSS",
+					"description": "Add your custom CSS below if you want to style the notice further.",
+					"placeholder": ".app { background-color: #fde047; }",
+					"full_width": true
+				}
+			}
+		}
+	}
+}
