@@ -7,8 +7,9 @@
 		"accept_button_label": "Accept",
 		"display_close_button": false,
 		"display_cookie_icon": true,
-		"layout": "bar",
+		"layout": "full_width",
 		"popup_width": 450,
+		"enable_background_overlay": true,
 		"notice_background_color": "#fde047",
 		"cookie_icon_color": "#1f2937",
 		"text_color": "#1f2937",
@@ -66,7 +67,7 @@
 					"full_width": true,
 					"choices": {
 						"custom": "Custom width",
-						"bar": "Bar",
+						"full_width": "Full width bar",
 						"popup": "Popup"
 					}
 				},
@@ -78,9 +79,17 @@
 					"max": 1400,
 					"step": 5,
 					"description": "Specify the width of the popup notice in pixels.",
-					"dependent": [
-						"layout"
-					]
+					"dependent": {
+						"layout": "popup"
+					}
+				},
+				"enable_background_overlay": {
+					"type": "switch",
+					"label": "Enable overlay mask background",
+					"description": "Mask is a background color that is visible below the popup notice.",
+					"dependent": {
+						"layout": "popup"
+					}
 				},
 				"notice_background_color": {
 					"type": "color",

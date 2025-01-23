@@ -88,8 +88,6 @@ export default function RadioControl({ k, field }: Props) {
 
 		const input = parseInt(val) || min;
 
-		console.log(input);
-
 		switch (true) {
 			case input < min:
 				update(min);
@@ -109,7 +107,7 @@ export default function RadioControl({ k, field }: Props) {
 				<div>
 					<span className="ps-2 block text-xs text-gray-500">{field.unit}</span>
 					<input
-						type="text"
+						type="number"
 						value={value}
 						onChange={(e) => handleChange(e.target.value)}
 						min={field?.min || 0}

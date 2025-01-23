@@ -26,6 +26,7 @@ export interface Field {
 	choices?: Record<string, any>;
 	description: string;
 	full_width?: boolean;
+	dependent?: Record<string, any>[];
 }
 
 export interface Fields {
