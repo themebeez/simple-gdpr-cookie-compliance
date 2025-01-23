@@ -8,6 +8,7 @@
 		"display_close_button": false,
 		"display_cookie_icon": true,
 		"layout": "bar",
+		"popup_width": 450,
 		"notice_background_color": "#fde047",
 		"cookie_icon_color": "#1f2937",
 		"text_color": "#1f2937",
@@ -39,6 +40,9 @@
 					"type": "number",
 					"label": "Cookie expiry duration",
 					"unit": "days",
+					"min": 0,
+					"max": 365,
+					"step": 2,
 					"description": "Set how long the notice should be hidden after the user accepts it. Set to 0 to show the notice every time the page is loaded."
 				},
 				"notice_content": {
@@ -59,7 +63,24 @@
 					"type": "radio",
 					"label": "Notice layout",
 					"description": "Choose how should the notice be look on the website.",
-					"full_width": true
+					"full_width": true,
+					"choices": {
+						"custom": "Custom width",
+						"bar": "Bar",
+						"popup": "Popup"
+					}
+				},
+				"popup_width": {
+					"type": "number",
+					"label": "Popup width",
+					"unit": "px",
+					"min": -5,
+					"max": 1400,
+					"step": 5,
+					"description": "Specify the width of the popup notice in pixels.",
+					"dependent": [
+						"layout"
+					]
 				},
 				"notice_background_color": {
 					"type": "color",

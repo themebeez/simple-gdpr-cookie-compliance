@@ -17,21 +17,19 @@ export interface Sections {
 export interface Field {
 	type: any;
 	value: any;
+	unit: string;
 	label: string;
+	min?: number;
+	max?: number;
+	step?: number;
 	placeholder?: string;
-	choices?: Choices;
+	choices?: Record<string, any>;
 	description: string;
 	full_width?: boolean;
 }
 
 export interface Fields {
 	[key: string]: Field[];
-}
-
-interface Choices {
-	[key: string]: {
-		[key: string]: any;
-	};
 }
 
 interface Store {
