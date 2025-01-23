@@ -2,8 +2,10 @@ import React from "react";
 import { cn } from "@/lib/utils";
 
 import Text from "@/components/controls/Text";
+import Radio from "@/components/controls/Radio";
 import Color from "@/components/controls/Color";
 import Switch from "@/components/controls/Switch";
+import Number from "@/components/controls/Number";
 import Textarea from "@/components/controls/Textarea";
 import Label from "@/components/sections/OptionLabel";
 
@@ -31,6 +33,8 @@ export default function Field({ k, field }: Props) {
 				{field.type === "switch" && <Switch k={k} />}
 				{field.type === "text" && <Text k={k} field={field} />}
 				{field.type === "color" && <Color k={k} field={field} />}
+				{field.type === "radio" && <Radio k={k} field={field} />}
+				{field.type === "number" && <Number k={k} field={field} />}
 				{field.type === "textarea" && <Textarea k={k} field={field} />}
 			</div>
 		</div>

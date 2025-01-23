@@ -30,8 +30,16 @@ html {
 	@apply antialiased box-border;
 }
 
+[class*="page_simple-gdpr-cookie-compliance"] input.input-ghost {
+	@apply border-none shadow-none;
+}
+
+[class*="page_simple-gdpr-cookie-compliance"] input.input-ghost:focus {
+	@apply outline-none border-none shadow-none;
+}
+
 @layer base {
-  :root {
+	:root {
 		--radius: 0.5rem;
 	}
 }
