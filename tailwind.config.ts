@@ -11,6 +11,7 @@ export default {
 			fontFamily: {
 				sans: ["Inter Variable", "sans-serif"],
 				system: ["Arial", "Helvetica", "system-ui", "sans-serif"],
+				cursive: ["cursive"],
 				mono: [
 					"Menlo",
 					"Monaco",

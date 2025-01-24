@@ -4,6 +4,7 @@ import { useOptions } from "@/stores/options";
 
 import Box from "@/components/sections/Box";
 import Help from "@/components/widgets/Help";
+import Donation from "@/components/widgets/Donation";
 import Container from "@/components/Container";
 import Skeleton from "@/components/global/Skeleton";
 
@@ -56,6 +57,7 @@ const Content = () => {
 const Sidebar = () => {
 	return (
 		<aside className="ms-12 w-full max-w-[300px] flex flex-col gap-12">
+			<Donation />
 			<Help />
 		</aside>
 	);
