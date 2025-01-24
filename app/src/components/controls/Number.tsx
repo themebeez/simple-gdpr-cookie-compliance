@@ -102,7 +102,7 @@ export default function RadioControl({ k, field }: Props) {
 	};
 
 	return (
-		<div className="py-2 px-3 w-full bg-white border border-gray-200 rounded-xl">
+		<div className="py-2 px-3 w-full max-w-[200px] bg-white border border-gray-200 rounded-xl">
 			<div className="w-full flex justify-between items-center gap-x-3">
 				<div>
 					<span className="ps-2 block text-xs text-gray-500">{field.unit}</span>

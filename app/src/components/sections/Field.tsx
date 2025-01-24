@@ -5,9 +5,11 @@ import { useOptions, type Field } from "@/stores/options";
 import Text from "@/components/controls/Text";
 import Radio from "@/components/controls/Radio";
 import Color from "@/components/controls/Color";
+import Select from "@/components/controls/Select";
 import Switch from "@/components/controls/Switch";
 import Number from "@/components/controls/Number";
 import Textarea from "@/components/controls/Textarea";
+import Position from "@/components/controls/Position";
 import Label from "@/components/sections/OptionLabel";
 
 interface Props {
@@ -35,7 +37,13 @@ export default function Field({ k, field }: Props) {
 
 		const keys = Object.keys(deps);
 
-		const values = Object.values(deps);
+		const values: any[] = Object.values(deps);
+
+		if (Array.isArray(values[0])) {
+			return keys.some((key, i) => {
+				return !values[i].includes(data[key]);
+			});
+		}
 
 		return keys.some((key, i) => {
 			return data[key] !== values[i];
@@ -45,8 +53,8 @@ export default function Field({ k, field }: Props) {
 	return (
 		<div
 			className={cn(
-				`option pb-8 w-full items-center justify-between relative border-b border-dashed border-gray-200 last:border-none last:mb-0 last:pb-0 ${
-					full ? "grid-cols-1" : "grid-cols-2"
+				`option pb-8 w-full items-center justify-between gap-6 relative border-b border-dashed border-gray-200 last:border-none last:mb-0 last:pb-0 ${
+					full ? "grid-cols-1 gap-4" : "grid-cols-2"
 				} ${hidden ? "hidden" : "grid"}`
 			)}
 		>
@@ -58,6 +66,8 @@ export default function Field({ k, field }: Props) {
 				{field.type === "color" && <Color k={k} field={field} />}
 				{field.type === "radio" && <Radio k={k} field={field} />}
 				{field.type === "number" && <Number k={k} field={field} />}
+				{field.type === "select" && <Select k={k} field={field} />}
+				{field.type === "position" && <Position k={k} field={field} />}
 				{field.type === "textarea" && <Textarea k={k} field={field} />}
 			</div>
 		</div>
