@@ -13,7 +13,8 @@
 		"resolveJsonModule": true,
 		"allowJs": true,
 		"paths": {
-			"@/*": ["./app/src/*"]
+			"@/*": ["./app/src/*"],
+			"$public/*": ["./public/assets/src/*"]
 		}
 	},
 	"exclude": ["node_modules"],
@@ -23,7 +24,6 @@
 		"**/*.d.ts",
 		"vite.config.ts",
 		"tailwind.config.ts",
-		"postcss.config.cts",
-		"app/src/stores/options.ts"
+		"postcss.config.cts"
 	]
 }

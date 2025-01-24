@@ -8,6 +8,7 @@ import Color from "@/components/controls/Color";
 import Select from "@/components/controls/Select";
 import Switch from "@/components/controls/Switch";
 import Number from "@/components/controls/Number";
+import Editor from "@/components/controls/Editor";
 import Textarea from "@/components/controls/Textarea";
 import Position from "@/components/controls/Position";
 import Label from "@/components/sections/OptionLabel";
@@ -50,8 +51,19 @@ export default function Field({ k, field }: Props) {
 		});
 	}, [data]);
 
+	/**
+	 * Get the HTML ID of the field.
+	 *
+	 * @returns {string}
+	 * @since 1.0.0
+	 */
+	const getId = (): string => {
+		return "option-" + k.replace("_", "-").trim();
+	};
+
 	return (
 		<div
+			id={getId()}
 			className={cn(
 				`option pb-8 w-full items-center justify-between gap-6 relative border-b border-dashed border-gray-200 last:border-none last:mb-0 last:pb-0 ${
 					full ? "grid-cols-1 gap-4" : "grid-cols-2"
@@ -67,6 +79,7 @@ export default function Field({ k, field }: Props) {
 				{field.type === "radio" && <Radio k={k} field={field} />}
 				{field.type === "number" && <Number k={k} field={field} />}
 				{field.type === "select" && <Select k={k} field={field} />}
+				{field.type === "editor" && <Editor k={k} field={field} />}
 				{field.type === "position" && <Position k={k} field={field} />}
 				{field.type === "textarea" && <Textarea k={k} field={field} />}
 			</div>
