@@ -26,7 +26,7 @@ export default function OptionLabel({ label, description }: Props) {
 								<TooltipTrigger className="text-gray-700 transition-colors duration-300 ease-in-out hover:text-gray-600">
 									<Info size={18} strokeWidth={2} />
 								</TooltipTrigger>
-								<TooltipContent className="inline-flex items-center text-sm bg-zinc-800">
+								<TooltipContent className="inline-flex items-center font-sans text-sm bg-zinc-800">
 									{description}
 								</TooltipContent>
 							</Tooltip>

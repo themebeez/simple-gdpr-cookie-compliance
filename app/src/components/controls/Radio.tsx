@@ -51,7 +51,7 @@ export default function RadioControl({ k, field }: Props) {
 						<RadioGroupItem value={k} id={k} />
 						<label
 							htmlFor={k}
-							className="inline-flex items-center text-[15px] text-gray-700"
+							className="inline-flex items-center text-[15px] text-gray-700 cursor-pointer"
 						>
 							{v}
 						</label>
