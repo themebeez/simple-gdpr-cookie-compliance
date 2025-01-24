@@ -2,7 +2,7 @@
 	"status": true,
 	"values": {
 		"enable_plugin": true,
-		"notice_content": "<p>Elementor Extras is a premium plugin that extends the functionality of Elementor. It is developed by <a href=\"https://www.wpmet.com/\" target=\"_blank\">WP Met</a>.</p>",
+		"notice_content": "<p>Our <strong>website</strong> uses cookies to provide you with the best experience. However, by continuing to use our website, you agree to our use of cookies. For more information, please read our <a href='#'>cookie policy</a>.</p>",
 		"cookie_expiry": 1,
 		"accept_button_label": "Accept",
 		"display_close_button": false,
@@ -14,12 +14,12 @@
 		"full_width_notice_position": "bottom",
 		"custom_width_notice_position": "bottom-right",
 		"custom_width_notice_position_offset": {
-			"top-left-offset": 30,
-			"top-offset": 30,
-			"top-right-offset": 30,
+			"top-left-offset": 31,
+			"top-offset": 32,
+			"top-right-offset": 33,
 			"bottom-left-offset": 30,
-			"bottom-offset": 30,
-			"bottom-right-offset": 30
+			"bottom-offset": 40,
+			"bottom-right-offset": 20
 		},
 		"notice_background_color": "#fde047",
 		"cookie_icon_color": "#1f2937",
@@ -60,7 +60,8 @@
 				"notice_content": {
 					"type": "editor",
 					"label": "Cookie notice message",
-					"description": "Actual content of the notice."
+					"description": "Actual content of the notice.",
+					"full_width": true
 				},
 				"display_cookie_icon": {
 					"type": "switch",
@@ -143,7 +144,7 @@
 				},
 				"custom_width_notice_position_offset": {
 					"type": "position",
-					"label": "Set the position offset",
+					"label": "Notice position offset (in pixels)",
 					"choices": {
 						"top-left-offset": 30,
 						"top-offset": 30,

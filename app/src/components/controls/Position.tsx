@@ -14,28 +14,10 @@ export default function PositionControl({ k, field }: Props) {
 	const choices = field.choices as Record<string, any>;
 
 	/**
-	 * Get the value of the position control.
+	 * Collection of icons for the position control.
 	 *
-	 * @returns {Record<string, number>} The value of the position control.
 	 * @since 1.0.0
 	 */
-	const value = useMemo((): Record<string, number> => {
-		return data[k];
-	}, [data]);
-
-	/**
-	 * Updates the value of the data store.
-	 *
-	 * @param {string} v The new value of the position control.
-	 * @returns {void}
-	 * @since 1.0.0
-	 */
-	const handleChange = (v: string): void => {
-		useOptions.setState((state) => ({
-			data: { ...state.data, [k]: v.trim() },
-		}));
-	};
-
 	const icons: Record<string, string> = {
 		"top-left-offset":
 			'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.3608 10.9468L18.0176 16.6037L16.6034 18.0179L10.9466 12.361L5.99683 17.3108V5.99707H17.3105L12.3608 10.9468Z"></path></svg>',
@@ -51,8 +33,38 @@ export default function PositionControl({ k, field }: Props) {
 			'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.6366 13.0515L5.97974 7.39468L7.39395 5.98047L13.0508 11.6373L18.0006 6.68758V18.0013H6.68684L11.6366 13.0515Z"></path></svg>',
 	};
 
+	/**
+	 * Get the value of the position control.
+	 *
+	 * @returns {Record<string, number>} The value of the position control.
+	 * @since 1.0.0
+	 */
+	const value = useMemo((): Record<string, number> => {
+		return data[k];
+	}, [data]);
+
+	/**
+	 * Updates the value of the data store.
+	 *
+	 * @param {string} kk
+	 * @param {string} v
+	 * @returns {void}
+	 * @since 1.0.0
+	 */
+	const handleChange = (kk: string, v: string): void => {
+		useOptions.setState((state) => ({
+			data: {
+				...state.data,
+				[k]: {
+					...(state.data?.[k] || {}),
+					[kk]: Number(v),
+				},
+			},
+		}));
+	};
+
 	return (
-		<div className="w-full max-w-[250px] grid grid-cols-3 gap-4 items-center">
+		<div className="position-control w-full max-w-[300px] grid grid-cols-3 gap-4 items-center">
 			{Object.entries(choices).map(([k, v]) => (
 				<label key={k} htmlFor={k} className="flex flex-col items-center gap-1">
 					<span
@@ -61,14 +73,14 @@ export default function PositionControl({ k, field }: Props) {
 					/>
 
 					<input
-						disabled={!icons[k]}
-						defaultValue={value[k] || 0}
 						type="number"
 						id={k}
 						name={k}
-						onChange={(e) => handleChange(e.target.value)}
-						className="px-2 py-2 w-20 h-10 text-center !text-base !text-gray-700 border !border-gray-200 !rounded-md !shadow-sm !focus:outline-none !focus:shadow-none !focus:ring-2 !focus:ring-blue-500 !focus:ring-offset-2 disabled:opacity-50"
+						defaultValue={value[k] || 0}
+						disabled={!icons[k] || !icons[k].length}
 						placeholder={v}
+						onChange={(e) => handleChange(k, e.target.value)}
+						className="px-3 py-3 w-20 h-12 inline-flex items-center text-center !text-base !text-gray-700 !border !border-gray-200 !rounded-lg !shadow-sm !focus:outline-none !focus:shadow-none !focus:ring-2 !focus:ring-blue-500 !focus:ring-offset-2 disabled:opacity-50"
 					/>
 				</label>
 			))}

@@ -38,6 +38,17 @@ html {
 	@apply outline-none border-none shadow-none;
 }
 
+/**---------------------------------
+ *  Editor
+ ---------------------------------*/
+.prose p {
+	@apply text-base text-gray-700;
+}
+
+.prose strong {
+	@apply font-bold;
+}
+
 @layer base {
 	:root {
 		--radius: 0.5rem;
