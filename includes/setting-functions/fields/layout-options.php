@@ -60,7 +60,7 @@ if ( ! function_exists( 'simple_gdpr_layout_options' ) ) {
 					'bottom' => __( 'Bottom', 'simple-gdpr-cookie-compliance' ),
 				),
 				'dependent'   => array(
-					'style' => 'full_width',
+					'style' => 'full',
 				),
 			),
 			'notice_bg_overlay_color'             => array(
@@ -114,7 +114,7 @@ if ( ! function_exists( 'simple_gdpr_layout_options' ) ) {
 				'label' => __( 'Link color inside the notice', 'simple-gdpr-cookie-compliance' ),
 				'type'  => 'color',
 			),
-			'notice_link_hover_color'            => array(
+			'notice_link_hover_color'             => array(
 				'label' => __( 'Link hover color inside the notice', 'simple-gdpr-cookie-compliance' ),
 				'type'  => 'color',
 			),
