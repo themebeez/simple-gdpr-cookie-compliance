@@ -16,7 +16,7 @@ export default function PositionControl({ k, field }: Props) {
 	/**
 	 * Collection of icons for the position control.
 	 *
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	const icons: Record<string, string> = {
 		"top-left-offset":
@@ -37,7 +37,7 @@ export default function PositionControl({ k, field }: Props) {
 	 * Get the value of the position control.
 	 *
 	 * @returns {Record<string, number>} The value of the position control.
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	const value = useMemo((): Record<string, number> => {
 		return data[k];
@@ -49,7 +49,7 @@ export default function PositionControl({ k, field }: Props) {
 	 * @param {string} kk
 	 * @param {string} v
 	 * @returns {void}
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	const handleChange = (kk: string, v: string): void => {
 		useOptions.setState((state) => ({

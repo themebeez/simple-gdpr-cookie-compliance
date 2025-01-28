@@ -14,7 +14,7 @@ add_action( 'admin_enqueue_scripts', function ( $handle ): void {
 		'app/src/main.tsx',
 		[
 			'handle' 						=> $handle,
-			'dependencies' 			=> ['wp-api-fetch'],
+			'dependencies' 			=> ['wp-api-fetch', 'lodash'],
 			'css-dependencies' 	=> [],
 			'css-media' 				=> 'all',
 			'css-only' 					=> false,
@@ -24,7 +24,7 @@ add_action( 'admin_enqueue_scripts', function ( $handle ): void {
 
 	wp_localize_script(
 		$handle,
-		'sgccLocal',
+		'simpleGDPRCookieLocal',
 		array(
 			'adminURL'       => admin_url( '/' ),
 			'siteURL'        => site_url( '/' ),

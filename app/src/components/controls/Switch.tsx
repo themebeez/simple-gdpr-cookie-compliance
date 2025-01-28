@@ -14,7 +14,7 @@ export default function SwitchControl({ k }: Props) {
 	 * Get the value of the switch control.
 	 *
 	 * @returns {boolean} The value of the switch control.
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	const value = useMemo(() => {
 		const input = data[k] || false;
@@ -26,7 +26,7 @@ export default function SwitchControl({ k }: Props) {
 	 *
 	 * @param {boolean} v The new value of the switch control.
 	 * @returns {void}
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	const handleChange = (v: boolean): void => {
 		useOptions.setState((state) => ({

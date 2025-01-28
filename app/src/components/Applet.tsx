@@ -1,19 +1,20 @@
-import Options from "@/options.json";
 import React, { useEffect } from "react";
-import { useOptions } from "@/stores/options";
+import { useOptions, getOptions } from "@/stores/options";
 
 import Box from "@/components/sections/Box";
 import Help from "@/components/widgets/Help";
-import Donation from "@/components/widgets/Donation";
 import Container from "@/components/Container";
 import Skeleton from "@/components/global/Skeleton";
+import Donation from "@/components/widgets/Donation";
 
 export default function Applet() {
-	const { values, sections } = Options;
+	const loading = useOptions((state) => state.loading);
 
 	useEffect(() => {
-		useOptions.setState({ data: values });
-		useOptions.setState({ options: sections as any });
+		/**
+		 * Get the options.
+		 */
+		getOptions();
 	}, []);
 
 	return (
@@ -23,7 +24,7 @@ export default function Applet() {
 				id="Applet"
 				className="mt-10 w-full flex items-stretch justify-between relative"
 			>
-				{sections ? <Content /> : <Skeleton />}
+				{!loading ? <Content /> : <Skeleton />}
 
 				<Sidebar />
 			</main>

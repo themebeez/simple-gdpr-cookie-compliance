@@ -36,7 +36,7 @@ export default function EditorControl({ k, field }: Props) {
 	 * Get the value of the position control.
 	 *
 	 * @returns {Record<string, number>} The value of the position control.
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	const content = useMemo((): Record<string, number> => {
 		return data[k];
@@ -47,7 +47,7 @@ export default function EditorControl({ k, field }: Props) {
 	 *
 	 * @param {string} html The new HTML content of the editor.
 	 * @returns {void}
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	const handleChange = (html: string): void => {
 		useOptions.setState((state) => ({
@@ -58,7 +58,7 @@ export default function EditorControl({ k, field }: Props) {
 	/**
 	 * Editor instance.
 	 *
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	let editor = useEditor({
 		editable: true,
@@ -97,7 +97,7 @@ export default function EditorControl({ k, field }: Props) {
 	 * Editor class names.
 	 *
 	 * @returns {string} The class names.
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	const editorClass = useMemo((): string => {
 		const iniClass =
@@ -128,7 +128,7 @@ const Toolbar = ({ editor }: { editor: Editor }) => {
 	 * Function to set the link.
 	 *
 	 * @returns {void}
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	const setLink = (): void => {
 		const link = editor.getAttributes("link").href;
@@ -172,7 +172,7 @@ const Toolbar = ({ editor }: { editor: Editor }) => {
 	 *
 	 * @param {boolean} active
 	 * @returns {string} The class names.
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	const buttonClass = (active: boolean = false): string => {
 		const iniClass =

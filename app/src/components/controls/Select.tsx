@@ -27,7 +27,7 @@ export default function SelectControl({ k, field }: Props) {
 	 * Get the value of the select control
 	 *
 	 * @returns {string} The value of the select control
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	const value = useMemo((): string => {
 		return data[k];
@@ -38,7 +38,7 @@ export default function SelectControl({ k, field }: Props) {
 	 *
 	 * @param {string} v The new value of the select control
 	 * @returns {void}
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	const handleChange = (v: string): void => {
 		useOptions.setState((state) => ({

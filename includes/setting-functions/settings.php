@@ -26,6 +26,7 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_fields_values' ) ) {
 	function simple_gdpr_cookie_compliance_get_fields_values() {
 
 		$settings_default = array(
+			'enable_plugin'                               => true,
 			'notice_text'                                 => __( 'Our website uses cookies to provide you the best experience. However, by continuing to use our website, you agree to our use of cookies. For more information, read our <a href="#">Cookie Policy</a>.', 'simple-gdpr-cookie-compliance' ),
 			'accept_btn_title'                            => __( 'Accept', 'simple-gdpr-cookie-compliance' ),
 			'show_close_btn'                              => true,
@@ -61,7 +62,6 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_fields_values' ) ) {
 			'notice_box_close_btn_hover_text_color'       => '#ffffff',
 			'notice_bg_overlay_color'                     => '#rgba(0,0,0,0.8)',
 			'custom_css'                                  => '',
-
 		);
 
 		$settings_values = array();
@@ -70,7 +70,7 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_fields_values' ) ) {
 
 		if ( $settings_default ) {
 
-			$setting_fields = simple_gdpr_get_fields(); // get all the avaiable settings fields.
+			$setting_fields = simple_gdpr_get_fields(); // get all the available settings fields.
 
 			foreach ( $settings_default as $id => $value ) {
 
@@ -191,11 +191,11 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_settings_sections_fie
 							'fields'        => apply_filters( 'simple_gdpr_basic_option_fields', array() ),
 						),
 						'layout'    => array(
-							'title'  => esc_html__( 'Layout Options', 'simple-gdpr-cookie-compliance' ),
+							'section_title'  => esc_html__( 'Layout Options', 'simple-gdpr-cookie-compliance' ),
 							'fields' => apply_filters( 'simple_gdpr_layout_options', array() ),
 						),
 						'button'    => array(
-							'title'  => esc_html__( 'Button Options', 'simple-gdpr-cookie-compliance' ),
+							'section_title'  => esc_html__( 'Button Options', 'simple-gdpr-cookie-compliance' ),
 							'fields' => apply_filters( 'simple_gdpr_button_options', array() ),
 						),
 						'developer' => array(

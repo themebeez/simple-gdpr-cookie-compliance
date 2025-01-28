@@ -23,7 +23,7 @@ if ( ! function_exists( 'simple_gdpr_layout_options' ) ) {
 				'description' => __( 'Choose how should the notice be look on the website.', 'simple-gdpr-cookie-compliance' ),
 				'full_width'  => true,
 				'choices'     => array(
-					'custom' => __( 'Custom width', 'simple-gdpr-cookie-compliance' ),
+					'custom_width' => __( 'Custom width', 'simple-gdpr-cookie-compliance' ),
 					'full'   => __( 'Full width', 'simple-gdpr-cookie-compliance' ),
 					'popup'  => __( 'Popup', 'simple-gdpr-cookie-compliance' ),
 				),
@@ -73,7 +73,7 @@ if ( ! function_exists( 'simple_gdpr_layout_options' ) ) {
 					'bottom-center' => __( 'Bottom center', 'simple-gdpr-cookie-compliance' ),
 					'bottom-right'  => __( 'Bottom right', 'simple-gdpr-cookie-compliance' ),
 				),
-				'dependent'   => array( 'layout' => 'custom' ),
+				'dependent'   => array( 'layout' => 'custom_width' ),
 			),
 			'custom_width_notice_position_offset' => array(
 				'label'     => __( 'Notice position offset (in pixels)', 'simple-gdpr-cookie-compliance' ),
@@ -82,7 +82,7 @@ if ( ! function_exists( 'simple_gdpr_layout_options' ) ) {
 					'top_offset'    => '30',
 					'right_offset'  => '30',
 					'left_offset'   => '30',
-					'buttom_offset' => '30',
+					'bottom_offset' => '30',
 				),
 				'dependent' => array( 'layout' => 'custom' ),
 			),
