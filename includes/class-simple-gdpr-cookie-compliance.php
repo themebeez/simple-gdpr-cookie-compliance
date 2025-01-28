@@ -127,9 +127,10 @@ class Simple_GDPR_Cookie_Compliance {
 		 * The class responsible for defining REST API for the plugin.
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( __DIR__ ) . 'includes/setting-functions/settings.php';
 
 		require_once plugin_dir_path( __DIR__ ) . 'includes/class-simple-gdpr-cookie-compliance-rest-api.php';
+
+		require_once plugin_dir_path( __DIR__ ) . 'includes/setting-functions/settings.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
