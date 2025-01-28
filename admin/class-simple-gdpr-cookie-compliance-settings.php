@@ -172,11 +172,11 @@ class Simple_GDPR_Cookie_Compliance_Settings {
 			</p>
 
 			<p>
-				<label class="sgdpr_label" for="simple_gdpr_cookie_compliance_options_show_close_btn"><input type="checkbox" id="simple_gdpr_cookie_compliance_options_show_close_btn" name="simple_gdpr_cookie_compliance_options[show_close_btn]" class="s_gdpr_c_c_text" <?php checked( $show_close_btn, true ); ?>><?php esc_html_e( 'Display Close Button', 'simple-gdpr-cookie-compliance' ); ?></label>				
+				<label class="sgdpr_label" for="simple_gdpr_cookie_compliance_options_show_close_btn"><input type="checkbox" id="simple_gdpr_cookie_compliance_options_show_close_btn" name="simple_gdpr_cookie_compliance_options[show_close_btn]" class="s_gdpr_c_c_text" <?php checked( $show_close_btn, true ); ?>><?php esc_html_e( 'Display Close Button', 'simple-gdpr-cookie-compliance' ); ?></label>
 			</p>
 
 			<p>
-				<label class="sgdpr_label" for="simple_gdpr_cookie_compliance_options_show_cookie_icon"><input type="checkbox" id="simple_gdpr_cookie_compliance_options_show_cookie_icon" name="simple_gdpr_cookie_compliance_options[show_cookie_icon]" class="s_gdpr_c_c_text" <?php checked( $show_cookie_icon, true ); ?>><?php esc_html_e( 'Display Cookie Icon', 'simple-gdpr-cookie-compliance' ); ?></label>				
+				<label class="sgdpr_label" for="simple_gdpr_cookie_compliance_options_show_cookie_icon"><input type="checkbox" id="simple_gdpr_cookie_compliance_options_show_cookie_icon" name="simple_gdpr_cookie_compliance_options[show_cookie_icon]" class="s_gdpr_c_c_text" <?php checked( $show_cookie_icon, true ); ?>><?php esc_html_e( 'Display Cookie Icon', 'simple-gdpr-cookie-compliance' ); ?></label>
 			</p>
 		</div>
 		<?php
@@ -305,7 +305,7 @@ class Simple_GDPR_Cookie_Compliance_Settings {
 					<div class="s_gdpr_c_n_group_field" id="s_gdpr_c_n_right_offset_group_field">
 						<label class="sgdpr_label" for="simple_gdpr_cookie_compliance_options_right_offset"><?php echo esc_html__( 'Right Offset (px)', 'simple-gdpr-cookie-compliance' ); ?></label>
 						<input type="number" id="simple_gdpr_cookie_compliance_options_right_offset" name="simple_gdpr_cookie_compliance_options[style][right_offset]" class="s_gdpr_c_n_number" value="<?php echo esc_attr( $right_offset ); ?>">
-					</div>					
+					</div>
 					<div class="s_gdpr_c_n_group_field" id="s_gdpr_c_n_bottom_offset_group_field">
 						<label class="sgdpr_label" for="simple_gdpr_cookie_compliance_options_bottom_offset"><?php echo esc_html__( 'Bottom Offset (px)', 'simple-gdpr-cookie-compliance' ); ?></label>
 						<input type="number" id="simple_gdpr_cookie_compliance_options_bottom_offset" name="simple_gdpr_cookie_compliance_options[style][bottom_offset]" class="s_gdpr_c_n_number" value="<?php echo esc_attr( $bottom_offset ); ?>">
@@ -385,7 +385,7 @@ class Simple_GDPR_Cookie_Compliance_Settings {
 					</div>
 					<div class="s_gdpr_c_n_group_field">
 						<label class="sgdpr_label" for="simple_gdpr_cookie_compliance_options_notice_cookie_icon_color"><?php echo esc_html__( 'Cookie Icon', 'simple-gdpr-cookie-compliance' ); ?></label>
-						<input type="text" id="simple_gdpr_cookie_compliance_options_notice_cookie_icon_color" name="simple_gdpr_cookie_compliance_options[color][notice_cookie_icon_color]" class="s_gdpr_c_n_color" value="<?php echo esc_attr( $notice_cookie_icon_color ); ?>">	
+						<input type="text" id="simple_gdpr_cookie_compliance_options_notice_cookie_icon_color" name="simple_gdpr_cookie_compliance_options[color][notice_cookie_icon_color]" class="s_gdpr_c_n_color" value="<?php echo esc_attr( $notice_cookie_icon_color ); ?>">
 					</div>
 					<div class="s_gdpr_c_n_group_field">
 						<label class="sgdpr_label" for="simple_gdpr_cookie_compliance_options_notice_text"><?php echo esc_html__( 'Text', 'simple-gdpr-cookie-compliance' ); ?></label>
@@ -415,7 +415,7 @@ class Simple_GDPR_Cookie_Compliance_Settings {
 					</div>
 					<div class="s_gdpr_c_n_group_field">
 						<label class="sgdpr_label" for="simple_gdpr_cookie_compliance_options_notice_box_close_btn_text_color"><?php echo esc_html__( 'Text', 'simple-gdpr-cookie-compliance' ); ?></label>
-						<input type="text" id="simple_gdpr_cookie_compliance_options_notice_box_close_btn_text_color" name="simple_gdpr_cookie_compliance_options[color][notice_box_close_btn_text_color]" class="s_gdpr_c_n_color" value="<?php echo esc_attr( $notice_box_close_btn_text_color ); ?>">	
+						<input type="text" id="simple_gdpr_cookie_compliance_options_notice_box_close_btn_text_color" name="simple_gdpr_cookie_compliance_options[color][notice_box_close_btn_text_color]" class="s_gdpr_c_n_color" value="<?php echo esc_attr( $notice_box_close_btn_text_color ); ?>">
 					</div>
 					<div class="s_gdpr_c_n_group_field">
 						<label class="sgdpr_label" for="simple_gdpr_cookie_compliance_options_notice_box_close_btn_hover_text_color"><?php echo esc_html__( 'Text - On Hover', 'simple-gdpr-cookie-compliance' ); ?></label>
@@ -437,7 +437,7 @@ class Simple_GDPR_Cookie_Compliance_Settings {
 					</div>
 					<div class="s_gdpr_c_n_group_field">
 						<label class="sgdpr_label" for="simple_gdpr_cookie_compliance_options_notice_compliance_button_border_color"><?php echo esc_html__( 'Border', 'simple-gdpr-cookie-compliance' ); ?></label>
-						<input type="text" id="simple_gdpr_cookie_compliance_options_notice_compliance_button_border_color" name="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_border_color]" class="s_gdpr_c_n_color" data-alpha-enabled="true" value="<?php echo esc_attr( $notice_compliance_button_border_color ); ?>">	
+						<input type="text" id="simple_gdpr_cookie_compliance_options_notice_compliance_button_border_color" name="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_border_color]" class="s_gdpr_c_n_color" data-alpha-enabled="true" value="<?php echo esc_attr( $notice_compliance_button_border_color ); ?>">
 					</div>
 					<div class="s_gdpr_c_n_group_field">
 						<label class="sgdpr_label" for="simple_gdpr_cookie_compliance_options_notice_compliance_button_hover_border_color"><?php echo esc_html__( 'Border - On Hover', 'simple-gdpr-cookie-compliance' ); ?></label>
@@ -445,7 +445,7 @@ class Simple_GDPR_Cookie_Compliance_Settings {
 					</div>
 					<div class="s_gdpr_c_n_group_field">
 						<label class="sgdpr_label" for="simple_gdpr_cookie_compliance_options_notice_compliance_button_text_color"><?php echo esc_html__( 'Text', 'simple-gdpr-cookie-compliance' ); ?></label>
-						<input type="text" id="simple_gdpr_cookie_compliance_options_notice_compliance_button_text_color" name="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_text_color]" class="s_gdpr_c_n_color" value="<?php echo esc_attr( $notice_compliance_button_text_color ); ?>">	
+						<input type="text" id="simple_gdpr_cookie_compliance_options_notice_compliance_button_text_color" name="simple_gdpr_cookie_compliance_options[color][notice_compliance_button_text_color]" class="s_gdpr_c_n_color" value="<?php echo esc_attr( $notice_compliance_button_text_color ); ?>">
 					</div>
 					<div class="s_gdpr_c_n_group_field">
 						<label class="sgdpr_label" for="simple_gdpr_cookie_compliance_options_notice_compliance_button_hover_text_color"><?php echo esc_html__( 'Text - On Hover', 'simple-gdpr-cookie-compliance' ); ?></label>

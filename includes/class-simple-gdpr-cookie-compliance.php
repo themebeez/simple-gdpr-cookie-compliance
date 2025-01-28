@@ -79,6 +79,18 @@ class Simple_GDPR_Cookie_Compliance {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
+		$this->rest_api();
+	}
+
+	/**
+	 * Register rest api endpoints for admin settings page.
+	 *
+	 * @since    1.1.11
+	 * @access   private
+	 */
+	private function rest_api() {
+
+		$plugin_rest = new Class_Simple_GDPR_Cookie_Compliance_Rest_API();
 	}
 
 	/**
@@ -110,6 +122,14 @@ class Simple_GDPR_Cookie_Compliance {
 		 * of the plugin.
 		 */
 		require_once plugin_dir_path( __DIR__ ) . 'includes/class-simple-gdpr-cookie-compliance-i18n.php';
+
+		/**
+		 * The class responsible for defining REST API for the plugin.
+		 * of the plugin.
+		 */
+		require_once plugin_dir_path( __DIR__ ) . 'includes/setting-functions/settings.php';
+
+		require_once plugin_dir_path( __DIR__ ) . 'includes/class-simple-gdpr-cookie-compliance-rest-api.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
