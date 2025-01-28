@@ -27,4 +27,4 @@ if ( ! function_exists( 'simple_gdpr_developer_options' ) ) {
 		);
 	}
 }
-add_filter( 'simple_ghpr_developer_options', 'simple_gdpr_developer_options' );
+add_filter( 'simple_gdpr_developer_options', 'simple_gdpr_developer_options' );
