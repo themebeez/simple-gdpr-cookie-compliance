@@ -100,13 +100,13 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_fields_values' ) ) {
 							$settings_values[ $id ] = ( '' === $saved_settings[ $id ] ) ? $settings_default[ $id ] : $saved_settings[ $id ];
 							break;
 						case 'position':
-							$settings_values[ $id ]['choices']['top_offset'] = ( isset( $saved_settings['style']['top_offset'] ) && ! empty( $saved_settings['style']['top_offset'] ) ) ? $saved_settings['style']['top_offset'] : $settings_default[ $id ]['top_offset'];
+							$settings_values[ $id ]['top_offset'] = ( isset( $saved_settings['style']['top_offset'] ) && ! empty( $saved_settings['style']['top_offset'] ) ) ? $saved_settings['style']['top_offset'] : $settings_default[ $id ]['top_offset'];
 
-							$settings_values[ $id ]['choices']['right_offset'] = ( isset( $saved_settings['style']['right_offset'] ) && ! empty( $saved_settings['style']['right_offset'] ) ) ? $saved_settings['style']['right_offset'] : $settings_default[ $id ]['right_offset'];
+							$settings_values[ $id ]['right_offset'] = ( isset( $saved_settings['style']['right_offset'] ) && ! empty( $saved_settings['style']['right_offset'] ) ) ? $saved_settings['style']['right_offset'] : $settings_default[ $id ]['right_offset'];
 
-							$settings_values[ $id ]['choices']['bottom_offset'] = ( isset( $saved_settings['style']['bottom_offset'] ) && ! empty( $saved_settings['style']['bottom_offset'] ) ) ? $saved_settings['style']['bottom_offset'] : $settings_default[ $id ]['bottom_offset'];
+							$settings_values[ $id ]['bottom_offset'] = ( isset( $saved_settings['style']['bottom_offset'] ) && ! empty( $saved_settings['style']['bottom_offset'] ) ) ? $saved_settings['style']['bottom_offset'] : $settings_default[ $id ]['bottom_offset'];
 
-							$settings_values[ $id ]['choices']['left_offset'] = ( isset( $saved_settings['style']['left_offset'] ) && ! empty( $saved_settings['style']['left_offset'] ) ) ? $saved_settings['style']['left_offset'] : $settings_default[ $id ]['left_offset'];
+							$settings_values[ $id ]['left_offset'] = ( isset( $saved_settings['style']['left_offset'] ) && ! empty( $saved_settings['style']['left_offset'] ) ) ? $saved_settings['style']['left_offset'] : $settings_default[ $id ]['left_offset'];
 							break;
 
 						case 'select':
@@ -188,7 +188,7 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_settings_sections_fie
 						'basic'     => array(
 							'section_title' => esc_html__( 'Basic Options', 'simple-gdpr-cookie-compliance' ),
 							'doc_link'      => 'https://docs.addonify.com',
-							'feilds'        => apply_filters( 'simple_gdpr_basic_option_feilds', array() ),
+							'fields'        => apply_filters( 'simple_gdpr_basic_option_fields', array() ),
 						),
 						'layout'    => array(
 							'title'  => esc_html__( 'Layout Options', 'simple-gdpr-cookie-compliance' ),
@@ -196,11 +196,11 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_settings_sections_fie
 						),
 						'button'    => array(
 							'title'  => esc_html__( 'Button Options', 'simple-gdpr-cookie-compliance' ),
-							'fields' => apply_filters( 'simple_ghpr_button_options', array() ),
+							'fields' => apply_filters( 'simple_gdpr_button_options', array() ),
 						),
 						'developer' => array(
 							'section_title' => esc_html__( 'Developer', 'simple-gdpr-cookie-compliance' ),
-							'fields'        => apply_filters( 'simple_ghpr_developer_options', array() ),
+							'fields'        => apply_filters( 'simple_gdpr_developer_options', array() ),
 						),
 					)
 				),

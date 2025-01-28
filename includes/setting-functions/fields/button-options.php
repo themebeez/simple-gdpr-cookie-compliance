@@ -68,4 +68,4 @@ if ( ! function_exists( 'simple_gdpr_button_options' ) ) {
 		);
 	}
 }
-add_filter( 'simple_ghpr_button_options', 'simple_gdpr_button_options' );
+add_filter( 'simple_gdpr_button_options', 'simple_gdpr_button_options' );
