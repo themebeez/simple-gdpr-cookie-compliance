@@ -4,9 +4,7 @@ declare global {
 	interface Window {
 		wp: WP;
 		lodash: any;
-		simpleGDPRCookieLocal: {
-			[key: string]: unknown;
-		};
+		simpleGDPRCookieLocal: Record<string, any>;
 	}
 }
 
