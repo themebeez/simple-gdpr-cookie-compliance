@@ -17,7 +17,7 @@ export default function RadioControl({ k, field }: Props) {
 	 * Get the value of the text control.
 	 *
 	 * @returns {string} The value of the text control.
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	const value = useMemo((): string => {
 		return data[k];
@@ -28,7 +28,7 @@ export default function RadioControl({ k, field }: Props) {
 	 *
 	 * @param {number} val The new value of the text control.
 	 * @returns {void}
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	const update = (val: number | string): void => {
 		useOptions.setState((state) => ({
@@ -40,7 +40,7 @@ export default function RadioControl({ k, field }: Props) {
 	 * Increases the value of the text control.
 	 *
 	 * @returns {void}
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	const increase = (): void => {
 		const max = field.max || 1000000000000000;
@@ -59,7 +59,7 @@ export default function RadioControl({ k, field }: Props) {
 	 * Decreases the value of the text control.
 	 *
 	 * @returns {void}
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	const decrease = (): void => {
 		const min = field.min || 0;
@@ -79,7 +79,7 @@ export default function RadioControl({ k, field }: Props) {
 	 *
 	 * @param {string} val The new value of the text control.
 	 * @returns {void}
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	const handleChange = (val: string): void => {
 		const min = field.min || 0;

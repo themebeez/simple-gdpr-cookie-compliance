@@ -29,7 +29,7 @@ export default function Field({ k, field }: Props) {
 	 * Check if the field should be hidden based on the dependent fields.
 	 *
 	 * @returns {boolean} Whether the field should be hidden.
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	const hidden = useMemo((): boolean => {
 		if (!deps || !Object.keys(deps).length) {
@@ -55,7 +55,7 @@ export default function Field({ k, field }: Props) {
 	 * Get the HTML ID of the field.
 	 *
 	 * @returns {string}
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	const getId = (): string => {
 		return "option-" + k.replace("_", "-").trim();
