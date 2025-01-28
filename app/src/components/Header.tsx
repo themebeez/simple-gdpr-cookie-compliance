@@ -7,7 +7,7 @@ import Logo from "@/components/global/Logo";
 
 export default function Header() {
 	return (
-		<header className="px-6 py-4 flex flex-row items-center justify-between gap-5 fixed left-[180px] right-[20px] top-[40px] z-50 bg-white rounded-full shadow-[0_10px_40px_10px_rgba(0,0,0,0.08)]">
+		<header className="px-6 py-4 flex flex-row items-center justify-between gap-5 fixed left-[180px] right-[20px] top-[40px] z-50 bg-white shadow-[0_10px_40px_10px_rgba(0,0,0,0.08)] rounded-full">
 			<LeftContainer />
 			<RightContainer />
 		</header>
@@ -23,7 +23,7 @@ const LeftContainer = () => {
 				<Logo />
 			</div>
 
-			<div className="flex items-center gap-x-1 font-sans font-[200] text-xs text-zinc-800 leading-3 uppercase">
+			<div className="flex items-center gap-x-1 font-sans font-[300] text-xs text-gray-700 leading-3 uppercase">
 				<span className="tracking-[3px]">
 					{__("Addon version:", "simple-gdpr-cookie-compliance")}
 				</span>
@@ -35,7 +35,7 @@ const LeftContainer = () => {
 
 const RightContainer = () => {
 	return (
-		<div className="w-full flex items-center gap-6 justify-end relative">
+		<div className="w-full flex items-center gap-8 justify-end relative">
 			<a
 				target="_blank"
 				href="https://wordpress.org/support/plugin/simple-gdpr-cookie-compliance/reviews/?filter=5"
