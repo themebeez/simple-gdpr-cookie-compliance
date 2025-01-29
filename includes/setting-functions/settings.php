@@ -173,7 +173,7 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_fields_values' ) ) {
 								$settings_values[ $id ] = ( '1' === $saved_settings['style'][ $id ] ) ? true : $settings_default[ $id ];
 								break;
 							}
-							$settings_values[ $id ] = ( '1' === $saved_settings[ $id ] ) ? true : ( ( array_key_exists( $id, $saved_settings ) && false === $saved_settings[ $id ] ) ? false : $settings_default[ $id ] );
+							$settings_values[ $id ] = ( '1' === $saved_settings[ $id ] ) ? true : ( ( array_key_exists( $id, $saved_settings ) && '0' === $saved_settings[ $id ] ) ? false : $settings_default[ $id ] );
 							break;
 
 						case 'radio':

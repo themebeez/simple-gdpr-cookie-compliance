@@ -44,7 +44,7 @@ if ( ! function_exists( 'simple_gdpr_layout_options' ) ) {
 				),
 			),
 			'enable_bg_overlay'                   => array(
-				'label'       => __( 'Enaable background overlay.', 'simple-gdpr-cookie-compliance' ),
+				'label'       => __( 'Enaable background overlay', 'simple-gdpr-cookie-compliance' ),
 				'type'        => 'switch',
 				'description' => __( 'Enable or disable background overlay for the cookie notice', 'simple-gdpr-cookie-compliance' ),
 				'dependent'   => array(
@@ -72,7 +72,7 @@ if ( ! function_exists( 'simple_gdpr_layout_options' ) ) {
 				),
 			),
 			'customwidth_position'                => array(
-				'label'       => __( 'Position of the notice.', 'simple-gdpr-cookie-compliance' ),
+				'label'       => __( 'Position of the notice', 'simple-gdpr-cookie-compliance' ),
 				'type'        => 'select',
 				'description' => __( 'Select where the notice should appear in the website.', 'simple-gdpr-cookie-compliance' ),
 				'choices'     => array(
