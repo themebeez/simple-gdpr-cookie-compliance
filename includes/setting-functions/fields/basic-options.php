@@ -11,7 +11,7 @@
 
 if ( ! function_exists( 'simple_gdpr_basic_options' ) ) {
 	/**
-	 * General options.
+	 * Basic options.
 	 *
 	 * @return array
 	 */
@@ -23,7 +23,7 @@ if ( ! function_exists( 'simple_gdpr_basic_options' ) ) {
 				'description' => __( 'Enable this option to activate cookie notice.', 'simple-gdpr-cookie-compliance' ),
 			),
 			'cookie_expire_time' => array(
-				'label'       => __( 'Cookie expiry Duration in days.', 'simple-gdpr-cookie-compliance' ),
+				'label'       => __( 'Cookie expiry duration.', 'simple-gdpr-cookie-compliance' ),
 				'type'        => 'number',
 				'unit'        => 'days',
 				'min'         => 0,

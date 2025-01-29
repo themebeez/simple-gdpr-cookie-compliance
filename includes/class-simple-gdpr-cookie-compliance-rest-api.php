@@ -65,7 +65,7 @@ if ( ! class_exists( 'Class_Simple_GDPR_Cookie_Compliance_Rest_API' ) ) {
 				'/options',
 				array(
 					array(
-						'methods'             => \WP_REST_Server::CREATABLE,
+						'methods'             =>'PATCH',
 						'callback'            => array( $this, 'rest_handler_update_setting_fields' ),
 						'permission_callback' => '__return_true',//array( $this, 'permission_callback' ),
 					),
@@ -101,6 +101,41 @@ if ( ! class_exists( 'Class_Simple_GDPR_Cookie_Compliance_Rest_API' ) ) {
 			$return_data['success'] = true;
 			$return_data['message'] = esc_html__( 'successfully fetched data.', 'simple-gdpr-cookie-compliance' );
 			$return_data['data']    = simple_gdpr_cookie_compliance_get_settings_sections_fields();
+
+			return rest_ensure_response( $return_data );
+		}
+
+		/**
+		 * Callback function to update all settings options values.
+		 *
+		 * @since    1.1.11
+		 * @param    \WP_REST_Request $request    The request object.
+		 * @return   \WP_REST_Response   $return_data   The response object.
+		 */
+		public function rest_handler_update_setting_fields( $request ) {
+			$return_data = array(
+				'success' => false,
+				'message' => __( 'Ooops, error saving settings!!!', 'simple-gdpr-cookie-compliance' ),
+			);
+
+			$params = $request->get_params();
+
+			$values = json_decode( $params[0], true );
+
+			// Checking if data is comming from request.
+			if ( ! isset( $values ) ) {
+				return new WP_Error(
+					'rest_post_not_found',
+					__( 'No settings to update.', 'simple-gdpr-cookie-compliance' ),
+					array( 'status' => 404 )
+				);
+			}
+
+			if ( simple_gdpr_update_settings( $values ) === true ) {
+
+				$return_data['success'] = true;
+				$return_data['message'] = __( 'Settings saved successfully', 'simple-gdpr-cookie-compliance' );
+			}
 
 			return rest_ensure_response( $return_data );
 		}
