@@ -92,8 +92,8 @@ if ( ! function_exists( 'simple_gdpr_layout_options' ) ) {
 				'choices'   => array(
 					'top_offset'    => '30',
 					'right_offset'  => '30',
-					'left_offset'   => '30',
 					'bottom_offset' => '30',
+					'left_offset'   => '30',
 				),
 				'dependent' => array( 'style' => 'custom_width' ),
 			),

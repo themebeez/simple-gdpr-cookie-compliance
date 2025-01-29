@@ -19,18 +19,14 @@ export default function PositionControl({ k, field }: Props) {
 	 * @since 2.0.0
 	 */
 	const icons: Record<string, string> = {
-		"top-left-offset":
-			'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.3608 10.9468L18.0176 16.6037L16.6034 18.0179L10.9466 12.361L5.99683 17.3108V5.99707H17.3105L12.3608 10.9468Z"></path></svg>',
-		"top-offset":
+		top_offset:
 			'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13 12V20H11V12H4L12 4L20 12H13Z"></path></svg>',
-		"top-right-offset":
-			'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13.0508 12.361L7.39395 18.0179L5.97974 16.6037L11.6366 10.9468L6.68684 5.99707H18.0006V17.3108L13.0508 12.361Z"></path></svg>',
-		"bottom-left-offset":
-			'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.3608 13.0515L17.3105 18.0013H5.99683V6.68758L10.9466 11.6373L16.6034 5.98047L18.0176 7.39468L12.3608 13.0515Z"></path></svg>',
-		"bottom-offset":
+		bottom_offset:
 			'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13 12H20L12 20L4 12H11V4H13V12Z"></path></svg>',
-		"bottom-right-offset":
-			'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.6366 13.0515L5.97974 7.39468L7.39395 5.98047L13.0508 11.6373L18.0006 6.68758V18.0013H6.68684L11.6366 13.0515Z"></path></svg>',
+		left_offset:
+			'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 13V20L4 12L12 4V11H20V13H12Z"></path></svg>',
+		right_offset:
+			'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 13H4V11H12V4L20 12L12 20V13Z"></path></svg>',
 	};
 
 	/**
@@ -64,7 +60,7 @@ export default function PositionControl({ k, field }: Props) {
 	};
 
 	return (
-		<div className="position-control w-full max-w-[300px] grid grid-cols-3 gap-4 items-center">
+		<div className="position-control w-full max-w-[180px] grid grid-cols-2 gap-2 items-center">
 			{Object.entries(choices).map(([k, v]) => (
 				<label key={k} htmlFor={k} className="flex flex-col items-center gap-1">
 					<span

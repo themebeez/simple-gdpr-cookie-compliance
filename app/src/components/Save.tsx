@@ -4,7 +4,7 @@ import { useOptions, updateOptions } from "@/stores/options";
 
 import { Save } from "lucide-react";
 
-export default function SaveOptions() {
+export default function SaveButton() {
 	const saving = useOptions((state) => state.saving);
 
 	const loading = useOptions((state) => state.loading);
