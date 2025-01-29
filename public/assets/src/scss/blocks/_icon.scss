@@ -1,0 +1,16 @@
+.sgcc-main-wrapper  {
+	.cookies {
+		position: relative;
+		padding: 30px 30px 30px 55px;
+
+		.cookie-icon {
+			position: absolute;
+			left: 15px;
+			right: auto;
+			top: 35px;
+			bottom: auto;
+			font-size: 26px;
+			color: var(--sgcc-cookie-icon-color);
+		}
+	}
+}

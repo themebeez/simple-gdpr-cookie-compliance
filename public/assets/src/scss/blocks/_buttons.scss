@@ -1,0 +1,69 @@
+.sgcc-main-wrapper {
+	/**----------------------------------------
+	*  Accept button.
+	*----------------------------------------*/
+	.cookie-compliance-button-block {
+		.cookie-compliance-button {
+			background: transparent;
+			font-size: 15px;
+			font-weight: normal;
+			line-height: 1;
+			text-decoration: none;
+			height: auto;
+			padding: 12px 20px;
+			cursor: pointer;
+			border-radius: 8px;
+			transition: all 0.5s ease;
+			box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
+			color: var(--sgcc-accept-button-color);
+			background-color: var(--sgcc-accept-button-background-color);
+			border: 1px solid var(--sgcc-accept-button-border-color);
+
+			&:is(:hover) {
+				color: var(--sgcc-accept-button-hover-color);
+				border-color: var(--sgcc-accept-button-hover-border-color);
+				background: var(--sgcc-accept-button-hover-background-color);
+			}
+
+			&:is(:focus) {
+				outline: none;
+			}
+		}
+	}
+
+	/**----------------------------------------
+	*  Close button.
+	*----------------------------------------*/
+	.sgcc-cookies {
+		.close {
+			position: absolute;
+			top: -15px;
+			right: -15px;
+			display: block;
+			width: 30px;
+			height: 30px;
+			line-height: 34px;
+			cursor: pointer;
+			text-align: center;
+			font-size: 15px;
+			border-radius: 100%;
+			border: none;
+			box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .2);
+			transition: all 0.5s ease;
+			color: var(--sgcc-close-button-color);
+			background-color: var(--sgcc-close-button-background-color);
+
+			&:is(:hover) {
+				border: none;
+				color: var(--sgcc-close-button-hover-color);
+				background-color: var(--sgcc-close-button-hover-background-color);
+			}
+
+			&:is(:focus) {
+				border: none;
+				outline: none;
+			}
+		}
+	}
+}
+

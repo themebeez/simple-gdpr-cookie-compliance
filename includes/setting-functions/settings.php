@@ -51,8 +51,8 @@ function simple_gdpr_update_settings( $settings = '' ) {
 					$saved_settings[ $id ] = $sanitized_value;
 					break;
 				case 'editor':
-					$sanitized_value       = sanitize_textarea_field( $value );
-					$saved_settings[ $id ] = $sanitized_value;
+				  // @todo: sanitize the value.
+					$saved_settings[ $id ] = $value;
 					break;
 				case 'switch':
 					// special case for enable_bg_overlay because it is saved inside the style array.

@@ -11,7 +11,6 @@ const cookieName = 's_gdpr_c_c_cookie';
 const bgOverlayEle = document.getElementById('s-gdpr-c-c-bg-overlay');
 
 /**
-*
 * Set cookie with name, value and expiration time in days.
 *
 * @param {string} name
@@ -64,7 +63,6 @@ const setCookie = (name, value, expires = 0) => {
 
 
 /**
-*
 * Get cookie with name.
 *
 * @param {string} name
@@ -94,7 +92,6 @@ const getCookie = (name) => {
 
 
 /**
-*
 * Close notice on button click.
 *
 * @since: 1.1.4
@@ -120,7 +117,6 @@ const closeNotice = () => {
 
 
 /**
-*
 * Hide cookie if user accept it.
 *
 * @since: 1.1.4
@@ -153,7 +149,6 @@ const acceptCookie = () => {
 
 
 /**
-*
 * Display cookie notice if user didn't accept it.
 *
 * @since: 1.1.4

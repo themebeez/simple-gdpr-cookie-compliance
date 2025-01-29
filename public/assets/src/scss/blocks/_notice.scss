@@ -1,0 +1,23 @@
+.sgcc-main-wrapper {
+	position: fixed;
+	z-index: 99999999;
+	right: 30px;
+	bottom: 30px;
+	opacity: 1;
+	visibility: visible;
+	width: 450px;
+	border-radius: 10px;
+	animation: 0.8s 0.7s sgccfadeinup both;
+	box-shadow: 0 10px 40px 10px rgba(0, 0, 0, 0.05);
+	transition: opacity 0.2s linear 1s, visibility .2s linear 1s;
+	background-color: var(--sgcc-notice-background-color);
+
+	&.hidden {
+		display: none;
+	}
+
+	.sgcc-cookies {
+		position: relative;
+		padding: 30px 30px 30px 55px;
+	}
+}
