@@ -1,8 +1,5 @@
 .sgcc-main-wrapper  {
-	.cookies {
-		position: relative;
-		padding: 30px 30px 30px 55px;
-
+	.sgcc-container {
 		.cookie-icon {
 			position: absolute;
 			left: 15px;
@@ -10,7 +7,15 @@
 			top: 35px;
 			bottom: auto;
 			font-size: 26px;
-			color: var(--sgcc-cookie-icon-color);
+			color: currentColor;
+			fill: var(--sgcc-cookie-icon-color);
+
+			svg {
+				display: inline-flex;
+				line-height: 1;
+				width: 28px;
+				height: 28px;
+			}
 		}
 	}
 }
