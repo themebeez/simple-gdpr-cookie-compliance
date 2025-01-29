@@ -11,7 +11,7 @@
 
 if ( ! function_exists( 'simple_gdpr_button_options' ) ) {
 	/**
-	 * General options.
+	 * Button options.
 	 *
 	 * @return array
 	 */

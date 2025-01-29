@@ -11,7 +11,7 @@
 
 if ( ! function_exists( 'simple_gdpr_layout_options' ) ) {
 	/**
-	 * General options.
+	 * Layout options.
 	 *
 	 * @return array
 	 */
@@ -54,7 +54,7 @@ if ( ! function_exists( 'simple_gdpr_layout_options' ) ) {
 			'fullwidth_position'                  => array(
 				'label'       => __( 'Position of the notice', 'simple-gdpr-cookie-compliance' ),
 				'type'        => 'select',
-				'description' => __( 'Position of the notice', 'simple-gdpr-cookie-compliance' ),
+				'description' => __( 'Select where the notice should appear in the website.', 'simple-gdpr-cookie-compliance' ),
 				'choices'     => array(
 					'top'    => __( 'Top', 'simple-gdpr-cookie-compliance' ),
 					'bottom' => __( 'Bottom', 'simple-gdpr-cookie-compliance' ),
@@ -72,9 +72,9 @@ if ( ! function_exists( 'simple_gdpr_layout_options' ) ) {
 				),
 			),
 			'customwidth_position'                => array(
-				'label'       => __( 'Select where the notice should appear in the website.', 'simple-gdpr-cookie-compliance' ),
+				'label'       => __( 'Position of the notice.', 'simple-gdpr-cookie-compliance' ),
 				'type'        => 'select',
-				'description' => __( 'Position of the notice', 'simple-gdpr-cookie-compliance' ),
+				'description' => __( 'Select where the notice should appear in the website.', 'simple-gdpr-cookie-compliance' ),
 				'choices'     => array(
 					'top-left'      => __( 'Top left', 'simple-gdpr-cookie-compliance' ),
 					'top-right'     => __( 'Top right', 'simple-gdpr-cookie-compliance' ),
