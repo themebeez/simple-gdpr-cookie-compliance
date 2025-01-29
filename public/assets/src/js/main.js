@@ -8,7 +8,7 @@
 */
 const cookieName = 's_gdpr_c_c_cookie';
 
-const bgOverlayEle = document.getElementById('s-gdpr-c-c-bg-overlay');
+const bgOverlayEle = document.getElementById('sgcc-overlay-mask');
 
 /**
 * Set cookie with name, value and expiration time in days.
@@ -98,7 +98,7 @@ const getCookie = (name) => {
 */
 const closeNotice = () => {
 
-	const closeBtn = document.getElementById('close-sgcc');
+	const closeBtn = document.getElementById('close-sgcc-button');
 
 	if (closeBtn) {
 		closeBtn.addEventListener('click', (e) => {
@@ -124,7 +124,7 @@ const closeNotice = () => {
 const acceptCookie = () => {
 	const cookieExpireDays = parseInt(simpleGDPRCCJsObj.cookieExpireTime);
 
-	const acceptBtn = document.getElementById('sgcc-accept');
+	const acceptBtn = document.getElementById('sgcc-accept-button');
 
 	if (acceptBtn) {
 		acceptBtn.addEventListener('click', (e) => {
