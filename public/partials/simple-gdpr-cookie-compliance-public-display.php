@@ -38,7 +38,9 @@ if (
 			)
 		) {
 			?>
-			<span class="cookie-icon"><i class="sgcc sgcc-icon-cookie" aria-label="<?php echo esc_html__( 'Cookie Icon', 'simple-gdpr-cookie-compliance' ); ?>"></i></span>
+			<span class="cookie-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><circle cx="18.5" cy="1.5" r="1.5"/><circle cx="21.5" cy="6.5" r="1.5"/><path d="M24,12A12,12,0,1,1,12,0c.387,0,.769.021,1.146.057l.824.077.078.824a10,10,0,0,0,8.994,8.994l.824.078.077.824C23.979,11.231,24,11.613,24,12ZM8.5,7A1.5,1.5,0,1,0,10,8.5,1.5,1.5,0,0,0,8.5,7Zm0,7A1.5,1.5,0,1,0,10,15.5,1.5,1.5,0,0,0,8.5,14Zm7-1A1.5,1.5,0,1,0,17,14.5,1.5,1.5,0,0,0,15.5,13Z"/></svg>
+			</span>
 			<?php
 		}
 		?>
@@ -57,7 +59,9 @@ if (
 					)
 				) {
 					?>
-					<span class="cookie-icon"><i class="sgcc sgcc-icon-cookie" aria-label="<?php echo esc_html__( 'Cookie Icon', 'simple-gdpr-cookie-compliance' ); ?>"></i></span>
+					<span class="cookie-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><circle cx="18.5" cy="1.5" r="1.5"/><circle cx="21.5" cy="6.5" r="1.5"/><path d="M24,12A12,12,0,1,1,12,0c.387,0,.769.021,1.146.057l.824.077.078.824a10,10,0,0,0,8.994,8.994l.824.078.077.824C23.979,11.231,24,11.613,24,12ZM8.5,7A1.5,1.5,0,1,0,10,8.5,1.5,1.5,0,0,0,8.5,7Zm0,7A1.5,1.5,0,1,0,10,15.5,1.5,1.5,0,0,0,8.5,14Zm7-1A1.5,1.5,0,1,0,17,14.5,1.5,1.5,0,0,0,15.5,13Z"/></svg>
+					</span>
 					<?php
 				}
 				?>
@@ -68,11 +72,11 @@ if (
 			}
 			if ( isset( $args['btn_title'] ) && ! empty( $args['btn_title'] ) ) {
 				?>
-				<p class="cookie-compliance-button-block">
+				<div class="cookie-compliance-button-block">
 					<button id="sgcc-accept" class="close-sgcc cookie-compliance-button" aria-label="<?php echo esc_html__( 'Accept Cookies', 'simple-gdpr-cookie-compliance' ); ?>">
 						<?php echo esc_html( $args['btn_title'] ); ?>
 					</button>
-				</p>
+				</div>
 				<?php
 			}
 			?>
@@ -83,7 +87,9 @@ if (
 			true === $args['show_close_btn']
 		) {
 			?>
-			<span id="close-sgcc" class="close close-sgcc"><i class="sgcc sgcc-icon-close" aria-label="<?php echo esc_html__( 'Close Cookie Compliance Notice', 'simple-gdpr-cookie-compliance' ); ?>"></i></span>
+			<span id="close-sgcc" class="close close-sgcc">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"></path></svg>
+			</span>
 			<?php
 		}
 		?>

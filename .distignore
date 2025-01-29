@@ -6,17 +6,25 @@
 /.github
 /node_modules
 /admin/src/
-/admin/assets/scss/           
+/admin/assets/scss/
 /public/assets/src/
 
 .distignore
 .gitignore
 .babelrc
-gulpfile.js
+.editorconfig
+App.d.ts
+rollup.js
+tailwind.config.js
+vite.config.js
+tsconfig.json
+postcss.config.js
 webpack.config.js
 webpack.mix.js
 package.json
+pnpm-lock.yaml
 package-lock.json
 sftp-config.json
 composer.json
 composer.lock
+components.json
