@@ -91,7 +91,7 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_fields_values' ) ) {
 							break;
 
 						case 'radio':
-							$settings_values[ $id ] = ( '' === $saved_settings[ $id ]['type'] ) ? 'custom_width' : $saved_settings[ $id ]['type'];
+							$settings_values[ $id ] = ( isset($saved_settings[ $id ]['type'] ) && ! empty( $saved_settings[ $id ]['type'] ) ) ? $saved_settings[ $id ]['type'] : 'custom_width';
 							break;
 
 						case 'number':
@@ -116,7 +116,7 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_fields_values' ) ) {
 							break;
 
 						case 'select':
-							$settings_values[ $id ] = ( isset( $saved_settings['style'][ $id ] ) ) ? $saved_settings['style'][ $id ] : $settings_default[ $id ];
+							$settings_values[ $id ] = ( isset( $saved_settings['style'][ $id ] ) && ! empty( $saved_settings['style'][ $id ] ) ) ? $saved_settings['style'][ $id ] : $settings_default[ $id ];
 							break;
 						case 'color':
 							// special case for notice_text_color because it is saved inside the color array with notice_text key.
