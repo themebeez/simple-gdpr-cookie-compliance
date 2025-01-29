@@ -17,15 +17,15 @@ if ( ! function_exists( 'simple_gdpr_button_options' ) ) {
 	 */
 	function simple_gdpr_button_options() {
 		return array(
-			'accept_btn_title' => array(
+			'accept_btn_title'                            => array(
 				'label' => __( 'Accept button label', 'simple-gdpr-cookie-compliance' ),
 				'type'  => 'text',
 			),
-			'show_close_btn' => array(
+			'show_close_btn'                              => array(
 				'label' => __( 'Display close button', 'simple-gdpr-cookie-compliance' ),
 				'type'  => 'switch',
 			),
-			'notice_compliance_button_bg' => array(
+			'notice_compliance_button_bg'                 => array(
 				'label' => __( 'Accept button background color.', 'simple-gdpr-cookie-compliance' ),
 				'type'  => 'color',
 			),
@@ -50,20 +50,32 @@ if ( ! function_exists( 'simple_gdpr_button_options' ) ) {
 				'type'  => 'color',
 			),
 			'notice_box_close_btn_bg_color'               => array(
-				'label' => __( 'Close button background color', 'simple-gdpr-cookie-compliance' ),
-				'type'  => 'color',
+				'label'     => __( 'Close button background color', 'simple-gdpr-cookie-compliance' ),
+				'type'      => 'color',
+				'dependent' => array(
+					'show_close_btn' => true,
+				),
 			),
 			'notice_box_close_btn_bg_hover_color'         => array(
-				'label' => __( 'Close button background color on hover', 'simple-gdpr-cookie-compliance' ),
-				'type'  => 'color',
+				'label'     => __( 'Close button background color on hover', 'simple-gdpr-cookie-compliance' ),
+				'type'      => 'color',
+				'dependent' => array(
+					'show_close_btn' => true,
+				),
 			),
 			'notice_box_close_btn_text_color'             => array(
-				'label' => __( 'Close button label color', 'simple-gdpr-cookie-compliance' ),
-				'type'  => 'color',
+				'label'     => __( 'Close button label color', 'simple-gdpr-cookie-compliance' ),
+				'type'      => 'color',
+				'dependent' => array(
+					'show_close_btn' => true,
+				),
 			),
 			'notice_box_close_btn_hover_text_color'       => array(
-				'label' => __( 'Close button label color on hover', 'simple-gdpr-cookie-compliance' ),
-				'type'  => 'color',
+				'label'     => __( 'Close button label color on hover', 'simple-gdpr-cookie-compliance' ),
+				'type'      => 'color',
+				'dependent' => array(
+					'show_close_btn' => true,
+				),
 			),
 		);
 	}
