@@ -24,8 +24,8 @@ if ( ! function_exists( 'simple_gdpr_layout_options' ) ) {
 				'full_width'  => true,
 				'choices'     => array(
 					'custom_width' => __( 'Custom width', 'simple-gdpr-cookie-compliance' ),
-					'full'         => __( 'Full width', 'simple-gdpr-cookie-compliance' ),
-					'popup'        => __( 'Popup', 'simple-gdpr-cookie-compliance' ),
+					'full_width'   => __( 'Full width', 'simple-gdpr-cookie-compliance' ),
+					'pop_up'       => __( 'Popup', 'simple-gdpr-cookie-compliance' ),
 				),
 			),
 			'width'                               => array(
@@ -38,7 +38,7 @@ if ( ! function_exists( 'simple_gdpr_layout_options' ) ) {
 				'description' => __( 'Notice width in pixels', 'simple-gdpr-cookie-compliance' ),
 				'dependent'   => array(
 					'style' => array(
-						'popup',
+						'pop_up',
 						'custom_width',
 					),
 				),
@@ -48,7 +48,7 @@ if ( ! function_exists( 'simple_gdpr_layout_options' ) ) {
 				'type'        => 'switch',
 				'description' => __( 'Enable or disable background overlay for the cookie notice', 'simple-gdpr-cookie-compliance' ),
 				'dependent'   => array(
-					'style' => 'popup',
+					'style' => 'pop_up',
 				),
 			),
 			'fullwidth_position'                  => array(
@@ -60,14 +60,14 @@ if ( ! function_exists( 'simple_gdpr_layout_options' ) ) {
 					'bottom' => __( 'Bottom', 'simple-gdpr-cookie-compliance' ),
 				),
 				'dependent'   => array(
-					'style' => 'full',
+					'style' => 'full_width',
 				),
 			),
 			'notice_bg_overlay_color'             => array(
 				'label'     => __( 'Overlay background color', 'simple-gdpr-cookie-compliance' ),
 				'type'      => 'color',
 				'dependent' => array(
-					'style'             => 'popup',
+					'style'             => 'pop_up',
 					'enable_bg_overlay' => true,
 				),
 			),
@@ -76,11 +76,11 @@ if ( ! function_exists( 'simple_gdpr_layout_options' ) ) {
 				'type'        => 'select',
 				'description' => __( 'Select where the notice should appear in the website.', 'simple-gdpr-cookie-compliance' ),
 				'choices'     => array(
-					'top-left'      => __( 'Top left', 'simple-gdpr-cookie-compliance' ),
-					'top-right'     => __( 'Top right', 'simple-gdpr-cookie-compliance' ),
-					'bottom-left'   => __( 'Bottom left', 'simple-gdpr-cookie-compliance' ),
-					'bottom-center' => __( 'Bottom center', 'simple-gdpr-cookie-compliance' ),
-					'bottom-right'  => __( 'Bottom right', 'simple-gdpr-cookie-compliance' ),
+					'top_left'      => __( 'Top left', 'simple-gdpr-cookie-compliance' ),
+					'top_right'     => __( 'Top right', 'simple-gdpr-cookie-compliance' ),
+					'bottom_left'   => __( 'Bottom left', 'simple-gdpr-cookie-compliance' ),
+					'bottom_center' => __( 'Bottom center', 'simple-gdpr-cookie-compliance' ),
+					'bottom_right'  => __( 'Bottom right', 'simple-gdpr-cookie-compliance' ),
 				),
 				'dependent'   => array(
 					'style' => 'custom_width',
