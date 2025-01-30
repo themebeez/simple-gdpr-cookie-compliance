@@ -13,6 +13,8 @@ require_once plugin_dir_path( __DIR__ ) . 'setting-functions/fields/basic-option
 require_once plugin_dir_path( __DIR__ ) . 'setting-functions/fields/button-options.php';
 require_once plugin_dir_path( __DIR__ ) . 'setting-functions/fields/layout-options.php';
 require_once plugin_dir_path( __DIR__ ) . 'setting-functions/fields/developer-options.php';
+require_once plugin_dir_path( __DIR__ ) . 'setting-functions/helper_functions.php';
+
 
 if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_fields_values' ) ) {
 	/**
@@ -24,44 +26,7 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_fields_values' ) ) {
 	 */
 	function simple_gdpr_cookie_compliance_get_fields_values() {
 
-		$settings_default = array(
-			'enable_plugin'                               => true,
-			'notice_text'                                 => __( 'Our website uses cookies to provide you the best experience. However, by continuing to use our website, you agree to our use of cookies. For more information, read our <a href="#">Cookie Policy</a>.', 'simple-gdpr-cookie-compliance' ),
-			'accept_btn_title'                            => __( 'Accept', 'simple-gdpr-cookie-compliance' ),
-			'show_close_btn'                              => true,
-			'show_cookie_icon'                            => true,
-			'cookie_expire_time'                          => 0,
-			'style'                                       => array(
-				'type'              => 'custom_width',
-				'enable_bg_overlay' => true,
-			),
-			'width'                                       => '450',
-			'fullwidth_position'                          => 'top',
-			'customwidth_position'                        => 'bottom_right',
-			'custom_width_notice_position_offset'         => array(
-				'top_offset'    => '30',
-				'right_offset'  => '30',
-				'bottom_offset' => '30',
-				'left_offset'   => '30',
-			),
-			'notice_background'                           => '#E4E4E4',
-			'notice_text_color'                           => '#222222',
-			'notice_link_color'                           => '#222222',
-			'notice_link_hover_color'                     => '#00BC7D',
-			'notice_cookie_icon_color'                    => '#222222',
-			'notice_compliance_button_bg'                 => '#222222',
-			'notice_compliance_button_hover_bg_color'     => '#00BC7D',
-			'notice_compliance_button_border_color'       => '#222222',
-			'notice_compliance_button_hover_border_color' => '#00BC7D',
-			'notice_compliance_button_text_color'         => '#ffffff',
-			'notice_compliance_button_hover_text_color'   => '#ffffff',
-			'notice_box_close_btn_bg_color'               => '#222222',
-			'notice_box_close_btn_bg_hover_color'         => '#00BC7D',
-			'notice_box_close_btn_text_color'             => '#ffffff',
-			'notice_box_close_btn_hover_text_color'       => '#ffffff',
-			'notice_bg_overlay_color'                     => '#rgba(0,0,0,0.8)',
-			'custom_css'                                  => '',
-		);
+		$settings_default = simple_gdpr_get_setting_defaults();
 
 		$settings_values = array();
 		if ( get_option( 'simple_gdpr_cookie_compliance_options' ) ) {
@@ -91,7 +56,7 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_fields_values' ) ) {
 							break;
 
 						case 'radio':
-							$settings_values[ $id ] = ( isset($saved_settings[ $id ]['type'] ) && ! empty( $saved_settings[ $id ]['type'] ) ) ? $saved_settings[ $id ]['type'] : 'custom_width';
+							$settings_values[ $id ] = ( isset( $saved_settings[ $id ]['type'] ) && ! empty( $saved_settings[ $id ]['type'] ) ) ? $saved_settings[ $id ]['type'] : 'custom_width';
 							break;
 
 						case 'number':
@@ -122,7 +87,7 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_fields_values' ) ) {
 							// special case for notice_text_color because it is saved inside the color array with notice_text key.
 							if ( 'notice_text_color' === $id ) {
 								$settings_values[ $id ] = ( isset( $saved_settings['color']['notice_text'] ) && ! empty( $saved_settings['color']['notice_text'] ) ) ? $saved_settings['color']['notice_text'] : $settings_default[ $id ];
-							break;
+								break;
 							}
 							$settings_values[ $id ] = ( isset( $saved_settings['color'][ $id ] ) && ! empty( $saved_settings['color'][ $id ] ) ) ? $saved_settings['color'][ $id ] : $settings_default[ $id ];
 							break;
@@ -232,6 +197,7 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_settings_sections_fie
  * @return bool true on success, false otherwise.
  */
 function simple_gdpr_update_settings( $settings = '' ) {
+	$settings_default = simple_gdpr_get_setting_defaults();
 	if (
 		is_array( $settings ) &&
 		count( $settings ) > 0
@@ -254,16 +220,15 @@ function simple_gdpr_update_settings( $settings = '' ) {
 			switch ( $setting_type ) {
 				case 'radio':
 					$choices                         = $setting_fields[ $id ]['choices'];
-					$sanitized_value                 = array_key_exists( $value, $choices ) ? sanitize_text_field( $value ) : 'custom_width';
-					$saved_settings['style']['type'] = sanitize_text_field( $value );
+					$sanitized_value                 = array_key_exists( $value, $choices ) ? sanitize_text_field( $value ) : $settings_default[ $id ];
+					$saved_settings['style']['type'] = $sanitized_value;
 					break;
 				case 'text':
 					$sanitized_value       = sanitize_text_field( $value );
 					$saved_settings[ $id ] = $sanitized_value;
 					break;
 				case 'editor':
-				// @todo: sanitize the value.
-					$saved_settings[ $id ] = $value;
+					$saved_settings[ $id ] = wp_kses_post( $value );
 					break;
 				case 'switch':
 					// special case for enable_bg_overlay because it is saved inside the style array.
@@ -297,9 +262,8 @@ function simple_gdpr_update_settings( $settings = '' ) {
 					$saved_settings['color'][ $id ] = $sanitized_value;
 					break;
 				case 'select':
-					$choices_array                  = $setting_fields[ $id ]['choices'];
 					$setting_choices                = $setting_fields[ $id ]['choices'];
-					$sanitized_value                = ( array_key_exists( $value, $setting_choices ) ) ? sanitize_text_field( $value ) : $setting_choices[0];
+					$sanitized_value                = ( array_key_exists( $value, $setting_choices ) ) ? sanitize_text_field( $value ) : $settings_defsult[ $id ];
 					$saved_settings['style'][ $id ] = $sanitized_value;
 					break;
 				default:
