@@ -16,7 +16,7 @@ if ( ! function_exists( 'simple_gdpr_get_setting_defaults' ) ) {
 	function simple_gdpr_get_setting_defaults() {
 		$settings_default = array(
 			'enable_plugin'                               => true,
-			'notice_text'                                 => __( 'Our website uses cookies to provide you the best experience. However, by continuing to use our website, you agree to our use of cookies. For more information, read our <a href="#">Cookie Policy</a>.', 'simple-gdpr-cookie-compliance' ),
+			'notice_text'                                 => __( "We use cookies to ensure your best experience on our website. If you continue using our website, we'll assume you agree to our <a href='#'>cookie policy</a>", 'simple-gdpr-cookie-compliance' ),
 			'accept_btn_title'                            => __( 'Accept', 'simple-gdpr-cookie-compliance' ),
 			'show_close_btn'                              => true,
 			'show_cookie_icon'                            => true,
@@ -24,7 +24,7 @@ if ( ! function_exists( 'simple_gdpr_get_setting_defaults' ) ) {
 			'enable_bg_overlay'                           => true,
 			'style'                                       => 'custom_width',
 			'width'                                       => '450',
-			'fullwidth_position'                          => 'top',
+			'fullwidth_position'                          => 'bottom',
 			'customwidth_position'                        => 'bottom_right',
 			'custom_width_notice_position_offset'         => array(
 				'top_offset'    => '30',

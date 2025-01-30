@@ -9,7 +9,12 @@ export default function App() {
 		<>
 			<Header />
 			<Applet />
-			<Toaster position="bottom-center" />
+			<Toaster
+				position="top-center"
+				containerStyle={{
+					top: "3.5rem",
+				}}
+			/>
 		</>
 	);
 }

@@ -20,11 +20,11 @@ if ( ! function_exists( 'simple_gdpr_layout_options' ) ) {
 			'style'                               => array(
 				'label'       => __( 'Notice layout', 'simple-gdpr-cookie-compliance' ),
 				'type'        => 'radio',
-				'description' => __( 'Choose how should the notice be look on the website.', 'simple-gdpr-cookie-compliance' ),
+				'description' => __( 'Select the layout for the cookie notice. The layout options are bar, popup and custom width.', 'simple-gdpr-cookie-compliance' ),
 				'full_width'  => true,
 				'choices'     => array(
-					'custom_width' => __( 'Custom width', 'simple-gdpr-cookie-compliance' ),
-					'full_width'   => __( 'Full width', 'simple-gdpr-cookie-compliance' ),
+					'custom_width' => __( 'Custom', 'simple-gdpr-cookie-compliance' ),
+					'full_width'   => __( 'Toast bar', 'simple-gdpr-cookie-compliance' ),
 					'pop_up'       => __( 'Popup', 'simple-gdpr-cookie-compliance' ),
 				),
 			),
