@@ -1,0 +1,57 @@
+<?php
+/**
+ * Helper functions.
+ *
+ * @since 1.1.11
+ */
+
+if ( ! function_exists( 'simple_gdpr_get_setting_defaults' ) ) {
+
+	/**
+	 * Get setting defaults.
+	 *
+	 * @since 1.1.11
+	 * @return array
+	 */
+	function simple_gdpr_get_setting_defaults() {
+		$settings_default = array(
+			'enable_plugin'                               => true,
+			'notice_text'                                 => __( 'Our website uses cookies to provide you the best experience. However, by continuing to use our website, you agree to our use of cookies. For more information, read our <a href="#">Cookie Policy</a>.', 'simple-gdpr-cookie-compliance' ),
+			'accept_btn_title'                            => __( 'Accept', 'simple-gdpr-cookie-compliance' ),
+			'show_close_btn'                              => true,
+			'show_cookie_icon'                            => true,
+			'cookie_expire_time'                          => 0,
+			'style'                                       => array(
+				'type'              => 'custom_width',
+				'enable_bg_overlay' => true,
+			),
+			'width'                                       => '450',
+			'fullwidth_position'                          => 'top',
+			'customwidth_position'                        => 'bottom_right',
+			'custom_width_notice_position_offset'         => array(
+				'top_offset'    => '30',
+				'right_offset'  => '30',
+				'bottom_offset' => '30',
+				'left_offset'   => '30',
+			),
+			'notice_background'                           => '#E4E4E4',
+			'notice_text_color'                           => '#222222',
+			'notice_link_color'                           => '#222222',
+			'notice_link_hover_color'                     => '#00BC7D',
+			'notice_cookie_icon_color'                    => '#222222',
+			'notice_compliance_button_bg'                 => '#222222',
+			'notice_compliance_button_hover_bg_color'     => '#00BC7D',
+			'notice_compliance_button_border_color'       => '#222222',
+			'notice_compliance_button_hover_border_color' => '#00BC7D',
+			'notice_compliance_button_text_color'         => '#ffffff',
+			'notice_compliance_button_hover_text_color'   => '#ffffff',
+			'notice_box_close_btn_bg_color'               => '#222222',
+			'notice_box_close_btn_bg_hover_color'         => '#00BC7D',
+			'notice_box_close_btn_text_color'             => '#ffffff',
+			'notice_box_close_btn_hover_text_color'       => '#ffffff',
+			'notice_bg_overlay_color'                     => '#rgba(0,0,0,0.8)',
+			'custom_css'                                  => '',
+		);
+		return $settings_default;
+	}
+}
