@@ -272,29 +272,29 @@ class Simple_GDPR_Cookie_Compliance_Public {
 
 		if ( isset( $dynamic_options['color']['notice_text'] ) ) {
 			$css .= '
-				.sgcc-main-wrapper .sgcc-cookies p {
+				.sgcc-main-wrapper .sgcc-container p {
 					color: ' . $dynamic_options['color']['notice_text'] . ';
 				}';
 		}
 
 		if ( isset( $dynamic_options['color']['notice_link_color'] ) ) {
 			$css .= '
-				.sgcc-main-wrapper .sgcc-cookies a {
+				.sgcc-main-wrapper .sgcc-container a {
 					color: ' . $dynamic_options['color']['notice_link_color'] . ';
 				}';
 		}
 
 		if ( isset( $dynamic_options['color']['notice_link_hover_color'] ) ) {
 			$css .= '
-				.sgcc-main-wrapper .sgcc-cookies a:hover {
+				.sgcc-main-wrapper .sgcc-container a:hover {
 					color: ' . $dynamic_options['color']['notice_link_hover_color'] . ';
 				}';
 		}
 
 		if ( isset( $dynamic_options['color']['notice_cookie_icon_color'] ) ) {
 			$css .= '
-				.sgcc-main-wrapper .sgcc-cookies .cookie-icon {
-					color: ' . $dynamic_options['color']['notice_cookie_icon_color'] . ';
+				.sgcc-main-wrapper .sgcc-container .cookie-icon {
+					fill: ' . $dynamic_options['color']['notice_cookie_icon_color'] . ';
 				}';
 		}
 
@@ -342,28 +342,28 @@ class Simple_GDPR_Cookie_Compliance_Public {
 
 		if ( isset( $dynamic_options['color']['notice_box_close_btn_bg_color'] ) ) {
 			$css .= '
-				.sgcc-main-wrapper .sgcc-cookies .close {
+				.sgcc-main-wrapper .sgcc-container .close {
 					background-color: ' . $dynamic_options['color']['notice_box_close_btn_bg_color'] . ';
 				}';
 		}
 
 		if ( isset( $dynamic_options['color']['notice_box_close_btn_bg_hover_color'] ) ) {
 			$css .= '
-				.sgcc-main-wrapper .sgcc-cookies .close:hover {
+				.sgcc-main-wrapper .sgcc-container .close:hover {
 					background-color: ' . $dynamic_options['color']['notice_box_close_btn_bg_hover_color'] . ';
 				}';
 		}
 
 		if ( isset( $dynamic_options['color']['notice_box_close_btn_text_color'] ) ) {
 			$css .= '
-				.sgcc-main-wrapper .sgcc-cookies .close:hover {
+				.sgcc-main-wrapper .sgcc-container .close:hover {
 					color: ' . $dynamic_options['color']['notice_box_close_btn_text_color'] . ';
 				}';
 		}
 
 		if ( isset( $dynamic_options['color']['notice_box_close_btn_hover_text_color'] ) ) {
 			$css .= '
-				.sgcc-main-wrapper .sgcc-cookies .close:hover {
+				.sgcc-main-wrapper .sgcc-container .close:hover {
 					color: ' . $dynamic_options['color']['notice_box_close_btn_hover_text_color'] . ';
 				}';
 		}
@@ -383,18 +383,16 @@ class Simple_GDPR_Cookie_Compliance_Public {
 					true === $dynamic_options['style']['enable_bg_overlay']
 				) {
 					$css .= '
-					.s-gdpr-c-c-bg-overlay {
+					.sgcc-overlay-mask {
 						position: fixed;
 						top: 0;
 						right: 0;
 						bottom: 0;
 						left: 0;
+						height: 100%;
+						width: 100%;
 						z-index: 99999998;
-						-webkit-transition: all 0.5s ease;
-    					-moz-transition: all 0.5s ease;
-    					-ms-transition: all 0.5s ease;
-    					-o-transition: all 0.5s ease;
-    					transition: all 0.5s ease;
+    				transition: all 0.5s ease;
 					';
 
 					if ( isset( $dynamic_options['color']['notice_bg_overlay_color'] ) ) {
@@ -422,25 +420,23 @@ class Simple_GDPR_Cookie_Compliance_Public {
 					.s-gdpr-c-c-pop-up {
 						position: fixed;
 						z-index: 99999999;
-  						left: 50%;
-  						top: 50%;
-  						right:unset;
-  						bottom:unset;
-						-webkit-transform: translate(-50%, -50%);
-  						transform: translate(-50%, -50%);
-  						-webkit-animation: none;
-    					animation:none;
+  					left: 50%;
+  					top: 50%;
+  					right:unset;
+  					bottom:unset;
+  					transform: translate(-50%, -50%);
+    				animation:none;
 					}';
 
 				if ( ! $show_cookie_icon ) {
 					$css .= '
-					.sgcc-main-wrapper.s-gdpr-c-c-no-cookie-icon .sgcc-cookies {
+					.sgcc-main-wrapper.s-gdpr-c-c-no-cookie-icon .sgcc-container {
 						padding: 30px;
 					}
 					';
 				} else {
 					$css .= '
-					.sgcc-main-wrapper .sgcc-cookies {
+					.sgcc-main-wrapper .sgcc-container {
 						padding: 30px 30px 30px 55px;
 					}
 					';
@@ -451,7 +447,7 @@ class Simple_GDPR_Cookie_Compliance_Public {
 					isset( $dynamic_options['color']['notice_bg_overlay_color'] )
 				) {
 					$css .= '
-						.s-gdpr-c-c-bg-overlay {
+						.sgcc-overlay-mask {
 							background-color: ' . $dynamic_options['color']['notice_bg_overlay_color'] . ';
 						}';
 				}
@@ -479,20 +475,20 @@ class Simple_GDPR_Cookie_Compliance_Public {
 
 					if ( ! $show_cookie_icon ) {
 						$css .= '
-						.sgcc-main-wrapper.s-gdpr-c-c-no-cookie-icon .sgcc-cookies {
+						.sgcc-main-wrapper.s-gdpr-c-c-no-cookie-icon .sgcc-container {
 							padding: 10px;
 						}
 						';
 					} else {
 						$css .= '
-						.sgcc-main-wrapper .sgcc-cookies {
+						.sgcc-main-wrapper .sgcc-container {
 							padding: 10px 10px 10px 55px;
 						}
 						';
 					}
 
 					$css .= '
-						.sgcc-main-wrapper .sgcc-cookies .cookie-icon {
+						.sgcc-main-wrapper .sgcc-container .cookie-icon {
 							position: relative;
 							top: unset;
 							right: unset;
@@ -500,7 +496,7 @@ class Simple_GDPR_Cookie_Compliance_Public {
 							left: unset;
 							margin-right: 15px;
 						}
-						.sgcc-main-wrapper .sgcc-cookies .close {
+						.sgcc-main-wrapper .sgcc-container .close {
 							right: 15px;
 							top: 50%;
 							transform: translateY(-50%);
@@ -524,7 +520,7 @@ class Simple_GDPR_Cookie_Compliance_Public {
 							margin-bottom: 0px;
 						}
 
-						.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-cookies p {
+						.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-container p {
 
 							line-height:1.3;
 						}
@@ -546,12 +542,12 @@ class Simple_GDPR_Cookie_Compliance_Public {
 								max-width:100%;
 							}
 
-							.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-cookies {
+							.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-container {
 								padding:10px 15px;
 							}
 
-							.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-cookies .close,
-							.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-cookies .cookie-icon {
+							.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-container .close,
+							.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-container .cookie-icon {
 								display:none;
 							}
 
@@ -597,13 +593,13 @@ class Simple_GDPR_Cookie_Compliance_Public {
 
 				if ( ! $show_cookie_icon ) {
 					$css .= '
-					.sgcc-main-wrapper.s-gdpr-c-c-no-cookie-icon .sgcc-cookies {
+					.sgcc-main-wrapper.s-gdpr-c-c-no-cookie-icon .sgcc-container {
 						padding: 20px;
 					}
 					';
 				} else {
 					$css .= '
-					.sgcc-main-wrapper .sgcc-cookies {
+					.sgcc-main-wrapper .sgcc-container {
 						padding: 20px 20px 20px 55px;
 					}
 					';

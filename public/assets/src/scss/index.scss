@@ -14,33 +14,33 @@
 @use 'blocks/message';
 @use 'blocks/buttons';
 @use 'blocks/overlay';
+@use 'blocks/responsive';
 
-@use 'custom/responsive';
-@use 'custom/keyframe';
+@use 'animation/keyframe';
 
 :root {
 	// notice box
-	--sgcc-text-color: #1F2937;
-	--sgcc-link-color: #3F3f46;
-	--sgcc-link-hover-color: #1F2937;
-	--sgcc-notice-background-color: #FFDF20;
+	--sgcc-text-color: #222222;
+	--sgcc-link-color: #222222;
+	--sgcc-link-hover-color: #00BC7D;
+	--sgcc-notice-background-color: #E4E4E4;
 
 	// cookie icon
-	--sgcc-cookie-icon-color: #1F2937;
+	--sgcc-cookie-icon-color: #222222;
 
 	// close button
-	--sgcc-close-button-background-color: #1F2937;
-	--sgcc-close-button-hover-background-color: #3F3F46;
+	--sgcc-close-button-background-color: #222222;
+	--sgcc-close-button-hover-background-color: #00BC7D;
 	--sgcc-close-button-color: #FFFFFF;
 	--sgcc-close-button-hover-color: #FFFFFF;
 
 	// accept button
-	--sgcc-accept-button-background-color: #1F2937;
-	--sgcc-accept-button-hover-background-color: #3F3F46;
+	--sgcc-accept-button-background-color: #222222;
+	--sgcc-accept-button-hover-background-color: #00BC7D;
 	--sgcc-accept-button-color: #FFFFFF;
 	--sgcc-accept-button-hover-color: #FFFFFF;
-	--sgcc-accept-button-border-color: transparent;
-	--sgcc-accept-button-hover-border-color: transparent;
+	--sgcc-accept-button-border-color: #222222;
+	--sgcc-accept-button-hover-border-color: #00BC7D;
 }
 
 
