@@ -143,26 +143,42 @@ export const updateOptions = async (): Promise<void> => {
 
 	useOptions.setState({ saving: true });
 
-	const path = "sgcc/v1/options";
-
-	const [e, res]: [Error | null, any] = await useFetch(path, "PATCH", {
-		data: JSON.stringify(updated),
-	});
-
-	useOptions.setState({ saving: false });
-
-	if ((e && !res) || !res.success) {
-		toast.error(
-			__("Failed to update the settings.", "simple-gdpr-cookie-compliance")
-		);
-
-		throw new Error(e?.message);
-	}
-
 	/**
-	 * Clone the data.
+	 * Function to save the options.
+	 *
+	 * @returns {Promise<Response>} The response.
 	 */
-	useOptions.setState({ oldData: clone(data) });
+	const save = async (): Promise<Response> => {
+		const path = "sgcc/v1/options";
 
-	toast.success(__("Settings updated.", "simple-gdpr-cookie-compliance"));
+		const [e, res]: [Error | null, any] = await useFetch(path, "PATCH", {
+			data: JSON.stringify(updated),
+		});
+
+		if ((e && !res) || !res.success) {
+			throw new Error(e?.message);
+		}
+
+		return res;
+	};
+
+	await toast
+		.promise(save(), {
+			loading: __("Saving...", "simple-gdpr-cookie-compliance"),
+			success: (): string => {
+				/**
+				 * Clone the data.
+				 */
+				useOptions.setState({ oldData: clone(data) });
+
+				return __("Settings updated.", "simple-gdpr-cookie-compliance");
+			},
+			error: __(
+				"Failed to update the settings.",
+				"simple-gdpr-cookie-compliance"
+			),
+		})
+		.finally(() => {
+			useOptions.setState({ saving: false });
+		});
 };
