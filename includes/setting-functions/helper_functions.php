@@ -36,7 +36,7 @@ if ( ! function_exists( 'simple_gdpr_get_setting_defaults' ) ) {
 			),
 			'notice_background'                           => '#E4E4E4',
 			'notice_text_color'                           => '#222222',
-			'notice_link_color'                           => '#222222',
+			'notice_link_color'                           => '#2B7FFF',
 			'notice_link_hover_color'                     => '#00BC7D',
 			'notice_cookie_icon_color'                    => '#222222',
 			'notice_compliance_button_bg'                 => '#222222',

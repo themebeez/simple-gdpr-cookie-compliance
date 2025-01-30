@@ -192,37 +192,41 @@ class Simple_GDPR_Cookie_Compliance_Public {
 				switch ( $options['style']['type'] ) {
 					case 'full_width':
 						if ( isset( $options['style']['fullwidth_position'] ) ) {
-							$class              = 's-gdpr-c-c-fullwidth ';
+							$class              = 'layout-full ';
+
 							$fullwidth_position = $options['style']['fullwidth_position'];
+
 							if ( 'top' === $fullwidth_position ) {
-								$class .= 's-gdpr-c-c-fullwidth-top';
+								$class .= 'position-top';
 							} else {
-								$class .= 's-gdpr-c-c-fullwidth-bottom';
+								$class .= 'position-bottom';
 							}
 						}
 						break;
 					case 'custom_width':
 						if ( isset( $options['style']['customwidth_position'] ) ) {
-							$class                = 's-gdpr-c-c-customwidth ';
+							$class                = 'layout-custom-width ';
+
 							$customwidth_position = $options['style']['customwidth_position'];
+
 							switch ( $customwidth_position ) {
 								case 'top_left':
-									$class .= 's-gdpr-c-c-customwidth-top-left';
+									$class .= 'position-top-left';
 									break;
 								case 'top_center':
-									$class .= 's-gdpr-c-c-customwidth-top-center';
+									$class .= 'position-top-center';
 									break;
 								case 'top_right':
-									$class .= 's-gdpr-c-c-customwidth-top-right';
+									$class .= 'position-top-right';
 									break;
 								case 'bottom_left':
-									$class .= 's-gdpr-c-c-customwidth-bottom-left';
+									$class .= 'position-bottom-left';
 									break;
 								case 'bottom_center':
-									$class .= 's-gdpr-c-c-customwidth-bottom-center';
+									$class .= 'position-bottom-center';
 									break;
 								case 'bottom_right':
-									$class .= 's-gdpr-c-c-customwidth-bottom-right';
+									$class .= 'position-bottom-right';
 									break;
 								default:
 									break;
@@ -230,7 +234,7 @@ class Simple_GDPR_Cookie_Compliance_Public {
 						}
 						break;
 					default:
-						$class = 's-gdpr-c-c-pop-up';
+						$class = 'layout-popup';
 				}
 			}
 
@@ -238,14 +242,14 @@ class Simple_GDPR_Cookie_Compliance_Public {
 				isset( $options['show_close_btn'] ) &&
 				false === $options['show_close_btn']
 			) {
-				$class .= ' s-gdpr-c-c-no-close-btn';
+				$class .= ' hide-close-btn';
 			}
 
 			if (
 				isset( $options['show_cookie_icon'] ) &&
 				false === $options['show_cookie_icon']
 			) {
-				$class .= ' s-gdpr-c-c-no-cookie-icon';
+				$class .= ' hide-cookie-icon';
 			}
 
 			return $class;
@@ -263,434 +267,434 @@ class Simple_GDPR_Cookie_Compliance_Public {
 
 		$css = '';
 
-		if ( isset( $dynamic_options['color']['notice_background'] ) ) {
-			$css .= '
-				.sgcc-main-wrapper {
-					background-color: ' . $dynamic_options['color']['notice_background'] . ';
-				}';
-		}
+		//if ( isset( $dynamic_options['color']['notice_background'] ) ) {
+		//	$css .= '
+		//		.sgcc-main-wrapper {
+		//			background-color: ' . $dynamic_options['color']['notice_background'] . ';
+		//		}';
+		//}
 
-		if ( isset( $dynamic_options['color']['notice_text'] ) ) {
-			$css .= '
-				.sgcc-main-wrapper .sgcc-container p {
-					color: ' . $dynamic_options['color']['notice_text'] . ';
-				}';
-		}
+		//if ( isset( $dynamic_options['color']['notice_text'] ) ) {
+		//	$css .= '
+		//		.sgcc-main-wrapper .sgcc-container p {
+		//			color: ' . $dynamic_options['color']['notice_text'] . ';
+		//		}';
+		//}
 
-		if ( isset( $dynamic_options['color']['notice_link_color'] ) ) {
-			$css .= '
-				.sgcc-main-wrapper .sgcc-container a {
-					color: ' . $dynamic_options['color']['notice_link_color'] . ';
-				}';
-		}
+		//if ( isset( $dynamic_options['color']['notice_link_color'] ) ) {
+		//	$css .= '
+		//		.sgcc-main-wrapper .sgcc-container a {
+		//			color: ' . $dynamic_options['color']['notice_link_color'] . ';
+		//		}';
+		//}
 
-		if ( isset( $dynamic_options['color']['notice_link_hover_color'] ) ) {
-			$css .= '
-				.sgcc-main-wrapper .sgcc-container a:hover {
-					color: ' . $dynamic_options['color']['notice_link_hover_color'] . ';
-				}';
-		}
+		//if ( isset( $dynamic_options['color']['notice_link_hover_color'] ) ) {
+		//	$css .= '
+		//		.sgcc-main-wrapper .sgcc-container a:hover {
+		//			color: ' . $dynamic_options['color']['notice_link_hover_color'] . ';
+		//		}';
+		//}
 
-		if ( isset( $dynamic_options['color']['notice_cookie_icon_color'] ) ) {
-			$css .= '
-				.sgcc-main-wrapper .sgcc-container .cookie-icon {
-					fill: ' . $dynamic_options['color']['notice_cookie_icon_color'] . ';
-				}';
-		}
+		//if ( isset( $dynamic_options['color']['notice_cookie_icon_color'] ) ) {
+		//	$css .= '
+		//		.sgcc-main-wrapper .sgcc-container .cookie-icon {
+		//			fill: ' . $dynamic_options['color']['notice_cookie_icon_color'] . ';
+		//		}';
+		//}
 
-		if ( isset( $dynamic_options['color']['notice_compliance_button_bg'] ) ) {
-			$css .= '
-				.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button {
-					background-color: ' . $dynamic_options['color']['notice_compliance_button_bg'] . ';
-				}';
-		}
+		//if ( isset( $dynamic_options['color']['notice_compliance_button_bg'] ) ) {
+		//	$css .= '
+		//		.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button {
+		//			background-color: ' . $dynamic_options['color']['notice_compliance_button_bg'] . ';
+		//		}';
+		//}
 
-		if ( isset( $dynamic_options['color']['notice_compliance_button_hover_bg_color'] ) ) {
-			$css .= '
-				.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button:hover {
-					background-color: ' . $dynamic_options['color']['notice_compliance_button_hover_bg_color'] . ';
-				}';
-		}
+		//if ( isset( $dynamic_options['color']['notice_compliance_button_hover_bg_color'] ) ) {
+		//	$css .= '
+		//		.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button:hover {
+		//			background-color: ' . $dynamic_options['color']['notice_compliance_button_hover_bg_color'] . ';
+		//		}';
+		//}
 
-		if ( isset( $dynamic_options['color']['notice_compliance_button_border_color'] ) ) {
-			$css .= '
-				.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button {
-					border-color: ' . $dynamic_options['color']['notice_compliance_button_border_color'] . ';
-				}';
-		}
+		//if ( isset( $dynamic_options['color']['notice_compliance_button_border_color'] ) ) {
+		//	$css .= '
+		//		.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button {
+		//			border-color: ' . $dynamic_options['color']['notice_compliance_button_border_color'] . ';
+		//		}';
+		//}
 
-		if ( isset( $dynamic_options['color']['notice_compliance_button_hover_border_color'] ) ) {
-			$css .= '
-				.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button:hover {
-					border-color: ' . $dynamic_options['color']['notice_compliance_button_hover_border_color'] . ';
-				}';
-		}
+		//if ( isset( $dynamic_options['color']['notice_compliance_button_hover_border_color'] ) ) {
+		//	$css .= '
+		//		.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button:hover {
+		//			border-color: ' . $dynamic_options['color']['notice_compliance_button_hover_border_color'] . ';
+		//		}';
+		//}
 
-		if ( isset( $dynamic_options['color']['notice_compliance_button_text_color'] ) ) {
-			$css .= '
-				.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button {
-					color: ' . $dynamic_options['color']['notice_compliance_button_text_color'] . ';
-				}';
-		}
+		//if ( isset( $dynamic_options['color']['notice_compliance_button_text_color'] ) ) {
+		//	$css .= '
+		//		.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button {
+		//			color: ' . $dynamic_options['color']['notice_compliance_button_text_color'] . ';
+		//		}';
+		//}
 
-		if ( isset( $dynamic_options['color']['notice_compliance_button_hover_text_color'] ) ) {
-			$css .= '
-				.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button:hover {
-					color: ' . $dynamic_options['color']['notice_compliance_button_hover_text_color'] . ';
-				}';
-		}
+		//if ( isset( $dynamic_options['color']['notice_compliance_button_hover_text_color'] ) ) {
+		//	$css .= '
+		//		.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button:hover {
+		//			color: ' . $dynamic_options['color']['notice_compliance_button_hover_text_color'] . ';
+		//		}';
+		//}
 
-		if ( isset( $dynamic_options['color']['notice_box_close_btn_bg_color'] ) ) {
-			$css .= '
-				.sgcc-main-wrapper .sgcc-container .close {
-					background-color: ' . $dynamic_options['color']['notice_box_close_btn_bg_color'] . ';
-				}';
-		}
+		//if ( isset( $dynamic_options['color']['notice_box_close_btn_bg_color'] ) ) {
+		//	$css .= '
+		//		.sgcc-main-wrapper .sgcc-container .close {
+		//			background-color: ' . $dynamic_options['color']['notice_box_close_btn_bg_color'] . ';
+		//		}';
+		//}
 
-		if ( isset( $dynamic_options['color']['notice_box_close_btn_bg_hover_color'] ) ) {
-			$css .= '
-				.sgcc-main-wrapper .sgcc-container .close:hover {
-					background-color: ' . $dynamic_options['color']['notice_box_close_btn_bg_hover_color'] . ';
-				}';
-		}
+		//if ( isset( $dynamic_options['color']['notice_box_close_btn_bg_hover_color'] ) ) {
+		//	$css .= '
+		//		.sgcc-main-wrapper .sgcc-container .close:hover {
+		//			background-color: ' . $dynamic_options['color']['notice_box_close_btn_bg_hover_color'] . ';
+		//		}';
+		//}
 
-		if ( isset( $dynamic_options['color']['notice_box_close_btn_text_color'] ) ) {
-			$css .= '
-				.sgcc-main-wrapper .sgcc-container .close:hover {
-					color: ' . $dynamic_options['color']['notice_box_close_btn_text_color'] . ';
-				}';
-		}
+		//if ( isset( $dynamic_options['color']['notice_box_close_btn_text_color'] ) ) {
+		//	$css .= '
+		//		.sgcc-main-wrapper .sgcc-container .close:hover {
+		//			color: ' . $dynamic_options['color']['notice_box_close_btn_text_color'] . ';
+		//		}';
+		//}
 
-		if ( isset( $dynamic_options['color']['notice_box_close_btn_hover_text_color'] ) ) {
-			$css .= '
-				.sgcc-main-wrapper .sgcc-container .close:hover {
-					color: ' . $dynamic_options['color']['notice_box_close_btn_hover_text_color'] . ';
-				}';
-		}
+		//if ( isset( $dynamic_options['color']['notice_box_close_btn_hover_text_color'] ) ) {
+		//	$css .= '
+		//		.sgcc-main-wrapper .sgcc-container .close:hover {
+		//			color: ' . $dynamic_options['color']['notice_box_close_btn_hover_text_color'] . ';
+		//		}';
+		//}
 
-		$show_close_btn = ( isset( $dynamic_options['show_close_btn'] ) ) ? $dynamic_options['show_close_btn'] : false;
+		//$show_close_btn = ( isset( $dynamic_options['show_close_btn'] ) ) ? $dynamic_options['show_close_btn'] : false;
 
-		$show_cookie_icon = ( isset( $dynamic_options['show_cookie_icon'] ) ) ? $dynamic_options['show_cookie_icon'] : false;
+		//$show_cookie_icon = ( isset( $dynamic_options['show_cookie_icon'] ) ) ? $dynamic_options['show_cookie_icon'] : false;
 
-		if ( isset( $dynamic_options['style']['type'] ) ) {
+		//if ( isset( $dynamic_options['style']['type'] ) ) {
 
-			// Dynamic CSS for pop-up notice.
+		//	// Dynamic CSS for pop-up notice.
 
-			if ( 'pop_up' === $dynamic_options['style']['type'] ) {
+		//	if ( 'pop_up' === $dynamic_options['style']['type'] ) {
 
-				if (
-					isset( $dynamic_options['style']['enable_bg_overlay'] ) &&
-					true === $dynamic_options['style']['enable_bg_overlay']
-				) {
-					$css .= '
-					.sgcc-overlay-mask {
-						position: fixed;
-						top: 0;
-						right: 0;
-						bottom: 0;
-						left: 0;
-						height: 100%;
-						width: 100%;
-						z-index: 99999998;
-    				transition: all 0.5s ease;
-					';
+		//		if (
+		//			isset( $dynamic_options['style']['enable_bg_overlay'] ) &&
+		//			true === $dynamic_options['style']['enable_bg_overlay']
+		//		) {
+		//			$css .= '
+		//			.sgcc-overlay-mask {
+		//				position: fixed;
+		//				top: 0;
+		//				right: 0;
+		//				bottom: 0;
+		//				left: 0;
+		//				height: 100%;
+		//				width: 100%;
+		//				z-index: 99999998;
+    //				transition: all 0.5s ease;
+		//			';
 
-					if ( isset( $dynamic_options['color']['notice_bg_overlay_color'] ) ) {
-						$css .= '
-							background-color: ' . $dynamic_options['color']['notice_bg_overlay_color'] . ';
-						';
-					}
+		//			if ( isset( $dynamic_options['color']['notice_bg_overlay_color'] ) ) {
+		//				$css .= '
+		//					background-color: ' . $dynamic_options['color']['notice_bg_overlay_color'] . ';
+		//				';
+		//			}
 
-					$css .= '}';
-				}
+		//			$css .= '}';
+		//		}
 
-				$width = null;
+		//		$width = null;
 
-				if ( isset( $dynamic_options['style']['width'] ) ) {
+		//		if ( isset( $dynamic_options['style']['width'] ) ) {
 
-					$width = $dynamic_options['style']['width'];
+		//			$width = $dynamic_options['style']['width'];
 
-					$css .= '
-						.s-gdpr-c-c-pop-up {
-							width: ' . $width . 'px;
-						}';
-				}
+		//			$css .= '
+		//				.s-gdpr-c-c-pop-up {
+		//					width: ' . $width . 'px;
+		//				}';
+		//		}
 
-				$css .= '
-					.s-gdpr-c-c-pop-up {
-						position: fixed;
-						z-index: 99999999;
-  					left: 50%;
-  					top: 50%;
-  					right:unset;
-  					bottom:unset;
-  					transform: translate(-50%, -50%);
-    				animation:none;
-					}';
+		//		$css .= '
+		//			.s-gdpr-c-c-pop-up {
+		//				position: fixed;
+		//				z-index: 99999999;
+  	//				left: 50%;
+  	//				top: 50%;
+  	//				right:unset;
+  	//				bottom:unset;
+  	//				transform: translate(-50%, -50%);
+    //				animation:none;
+		//			}';
 
-				if ( ! $show_cookie_icon ) {
-					$css .= '
-					.sgcc-main-wrapper.s-gdpr-c-c-no-cookie-icon .sgcc-container {
-						padding: 30px;
-					}
-					';
-				} else {
-					$css .= '
-					.sgcc-main-wrapper .sgcc-container {
-						padding: 30px 30px 30px 55px;
-					}
-					';
-				}
+		//		if ( ! $show_cookie_icon ) {
+		//			$css .= '
+		//			.sgcc-main-wrapper.s-gdpr-c-c-no-cookie-icon .sgcc-container {
+		//				padding: 30px;
+		//			}
+		//			';
+		//		} else {
+		//			$css .= '
+		//			.sgcc-main-wrapper .sgcc-container {
+		//				padding: 30px 30px 30px 55px;
+		//			}
+		//			';
+		//		}
 
-				if (
-					isset( $dynamic_options['style']['enable_bg_overlay'] ) &&
-					isset( $dynamic_options['color']['notice_bg_overlay_color'] )
-				) {
-					$css .= '
-						.sgcc-overlay-mask {
-							background-color: ' . $dynamic_options['color']['notice_bg_overlay_color'] . ';
-						}';
-				}
-			}
+		//		if (
+		//			isset( $dynamic_options['style']['enable_bg_overlay'] ) &&
+		//			isset( $dynamic_options['color']['notice_bg_overlay_color'] )
+		//		) {
+		//			$css .= '
+		//				.sgcc-overlay-mask {
+		//					background-color: ' . $dynamic_options['color']['notice_bg_overlay_color'] . ';
+		//				}';
+		//		}
+		//	}
 
-			// Dynamic CSS for full-width notice.
+		//	// Dynamic CSS for full-width notice.
 
-			if ( 'full_width' === $dynamic_options['style']['type'] ) {
+		//	if ( 'full_width' === $dynamic_options['style']['type'] ) {
 
-				if ( isset( $dynamic_options['style']['fullwidth_position'] ) ) {
+		//		if ( isset( $dynamic_options['style']['fullwidth_position'] ) ) {
 
-					$css .= '
-						.s-gdpr-c-c-fullwidth {
-							left: 0;
-							right: 0;
-							width: 100%;
-							border-radius: 0;
-							-webkit-animation:none;
-							-moz-animation:none;
-							animation:none;
-    						-webkit-box-shadow: none;
-    						-ms-box-shadow: none;
-    						box-shadow: none;
-						}';
+		//			$css .= '
+		//				.s-gdpr-c-c-fullwidth {
+		//					left: 0;
+		//					right: 0;
+		//					width: 100%;
+		//					border-radius: 0;
+		//					-webkit-animation:none;
+		//					-moz-animation:none;
+		//					animation:none;
+    //						-webkit-box-shadow: none;
+    //						-ms-box-shadow: none;
+    //						box-shadow: none;
+		//				}';
 
-					if ( ! $show_cookie_icon ) {
-						$css .= '
-						.sgcc-main-wrapper.s-gdpr-c-c-no-cookie-icon .sgcc-container {
-							padding: 10px;
-						}
-						';
-					} else {
-						$css .= '
-						.sgcc-main-wrapper .sgcc-container {
-							padding: 10px 10px 10px 55px;
-						}
-						';
-					}
+		//			if ( ! $show_cookie_icon ) {
+		//				$css .= '
+		//				.sgcc-main-wrapper.s-gdpr-c-c-no-cookie-icon .sgcc-container {
+		//					padding: 10px;
+		//				}
+		//				';
+		//			} else {
+		//				$css .= '
+		//				.sgcc-main-wrapper .sgcc-container {
+		//					padding: 10px 10px 10px 55px;
+		//				}
+		//				';
+		//			}
 
-					$css .= '
-						.sgcc-main-wrapper .sgcc-container .cookie-icon {
-							position: relative;
-							top: unset;
-							right: unset;
-							bottom: unset;
-							left: unset;
-							margin-right: 15px;
-						}
-						.sgcc-main-wrapper .sgcc-container .close {
-							right: 15px;
-							top: 50%;
-							transform: translateY(-50%);
-						}
-						.s-gdpr-c-c-fullwidth .sgcc-notice-content {
-							display: -webkit-box;
-						    display: -ms-flexbox;
-						    display: flex;
-						    -webkit-box-orient: horizontal;
-						    -webkit-box-direction: normal;
-						    -ms-flex-direction: row;
-						    flex-direction: row;
-						    -ms-flex-wrap: wrap;
-						    flex-wrap: wrap;
-						    -webkit-box-align: center;
-						    -ms-flex-align: center;
-						    align-items: center;
-						    justify-content: center;
-						}
-						.s-gdpr-c-c-fullwidth .sgcc-notice-content .message-block {
-							margin-bottom: 0px;
-						}
+		//			$css .= '
+		//				.sgcc-main-wrapper .sgcc-container .cookie-icon {
+		//					position: relative;
+		//					top: unset;
+		//					right: unset;
+		//					bottom: unset;
+		//					left: unset;
+		//					margin-right: 15px;
+		//				}
+		//				.sgcc-main-wrapper .sgcc-container .close {
+		//					right: 15px;
+		//					top: 50%;
+		//					transform: translateY(-50%);
+		//				}
+		//				.s-gdpr-c-c-fullwidth .sgcc-notice-content {
+		//					display: -webkit-box;
+		//				    display: -ms-flexbox;
+		//				    display: flex;
+		//				    -webkit-box-orient: horizontal;
+		//				    -webkit-box-direction: normal;
+		//				    -ms-flex-direction: row;
+		//				    flex-direction: row;
+		//				    -ms-flex-wrap: wrap;
+		//				    flex-wrap: wrap;
+		//				    -webkit-box-align: center;
+		//				    -ms-flex-align: center;
+		//				    align-items: center;
+		//				    justify-content: center;
+		//				}
+		//				.s-gdpr-c-c-fullwidth .sgcc-notice-content .message-block {
+		//					margin-bottom: 0px;
+		//				}
 
-						.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-container p {
+		//				.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-container p {
 
-							line-height:1.3;
-						}
+		//					line-height:1.3;
+		//				}
 
-						.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .cookie-compliance-button-block .cookie-compliance-button {
-							padding: 10px 15px;
-    						border-radius: 2px;
-    						-webkit-box-shadow: none;
-    						-ms-box-shadow: none;
-    						box-shadow: none;
-						}
+		//				.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .cookie-compliance-button-block .cookie-compliance-button {
+		//					padding: 10px 15px;
+    //						border-radius: 2px;
+    //						-webkit-box-shadow: none;
+    //						-ms-box-shadow: none;
+    //						box-shadow: none;
+		//				}
 
-						.s-gdpr-c-c-fullwidth .sgcc-notice-content .cookie-compliance-button-block {
-							margin-left: 15px;
-						}
+		//				.s-gdpr-c-c-fullwidth .sgcc-notice-content .cookie-compliance-button-block {
+		//					margin-left: 15px;
+		//				}
 
-						@media(max-width:600px) {
-							.sgcc-main-wrapper.s-gdpr-c-c-fullwidth {
-								max-width:100%;
-							}
+		//				@media(max-width:600px) {
+		//					.sgcc-main-wrapper.s-gdpr-c-c-fullwidth {
+		//						max-width:100%;
+		//					}
 
-							.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-container {
-								padding:10px 15px;
-							}
+		//					.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-container {
+		//						padding:10px 15px;
+		//					}
 
-							.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-container .close,
-							.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-container .cookie-icon {
-								display:none;
-							}
+		//					.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-container .close,
+		//					.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-container .cookie-icon {
+		//						display:none;
+		//					}
 
-							.s-gdpr-c-c-fullwidth .sgcc-notice-content .cookie-compliance-button-block {
-								margin-left:0;
-								margin-top:10px;
-							}
-						}';
+		//					.s-gdpr-c-c-fullwidth .sgcc-notice-content .cookie-compliance-button-block {
+		//						margin-left:0;
+		//						margin-top:10px;
+		//					}
+		//				}';
 
-					if ( 'top' === $dynamic_options['style']['fullwidth_position'] ) {
-						$css .= '
-							.s-gdpr-c-c-fullwidth-top {
-								top: 0;
-								bottom: auto;
-							}';
-					}
+		//			if ( 'top' === $dynamic_options['style']['fullwidth_position'] ) {
+		//				$css .= '
+		//					.s-gdpr-c-c-fullwidth-top {
+		//						top: 0;
+		//						bottom: auto;
+		//					}';
+		//			}
 
-					if ( 'bottom' === $dynamic_options['style']['fullwidth_position'] ) {
-						$css .= '
-							.s-gdpr-c-c-fullwidth-bottom {
-								bottom: 0;
-								top: auto;
-							}';
-					}
-				}
-			}
+		//			if ( 'bottom' === $dynamic_options['style']['fullwidth_position'] ) {
+		//				$css .= '
+		//					.s-gdpr-c-c-fullwidth-bottom {
+		//						bottom: 0;
+		//						top: auto;
+		//					}';
+		//			}
+		//		}
+		//	}
 
-			// Dynamic CSS for custom-width notice.
+		//	// Dynamic CSS for custom-width notice.
 
-			if ( 'custom_width' === $dynamic_options['style']['type'] ) {
+		//	if ( 'custom_width' === $dynamic_options['style']['type'] ) {
 
-				$width = null;
+		//		$width = null;
 
-				if ( isset( $dynamic_options['style']['width'] ) ) {
+		//		if ( isset( $dynamic_options['style']['width'] ) ) {
 
-					$width = $dynamic_options['style']['width'];
+		//			$width = $dynamic_options['style']['width'];
 
-					$css .= '
-						.s-gdpr-c-c-customwidth {
-							width: ' . $width . 'px;
-						}';
-				}
+		//			$css .= '
+		//				.s-gdpr-c-c-customwidth {
+		//					width: ' . $width . 'px;
+		//				}';
+		//		}
 
-				if ( ! $show_cookie_icon ) {
-					$css .= '
-					.sgcc-main-wrapper.s-gdpr-c-c-no-cookie-icon .sgcc-container {
-						padding: 20px;
-					}
-					';
-				} else {
-					$css .= '
-					.sgcc-main-wrapper .sgcc-container {
-						padding: 20px 20px 20px 55px;
-					}
-					';
-				}
+		//		if ( ! $show_cookie_icon ) {
+		//			$css .= '
+		//			.sgcc-main-wrapper.s-gdpr-c-c-no-cookie-icon .sgcc-container {
+		//				padding: 20px;
+		//			}
+		//			';
+		//		} else {
+		//			$css .= '
+		//			.sgcc-main-wrapper .sgcc-container {
+		//				padding: 20px 20px 20px 55px;
+		//			}
+		//			';
+		//		}
 
-				if ( isset( $dynamic_options['style']['customwidth_position'] ) ) {
+		//		if ( isset( $dynamic_options['style']['customwidth_position'] ) ) {
 
-					if (
-						'top_left' === $dynamic_options['style']['customwidth_position'] &&
-						isset( $dynamic_options['style']['top_offset'] ) &&
-						isset( $dynamic_options['style']['left_offset'] )
-					) {
-						$css .= '
-							.s-gdpr-c-c-customwidth-top-left {
-								top: ' . $dynamic_options['style']['top_offset'] . 'px;
-								left: ' . $dynamic_options['style']['left_offset'] . 'px;
-								right: auto;
-								bottom: auto;
-							}';
-					}
+		//			if (
+		//				'top_left' === $dynamic_options['style']['customwidth_position'] &&
+		//				isset( $dynamic_options['style']['top_offset'] ) &&
+		//				isset( $dynamic_options['style']['left_offset'] )
+		//			) {
+		//				$css .= '
+		//					.s-gdpr-c-c-customwidth-top-left {
+		//						top: ' . $dynamic_options['style']['top_offset'] . 'px;
+		//						left: ' . $dynamic_options['style']['left_offset'] . 'px;
+		//						right: auto;
+		//						bottom: auto;
+		//					}';
+		//			}
 
-					if (
-						'top_center' === $dynamic_options['style']['customwidth_position'] &&
-						isset( $dynamic_options['style']['top_offset'] )
-					) {
-						$css .= '
-							.s-gdpr-c-c-customwidth-top-center {
-								top: ' . $dynamic_options['style']['top_offset'] . 'px;
-								left:  calc(50% - ' . (int) $width / 2 . 'px);
-								right: auto;
-								bottom: auto;
-							}';
-					}
+		//			if (
+		//				'top_center' === $dynamic_options['style']['customwidth_position'] &&
+		//				isset( $dynamic_options['style']['top_offset'] )
+		//			) {
+		//				$css .= '
+		//					.s-gdpr-c-c-customwidth-top-center {
+		//						top: ' . $dynamic_options['style']['top_offset'] . 'px;
+		//						left:  calc(50% - ' . (int) $width / 2 . 'px);
+		//						right: auto;
+		//						bottom: auto;
+		//					}';
+		//			}
 
-					if (
-						'top_right' === $dynamic_options['style']['customwidth_position'] &&
-						isset( $dynamic_options['style']['top_offset'] ) &&
-						isset( $dynamic_options['style']['right_offset'] )
-					) {
-						$css .= '
-							.s-gdpr-c-c-customwidth-top-right {
-								top: ' . $dynamic_options['style']['top_offset'] . 'px;
-								right: ' . $dynamic_options['style']['right_offset'] . 'px;
-								left: auto;
-								bottom: auto;
-							}';
-					}
+		//			if (
+		//				'top_right' === $dynamic_options['style']['customwidth_position'] &&
+		//				isset( $dynamic_options['style']['top_offset'] ) &&
+		//				isset( $dynamic_options['style']['right_offset'] )
+		//			) {
+		//				$css .= '
+		//					.s-gdpr-c-c-customwidth-top-right {
+		//						top: ' . $dynamic_options['style']['top_offset'] . 'px;
+		//						right: ' . $dynamic_options['style']['right_offset'] . 'px;
+		//						left: auto;
+		//						bottom: auto;
+		//					}';
+		//			}
 
-					if (
-						'bottom_left' === $dynamic_options['style']['customwidth_position'] &&
-						isset( $dynamic_options['style']['bottom_offset'] ) &&
-						isset( $dynamic_options['style']['left_offset'] )
-					) {
-						$css .= '
-							.s-gdpr-c-c-customwidth-bottom-left {
-								bottom: ' . $dynamic_options['style']['bottom_offset'] . 'px;
-								left: ' . $dynamic_options['style']['left_offset'] . 'px;
-								right: auto;
-								top: auto;
-							}';
-					}
+		//			if (
+		//				'bottom_left' === $dynamic_options['style']['customwidth_position'] &&
+		//				isset( $dynamic_options['style']['bottom_offset'] ) &&
+		//				isset( $dynamic_options['style']['left_offset'] )
+		//			) {
+		//				$css .= '
+		//					.s-gdpr-c-c-customwidth-bottom-left {
+		//						bottom: ' . $dynamic_options['style']['bottom_offset'] . 'px;
+		//						left: ' . $dynamic_options['style']['left_offset'] . 'px;
+		//						right: auto;
+		//						top: auto;
+		//					}';
+		//			}
 
-					if (
-						'bottom_center' === $dynamic_options['style']['customwidth_position'] &&
-						isset( $dynamic_options['style']['bottom_offset'] )
-					) {
-						$css .= '
-							.s-gdpr-c-c-customwidth-bottom-center {
-								bottom: ' . $dynamic_options['style']['bottom_offset'] . 'px;
-								left:  calc(50% - ' . (int) $width / 2 . 'px);
-								right: auto;
-								top: auto;
-							}';
-					}
+		//			if (
+		//				'bottom_center' === $dynamic_options['style']['customwidth_position'] &&
+		//				isset( $dynamic_options['style']['bottom_offset'] )
+		//			) {
+		//				$css .= '
+		//					.s-gdpr-c-c-customwidth-bottom-center {
+		//						bottom: ' . $dynamic_options['style']['bottom_offset'] . 'px;
+		//						left:  calc(50% - ' . (int) $width / 2 . 'px);
+		//						right: auto;
+		//						top: auto;
+		//					}';
+		//			}
 
-					if (
-						'bottom_right' === $dynamic_options['style']['customwidth_position'] &&
-						isset( $dynamic_options['style']['bottom_offset'] ) &&
-						isset( $dynamic_options['style']['right_offset'] )
-					) {
-						$css .= '
-							.s-gdpr-c-c-customwidth-bottom-right {
-								bottom: ' . $dynamic_options['style']['bottom_offset'] . 'px;
-								right: ' . $dynamic_options['style']['right_offset'] . 'px;
-								left: auto;
-								top: auto;
-							}';
-					}
-				}
-			}
-		}
+		//			if (
+		//				'bottom_right' === $dynamic_options['style']['customwidth_position'] &&
+		//				isset( $dynamic_options['style']['bottom_offset'] ) &&
+		//				isset( $dynamic_options['style']['right_offset'] )
+		//			) {
+		//				$css .= '
+		//					.s-gdpr-c-c-customwidth-bottom-right {
+		//						bottom: ' . $dynamic_options['style']['bottom_offset'] . 'px;
+		//						right: ' . $dynamic_options['style']['right_offset'] . 'px;
+		//						left: auto;
+		//						top: auto;
+		//					}';
+		//			}
+		//		}
+		//	}
+		//}
 
 		// Add custom CSS from custom css option.
 
