@@ -125,6 +125,7 @@
 		--left: 0;
 		--width: max-content;
 		width: var(--width);
+		max-width: calc(100% - 20px);
 		right: var(--right);
 		left: var(--left);
 		margin: 0 auto;
