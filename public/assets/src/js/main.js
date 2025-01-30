@@ -6,7 +6,7 @@
 *
 * @since: 1.1.4
 */
-const cookieName = 's_gdpr_c_c_cookie';
+const cookieName = 'sgcc-cookie-notice';
 
 const bgOverlayEle = document.getElementById('sgcc-overlay-mask');
 
