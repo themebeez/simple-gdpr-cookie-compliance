@@ -38,5 +38,5 @@ indent_size = 2
 
 [*.php]
 indent_style = tab
-tab_width = 2
-indent_size = 2
+tab_width = 4
+indent_size = 4

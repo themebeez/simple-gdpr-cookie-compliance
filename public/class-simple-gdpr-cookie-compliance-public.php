@@ -263,452 +263,112 @@ class Simple_GDPR_Cookie_Compliance_Public {
 	 */
 	public function get_dynamic_css() {
 
+		$settings_default = simple_gdpr_get_setting_defaults();
+
 		$dynamic_options = get_option( 'simple_gdpr_cookie_compliance_options' );
+
+		error_log( print_r( $dynamic_options, true ) );
+
 
 		$css = '';
 
-		//if ( isset( $dynamic_options['color']['notice_background'] ) ) {
-		//	$css .= '
-		//		.sgcc-main-wrapper {
-		//			background-color: ' . $dynamic_options['color']['notice_background'] . ';
-		//		}';
-		//}
+		$css_values = array(
+			'--sgcc-text-color'                           => isset( $dynamic_options['color']['notice_text'] ) ? $dynamic_options['color']['notice_text'] : $settings_default['notice_text_color'],
+			'--sgcc-link-color'                           => isset( $dynamic_options['color']['notice_link_color'] ) ? $dynamic_options['color']['notice_link_color'] : $settings_default['notice_link_color'],
+			'--sgcc-link-hover-color'                     => isset( $dynamic_options['color']['notice_link_hover_color'] ) ? $dynamic_options['color']['notice_link_hover_color'] : $settings_default['notice_link_hover_color'],
+			'--sgcc-notice-background-color'              => isset( $dynamic_options['color']['notice_background'] ) ? $dynamic_options['color']['notice_background'] : $settings_default['notice_background'],
+			'--sgcc-cookie-icon-color'                    => isset( $dynamic_options['color']['notice_cookie_icon_color'] ) ? $dynamic_options['color']['notice_cookie_icon_color'] : $settings_default['notice_cookie_icon_color'],
+			'--sgcc-close-button-background-color'        => isset( $dynamic_options['color']['notice_box_close_btn_bg_color'] ) ? $dynamic_options['color']['notice_box_close_btn_bg_color'] : $settings_default['notice_box_close_btn_bg_color'],
+			'--sgcc-close-button-hover-background-color'  => isset( $dynamic_options['color']['notice_box_close_btn_bg_hover_color'] ) ? $dynamic_options['color']['notice_box_close_btn_bg_hover_color'] : $settings_default['notice_box_close_btn_bg_hover_color'],
+			'--sgcc-close-button-color'                   => isset( $dynamic_options['color']['notice_box_close_btn_text_color'] ) ? $dynamic_options['color']['notice_box_close_btn_text_color'] : $settings_default['notice_box_close_btn_text_color'],
+			'--sgcc-close-button-hover-color'             => isset( $dynamic_options['color']['notice_box_close_btn_hover_text_color'] ) ? $dynamic_options['color']['notice_box_close_btn_hover_text_color'] : $settings_default['notice_box_close_btn_hover_text_color'],
+			'--sgcc-accept-button-background-color'       => isset( $dynamic_options['color']['notice_compliance_button_bg'] ) ? $dynamic_options['color']['notice_compliance_button_bg'] : $settings_default['notice_compliance_button_bg'],
+			'--sgcc-accept-button-hover-background-color' => isset( $dynamic_options['color']['notice_compliance_button_hover_bg_color'] ) ? $dynamic_options['color']['notice_compliance_button_hover_bg_color'] : $settings_default['notice_compliance_button_hover_bg_color'],
+			'--sgcc-accept-button-color'                  => isset( $dynamic_options['color']['notice_compliance_button_text_color'] ) ? $dynamic_options['color']['notice_compliance_button_text_color'] : $settings_default['notice_compliance_button_text_color'],
+			'--sgcc-accept-button-hover-color'            => isset( $dynamic_options['color']['notice_compliance_button_hover_text_color'] ) ? $dynamic_options['color']['notice_compliance_button_hover_text_color'] : $settings_default['notice_compliance_button_hover_text_color'],
+			'--sgcc-accept-button-border-color'           => isset( $dynamic_options['color']['notice_compliance_button_border_color'] ) ? $dynamic_options['color']['notice_compliance_button_border_color'] : $settings_default['notice_compliance_button_border_color'],
+			'--sgcc-accept-button-hover-border-color'     => isset( $dynamic_options['color']['notice_compliance_button_hover_border_color'] ) ? $dynamic_options['color']['notice_compliance_button_hover_border_color'] : $settings_default['notice_compliance_button_hover_border_color'],
+		);
 
-		//if ( isset( $dynamic_options['color']['notice_text'] ) ) {
-		//	$css .= '
-		//		.sgcc-main-wrapper .sgcc-container p {
-		//			color: ' . $dynamic_options['color']['notice_text'] . ';
-		//		}';
-		//}
+		$css_values_top_left = array(
+			'--top' => isset( $dynamic_options['style']['top_offset'] ) ? $dynamic_options['style']['top_offset'] : $settings_default['custom_width_notice_position_offset']['top_offset'],
+			'__left' => isset( $dynamic_options['style']['left_offset'] ) ? $dynamic_options['style']['left_offset'] : $settings_default['custom_width_notice_position_offset']['left_offset'],
+		);
 
-		//if ( isset( $dynamic_options['color']['notice_link_color'] ) ) {
-		//	$css .= '
-		//		.sgcc-main-wrapper .sgcc-container a {
-		//			color: ' . $dynamic_options['color']['notice_link_color'] . ';
-		//		}';
-		//}
+		$css = ':root {';
 
-		//if ( isset( $dynamic_options['color']['notice_link_hover_color'] ) ) {
-		//	$css .= '
-		//		.sgcc-main-wrapper .sgcc-container a:hover {
-		//			color: ' . $dynamic_options['color']['notice_link_hover_color'] . ';
-		//		}';
-		//}
+		foreach ( $css_values as $key => $value ) {
 
-		//if ( isset( $dynamic_options['color']['notice_cookie_icon_color'] ) ) {
-		//	$css .= '
-		//		.sgcc-main-wrapper .sgcc-container .cookie-icon {
-		//			fill: ' . $dynamic_options['color']['notice_cookie_icon_color'] . ';
-		//		}';
-		//}
-
-		//if ( isset( $dynamic_options['color']['notice_compliance_button_bg'] ) ) {
-		//	$css .= '
-		//		.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button {
-		//			background-color: ' . $dynamic_options['color']['notice_compliance_button_bg'] . ';
-		//		}';
-		//}
-
-		//if ( isset( $dynamic_options['color']['notice_compliance_button_hover_bg_color'] ) ) {
-		//	$css .= '
-		//		.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button:hover {
-		//			background-color: ' . $dynamic_options['color']['notice_compliance_button_hover_bg_color'] . ';
-		//		}';
-		//}
-
-		//if ( isset( $dynamic_options['color']['notice_compliance_button_border_color'] ) ) {
-		//	$css .= '
-		//		.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button {
-		//			border-color: ' . $dynamic_options['color']['notice_compliance_button_border_color'] . ';
-		//		}';
-		//}
-
-		//if ( isset( $dynamic_options['color']['notice_compliance_button_hover_border_color'] ) ) {
-		//	$css .= '
-		//		.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button:hover {
-		//			border-color: ' . $dynamic_options['color']['notice_compliance_button_hover_border_color'] . ';
-		//		}';
-		//}
-
-		//if ( isset( $dynamic_options['color']['notice_compliance_button_text_color'] ) ) {
-		//	$css .= '
-		//		.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button {
-		//			color: ' . $dynamic_options['color']['notice_compliance_button_text_color'] . ';
-		//		}';
-		//}
-
-		//if ( isset( $dynamic_options['color']['notice_compliance_button_hover_text_color'] ) ) {
-		//	$css .= '
-		//		.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button:hover {
-		//			color: ' . $dynamic_options['color']['notice_compliance_button_hover_text_color'] . ';
-		//		}';
-		//}
-
-		//if ( isset( $dynamic_options['color']['notice_box_close_btn_bg_color'] ) ) {
-		//	$css .= '
-		//		.sgcc-main-wrapper .sgcc-container .close {
-		//			background-color: ' . $dynamic_options['color']['notice_box_close_btn_bg_color'] . ';
-		//		}';
-		//}
-
-		//if ( isset( $dynamic_options['color']['notice_box_close_btn_bg_hover_color'] ) ) {
-		//	$css .= '
-		//		.sgcc-main-wrapper .sgcc-container .close:hover {
-		//			background-color: ' . $dynamic_options['color']['notice_box_close_btn_bg_hover_color'] . ';
-		//		}';
-		//}
-
-		//if ( isset( $dynamic_options['color']['notice_box_close_btn_text_color'] ) ) {
-		//	$css .= '
-		//		.sgcc-main-wrapper .sgcc-container .close:hover {
-		//			color: ' . $dynamic_options['color']['notice_box_close_btn_text_color'] . ';
-		//		}';
-		//}
-
-		//if ( isset( $dynamic_options['color']['notice_box_close_btn_hover_text_color'] ) ) {
-		//	$css .= '
-		//		.sgcc-main-wrapper .sgcc-container .close:hover {
-		//			color: ' . $dynamic_options['color']['notice_box_close_btn_hover_text_color'] . ';
-		//		}';
-		//}
-
-		//$show_close_btn = ( isset( $dynamic_options['show_close_btn'] ) ) ? $dynamic_options['show_close_btn'] : false;
-
-		//$show_cookie_icon = ( isset( $dynamic_options['show_cookie_icon'] ) ) ? $dynamic_options['show_cookie_icon'] : false;
-
-		//if ( isset( $dynamic_options['style']['type'] ) ) {
-
-		//	// Dynamic CSS for pop-up notice.
-
-		//	if ( 'pop_up' === $dynamic_options['style']['type'] ) {
-
-		//		if (
-		//			isset( $dynamic_options['style']['enable_bg_overlay'] ) &&
-		//			true === $dynamic_options['style']['enable_bg_overlay']
-		//		) {
-		//			$css .= '
-		//			.sgcc-overlay-mask {
-		//				position: fixed;
-		//				top: 0;
-		//				right: 0;
-		//				bottom: 0;
-		//				left: 0;
-		//				height: 100%;
-		//				width: 100%;
-		//				z-index: 99999998;
-    //				transition: all 0.5s ease;
-		//			';
-
-		//			if ( isset( $dynamic_options['color']['notice_bg_overlay_color'] ) ) {
-		//				$css .= '
-		//					background-color: ' . $dynamic_options['color']['notice_bg_overlay_color'] . ';
-		//				';
-		//			}
-
-		//			$css .= '}';
-		//		}
-
-		//		$width = null;
-
-		//		if ( isset( $dynamic_options['style']['width'] ) ) {
-
-		//			$width = $dynamic_options['style']['width'];
-
-		//			$css .= '
-		//				.s-gdpr-c-c-pop-up {
-		//					width: ' . $width . 'px;
-		//				}';
-		//		}
-
-		//		$css .= '
-		//			.s-gdpr-c-c-pop-up {
-		//				position: fixed;
-		//				z-index: 99999999;
-  	//				left: 50%;
-  	//				top: 50%;
-  	//				right:unset;
-  	//				bottom:unset;
-  	//				transform: translate(-50%, -50%);
-    //				animation:none;
-		//			}';
-
-		//		if ( ! $show_cookie_icon ) {
-		//			$css .= '
-		//			.sgcc-main-wrapper.s-gdpr-c-c-no-cookie-icon .sgcc-container {
-		//				padding: 30px;
-		//			}
-		//			';
-		//		} else {
-		//			$css .= '
-		//			.sgcc-main-wrapper .sgcc-container {
-		//				padding: 30px 30px 30px 55px;
-		//			}
-		//			';
-		//		}
-
-		//		if (
-		//			isset( $dynamic_options['style']['enable_bg_overlay'] ) &&
-		//			isset( $dynamic_options['color']['notice_bg_overlay_color'] )
-		//		) {
-		//			$css .= '
-		//				.sgcc-overlay-mask {
-		//					background-color: ' . $dynamic_options['color']['notice_bg_overlay_color'] . ';
-		//				}';
-		//		}
-		//	}
-
-		//	// Dynamic CSS for full-width notice.
-
-		//	if ( 'full_width' === $dynamic_options['style']['type'] ) {
-
-		//		if ( isset( $dynamic_options['style']['fullwidth_position'] ) ) {
-
-		//			$css .= '
-		//				.s-gdpr-c-c-fullwidth {
-		//					left: 0;
-		//					right: 0;
-		//					width: 100%;
-		//					border-radius: 0;
-		//					-webkit-animation:none;
-		//					-moz-animation:none;
-		//					animation:none;
-    //						-webkit-box-shadow: none;
-    //						-ms-box-shadow: none;
-    //						box-shadow: none;
-		//				}';
-
-		//			if ( ! $show_cookie_icon ) {
-		//				$css .= '
-		//				.sgcc-main-wrapper.s-gdpr-c-c-no-cookie-icon .sgcc-container {
-		//					padding: 10px;
-		//				}
-		//				';
-		//			} else {
-		//				$css .= '
-		//				.sgcc-main-wrapper .sgcc-container {
-		//					padding: 10px 10px 10px 55px;
-		//				}
-		//				';
-		//			}
-
-		//			$css .= '
-		//				.sgcc-main-wrapper .sgcc-container .cookie-icon {
-		//					position: relative;
-		//					top: unset;
-		//					right: unset;
-		//					bottom: unset;
-		//					left: unset;
-		//					margin-right: 15px;
-		//				}
-		//				.sgcc-main-wrapper .sgcc-container .close {
-		//					right: 15px;
-		//					top: 50%;
-		//					transform: translateY(-50%);
-		//				}
-		//				.s-gdpr-c-c-fullwidth .sgcc-notice-content {
-		//					display: -webkit-box;
-		//				    display: -ms-flexbox;
-		//				    display: flex;
-		//				    -webkit-box-orient: horizontal;
-		//				    -webkit-box-direction: normal;
-		//				    -ms-flex-direction: row;
-		//				    flex-direction: row;
-		//				    -ms-flex-wrap: wrap;
-		//				    flex-wrap: wrap;
-		//				    -webkit-box-align: center;
-		//				    -ms-flex-align: center;
-		//				    align-items: center;
-		//				    justify-content: center;
-		//				}
-		//				.s-gdpr-c-c-fullwidth .sgcc-notice-content .message-block {
-		//					margin-bottom: 0px;
-		//				}
-
-		//				.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-container p {
-
-		//					line-height:1.3;
-		//				}
-
-		//				.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .cookie-compliance-button-block .cookie-compliance-button {
-		//					padding: 10px 15px;
-    //						border-radius: 2px;
-    //						-webkit-box-shadow: none;
-    //						-ms-box-shadow: none;
-    //						box-shadow: none;
-		//				}
-
-		//				.s-gdpr-c-c-fullwidth .sgcc-notice-content .cookie-compliance-button-block {
-		//					margin-left: 15px;
-		//				}
-
-		//				@media(max-width:600px) {
-		//					.sgcc-main-wrapper.s-gdpr-c-c-fullwidth {
-		//						max-width:100%;
-		//					}
-
-		//					.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-container {
-		//						padding:10px 15px;
-		//					}
-
-		//					.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-container .close,
-		//					.sgcc-main-wrapper.s-gdpr-c-c-fullwidth .sgcc-container .cookie-icon {
-		//						display:none;
-		//					}
-
-		//					.s-gdpr-c-c-fullwidth .sgcc-notice-content .cookie-compliance-button-block {
-		//						margin-left:0;
-		//						margin-top:10px;
-		//					}
-		//				}';
-
-		//			if ( 'top' === $dynamic_options['style']['fullwidth_position'] ) {
-		//				$css .= '
-		//					.s-gdpr-c-c-fullwidth-top {
-		//						top: 0;
-		//						bottom: auto;
-		//					}';
-		//			}
-
-		//			if ( 'bottom' === $dynamic_options['style']['fullwidth_position'] ) {
-		//				$css .= '
-		//					.s-gdpr-c-c-fullwidth-bottom {
-		//						bottom: 0;
-		//						top: auto;
-		//					}';
-		//			}
-		//		}
-		//	}
-
-		//	// Dynamic CSS for custom-width notice.
-
-		//	if ( 'custom_width' === $dynamic_options['style']['type'] ) {
-
-		//		$width = null;
-
-		//		if ( isset( $dynamic_options['style']['width'] ) ) {
-
-		//			$width = $dynamic_options['style']['width'];
-
-		//			$css .= '
-		//				.s-gdpr-c-c-customwidth {
-		//					width: ' . $width . 'px;
-		//				}';
-		//		}
-
-		//		if ( ! $show_cookie_icon ) {
-		//			$css .= '
-		//			.sgcc-main-wrapper.s-gdpr-c-c-no-cookie-icon .sgcc-container {
-		//				padding: 20px;
-		//			}
-		//			';
-		//		} else {
-		//			$css .= '
-		//			.sgcc-main-wrapper .sgcc-container {
-		//				padding: 20px 20px 20px 55px;
-		//			}
-		//			';
-		//		}
-
-		//		if ( isset( $dynamic_options['style']['customwidth_position'] ) ) {
-
-		//			if (
-		//				'top_left' === $dynamic_options['style']['customwidth_position'] &&
-		//				isset( $dynamic_options['style']['top_offset'] ) &&
-		//				isset( $dynamic_options['style']['left_offset'] )
-		//			) {
-		//				$css .= '
-		//					.s-gdpr-c-c-customwidth-top-left {
-		//						top: ' . $dynamic_options['style']['top_offset'] . 'px;
-		//						left: ' . $dynamic_options['style']['left_offset'] . 'px;
-		//						right: auto;
-		//						bottom: auto;
-		//					}';
-		//			}
-
-		//			if (
-		//				'top_center' === $dynamic_options['style']['customwidth_position'] &&
-		//				isset( $dynamic_options['style']['top_offset'] )
-		//			) {
-		//				$css .= '
-		//					.s-gdpr-c-c-customwidth-top-center {
-		//						top: ' . $dynamic_options['style']['top_offset'] . 'px;
-		//						left:  calc(50% - ' . (int) $width / 2 . 'px);
-		//						right: auto;
-		//						bottom: auto;
-		//					}';
-		//			}
-
-		//			if (
-		//				'top_right' === $dynamic_options['style']['customwidth_position'] &&
-		//				isset( $dynamic_options['style']['top_offset'] ) &&
-		//				isset( $dynamic_options['style']['right_offset'] )
-		//			) {
-		//				$css .= '
-		//					.s-gdpr-c-c-customwidth-top-right {
-		//						top: ' . $dynamic_options['style']['top_offset'] . 'px;
-		//						right: ' . $dynamic_options['style']['right_offset'] . 'px;
-		//						left: auto;
-		//						bottom: auto;
-		//					}';
-		//			}
-
-		//			if (
-		//				'bottom_left' === $dynamic_options['style']['customwidth_position'] &&
-		//				isset( $dynamic_options['style']['bottom_offset'] ) &&
-		//				isset( $dynamic_options['style']['left_offset'] )
-		//			) {
-		//				$css .= '
-		//					.s-gdpr-c-c-customwidth-bottom-left {
-		//						bottom: ' . $dynamic_options['style']['bottom_offset'] . 'px;
-		//						left: ' . $dynamic_options['style']['left_offset'] . 'px;
-		//						right: auto;
-		//						top: auto;
-		//					}';
-		//			}
-
-		//			if (
-		//				'bottom_center' === $dynamic_options['style']['customwidth_position'] &&
-		//				isset( $dynamic_options['style']['bottom_offset'] )
-		//			) {
-		//				$css .= '
-		//					.s-gdpr-c-c-customwidth-bottom-center {
-		//						bottom: ' . $dynamic_options['style']['bottom_offset'] . 'px;
-		//						left:  calc(50% - ' . (int) $width / 2 . 'px);
-		//						right: auto;
-		//						top: auto;
-		//					}';
-		//			}
-
-		//			if (
-		//				'bottom_right' === $dynamic_options['style']['customwidth_position'] &&
-		//				isset( $dynamic_options['style']['bottom_offset'] ) &&
-		//				isset( $dynamic_options['style']['right_offset'] )
-		//			) {
-		//				$css .= '
-		//					.s-gdpr-c-c-customwidth-bottom-right {
-		//						bottom: ' . $dynamic_options['style']['bottom_offset'] . 'px;
-		//						right: ' . $dynamic_options['style']['right_offset'] . 'px;
-		//						left: auto;
-		//						top: auto;
-		//					}';
-		//			}
-		//		}
-		//	}
-		//}
-
-		// Add custom CSS from custom css option.
-
-		if ( isset( $dynamic_options['custom_css'] ) ) {
-			$css .= $dynamic_options['custom_css'];
+			if ( ! is_array( $value ) && ! empty( $value ) ) {
+				$css .= $key . ': ' . $value . ';';
+			}
 		}
 
-		// Allow CSS to be filtered.
-		$css = apply_filters( 'simple_gdpr_cookie_compliance_dynamic_css', $css );
+		$css .= '}';
 
-		// Minify the CSS code.
-		$css = $this->minify_css( $css );
+		$css .= '.sgcc-main-wrapper[data-layout=custom_width].position-top-left {';
 
+		foreach ( $css_values_top_left as $key => $value ) {
+
+			if ( ! is_array( $value ) && ! empty( $value ) ) {
+				$css .= $key . ': ' . $value . ';';
+			}
+		}
+
+		$css .= '}';
+
+		if ( isset( $dynamic_options['style']['type'] ) && 'custom_width' === strtolower( $dynamic_options['style']['type'] ) ) {
+
+			if ( isset( $dynamic_options['style']['customwidth_position'] ) && 'top' === strtolower( $dynamic_options['style']['customwidth_position'] ) ) {
+				$css .= '.sgcc-main-wrapper[data-layout=custom_width].position-top-center {';
+				$css .= '__top : ' . isset( $dynamic_options['style']['top_offset'] ) ? $dynamic_options['style']['top_offset'] : $settings_default['custom_width_notice_position_offset']['top_offset'] . ';';
+
+				$css .= '}';
+			} elseif ( isset( $dynamic_options['style']['customwidth_position'] ) && 'top_right' === strtolower( $dynamic_options['style']['customwidth_position'] ) ) {
+
+				$css .= '.sgcc-main-wrapper[data-layout=custom_width].position-top-right {';
+				$css .= '__top : ' . isset( $dynamic_options['style']['top_offset'] ) ? $dynamic_options['style']['top_offset'] : $settings_default['custom_width_notice_position_offset']['top_offset'] . ';';
+				$css .= '__right : ' . isset( $dynamic_options['style']['right_offset'] ) ? $dynamic_options['style']['right_offset'] : $settings_default['custom_width_notice_position_offset']['right_offset'] . ';';
+
+				$css .= '}';
+			} elseif ( isset( $dynamic_options['style']['customwidth_position'] ) && 'bottom_left' === strtolower( $dynamic_options['style']['customwidth_position'] ) ) {
+
+				$css .= '..sgcc-main-wrapper[data-layout=custom_width].position-bottom-left {';
+				$css .= '__left : ' . isset( $dynamic_options['style']['left_offset'] ) ? $dynamic_options['style']['left_offset'] : $settings_default['custom_width_notice_position_offset']['left_offset'] . ';';
+				$css .= '__bottom : ' . isset( $dynamic_options['style']['bottom_offset'] ) ? $dynamic_options['style']['bottom_offset'] : $settings_default['custom_width_notice_position_offset']['bottom_offset'] . ';';
+
+				$css .= '}';
+			} elseif ( isset( $dynamic_options['style']['customwidth_position'] ) && 'bottom_center' === strtolower( $dynamic_options['style']['customwidth_position'] ) ) {
+
+				$css .= '..sgcc-main-wrapper[data-layout=custom_width].position-bottom-center {';
+				$css .= '__bottm : ' . isset( $dynamic_options['style']['bottom_offset'] ) ? $dynamic_options['style']['bottom_offset'] : $settings_default['custom_width_notice_position_offset']['bottom_offset'] . ';';
+
+				$css .= '}';
+			} elseif ( isset( $dynamic_options['style']['customwidth_position'] ) && 'bottom_right' === strtolower( $dynamic_options['style']['customwidth_position'] ) ) {
+
+				$css .= '..sgcc-main-wrapper[data-layout=custom_width].position-bottom-right {';
+				$css .= '__right : ' . isset( $dynamic_options['style']['right_offset'] ) ? $dynamic_options['style']['right_offset'] : $settings_default['custom_width_notice_position_offset']['right_offset'] . ';';
+				$css .= '__bottom : ' . isset( $dynamic_options['style']['bottom_offset'] ) ? $dynamic_options['style']['bottom_offset'] : $settings_default['custom_width_notice_position_offset']['bottom_offset'] . ';';
+
+				$css .= '}';
+			}
+		}
 		return $css;
+	}
+
+	/**
+	 * Add custom CSS from custom css option.
+	 */
+	public function add_custom_css() {
+		$dynamic_options = get_option( 'simple_gdpr_cookie_compliance_options' );
+		if ( isset( $dynamic_options['custom_css'] ) ) {
+			$custom_css = $this->minify_css( $dynamic_options['custom_css'] );
+			?>
+			<style>
+				<?php echo esc_html( $custom_css ); ?>
+			</style>
+			<?php
+		}
 	}
 
 	/**

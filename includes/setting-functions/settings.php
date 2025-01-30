@@ -13,7 +13,7 @@ require_once plugin_dir_path( __DIR__ ) . 'setting-functions/fields/basic-option
 require_once plugin_dir_path( __DIR__ ) . 'setting-functions/fields/button-options.php';
 require_once plugin_dir_path( __DIR__ ) . 'setting-functions/fields/layout-options.php';
 require_once plugin_dir_path( __DIR__ ) . 'setting-functions/fields/developer-options.php';
-require_once plugin_dir_path( __DIR__ ) . 'setting-functions/helper_functions.php';
+require_once plugin_dir_path( __DIR__ ) . 'setting-functions/settings-default.php';
 
 
 if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_fields_values' ) ) {
@@ -49,14 +49,16 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_fields_values' ) ) {
 						case 'switch':
 							// special case for enable_bg_overlay because it is saved inside the style array.
 							if ( 'enable_bg_overlay' === $id ) {
-								$settings_values[ $id ] = ( '1' === $saved_settings['style'][ $id ] ) ? true : $settings_default[ $id ];
-								break;
+								$settings_values[ $id ] = isset( $saved_settings['style'][ $id ] )
+								? ( '1' === $saved_settings['style'][ $id ] )
+								: ( $settings_default[ $id ] ?? false );
+
 							}
 							$settings_values[ $id ] = ( isset( $saved_settings[ $id ] ) && '1' === $saved_settings[ $id ] ) ? true : ( ( array_key_exists( $id, $saved_settings ) && '0' === $saved_settings[ $id ] ) ? false : $settings_default[ $id ] );
 							break;
 
 						case 'radio':
-							$settings_values[ $id ] = ( isset( $saved_settings[ $id ]['type'] ) && ! empty( $saved_settings[ $id ]['type'] ) ) ? $saved_settings[ $id ]['type'] : 'custom_width';
+							$settings_values[ $id ] = ( isset( $saved_settings[ $id ]['type'] ) && ! empty( $saved_settings[ $id ]['type'] ) ) ? $saved_settings[ $id ]['type'] : $settings_default[ $id ];
 							break;
 
 						case 'number':
@@ -258,6 +260,11 @@ function simple_gdpr_update_settings( $settings = '' ) {
 					}
 					break;
 				case 'color':
+					if ( 'notice_text_color' === $id ) {
+						$sanitized_value                        = sanitize_text_field( $value );
+						$saved_settings['color']['notice_text'] = $sanitized_value;
+						break;
+					}
 					$sanitized_value                = sanitize_text_field( $value );
 					$saved_settings['color'][ $id ] = $sanitized_value;
 					break;
