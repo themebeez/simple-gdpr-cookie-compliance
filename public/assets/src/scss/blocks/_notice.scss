@@ -30,6 +30,12 @@
 		padding: 30px 30px 30px 55px;
 		color: var(--sgcc-text-color);
 	}
+
+	&.hide-cookie-icon {
+		.sgcc-container {
+			padding-left: 30px;
+		}
+	}
 }
 
 /**--------------------------------------
