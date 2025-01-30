@@ -24,7 +24,7 @@ if ( ! function_exists( 'simple_gdpr_get_setting_defaults' ) ) {
 			'style' 																			=> 'custom_width',
 			'enable_bg_overlay'                           => true,
 			'width'                                       => '450',
-			'fullwidth_position'                          => 'top',
+			'fullwidth_position'                          => 'bottom',
 			'customwidth_position'                        => 'bottom_right',
 			'custom_width_notice_position_offset'         => array(
 				'top_offset'    => '30',
