@@ -25,7 +25,9 @@ if (
 }
 ?>
 
-<aside class="sgcc-main-wrapper hidden <?php echo ( isset( $args['wrapper_class'] ) ) ? esc_attr( $args['wrapper_class'] ) : ''; ?>" data-layout="<?php echo ( isset( $args['notice_type'] ) ) ? esc_attr( $args['notice_type'] ) : ''; ?>">
+<aside class="sgcc-main-wrapper hidden <?php echo ( isset( $args['wrapper_class'] ) ) ? esc_attr( $args['wrapper_class'] ) : ''; ?>"
+data-layout="<?php echo ( isset( $args['notice_type'] ) ) ? esc_attr( $args['notice_type'] ) : ''; ?>"
+>
 	<div class="sgcc-container">
 		<?php
 		if (
@@ -61,7 +63,8 @@ if (
 				) {
 					?>
 					<span class="cookie-icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><g id="_01_align_center" data-name="01 align center"><circle cx="9.5" cy="9.5" r="1.5"/><circle cx="18.5" cy="1.5" r="1.5"/><circle cx="21.5" cy="6.5" r="1.5"/><circle cx="9.5" cy="14.5" r="1.5"/><circle cx="14.5" cy="14.5" r="1.5"/><path d="M12,24A12,12,0,0,1,12,0c.387,0,.769.021,1.146.057l.824.077.078.824a10,10,0,0,0,8.994,8.994l.824.078.077.824c.036.377.057.759.057,1.146A12.013,12.013,0,0,1,12,24ZM12,2A10,10,0,1,0,22,12c0-.057,0-.113,0-.17A12.006,12.006,0,0,1,12.17,2Z"/></g></svg>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><g id="_01_align_center" data-name="01 align center"><circle cx="9.5" cy="9.5" r="1.5"/><circle cx="18.5" cy="1.5" r="1.5"/><circle cx="21.5" cy="6.5" r="1.5"/><circle cx="9.5" cy="14.5" r="1.5"/><circle cx="14.5" cy="14.5" r="1.5"/><path d="M12,24A12,12,0,0,1,12,0c.387,0,.769.021,1.146.057l.824.077.078.824a10,10,0,0,0,8.994,8.994l.824.078.077.824c.036.377.057.759.057,1.146A12.013,12.013,0,0,1,12,24ZM12,2A10,10,0,1,0,22,12c0-.057,0-.113,0-.17A12.006,12.006,0,0,1,12.17,2Z"/></g></svg>
+					</span>
 					<?php
 				}
 				?>
