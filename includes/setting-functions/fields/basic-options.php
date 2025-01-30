@@ -23,13 +23,13 @@ if ( ! function_exists( 'simple_gdpr_basic_options' ) ) {
 				'description' => __( 'Enable this option to activate cookie notice.', 'simple-gdpr-cookie-compliance' ),
 			),
 			'cookie_expire_time' => array(
-				'label'       => __( 'Cookie expiry duration.', 'simple-gdpr-cookie-compliance' ),
+				'label'       => __( 'Cookie expiry duration', 'simple-gdpr-cookie-compliance' ),
 				'type'        => 'number',
 				'unit'        => 'days',
 				'min'         => 0,
 				'max'         => 365,
 				'step'        => 1,
-				'description' => __( 'Set how long the notice should be hidden after the user accepts it. Set to 0 to show the notice every time the page is loaded.', 'simple-gdpr-cookie-compliance' ),
+				'description' => __( 'Set how long the notice should be hidden after the user accepts it. Set to 0 to to hide the cookie till the browser is closed.', 'simple-gdpr-cookie-compliance' ),
 			),
 			'notice_text'        => array(
 				'label'       => __( 'Cookie notice message', 'simple-gdpr-cookie-compliance' ),

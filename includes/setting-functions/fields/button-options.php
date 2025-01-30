@@ -26,7 +26,7 @@ if ( ! function_exists( 'simple_gdpr_button_options' ) ) {
 				'type'  => 'switch',
 			),
 			'notice_compliance_button_bg'                 => array(
-				'label' => __( 'Accept button background color.', 'simple-gdpr-cookie-compliance' ),
+				'label' => __( 'Accept button background color', 'simple-gdpr-cookie-compliance' ),
 				'type'  => 'color',
 			),
 			'notice_compliance_button_hover_bg_color'     => array(
