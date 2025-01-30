@@ -132,6 +132,8 @@ class Simple_GDPR_Cookie_Compliance {
 
 		require_once plugin_dir_path( __DIR__ ) . 'includes/setting-functions/settings.php';
 
+		require_once plugin_dir_path( __DIR__ ) . 'includes/setting-functions/settings-default.php';
+
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
