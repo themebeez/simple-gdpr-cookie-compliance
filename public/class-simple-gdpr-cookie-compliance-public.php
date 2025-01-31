@@ -121,55 +121,54 @@ class Simple_GDPR_Cookie_Compliance_Public {
 	 */
 	public function display_notice() {
 
-		$options = get_option( 'simple_gdpr_cookie_compliance_options' );
+		//$options = sgcc_get_options( 'simple_gdpr_cookie_compliance_options' );
 
-		$args = array(
-			'enable_bg_overlay' => false,
-			'show_cookie_icon'  => false,
-			'notice'            => '',
-			'btn_title'         => '',
-			'show_close_btn'    => false,
-		);
+		$settings_values = simple_gdpr_cookie_compliance_get_fields_values();
 
-		if ( is_admin() || current_user_can( 'manage_options' ) ) {
-			$args['notice'] = sprintf(
-				/* translators: %s is link to plugin's setting page*/
-				__( 'Notice regarding cookie compliance is not set. Go to %s to set the notice.', 'simple-gdpr-cookie-compliance' ),
-				'<a href="' . esc_url( admin_url( 'admin.php?page=simple-gdpr-cookie-compliance' ) ) . '">' . esc_html__( 'Dashboard > Simple GDPR', 'simple-gdpr-cookie-compliance' ) . '</a>'
-			);
-		} else {
-			$args['notice'] = esc_html__( 'Our website uses cookies to provide you the best experience. However, by continuing to use our website, you agree to our use of cookies. For more information, read our <a href="#">Cookie Policy</a>.', 'simple-gdpr-cookie-compliance' );
-		}
+		// $args = array(
+		// 	'show_cookie_icon'  => false,
+		// 	'notice'            => '',
+		// 	'btn_title'         => '',
+		// 	'show_close_btn'    => false,
+		// );
 
-		if ( $options ) {
-			if ( isset( $options['notice_text'] ) && ! empty( $options['notice_text'] ) ) {
-				$args['notice'] = $options['notice_text'];
-			}
+		// if ( is_admin() || current_user_can( 'manage_options' ) ) {
+		// 	$args['notice'] = sprintf(
+		// 		/* translators: %s is link to plugin's setting page*/
+		// 		__( 'Notice regarding cookie compliance is not set. Go to %s to set the notice.', 'simple-gdpr-cookie-compliance' ),
+		// 		'<a href="' . esc_url( admin_url( 'admin.php?page=simple-gdpr-cookie-compliance' ) ) . '">' . esc_html__( 'Dashboard > Simple GDPR', 'simple-gdpr-cookie-compliance' ) . '</a>'
+		// 	);
+		// }
 
-			if ( isset( $options['accept_btn_title'] ) ) {
-				$args['btn_title'] = $options['accept_btn_title'];
-			}
+		// if ( $options ) {
+		// 	if ( isset( $options['notice_text'] ) && ! empty( $options['notice_text'] ) ) {
+		// 		$args['notice'] = $options['notice_text'];
+		// 	}
 
-			if ( isset( $options['show_close_btn'] ) ) {
-				$args['show_close_btn'] = $options['show_close_btn'];
-			}
+		// 	if ( isset( $options['accept_btn_title'] ) ) {
+		// 		$args['btn_title'] = $options['accept_btn_title'];
+		// 	}
 
-			if ( isset( $options['show_cookie_icon'] ) ) {
-				$args['show_cookie_icon'] = $options['show_cookie_icon'];
-			}
+		// 	if ( isset( $options['show_close_btn'] ) ) {
+		// 		$args['show_close_btn'] = $options['show_close_btn'];
+		// 	}
 
-			if ( isset( $options['style']['enable_bg_overlay'] ) ) {
-				$args['enable_bg_overlay'] = $options['style']['enable_bg_overlay'];
-			}
+		// 	if ( isset( $options['show_cookie_icon'] ) ) {
+		// 		$args['show_cookie_icon'] = $options['show_cookie_icon'];
+		// 	}
 
-			if ( isset( $options['style']['type'] ) ) {
-				$args['notice_type'] = $options['style']['type'];
-			}
-		}
+		// 	if ( isset( $options['style']['enable_bg_overlay'] ) ) {
+		// 		$args['enable_bg_overlay'] = $options['style']['enable_bg_overlay'];
+		// 	}
+
+		// 	if ( isset( $options['style']['type'] ) ) {
+		// 		$args['notice_type'] = $options['style']['type'];
+		// 	}
+		// }
 
 		$args['wrapper_class'] = $this->get_wrapper_css_class( $options );
 
-		load_template( plugin_dir_path( __FILE__ ) . 'partials/simple-gdpr-cookie-compliance-public-display.php', true, $args );
+		load_template( plugin_dir_path( __FILE__ ) . 'partials/simple-gdpr-cookie-compliance-public-display.php', true, $settings_values );
 	}
 
 
@@ -181,20 +180,20 @@ class Simple_GDPR_Cookie_Compliance_Public {
 	 * @param array $options Settings.
 	 * @return string $class CSS classes.
 	 */
-	private function get_wrapper_css_class( $options ) {
+	private function get_wrapper_css_class( $settings_values ) {
 
-		if ( $options ) {
+		if ( $settings_values ) {
 
 			$class = '';
 
-			if ( isset( $options['style']['type'] ) ) {
+			if ( isset( $settings_values['style'] ) ) {
 
-				switch ( $options['style']['type'] ) {
+				switch ( $settings_values['style'] ) {
 					case 'full_width':
-						if ( isset( $options['style']['fullwidth_position'] ) ) {
-							$class              = 'layout-full ';
+						if ( isset( $settings_values['fullwidth_position'] ) ) {
+							$class = 'layout-full ';
 
-							$fullwidth_position = $options['style']['fullwidth_position'];
+							$fullwidth_position = $settings_values['fullwidth_position'];
 
 							if ( 'top' === $fullwidth_position ) {
 								$class .= 'position-top';
@@ -204,10 +203,10 @@ class Simple_GDPR_Cookie_Compliance_Public {
 						}
 						break;
 					case 'custom_width':
-						if ( isset( $options['style']['customwidth_position'] ) ) {
-							$class                = 'layout-custom-width ';
+						if ( isset( $options['customwidth_position'] ) ) {
+							$class = 'layout-custom-width ';
 
-							$customwidth_position = $options['style']['customwidth_position'];
+							$customwidth_position = $options['customwidth_position'];
 
 							switch ( $customwidth_position ) {
 								case 'top_left':
@@ -239,15 +238,15 @@ class Simple_GDPR_Cookie_Compliance_Public {
 			}
 
 			if (
-				isset( $options['show_close_btn'] ) &&
-				false === $options['show_close_btn']
+				isset( $settings_values['show_close_btn'] ) &&
+				false === $settings_values['show_close_btn']
 			) {
 				$class .= ' hide-close-btn';
 			}
 
 			if (
-				isset( $options['show_cookie_icon'] ) &&
-				false === $options['show_cookie_icon']
+				isset( $settings_values['show_cookie_icon'] ) &&
+				false === $settings_values['show_cookie_icon']
 			) {
 				$class .= ' hide-cookie-icon';
 			}
@@ -266,9 +265,6 @@ class Simple_GDPR_Cookie_Compliance_Public {
 		$settings_default = simple_gdpr_get_setting_defaults();
 
 		$dynamic_options = get_option( 'simple_gdpr_cookie_compliance_options' );
-
-		error_log( print_r( $dynamic_options, true ) );
-
 
 		$css = '';
 
@@ -291,7 +287,7 @@ class Simple_GDPR_Cookie_Compliance_Public {
 		);
 
 		$css_values_top_left = array(
-			'--top' => isset( $dynamic_options['style']['top_offset'] ) ? $dynamic_options['style']['top_offset'] : $settings_default['custom_width_notice_position_offset']['top_offset'],
+			'--top'  => isset( $dynamic_options['style']['top_offset'] ) ? $dynamic_options['style']['top_offset'] : $settings_default['custom_width_notice_position_offset']['top_offset'],
 			'__left' => isset( $dynamic_options['style']['left_offset'] ) ? $dynamic_options['style']['left_offset'] : $settings_default['custom_width_notice_position_offset']['left_offset'],
 		);
 

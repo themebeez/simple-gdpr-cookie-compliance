@@ -49,10 +49,8 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_fields_values' ) ) {
 						case 'switch':
 							// special case for enable_bg_overlay because it is saved inside the style array.
 							if ( 'enable_bg_overlay' === $id ) {
-								$settings_values[ $id ] = isset( $saved_settings['style'][ $id ] )
-								? ( '1' === $saved_settings['style'][ $id ] )
-								: ( $settings_default[ $id ] ?? false );
-
+								$settings_values[ $id ] = ( isset( $saved_settings['style'][ $id ] ) && '1' === $saved_settings['style'][ $id ] ) ? true : ( ( isset( $saved_settings['style'][ $id ] ) && '0' === $saved_settings['style'][ $id ] ) ? false : $settings_default[ $id ] );
+								break;
 							}
 							$settings_values[ $id ] = ( isset( $saved_settings[ $id ] ) && '1' === $saved_settings[ $id ] ) ? true : ( ( array_key_exists( $id, $saved_settings ) && '0' === $saved_settings[ $id ] ) ? false : $settings_default[ $id ] );
 							break;

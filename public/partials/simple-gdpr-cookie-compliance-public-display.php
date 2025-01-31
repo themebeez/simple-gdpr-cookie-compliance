@@ -26,7 +26,7 @@ if (
 ?>
 
 <aside class="sgcc-main-wrapper hidden <?php echo ( isset( $args['wrapper_class'] ) ) ? esc_attr( $args['wrapper_class'] ) : ''; ?>"
-data-layout="<?php echo ( isset( $args['notice_type'] ) ) ? esc_attr( $args['notice_type'] ) : ''; ?>"
+data-layout="<?php echo ( isset( $args['style'] ) ? esc_attr( $args['style'] ) : '' ); ?>"
 >
 	<div class="sgcc-container">
 		<?php
@@ -36,8 +36,8 @@ data-layout="<?php echo ( isset( $args['notice_type'] ) ) ? esc_attr( $args['not
 				true === $args['show_cookie_icon']
 			) &&
 			(
-				isset( $args['notice_type'] ) &&
-				'full_width' !== $args['notice_type']
+				isset( $args['style'] ) &&
+				'full_width' !== $args['style']
 			)
 		) {
 			?>
@@ -49,7 +49,7 @@ data-layout="<?php echo ( isset( $args['notice_type'] ) ) ? esc_attr( $args['not
 		?>
 		<div class="sgcc-notice-content">
 			<?php
-			if ( isset( $args['notice'] ) ) {
+			if ( isset( $args['notice_text'] ) ) {
 
 				if (
 					(
@@ -57,8 +57,8 @@ data-layout="<?php echo ( isset( $args['notice_type'] ) ) ? esc_attr( $args['not
 						true === $args['show_cookie_icon']
 					) &&
 					(
-						isset( $args['notice_type'] ) &&
-						'full_width' === $args['notice_type']
+						isset( $args['style'] ) &&
+						'full_width' === $args['style']
 					)
 				) {
 					?>
@@ -69,15 +69,15 @@ data-layout="<?php echo ( isset( $args['notice_type'] ) ) ? esc_attr( $args['not
 				}
 				?>
 				<div class="message-block">
-					<p><?php echo wp_kses_post( $args['notice'] ); ?></p>
+					<p><?php echo wp_kses_post( $args['notice_text'] ); ?></p>
 				</div>
 				<?php
 			}
-			if ( isset( $args['btn_title'] ) && ! empty( $args['btn_title'] ) ) {
+			if ( isset( $args['accept_btn_title'] ) && ! empty( $args['accept_btn_title'] ) ) {
 				?>
 				<div class="cookie-compliance-button-block">
 					<button type="button" id="sgcc-accept-button" class="close-sgcc cookie-compliance-button" aria-label="<?php echo esc_html__( 'Accept Cookies', 'simple-gdpr-cookie-compliance' ); ?>">
-						<?php echo esc_html( $args['btn_title'] ); ?>
+						<?php echo esc_html( $args['accept_btn_title'] ); ?>
 					</button>
 				</div>
 				<?php
