@@ -123,6 +123,21 @@ class Simple_GDPR_Cookie_Compliance_Public {
 
 		$settings_values = simple_gdpr_cookie_compliance_get_fields_values();
 
+		$options = get_option( 'simple_gdpr_cookie_compliance_options' );
+
+		if ( ! isset( $options['notice_text'] ) && empty( $options['notice_text'] ) ) {
+			if ( is_admin() || current_user_can( 'manage_options' ) ) {
+				$settings_values['notice_text'] = sprintf(
+					/* translators: %s is link to plugin's setting page */
+					__( 'Please update this notice text: %1s %2s %3s %4s', 'simple-gdpr-cookie-compliance' ),
+					$settings_values['notice_text'],
+					'Go to  ',
+					'<a href="' . esc_url( admin_url( 'admin.php?page=simple-gdpr-cookie-compliance' ) ) . '">' . esc_html__( 'Dashboard > Simple GDPR', 'simple-gdpr-cookie-compliance' ) . '</a>',
+					'to set notice.'
+				);
+			}
+		}
+
 		if ( $settings_values ) {
 			$class = '';
 			if ( isset( $settings_values['style'] ) ) {
