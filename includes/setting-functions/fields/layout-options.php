@@ -77,6 +77,7 @@ if ( ! function_exists( 'simple_gdpr_layout_options' ) ) {
 				'description' => __( 'Select where the notice should appear in the website.', 'simple-gdpr-cookie-compliance' ),
 				'choices'     => array(
 					'top_left'      => __( 'Top left', 'simple-gdpr-cookie-compliance' ),
+					'top_center'    => __( 'Top center', 'simple-gdpr-cookie-compliance' ),
 					'top_right'     => __( 'Top right', 'simple-gdpr-cookie-compliance' ),
 					'bottom_left'   => __( 'Bottom left', 'simple-gdpr-cookie-compliance' ),
 					'bottom_center' => __( 'Bottom center', 'simple-gdpr-cookie-compliance' ),
