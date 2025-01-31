@@ -21,7 +21,7 @@ if ( ! function_exists( 'simple_gdpr_get_setting_defaults' ) ) {
 			'show_close_btn'                              => true,
 			'show_cookie_icon'                            => true,
 			'cookie_expire_time'                          => 0,
-			'enable_bg_overlay'                           => true,
+			'enable_bg_overlay'                           => false,
 			'style'                                       => 'custom_width',
 			'width'                                       => '450',
 			'fullwidth_position'                          => 'bottom',

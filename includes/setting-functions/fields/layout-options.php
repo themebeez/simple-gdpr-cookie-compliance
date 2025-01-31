@@ -24,7 +24,7 @@ if ( ! function_exists( 'simple_gdpr_layout_options' ) ) {
 				'full_width'  => true,
 				'choices'     => array(
 					'custom_width' => __( 'Custom', 'simple-gdpr-cookie-compliance' ),
-					'full_width'   => __( 'Toast bar', 'simple-gdpr-cookie-compliance' ),
+					'full_width'   => __( 'Full width', 'simple-gdpr-cookie-compliance' ),
 					'pop_up'       => __( 'Popup', 'simple-gdpr-cookie-compliance' ),
 				),
 			),
