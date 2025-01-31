@@ -64,7 +64,7 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_fields_values' ) ) {
 								$settings_values[ $id ] = ( isset( $saved_settings['style'][ $id ] ) ) ? $saved_settings['style'][ $id ] : $settings_default[ $id ];
 								break;
 							}
-							$settings_values[ $id ] = ( '' === $saved_settings[ $id ] ) ? $settings_default[ $id ] : $saved_settings[ $id ];
+							$settings_values[ $id ] = ( isset( $saved_settings[ $id ] ) && ! empty( $saved_settings[ $id ] ) ) ? $saved_settings[ $id ] : $settings_default[ $id ];
 							break;
 
 						case 'editor':
