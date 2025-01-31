@@ -197,89 +197,6 @@ class Simple_GDPR_Cookie_Compliance_Public {
 	}
 
 
-	// /**
-	//  * Generate CSS classes for HTML elements of notice.
-	//  *
-	//  * @since    1.0.4
-	//  *
-	//  * @param array $settings_values Settings.
-	//  * @return string $class CSS classes.
-	//  */
-	// private function get_wrapper_css_class( $settings_values ) {
-	// 	if ( $settings_values ) {
-
-	// 		$class = '';
-
-	// 		if ( isset( $settings_values['style'] ) ) {
-	// 			error_log('HEu');
-
-	// 			switch ( $settings_values['style'] ) {
-	// 				case 'full_width':
-	// 					if ( isset( $settings_values['fullwidth_position'] ) ) {
-	// 						$class = 'layout-full ';
-
-	// 						$fullwidth_position = $settings_values['fullwidth_position'];
-
-	// 						if ( 'top' === $fullwidth_position ) {
-	// 							$class .= 'position-top';
-	// 						} else {
-	// 							$class .= 'position-bottom';
-	// 						}
-	// 					}
-	// 					break;
-	// 				case 'custom_width':
-	// 					if ( isset( $options['customwidth_position'] ) ) {
-	// 						$class = 'layout-custom-width ';
-
-	// 						$customwidth_position = $options['customwidth_position'];
-
-	// 						switch ( $customwidth_position ) {
-	// 							case 'top_left':
-	// 								$class .= 'position-top-left';
-	// 								break;
-	// 							case 'top_center':
-	// 								$class .= 'position-top-center';
-	// 								break;
-	// 							case 'top_right':
-	// 								$class .= 'position-top-right';
-	// 								break;
-	// 							case 'bottom_left':
-	// 								$class .= 'position-bottom-left';
-	// 								break;
-	// 							case 'bottom_center':
-	// 								$class .= 'position-bottom-center';
-	// 								break;
-	// 							case 'bottom_right':
-	// 								$class .= 'position-bottom-right';
-	// 								break;
-	// 							default:
-	// 								break;
-	// 						}
-	// 					}
-	// 					break;
-	// 				default:
-	// 					$class = 'layout-popup';
-	// 			}
-	// 		}
-
-	// 		if (
-	// 			isset( $settings_values['show_close_btn'] ) &&
-	// 			false === $settings_values['show_close_btn']
-	// 		) {
-	// 			$class .= ' hide-close-btn';
-	// 		}
-
-	// 		if (
-	// 			isset( $settings_values['show_cookie_icon'] ) &&
-	// 			false === $settings_values['show_cookie_icon']
-	// 		) {
-	// 			$class .= ' hide-cookie-icon';
-	// 		}
-
-	// 		return $class;
-	// 	}
-	// }
-
 	/**
 	 * Generate dynamic css code and minifies it.
 	 *
@@ -311,25 +228,9 @@ class Simple_GDPR_Cookie_Compliance_Public {
 			'--sgcc-accept-button-hover-border-color'     => isset( $dynamic_options['color']['notice_compliance_button_hover_border_color'] ) ? $dynamic_options['color']['notice_compliance_button_hover_border_color'] : $settings_default['notice_compliance_button_hover_border_color'],
 		);
 
-		$css_values_top_left = array(
-			'--top'  => isset( $dynamic_options['style']['top_offset'] ) ? $dynamic_options['style']['top_offset'] : $settings_default['custom_width_notice_position_offset']['top_offset'],
-			'__left' => isset( $dynamic_options['style']['left_offset'] ) ? $dynamic_options['style']['left_offset'] : $settings_default['custom_width_notice_position_offset']['left_offset'],
-		);
-
 		$css = ':root {';
 
 		foreach ( $css_values as $key => $value ) {
-
-			if ( ! is_array( $value ) && ! empty( $value ) ) {
-				$css .= $key . ': ' . $value . ';';
-			}
-		}
-
-		$css .= '}';
-
-		$css .= '.sgcc-main-wrapper[data-layout=custom_width].position-top-left {';
-
-		foreach ( $css_values_top_left as $key => $value ) {
 
 			if ( ! is_array( $value ) && ! empty( $value ) ) {
 				$css .= $key . ': ' . $value . ';';
@@ -349,6 +250,12 @@ class Simple_GDPR_Cookie_Compliance_Public {
 			if ( isset( $dynamic_options['style']['customwidth_position'] ) && 'top' === strtolower( $dynamic_options['style']['customwidth_position'] ) ) {
 				$css .= '.sgcc-main-wrapper[data-layout=custom_width].position-top-center {';
 				$css .= '--top : ' . $dynamic_options['style']['top_offset'] . 'px;';
+
+				$css .= '}';
+			} elseif ( isset( $dynamic_options['style']['customwidth_position'] ) && 'top_left' === strtolower( $dynamic_options['style']['customwidth_position'] ) ) {
+				$css .= '.sgcc-main-wrapper[data-layout=custom_width].position-top-left {';
+				$css .= '--top : ' . $dynamic_options['style']['top_offset'] . 'px;';
+				$css .= '--left : ' . $dynamic_options['style']['left_offset'] . 'px;';
 
 				$css .= '}';
 			} elseif ( isset( $dynamic_options['style']['customwidth_position'] ) && 'top_right' === strtolower( $dynamic_options['style']['customwidth_position'] ) ) {
