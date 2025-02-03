@@ -215,6 +215,8 @@ class Simple_GDPR_Cookie_Compliance {
 		$plugin_public = new Simple_GDPR_Cookie_Compliance_Public( $this->get_plugin_name(), $this->get_version() );
 
 		if ( ! isset( $_COOKIE['sgcc-cookie-notice'] ) ) {
+			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
+			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 			$this->loader->add_action( 'wp_footer', $plugin_public, 'display_notice' );
 			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'print_dynamic_style' );
 		}
