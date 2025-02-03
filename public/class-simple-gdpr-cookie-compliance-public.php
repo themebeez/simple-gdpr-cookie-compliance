@@ -100,6 +100,7 @@ class Simple_GDPR_Cookie_Compliance_Public {
 		wp_localize_script( $this->plugin_name, 'simpleGDPRCCJsObj', $notice_obj_array );
 
 		wp_enqueue_script( $this->plugin_name );
+
 	}
 
 	/**
@@ -125,90 +126,92 @@ class Simple_GDPR_Cookie_Compliance_Public {
 
 		$options = get_option( 'simple_gdpr_cookie_compliance_options' );
 
-		if ( ! isset( $options['notice_text'] ) && empty( $options['notice_text'] ) ) {
-			if ( is_admin() || current_user_can( 'manage_options' ) ) {
+		if (
+			isset( $settings_values['enable_plugin'] ) &&
+			true === $settings_values['enable_plugin']
+		) {
+
+			if ( ( ! isset( $options['notice_text'] ) && empty( $options['notice_text'] ) ) && ( is_admin() || current_user_can( 'manage_options' ) ) ) {
 				$settings_values['notice_text'] = sprintf(
-					/* translators: %s is link to plugin's setting page */
-					__( 'Please update this notice text: %1s %2s %3s %4s', 'simple-gdpr-cookie-compliance' ),
-					$settings_values['notice_text'],
-					'Go to  ',
-					'<a href="' . esc_url( admin_url( 'admin.php?page=simple-gdpr-cookie-compliance' ) ) . '">' . esc_html__( 'Dashboard > Simple GDPR', 'simple-gdpr-cookie-compliance' ) . '</a>',
-					'to set notice.'
+					/* translators: %1$s: notice text, %2$s is a link to the plugin's settings page */
+					__( 'Please update this notice from %1$s %2$s', 'simple-gdpr-cookie-compliance' ),
+					'<a href="' . esc_url( admin_url( 'admin.php?page=simple-gdpr-cookie-compliance' ) ) . '">' . esc_html__( 'Dashboard > Simple GDPR.', 'simple-gdpr-cookie-compliance' ) . '</a>',
+					$settings_values['notice_text']
 				);
 			}
-		}
 
-		if ( $settings_values ) {
-			$class = '';
-			if ( isset( $settings_values['style'] ) ) {
+			if ( $settings_values ) {
+				$class = '';
+				if ( isset( $settings_values['style'] ) ) {
 
-				switch ( $settings_values['style'] ) {
-					case 'full_width':
-						if ( isset( $settings_values['fullwidth_position'] ) ) {
-							$class = 'layout-full ';
+					switch ( $settings_values['style'] ) {
+						case 'full_width':
+							if ( isset( $settings_values['fullwidth_position'] ) ) {
+								$class = 'layout-full ';
 
-							$fullwidth_position = $settings_values['fullwidth_position'];
+								$fullwidth_position = $settings_values['fullwidth_position'];
 
-							if ( 'top' === $fullwidth_position ) {
-								$class .= 'position-top';
-							} else {
-								$class .= 'position-bottom';
+								if ( 'top' === $fullwidth_position ) {
+									$class .= 'position-top';
+								} else {
+									$class .= 'position-bottom';
+								}
 							}
-						}
-						break;
-					case 'custom_width':
-						if ( isset( $settings_values['customwidth_position'] ) ) {
-							$class = 'layout-custom-width ';
+							break;
+						case 'custom_width':
+							if ( isset( $settings_values['customwidth_position'] ) ) {
+								$class = 'layout-custom-width ';
 
-							$customwidth_position = $settings_values['customwidth_position'];
+								$customwidth_position = $settings_values['customwidth_position'];
 
-							switch ( $customwidth_position ) {
-								case 'top_left':
-									$class .= 'position-top-left';
-									break;
-								case 'top_center':
-									$class .= 'position-top-center';
-									break;
-								case 'top_right':
-									$class .= 'position-top-right';
-									break;
-								case 'bottom_left':
-									$class .= 'position-bottom-left';
-									break;
-								case 'bottom_center':
-									$class .= 'position-bottom-center';
-									break;
-								case 'bottom_right':
-									$class .= 'position-bottom-right';
-									break;
-								default:
-									break;
+								switch ( $customwidth_position ) {
+									case 'top_left':
+										$class .= 'position-top-left';
+										break;
+									case 'top_center':
+										$class .= 'position-top-center';
+										break;
+									case 'top_right':
+										$class .= 'position-top-right';
+										break;
+									case 'bottom_left':
+										$class .= 'position-bottom-left';
+										break;
+									case 'bottom_center':
+										$class .= 'position-bottom-center';
+										break;
+									case 'bottom_right':
+										$class .= 'position-bottom-right';
+										break;
+									default:
+										break;
+								}
 							}
-						}
-						break;
-					default:
-						$class = 'layout-popup';
+							break;
+						default:
+							$class = 'layout-popup';
+					}
 				}
+
+				if (
+					isset( $settings_values['show_close_btn'] ) &&
+					false === $settings_values['show_close_btn']
+				) {
+					$class .= ' hide-close-btn';
+				}
+
+				if (
+					isset( $settings_values['show_cookie_icon'] ) &&
+					false === $settings_values['show_cookie_icon']
+				) {
+					$class .= ' hide-cookie-icon';
+				}
+
+				$settings_values['wrapper_class'] = $class;
 			}
 
-			if (
-				isset( $settings_values['show_close_btn'] ) &&
-				false === $settings_values['show_close_btn']
-			) {
-				$class .= ' hide-close-btn';
-			}
-
-			if (
-				isset( $settings_values['show_cookie_icon'] ) &&
-				false === $settings_values['show_cookie_icon']
-			) {
-				$class .= ' hide-cookie-icon';
-			}
-
-			$settings_values['wrapper_class'] = $class;
+			load_template( plugin_dir_path( __FILE__ ) . 'partials/simple-gdpr-cookie-compliance-public-display.php', true, $settings_values );
 		}
-
-		load_template( plugin_dir_path( __FILE__ ) . 'partials/simple-gdpr-cookie-compliance-public-display.php', true, $settings_values );
 	}
 
 
@@ -218,29 +221,26 @@ class Simple_GDPR_Cookie_Compliance_Public {
 	 * @since 1.0.4
 	 */
 	public function get_dynamic_css() {
-
-		$settings_default = simple_gdpr_get_setting_defaults();
-
-		$dynamic_options = get_option( 'simple_gdpr_cookie_compliance_options' );
+		$dynamic_options = simple_gdpr_cookie_compliance_get_fields_values();
 
 		$css = '';
 
 		$css_values = array(
-			'--sgcc-text-color'                           => isset( $dynamic_options['color']['notice_text'] ) ? $dynamic_options['color']['notice_text'] : $settings_default['notice_text_color'],
-			'--sgcc-link-color'                           => isset( $dynamic_options['color']['notice_link_color'] ) ? $dynamic_options['color']['notice_link_color'] : $settings_default['notice_link_color'],
-			'--sgcc-link-hover-color'                     => isset( $dynamic_options['color']['notice_link_hover_color'] ) ? $dynamic_options['color']['notice_link_hover_color'] : $settings_default['notice_link_hover_color'],
-			'--sgcc-notice-background-color'              => isset( $dynamic_options['color']['notice_background'] ) ? $dynamic_options['color']['notice_background'] : $settings_default['notice_background'],
-			'--sgcc-cookie-icon-color'                    => isset( $dynamic_options['color']['notice_cookie_icon_color'] ) ? $dynamic_options['color']['notice_cookie_icon_color'] : $settings_default['notice_cookie_icon_color'],
-			'--sgcc-close-button-background-color'        => isset( $dynamic_options['color']['notice_box_close_btn_bg_color'] ) ? $dynamic_options['color']['notice_box_close_btn_bg_color'] : $settings_default['notice_box_close_btn_bg_color'],
-			'--sgcc-close-button-hover-background-color'  => isset( $dynamic_options['color']['notice_box_close_btn_bg_hover_color'] ) ? $dynamic_options['color']['notice_box_close_btn_bg_hover_color'] : $settings_default['notice_box_close_btn_bg_hover_color'],
-			'--sgcc-close-button-color'                   => isset( $dynamic_options['color']['notice_box_close_btn_text_color'] ) ? $dynamic_options['color']['notice_box_close_btn_text_color'] : $settings_default['notice_box_close_btn_text_color'],
-			'--sgcc-close-button-hover-color'             => isset( $dynamic_options['color']['notice_box_close_btn_hover_text_color'] ) ? $dynamic_options['color']['notice_box_close_btn_hover_text_color'] : $settings_default['notice_box_close_btn_hover_text_color'],
-			'--sgcc-accept-button-background-color'       => isset( $dynamic_options['color']['notice_compliance_button_bg'] ) ? $dynamic_options['color']['notice_compliance_button_bg'] : $settings_default['notice_compliance_button_bg'],
-			'--sgcc-accept-button-hover-background-color' => isset( $dynamic_options['color']['notice_compliance_button_hover_bg_color'] ) ? $dynamic_options['color']['notice_compliance_button_hover_bg_color'] : $settings_default['notice_compliance_button_hover_bg_color'],
-			'--sgcc-accept-button-color'                  => isset( $dynamic_options['color']['notice_compliance_button_text_color'] ) ? $dynamic_options['color']['notice_compliance_button_text_color'] : $settings_default['notice_compliance_button_text_color'],
-			'--sgcc-accept-button-hover-color'            => isset( $dynamic_options['color']['notice_compliance_button_hover_text_color'] ) ? $dynamic_options['color']['notice_compliance_button_hover_text_color'] : $settings_default['notice_compliance_button_hover_text_color'],
-			'--sgcc-accept-button-border-color'           => isset( $dynamic_options['color']['notice_compliance_button_border_color'] ) ? $dynamic_options['color']['notice_compliance_button_border_color'] : $settings_default['notice_compliance_button_border_color'],
-			'--sgcc-accept-button-hover-border-color'     => isset( $dynamic_options['color']['notice_compliance_button_hover_border_color'] ) ? $dynamic_options['color']['notice_compliance_button_hover_border_color'] : $settings_default['notice_compliance_button_hover_border_color'],
+			'--sgcc-text-color'                           => isset( $dynamic_options['notice_text_color'] ) ? $dynamic_options['notice_text_color'] : '',
+			'--sgcc-link-color'                           => isset( $dynamic_options['notice_link_color'] ) ? $dynamic_options['notice_link_color'] : '',
+			'--sgcc-link-hover-color'                     => isset( $dynamic_options['notice_link_hover_color'] ) ? $dynamic_options['notice_link_hover_color'] : '',
+			'--sgcc-notice-background-color'              => isset( $dynamic_options['notice_background'] ) ? $dynamic_options['notice_background'] : '',
+			'--sgcc-cookie-icon-color'                    => isset( $dynamic_options['notice_cookie_icon_color'] ) ? $dynamic_options['notice_cookie_icon_color'] : '',
+			'--sgcc-close-button-background-color'        => isset( $dynamic_options['notice_box_close_btn_bg_color'] ) ? $dynamic_options['notice_box_close_btn_bg_color'] : '',
+			'--sgcc-close-button-hover-background-color'  => isset( $dynamic_options['notice_box_close_btn_bg_hover_color'] ) ? $dynamic_options['notice_box_close_btn_bg_hover_color'] : '',
+			'--sgcc-close-button-color'                   => isset( $dynamic_options['notice_box_close_btn_text_color'] ) ? $dynamic_options['notice_box_close_btn_text_color'] : '',
+			'--sgcc-close-button-hover-color'             => isset( $dynamic_options['notice_box_close_btn_hover_text_color'] ) ? $dynamic_options['notice_box_close_btn_hover_text_color'] : '',
+			'--sgcc-accept-button-background-color'       => isset( $dynamic_options['notice_compliance_button_bg'] ) ? $dynamic_options['notice_compliance_button_bg'] : '',
+			'--sgcc-accept-button-hover-background-color' => isset( $dynamic_options['notice_compliance_button_hover_bg_color'] ) ? $dynamic_options['notice_compliance_button_hover_bg_color'] : '',
+			'--sgcc-accept-button-color'                  => isset( $dynamic_options['notice_compliance_button_text_color'] ) ? $dynamic_options['notice_compliance_button_text_color'] : '',
+			'--sgcc-accept-button-hover-color'            => isset( $dynamic_options['notice_compliance_button_hover_text_color'] ) ? $dynamic_options['notice_compliance_button_hover_text_color'] : '',
+			'--sgcc-accept-button-border-color'           => isset( $dynamic_options['notice_compliance_button_border_color'] ) ? $dynamic_options['notice_compliance_button_border_color'] : '',
+			'--sgcc-accept-button-hover-border-color'     => isset( $dynamic_options['notice_compliance_button_hover_border_color'] ) ? $dynamic_options['notice_compliance_button_hover_border_color'] : '',
 		);
 
 		$css = ':root {';
@@ -254,50 +254,50 @@ class Simple_GDPR_Cookie_Compliance_Public {
 
 		$css .= '}';
 
-		if ( isset( $dynamic_options['style']['type'] ) && 'custom_width' === strtolower( $dynamic_options['style']['type'] ) ) {
+		if ( isset( $dynamic_options['style'] ) && ( 'custom_width' === strtolower( $dynamic_options['style'] ) || 'pop_up' === strtolower( $dynamic_options['style'] ) ) ) {
 
-			if ( isset( $dynamic_options['style']['width'] ) && ! empty( $dynamic_options['style']['width'] ) ) {
-				$css .= '.sgcc-main-wrapper[data-layout=custom_width] {';
-				$css .= '--width : ' . $dynamic_options['style']['width'] . 'px;';
+			if ( isset( $dynamic_options['width'] ) && ! empty( $dynamic_options['width'] ) ) {
+				$css .= '.sgcc-main-wrapper[data-layout=custom_width], .sgcc-main-wrapper[data-layout=pop_up] {';
+				$css .= '--width : ' . $dynamic_options['width'] . 'px;';
 				$css .= '}';
 			}
 
-			if ( isset( $dynamic_options['style']['customwidth_position'] ) && 'top' === strtolower( $dynamic_options['style']['customwidth_position'] ) ) {
+			if ( isset( $dynamic_options['customwidth_position'] ) && 'top_center' === strtolower( $dynamic_options['customwidth_position'] ) ) {
 				$css .= '.sgcc-main-wrapper[data-layout=custom_width].position-top-center {';
-				$css .= '--top : ' . $dynamic_options['style']['top_offset'] . 'px;';
+				$css .= '--top : ' . $dynamic_options['custom_width_notice_position_offset']['top_offset'] . 'px;';
 
 				$css .= '}';
-			} elseif ( isset( $dynamic_options['style']['customwidth_position'] ) && 'top_left' === strtolower( $dynamic_options['style']['customwidth_position'] ) ) {
+			} elseif ( isset( $dynamic_options['customwidth_position'] ) && 'top_left' === strtolower( $dynamic_options['customwidth_position'] ) ) {
 				$css .= '.sgcc-main-wrapper[data-layout=custom_width].position-top-left {';
-				$css .= '--top : ' . $dynamic_options['style']['top_offset'] . 'px;';
-				$css .= '--left : ' . $dynamic_options['style']['left_offset'] . 'px;';
+				$css .= '--top : ' . $dynamic_options['custom_width_notice_position_offset']['top_offset'] . 'px;';
+				$css .= '--left : ' . $dynamic_options['custom_width_notice_position_offset']['left_offset'] . 'px;';
 
 				$css .= '}';
-			} elseif ( isset( $dynamic_options['style']['customwidth_position'] ) && 'top_right' === strtolower( $dynamic_options['style']['customwidth_position'] ) ) {
+			} elseif ( isset( $dynamic_options['customwidth_position'] ) && 'top_right' === strtolower( $dynamic_options['customwidth_position'] ) ) {
 
 				$css .= '.sgcc-main-wrapper[data-layout=custom_width].position-top-right {';
-				$css .= '--top : ' . $dynamic_options['style']['top_offset'] . 'px;';
-				$css .= '--right : ' . $dynamic_options['style']['right_offset'] . 'px;';
+				$css .= '--top : ' . $dynamic_options['custom_width_notice_position_offset']['top_offset'] . 'px;';
+				$css .= '--right : ' . $dynamic_options['custom_width_notice_position_offset']['right_offset'] . 'px;';
 
 				$css .= '}';
-			} elseif ( isset( $dynamic_options['style']['customwidth_position'] ) && 'bottom_left' === strtolower( $dynamic_options['style']['customwidth_position'] ) ) {
+			} elseif ( isset( $dynamic_options['customwidth_position'] ) && 'bottom_left' === strtolower( $dynamic_options['customwidth_position'] ) ) {
 
 				$css .= '.sgcc-main-wrapper[data-layout=custom_width].position-bottom-left {';
-				$css .= '--left : ' . $dynamic_options['style']['left_offset'] . 'px;';
-				$css .= '--bottom : ' . $dynamic_options['style']['bottom_offset'] . 'px;';
+				$css .= '--left : ' . $dynamic_options['custom_width_notice_position_offset']['left_offset'] . 'px;';
+				$css .= '--bottom : ' . $dynamic_options['custom_width_notice_position_offset']['bottom_offset'] . 'px;';
 
 				$css .= '}';
-			} elseif ( isset( $dynamic_options['style']['customwidth_position'] ) && 'bottom_center' === strtolower( $dynamic_options['style']['customwidth_position'] ) ) {
+			} elseif ( isset( $dynamic_options['customwidth_position'] ) && 'bottom_center' === strtolower( $dynamic_options['customwidth_position'] ) ) {
 
 				$css .= '.sgcc-main-wrapper[data-layout=custom_width].position-bottom-center {';
-				$css .= '--bottom : ' . $dynamic_options['style']['bottom_offset'] . 'px;';
+				$css .= '--bottom : ' . $dynamic_options['custom_width_notice_position_offset']['bottom_offset'] . 'px;';
 
 				$css .= '}';
-			} elseif ( isset( $dynamic_options['style']['customwidth_position'] ) && 'bottom_right' === strtolower( $dynamic_options['style']['customwidth_position'] ) ) {
+			} elseif ( isset( $dynamic_options['customwidth_position'] ) && 'bottom_right' === strtolower( $dynamic_options['customwidth_position'] ) ) {
 
 				$css .= '.sgcc-main-wrapper[data-layout=custom_width].position-bottom-right {';
-				$css .= '--right : ' . $dynamic_options['style']['right_offset'] . 'px;';
-				$css .= '--bottom : ' . $dynamic_options['style']['bottom_offset'] . 'px;';
+				$css .= '--right : ' . $dynamic_options['custom_width_notice_position_offset']['right_offset'] . 'px;';
+				$css .= '--bottom : ' . $dynamic_options['custom_width_notice_position_offset']['bottom_offset'] . 'px;';
 
 				$css .= '}';
 			}

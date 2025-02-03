@@ -78,7 +78,10 @@ class Simple_GDPR_Cookie_Compliance {
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
-		$this->define_public_hooks();
+		$options = simple_gdpr_cookie_compliance_get_fields_values();
+		if ( $options && true === $options['enable_plugin'] ) {
+			$this->define_public_hooks();
+		}
 		$this->rest_api();
 	}
 

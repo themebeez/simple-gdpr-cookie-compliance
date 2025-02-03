@@ -131,13 +131,27 @@ if ( ! class_exists( 'Class_Simple_GDPR_Cookie_Compliance_Rest_API' ) ) {
 				);
 			}
 
-			if ( simple_gdpr_update_settings( $values ) === true ) {
+			if ( simple_gdpr_cookie_compliance_update_settings( $values ) === true ) {
 
 				$return_data['success'] = true;
 				$return_data['message'] = __( 'Settings saved successfully', 'simple-gdpr-cookie-compliance' );
 			}
 
 			return rest_ensure_response( $return_data );
+		}
+
+		/**
+		 * Permission callback function to check if current user can access the rest api route.
+		 *
+		 * @since    1.0.7
+		 */
+		public function permission_callback() {
+
+			if ( ! current_user_can( 'manage_options' ) ) {
+
+				return new WP_Error( 'rest_forbidden', esc_html__( 'Ooops, you are allowed to manage options.', 'simple_gdpr_cookie_compliance' ), array( 'status' => 401 ) );
+			}
+			return true;
 		}
 	}
 }

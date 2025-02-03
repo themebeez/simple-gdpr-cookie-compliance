@@ -37,7 +37,7 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_fields_values' ) ) {
 
 		if ( $settings_default ) {
 
-			$setting_fields = simple_gdpr_get_fields(); // get all the available settings fields.
+			$setting_fields = simple_gdpr_cookie_compliance_get_fields(); // get all the available settings fields.
 			foreach ( $settings_default as $id => $value ) {
 
 				if ( array_key_exists( $id, $setting_fields ) ) {
@@ -49,10 +49,10 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_fields_values' ) ) {
 						case 'switch':
 							// special case for enable_bg_overlay because it is saved inside the style array.
 							if ( 'enable_bg_overlay' === $id ) {
-								$settings_values[ $id ] = ( isset( $saved_settings['style'][ $id ] ) && '1' === $saved_settings['style'][ $id ] ) ? true : ( ( isset( $saved_settings['style'][ $id ] ) && '0' === $saved_settings['style'][ $id ] ) ? false : $settings_default[ $id ] );
+								$settings_values[ $id ] = ( isset( $saved_settings['style'][ $id ] ) && '1' === $saved_settings['style'][ $id ] ) ? true : ( ( isset( $saved_settings['style'][ $id ] ) && '1' !== $saved_settings['style'][ $id ] ) ? false : $settings_default[ $id ] );
 								break;
 							}
-							$settings_values[ $id ] = ( isset( $saved_settings[ $id ] ) && '1' === $saved_settings[ $id ] ) ? true : ( ( array_key_exists( $id, $saved_settings ) && '0' === $saved_settings[ $id ] ) ? false : $settings_default[ $id ] );
+							$settings_values[ $id ] = ( isset( $saved_settings[ $id ] ) && '1' === $saved_settings[ $id ] ) ? true : ( ( isset( $saved_settings[ $id ] ) && '1' !== $saved_settings[ $id ] ) ? false : $settings_default[ $id ] );
 							break;
 
 						case 'radio':
@@ -116,10 +116,10 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_fields_values' ) ) {
  * @param mixed $fields Setting fields.
  * @return array
  */
-function simple_gdpr_add_setting_fields( $fields ) {
+function simple_gdpr_cookie_compliance_add_setting_fields( $fields ) {
 
 	return apply_filters(
-		'simple_gdpr_add_setting_fields',
+		'simple_gdpr_cookie_compliance_add_setting_fields',
 		array_merge(
 			$fields,
 			simple_gdpr_basic_options(),
@@ -129,17 +129,17 @@ function simple_gdpr_add_setting_fields( $fields ) {
 		),
 	);
 }
-add_filter( 'simple_gdpr_settings_fields', 'simple_gdpr_add_setting_fields' );
+add_filter( 'simple_gdpr_settings_fields', 'simple_gdpr_cookie_compliance_add_setting_fields' );
 
 
-if ( ! function_exists( 'simple_gdpr_get_fields' ) ) {
+if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_fields' ) ) {
 	/**
 	 * Add setting fields into the global setting fields array.
 	 *
 	 * @since 1.1.11
 	 * @return array
 	 */
-	function simple_gdpr_get_fields() {
+	function simple_gdpr_cookie_compliance_get_fields() {
 
 		$fields = apply_filters( 'simple_gdpr_settings_fields', array() );
 		return $fields;
@@ -196,14 +196,14 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_settings_sections_fie
  * @param string $settings Setting.
  * @return bool true on success, false otherwise.
  */
-function simple_gdpr_update_settings( $settings = '' ) {
+function simple_gdpr_cookie_compliance_update_settings( $settings = '' ) {
 	$settings_default = simple_gdpr_get_setting_defaults();
 	if (
 		is_array( $settings ) &&
 		count( $settings ) > 0
 	) {
 		// fetch all the existing setting fields.
-		$setting_fields = simple_gdpr_get_fields();
+		$setting_fields = simple_gdpr_cookie_compliance_get_fields();
 
 		// initialize empty array.
 		$saved_settings = array();
@@ -259,7 +259,7 @@ function simple_gdpr_update_settings( $settings = '' ) {
 					break;
 				case 'color':
 					if ( 'notice_text_color' === $id ) {
-						$sanitized_value                        = sanitize_text_field( $value );
+						$sanitized_value                        = sanitize_hex_color( $value );
 						$saved_settings['color']['notice_text'] = $sanitized_value;
 						break;
 					}
@@ -268,7 +268,7 @@ function simple_gdpr_update_settings( $settings = '' ) {
 					break;
 				case 'select':
 					$setting_choices                = $setting_fields[ $id ]['choices'];
-					$sanitized_value                = ( array_key_exists( $value, $setting_choices ) ) ? sanitize_text_field( $value ) : $settings_defsult[ $id ];
+					$sanitized_value                = ( array_key_exists( $value, $setting_choices ) ) ? sanitize_text_field( $value ) : $settings_default[ $id ];
 					$saved_settings['style'][ $id ] = $sanitized_value;
 					break;
 				default:
