@@ -54,6 +54,24 @@ class Simple_GDPR_Cookie_Compliance_Admin {
 	}
 
 	/**
+	 * Register the stylesheets for the admin area.
+	 *
+	 * @since    1.0.0
+	 */
+	public function enqueue_styles() {
+		return;
+	}
+
+	/**
+	 * Register the JavaScript for the admin area.
+	 *
+	 * @since    1.0.0
+	 */
+	public function enqueue_scripts() {
+		return;
+	}
+
+	/**
 	 * Register plugin menu in dashboard.
 	 *
 	 * @since    1.0.0
