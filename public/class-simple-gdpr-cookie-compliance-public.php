@@ -100,7 +100,6 @@ class Simple_GDPR_Cookie_Compliance_Public {
 		wp_localize_script( $this->plugin_name, 'simpleGDPRCCJsObj', $notice_obj_array );
 
 		wp_enqueue_script( $this->plugin_name );
-
 	}
 
 	/**
