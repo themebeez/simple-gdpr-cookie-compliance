@@ -54,85 +54,6 @@ class Simple_GDPR_Cookie_Compliance_Admin {
 	}
 
 	/**
-	 * Register the stylesheets for the admin area.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_styles() {
-
-		global $pagenow;
-
-		if (
-			'admin.php' === $pagenow &&
-			(
-				isset( $_GET['page'] ) && // phpcs:ignore
-				'simple-gdpr-cookie-compliance' == sanitize_text_field( wp_unslash( $_GET['page'] ) ) // phpcs:ignore
-			)
-		) {
-
-			wp_enqueue_style( 'wp-color-picker' );
-
-			wp_enqueue_style(
-				$this->plugin_name,
-				plugin_dir_url( __FILE__ ) . 'css/simple-gdpr-cookie-compliance-admin.css',
-				array(),
-				$this->version,
-				'all'
-			);
-		}
-
-		if (
-			'admin.php' === $pagenow &&
-			(
-				isset( $_GET['page'] ) && // phpcs:ignore
-				'simple-gdpr-cookie-compliance-v2' == sanitize_text_field( wp_unslash( $_GET['page'] ) ) // phpcs:ignore
-			)
-		) {
-
-			//require_once plugin_dir_path( __FILE__ ) . 'app.php';
-		}
-	}
-
-	/**
-	 * Register the JavaScript for the admin area.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_scripts() {
-
-		global $pagenow;
-
-		if (
-			'admin.php' === $pagenow &&
-			(
-				isset( $_GET['page'] ) && // phpcs:ignore
-				'simple-gdpr-cookie-compliance' == sanitize_text_field( wp_unslash( $_GET['page'] ) ) // phpcs:ignore
-			)
-		) {
-
-			wp_enqueue_editor();
-
-			wp_enqueue_script( 'wp-color-picker' );
-
-			wp_enqueue_script(
-				'wp-color-picker-alpha',
-				plugin_dir_url( __FILE__ ) . 'js/wp-color-picker-alpha.js',
-				array( 'jquery', 'wp-color-picker' ),
-				$this->version,
-				true
-			);
-
-			wp_enqueue_script(
-				$this->plugin_name,
-				plugin_dir_url( __FILE__ ) . 'js/simple-gdpr-cookie-compliance-admin.js',
-				array( 'jquery' ),
-				$this->version,
-				true
-			);
-		}
-	}
-
-	/**
 	 * Register plugin menu in dashboard.
 	 *
 	 * @since    1.0.0
@@ -144,15 +65,6 @@ class Simple_GDPR_Cookie_Compliance_Admin {
 			esc_html__( 'Simple GDPR', 'simple-gdpr-cookie-compliance' ),
 			'manage_options',
 			'simple-gdpr-cookie-compliance',
-			array( $this, 'plugin_page' ),
-			'dashicons-lock'
-		);
-
-		add_menu_page(
-			esc_html__( 'Simple GDPR Cookie Compliance', 'simple-gdpr-cookie-compliance' ),
-			esc_html__( 'Simple V2', 'simple-gdpr-cookie-compliance' ),
-			'manage_options',
-			'simple-gdpr-cookie-compliance-v2',
 			array( $this, 'plugin_page' ),
 			'dashicons-lock'
 		);
@@ -172,16 +84,6 @@ class Simple_GDPR_Cookie_Compliance_Admin {
 			(
 				isset( $_GET['page'] ) && // phpcs:ignore
 				'simple-gdpr-cookie-compliance' == sanitize_text_field( wp_unslash( $_GET['page'] ) ) // phpcs:ignore
-			)
-		) {
-			require_once plugin_dir_path( __FILE__ ) . 'partials/simple-gdpr-cookie-compliance-admin-page.php';
-		}
-
-		if (
-			'admin.php' === $pagenow &&
-			(
-				isset( $_GET['page'] ) && // phpcs:ignore
-				'simple-gdpr-cookie-compliance-v2' == sanitize_text_field( wp_unslash( $_GET['page'] ) ) // phpcs:ignore
 			)
 		) {
 			?>

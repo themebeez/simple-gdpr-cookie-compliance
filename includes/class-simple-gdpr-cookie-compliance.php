@@ -145,11 +145,6 @@ class Simple_GDPR_Cookie_Compliance {
 		require_once plugin_dir_path( __DIR__ ) . 'admin/class-simple-gdpr-cookie-compliance-admin.php';
 
 		/**
-		 * The class responsible for defining all settings in plugin page.
-		 */
-		require_once plugin_dir_path( __DIR__ ) . 'admin/class-simple-gdpr-cookie-compliance-settings.php';
-
-		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
@@ -194,23 +189,10 @@ class Simple_GDPR_Cookie_Compliance {
 
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'plugin_menu' );
 
-		if (
-			'admin.php' === $pagenow &&
-			isset( $_GET['page'] ) && // phpcs:ignore
-			'simple-gdpr-cookie-compliance' === sanitize_text_field( wp_unslash( $_GET['page'] ) ) // phpcs:ignore
-		) {
-			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-		}
-
 		// custom link in plugins.php page in wp-admin.
 		$this->loader->add_filter( 'plugin_action_links_' . SIMPLE_GDPR_COOKIE_COMPLIANCE_BASENAME, $plugin_admin, 'plugin_page_links', 10, 2 );
 
 		$this->loader->add_filter( 'plugin_row_meta', $plugin_admin, 'plugin_row_meta', 10, 2 );
-
-		$plugin_options = new Simple_GDPR_Cookie_Compliance_Settings( $this->get_plugin_name(), $this->get_version() );
-
-		$this->loader->add_action( 'admin_init', $plugin_options, 'register_settings' );
 	}
 
 	/**
@@ -225,8 +207,6 @@ class Simple_GDPR_Cookie_Compliance {
 		$plugin_public = new Simple_GDPR_Cookie_Compliance_Public( $this->get_plugin_name(), $this->get_version() );
 
 		if ( ! isset( $_COOKIE['sgcc-cookie-notice'] ) ) {
-			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 			$this->loader->add_action( 'wp_footer', $plugin_public, 'display_notice' );
 			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'print_dynamic_style' );
 		}
