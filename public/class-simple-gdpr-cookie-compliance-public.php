@@ -220,26 +220,27 @@ class Simple_GDPR_Cookie_Compliance_Public {
 	 * @since 1.0.4
 	 */
 	public function get_dynamic_css() {
+
 		$dynamic_options = simple_gdpr_cookie_compliance_get_fields_values();
 
 		$css = '';
 
 		$css_values = array(
-			'--sgcc-text-color'                           => isset( $dynamic_options['notice_text_color'] ) ? $dynamic_options['notice_text_color'] : '',
-			'--sgcc-link-color'                           => isset( $dynamic_options['notice_link_color'] ) ? $dynamic_options['notice_link_color'] : '',
-			'--sgcc-link-hover-color'                     => isset( $dynamic_options['notice_link_hover_color'] ) ? $dynamic_options['notice_link_hover_color'] : '',
-			'--sgcc-notice-background-color'              => isset( $dynamic_options['notice_background'] ) ? $dynamic_options['notice_background'] : '',
-			'--sgcc-cookie-icon-color'                    => isset( $dynamic_options['notice_cookie_icon_color'] ) ? $dynamic_options['notice_cookie_icon_color'] : '',
-			'--sgcc-close-button-background-color'        => isset( $dynamic_options['notice_box_close_btn_bg_color'] ) ? $dynamic_options['notice_box_close_btn_bg_color'] : '',
-			'--sgcc-close-button-hover-background-color'  => isset( $dynamic_options['notice_box_close_btn_bg_hover_color'] ) ? $dynamic_options['notice_box_close_btn_bg_hover_color'] : '',
-			'--sgcc-close-button-color'                   => isset( $dynamic_options['notice_box_close_btn_text_color'] ) ? $dynamic_options['notice_box_close_btn_text_color'] : '',
-			'--sgcc-close-button-hover-color'             => isset( $dynamic_options['notice_box_close_btn_hover_text_color'] ) ? $dynamic_options['notice_box_close_btn_hover_text_color'] : '',
-			'--sgcc-accept-button-background-color'       => isset( $dynamic_options['notice_compliance_button_bg'] ) ? $dynamic_options['notice_compliance_button_bg'] : '',
-			'--sgcc-accept-button-hover-background-color' => isset( $dynamic_options['notice_compliance_button_hover_bg_color'] ) ? $dynamic_options['notice_compliance_button_hover_bg_color'] : '',
-			'--sgcc-accept-button-color'                  => isset( $dynamic_options['notice_compliance_button_text_color'] ) ? $dynamic_options['notice_compliance_button_text_color'] : '',
-			'--sgcc-accept-button-hover-color'            => isset( $dynamic_options['notice_compliance_button_hover_text_color'] ) ? $dynamic_options['notice_compliance_button_hover_text_color'] : '',
-			'--sgcc-accept-button-border-color'           => isset( $dynamic_options['notice_compliance_button_border_color'] ) ? $dynamic_options['notice_compliance_button_border_color'] : '',
-			'--sgcc-accept-button-hover-border-color'     => isset( $dynamic_options['notice_compliance_button_hover_border_color'] ) ? $dynamic_options['notice_compliance_button_hover_border_color'] : '',
+			'--sgcc-text-color'                           => $dynamic_options['notice_text_color'] ?? '#222222',
+			'--sgcc-link-color'                           => $dynamic_options['notice_link_color'] ?? '#222222',
+			'--sgcc-link-hover-color'                     => $dynamic_options['notice_link_hover_color'] ?? '#00BC7D',
+			'--sgcc-notice-background-color'              => $dynamic_options['notice_background'] ?? '#E4E4E4',
+			'--sgcc-cookie-icon-color'                    => $dynamic_options['notice_cookie_icon_color'] ?? '#222222',
+			'--sgcc-close-button-background-color'        => $dynamic_options['notice_box_close_btn_bg_color'] ?? '#222222',
+			'--sgcc-close-button-hover-background-color'  => $dynamic_options['notice_box_close_btn_bg_hover_color'] ?? '#00BC7D',
+			'--sgcc-close-button-color'                   => $dynamic_options['notice_box_close_btn_text_color'] ?? '#222222',
+			'--sgcc-close-button-hover-color'             => $dynamic_options['notice_box_close_btn_hover_text_color'] ?? '#00BC7D',
+			'--sgcc-accept-button-background-color'       => $dynamic_options['notice_compliance_button_bg'] ?? '#222222',
+			'--sgcc-accept-button-hover-background-color' => $dynamic_options['notice_compliance_button_hover_bg_color'] ?? '#00BC7D',
+			'--sgcc-accept-button-color'                  => $dynamic_options['notice_compliance_button_text_color'] ?? '#ffffff',
+			'--sgcc-accept-button-hover-color'            => $dynamic_options['notice_compliance_button_hover_text_color'] ?? '#ffffff',
+			'--sgcc-accept-button-border-color'           => $dynamic_options['notice_compliance_button_border_color'] ?? '#222222',
+			'--sgcc-accept-button-hover-border-color'     => $dynamic_options['notice_compliance_button_hover_border_color'] ?? '#00BC7D',
 		);
 
 		$css = ':root {';
@@ -247,7 +248,7 @@ class Simple_GDPR_Cookie_Compliance_Public {
 		foreach ( $css_values as $key => $value ) {
 
 			if ( ! is_array( $value ) && ! empty( $value ) ) {
-				$css .= $key . ': ' . $value . ';';
+				$css .= $key . ': ' . esc_attr( $value ) . ';';
 			}
 		}
 
@@ -257,46 +258,46 @@ class Simple_GDPR_Cookie_Compliance_Public {
 
 			if ( isset( $dynamic_options['width'] ) && ! empty( $dynamic_options['width'] ) ) {
 				$css .= '.sgcc-main-wrapper[data-layout=custom_width], .sgcc-main-wrapper[data-layout=pop_up] {';
-				$css .= '--width : ' . $dynamic_options['width'] . 'px;';
+				$css .= '--width : ' . esc_attr( $dynamic_options['width'] ) . 'px;';
 				$css .= '}';
 			}
 
 			if ( isset( $dynamic_options['customwidth_position'] ) && 'top_center' === strtolower( $dynamic_options['customwidth_position'] ) ) {
 				$css .= '.sgcc-main-wrapper[data-layout=custom_width].position-top-center {';
-				$css .= '--top : ' . $dynamic_options['custom_width_notice_position_offset']['top_offset'] . 'px;';
+				$css .= '--top : ' . esc_attr( $dynamic_options['custom_width_notice_position_offset']['top_offset'] ) . 'px;';
 
 				$css .= '}';
 			} elseif ( isset( $dynamic_options['customwidth_position'] ) && 'top_left' === strtolower( $dynamic_options['customwidth_position'] ) ) {
 				$css .= '.sgcc-main-wrapper[data-layout=custom_width].position-top-left {';
-				$css .= '--top : ' . $dynamic_options['custom_width_notice_position_offset']['top_offset'] . 'px;';
-				$css .= '--left : ' . $dynamic_options['custom_width_notice_position_offset']['left_offset'] . 'px;';
+				$css .= '--top : ' . esc_attr( $dynamic_options['custom_width_notice_position_offset']['top_offset'] ) . 'px;';
+				$css .= '--left : ' . esc_attr( $dynamic_options['custom_width_notice_position_offset']['left_offset'] ) . 'px;';
 
 				$css .= '}';
 			} elseif ( isset( $dynamic_options['customwidth_position'] ) && 'top_right' === strtolower( $dynamic_options['customwidth_position'] ) ) {
 
 				$css .= '.sgcc-main-wrapper[data-layout=custom_width].position-top-right {';
-				$css .= '--top : ' . $dynamic_options['custom_width_notice_position_offset']['top_offset'] . 'px;';
-				$css .= '--right : ' . $dynamic_options['custom_width_notice_position_offset']['right_offset'] . 'px;';
+				$css .= '--top : ' . esc_attr( $dynamic_options['custom_width_notice_position_offset']['top_offset'] ) . 'px;';
+				$css .= '--right : ' . esc_attr( $dynamic_options['custom_width_notice_position_offset']['right_offset'] ) . 'px;';
 
 				$css .= '}';
 			} elseif ( isset( $dynamic_options['customwidth_position'] ) && 'bottom_left' === strtolower( $dynamic_options['customwidth_position'] ) ) {
 
 				$css .= '.sgcc-main-wrapper[data-layout=custom_width].position-bottom-left {';
-				$css .= '--left : ' . $dynamic_options['custom_width_notice_position_offset']['left_offset'] . 'px;';
-				$css .= '--bottom : ' . $dynamic_options['custom_width_notice_position_offset']['bottom_offset'] . 'px;';
+				$css .= '--left : ' . esc_attr( $dynamic_options['custom_width_notice_position_offset']['left_offset'] ) . 'px;';
+				$css .= '--bottom : ' . esc_attr( $dynamic_options['custom_width_notice_position_offset']['bottom_offset'] ) . 'px;';
 
 				$css .= '}';
 			} elseif ( isset( $dynamic_options['customwidth_position'] ) && 'bottom_center' === strtolower( $dynamic_options['customwidth_position'] ) ) {
 
 				$css .= '.sgcc-main-wrapper[data-layout=custom_width].position-bottom-center {';
-				$css .= '--bottom : ' . $dynamic_options['custom_width_notice_position_offset']['bottom_offset'] . 'px;';
+				$css .= '--bottom : ' . esc_attr( $dynamic_options['custom_width_notice_position_offset']['bottom_offset'] ) . 'px;';
 
 				$css .= '}';
 			} elseif ( isset( $dynamic_options['customwidth_position'] ) && 'bottom_right' === strtolower( $dynamic_options['customwidth_position'] ) ) {
 
 				$css .= '.sgcc-main-wrapper[data-layout=custom_width].position-bottom-right {';
-				$css .= '--right : ' . $dynamic_options['custom_width_notice_position_offset']['right_offset'] . 'px;';
-				$css .= '--bottom : ' . $dynamic_options['custom_width_notice_position_offset']['bottom_offset'] . 'px;';
+				$css .= '--right : ' . esc_attr( $dynamic_options['custom_width_notice_position_offset']['right_offset'] ) . 'px;';
+				$css .= '--bottom : ' . esc_attr( $dynamic_options['custom_width_notice_position_offset']['bottom_offset'] ) . 'px;';
 
 				$css .= '}';
 			}
