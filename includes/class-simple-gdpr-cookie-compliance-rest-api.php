@@ -81,22 +81,12 @@ if ( ! class_exists( 'Class_Simple_GDPR_Cookie_Compliance_Rest_API' ) ) {
 		 * @param \WP_REST_Request $request    The request object.
 		 * @return \WP_REST_Response $return_data   The response object.
 		 */
-		public function rest_handler_get_setting_fields( $request ) {
+		public function rest_handler_get_setting_fields() {
 
 			$return_data = array(
 				'success' => false,
 				'message' => esc_html__( 'Oops, error getting settings!!!', 'simple-gdpr-cookie-compliance' ),
 			);
-
-			// Check nonce if the request is not a "GET" request.
-			// if ( $request->get_method() !== 'GET' ) {
-			// 	$nonce = $request->get_header( 'x_wp_admin_nonce' );
-
-			// 	if ( ! $nonce || ! wp_verify_nonce( $nonce, 'simple-gdpr-cookie-compliance-admin-nonce' ) ) {
-			// 		$return_data['message'] = esc_html__( 'Invalid security token', 'simple-gdpr-cookie-compliance' );
-			// 		return rest_ensure_response( $return_data );
-			// 	}
-			// }
 
 			$return_data['success'] = true;
 			$return_data['message'] = esc_html__( 'successfully fetched data.', 'simple-gdpr-cookie-compliance' );

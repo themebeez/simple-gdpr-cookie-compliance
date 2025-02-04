@@ -253,6 +253,11 @@ class Simple_GDPR_Cookie_Compliance_Public {
 		}
 
 		$css .= '}';
+		if ( isset( $dynamic_options['enable_bg_overlay'] ) && true === $dynamic_options['enable_bg_overlay'] ) {
+			$css .= '.sgcc-overlay-mask {';
+			$css .= '--background: ' . esc_attr( $dynamic_options['notice_bg_overlay_color'] ?? '#rgba(0,0,0,0.8)' ) . ';';
+			$css .= '}';
+		}
 
 		if ( isset( $dynamic_options['style'] ) && ( 'custom_width' === strtolower( $dynamic_options['style'] ) || 'pop_up' === strtolower( $dynamic_options['style'] ) ) ) {
 
