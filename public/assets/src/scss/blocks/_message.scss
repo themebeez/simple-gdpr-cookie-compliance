@@ -7,7 +7,7 @@
 		color: var(--sgcc-text-color);
 
 		a {
-			display: inline;
+			display: inline-block;
 			position: relative;
 			font-weight: normal;
 			text-transform: inherit;
@@ -19,7 +19,7 @@
 				height: 1px;
 				opacity: 0.5;
 				width: 100%;
-				display: inline-flex;
+				display: inline-block;
 				position: absolute;
 				left: 0;
 				right: 0;

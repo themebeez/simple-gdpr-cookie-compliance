@@ -1,3 +1,19 @@
+@media( max-width: 768px ) {
+	.sgcc-main-wrapper[data-layout=full_width] {
+		border-radius: 8px;
+		 .sgcc-container {
+			.sgcc-notice-content {
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: flex-start;
+				.cookie-icon {
+					display: none;
+				}
+			}
+		 }
+	}
+}
+
 @media ( max-width: 600px ) {
 	.sgcc-main-wrapper {
 		max-width: 400px;
@@ -11,11 +27,5 @@
 
 	.sgcc-main-wrapper .cookie-compliance-button-block .cookie-compliance-button {
 		padding: 12px 20px;
-	}
-}
-
-@media ( max-width: 360px ) {
-	.sgcc-main-wrapper {
-		max-width: 270px;
 	}
 }
