@@ -78,7 +78,22 @@ class Simple_GDPR_Cookie_Compliance {
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
-		$this->define_public_hooks();
+		$options = simple_gdpr_cookie_compliance_get_fields_values();
+		if ( $options && true === $options['enable_plugin'] ) {
+			$this->define_public_hooks();
+		}
+		$this->rest_api();
+	}
+
+	/**
+	 * Register rest api endpoints for admin settings page.
+	 *
+	 * @since    1.1.11
+	 * @access   private
+	 */
+	private function rest_api() {
+
+		$plugin_rest = new Class_Simple_GDPR_Cookie_Compliance_Rest_API();
 	}
 
 	/**
@@ -112,14 +127,22 @@ class Simple_GDPR_Cookie_Compliance {
 		require_once plugin_dir_path( __DIR__ ) . 'includes/class-simple-gdpr-cookie-compliance-i18n.php';
 
 		/**
+		 * The class responsible for defining REST API for the plugin.
+		 * of the plugin.
+		 */
+
+		require_once plugin_dir_path( __DIR__ ) . 'includes/class-simple-gdpr-cookie-compliance-rest-api.php';
+
+		require_once plugin_dir_path( __DIR__ ) . 'includes/setting-functions/settings.php';
+
+		require_once plugin_dir_path( __DIR__ ) . 'includes/setting-functions/settings-default.php';
+
+		require_once plugin_dir_path( __DIR__ ) . 'includes/helper-functions.php';
+
+		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
 		require_once plugin_dir_path( __DIR__ ) . 'admin/class-simple-gdpr-cookie-compliance-admin.php';
-
-		/**
-		 * The class responsible for defining all settings in plugin page.
-		 */
-		require_once plugin_dir_path( __DIR__ ) . 'admin/class-simple-gdpr-cookie-compliance-settings.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
@@ -165,7 +188,6 @@ class Simple_GDPR_Cookie_Compliance {
 		$plugin_admin = new Simple_GDPR_Cookie_Compliance_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'plugin_menu' );
-
 		if (
 			'admin.php' === $pagenow &&
 			isset( $_GET['page'] ) && // phpcs:ignore
@@ -179,10 +201,6 @@ class Simple_GDPR_Cookie_Compliance {
 		$this->loader->add_filter( 'plugin_action_links_' . SIMPLE_GDPR_COOKIE_COMPLIANCE_BASENAME, $plugin_admin, 'plugin_page_links', 10, 2 );
 
 		$this->loader->add_filter( 'plugin_row_meta', $plugin_admin, 'plugin_row_meta', 10, 2 );
-
-		$plugin_options = new Simple_GDPR_Cookie_Compliance_Settings( $this->get_plugin_name(), $this->get_version() );
-
-		$this->loader->add_action( 'admin_init', $plugin_options, 'register_settings' );
 	}
 
 	/**
@@ -196,7 +214,7 @@ class Simple_GDPR_Cookie_Compliance {
 
 		$plugin_public = new Simple_GDPR_Cookie_Compliance_Public( $this->get_plugin_name(), $this->get_version() );
 
-		if ( ! isset( $_COOKIE['s_gdpr_c_c_cookie'] ) ) {
+		if ( ! isset( $_COOKIE['sgcc-cookie-notice'] ) ) {
 			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 			$this->loader->add_action( 'wp_footer', $plugin_public, 'display_notice' );

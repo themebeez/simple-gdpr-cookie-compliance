@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	@apply font-sans font-normal text-[16px] text-gray-800 antialiased;
+}
+
+[class*="page_simple-gdpr-cookie-compliance"] #wpwrap {
+	@apply bg-orange-50;
+}
+
+[class*="page_simple-gdpr-cookie-compliance"] #wpbody {
+	@apply p-0 pb-14 m-0 ms-[-20px] h-full min-h-full flex flex-col items-stretch justify-stretch antialiased box-border;
+}
+
+[class*="page_simple-gdpr-cookie-compliance"] #wpfooter {
+	@apply hidden opacity-0;
+}
+
+#simple-gdpr-cookie-compliance-app {
+	@apply p-0 m-0 w-full h-full block relative font-sans text-base text-gray-800 font-normal antialiased box-border;
+}
+
+#simple-gdpr-cookie-compliance-app * {
+	@apply antialiased box-border;
+}
+
+[class*="page_simple-gdpr-cookie-compliance"] input.input-ghost {
+	@apply border-none shadow-none;
+}
+
+[class*="page_simple-gdpr-cookie-compliance"] input.input-ghost:focus {
+	@apply outline-none border-none shadow-none;
+}
+
+/**---------------------------------
+ *  Editor
+ ---------------------------------*/
+.prose p {
+	@apply text-base text-gray-700;
+}
+
+.prose strong {
+	@apply font-bold;
+}
+
+@layer base {
+	:root {
+		--radius: 0.5rem;
+	}
+}

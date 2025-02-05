@@ -1,0 +1,19 @@
+import React from "react";
+import { cn } from "@/lib/utils";
+
+interface Props {
+	className?: string;
+	children: React.ReactNode;
+}
+
+export default function Container({ className, children }: Props) {
+	return (
+		<div
+			className={cn(
+				`p-0 m-0 px-6 max-w-[1200px] w-full mx-auto relative block ${className}`
+			)}
+		>
+			{children}
+		</div>
+	);
+}
