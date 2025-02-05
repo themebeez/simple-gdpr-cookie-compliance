@@ -19,7 +19,7 @@ export default function Donation() {
 				</p>
 
 				<a
-					href="https://buymeacoffee.com/creamcode"
+					href="https://donation.creamcode.org/"
 					target="_blank"
 					rel="noopener noreferrer"
 					className="px-8 py-4 w-full flex items-center justify-center gap-3 text-blue-600 bg-white rounded-full shadow-lg hover:bg-emerald-500 hover:text-white hover:shadow-[0_10px_40px_10px_rgba(0,0,0,0.08)] transition-colors duration-500 ease focus:outline-none focus:shadow-[0_10px_40px_10px_rgba(0,0,0,0.08)]"
