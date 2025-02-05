@@ -5,8 +5,7 @@
 /.git
 /.github
 /node_modules
-/admin/src/
-/admin/assets/scss/
+/app/src/
 /public/assets/src/
 
 .distignore
@@ -14,7 +13,7 @@
 .babelrc
 .editorconfig
 App.d.ts
-rollup.js
+rollup.config.js
 tailwind.config.js
 vite.config.js
 tsconfig.json
