@@ -15,8 +15,8 @@ if ( ! $args ) {
 	return;
 }
 if (
-	isset( $args['enable_bg_overlay'] ) &&
-	true === $args['enable_bg_overlay']
+	( isset( $args['enable_bg_overlay'] ) &&
+	true === $args['enable_bg_overlay'] ) && 'pop_up' === $args['style']
 ) {
 	?>
 	<aside id="sgcc-overlay-mask" class="sgcc-overlay-mask"></aside>
