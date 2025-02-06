@@ -80,4 +80,4 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_button_options' ) ) {
 		);
 	}
 }
-add_filter( 'simple_gdpr_button_options', 'simple_gdpr_cookie_compliance_button_options' );
+add_filter( 'simple_gdpr_cookie_compliance_button_options_fields', 'simple_gdpr_cookie_compliance_button_options' );

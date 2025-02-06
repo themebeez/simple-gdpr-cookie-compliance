@@ -93,7 +93,7 @@ class Simple_GDPR_Cookie_Compliance {
 	 */
 	private function rest_api() {
 
-		$plugin_rest = new Class_Simple_GDPR_Cookie_Compliance_Rest_API();
+		$plugin_rest = new Simple_GDPR_Cookie_Compliance_Rest_API();
 	}
 
 	/**

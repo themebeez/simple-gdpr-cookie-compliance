@@ -9,6 +9,15 @@
  * @author     Addonify <contact@addonify.com>
  */
 
+/**
+ * Defined functions related to getting and updating settings values.
+ *
+ * @since      1.1.11
+ * @package    Simple_GDPR_Cookie_Compliance
+ * @subpackage Simple_GDPR_Cookie_Compliance/includes/setting-functions
+ * @author     Addonify <contact@addonify.com>
+ */
+
 require_once plugin_dir_path( __DIR__ ) . 'setting-functions/fields/basic-options.php';
 require_once plugin_dir_path( __DIR__ ) . 'setting-functions/fields/button-options.php';
 require_once plugin_dir_path( __DIR__ ) . 'setting-functions/fields/layout-options.php';
@@ -175,19 +184,19 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_settings_sections_fie
 						'basic'     => array(
 							'section_title' => esc_html__( 'Basic Options', 'simple-gdpr-cookie-compliance' ),
 							'doc_link'      => 'https://docs.addonify.com',
-							'fields'        => apply_filters( 'simple_gdpr_basic_option_fields', array() ),
+							'fields'        => apply_filters( 'simple_gdpr_cookie_compliance_basic_option_fields', array() ),
 						),
 						'layout'    => array(
 							'section_title' => esc_html__( 'Layout Options', 'simple-gdpr-cookie-compliance' ),
-							'fields'        => apply_filters( 'simple_gdpr_layout_options', array() ),
+							'fields'        => apply_filters( 'simple_gdpr_cookie_compliance_layout_options_fields', array() ),
 						),
 						'button'    => array(
 							'section_title' => esc_html__( 'Button Options', 'simple-gdpr-cookie-compliance' ),
-							'fields'        => apply_filters( 'simple_gdpr_button_options', array() ),
+							'fields'        => apply_filters( 'simple_gdpr_cookie_compliance_button_options_fields', array() ),
 						),
 						'developer' => array(
 							'section_title' => esc_html__( 'Developer', 'simple-gdpr-cookie-compliance' ),
-							'fields'        => apply_filters( 'simple_gdpr_developer_options', array() ),
+							'fields'        => apply_filters( 'simple_gdpr_cookie_compliance_developer_options_fields', array() ),
 						),
 					)
 				),
