@@ -1,23 +1,22 @@
-# Copyright (C) 2024 themebeez
+# Copyright (C) 2025 themebeez
 # This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Simple GDPR Cookie Compliance 1.1.10\n"
+"Project-Id-Version: Simple GDPR Cookie Compliance 2.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/simple-gdpr-cookie-compliance\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-12-26T05:53:06+00:00\n"
+"POT-Creation-Date: 2025-02-06T11:55:19+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: simple-gdpr-cookie-compliance\n"
 
 #. Plugin Name of the plugin
 #: simple-gdpr-cookie-compliance.php
-#: admin/class-simple-gdpr-cookie-compliance-admin.php:156
-#: admin/partials/simple-gdpr-cookie-compliance-admin-page.php:21
+#: admin/class-simple-gdpr-cookie-compliance-admin.php:64
 msgid "Simple GDPR Cookie Compliance"
 msgstr ""
 
@@ -41,231 +40,266 @@ msgstr ""
 msgid "https://themebeez.com/"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-admin.php:157
+#: admin/class-simple-gdpr-cookie-compliance-admin.php:65
 msgid "Simple GDPR"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-admin.php:186
+#: admin/class-simple-gdpr-cookie-compliance-admin.php:106
 msgid "Settings"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-admin.php:207
+#: admin/class-simple-gdpr-cookie-compliance-admin.php:127
 msgid "View Simple GDPR Cookie Compliance GitHub link"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-admin.php:207
+#: admin/class-simple-gdpr-cookie-compliance-admin.php:127
 msgid "GitHub"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-admin.php:208
+#: admin/class-simple-gdpr-cookie-compliance-admin.php:128
 msgid "Visit community forums"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-admin.php:208
+#: admin/class-simple-gdpr-cookie-compliance-admin.php:128
 msgid "Community support"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:79
-msgid "Configure Settings"
+#: includes/class-simple-gdpr-cookie-compliance-rest-api.php:87
+msgid "Oops, error getting settings!!!"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:86
-msgid "Notice Content"
+#: includes/class-simple-gdpr-cookie-compliance-rest-api.php:91
+msgid "successfully fetched data."
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:94
-msgid "Cookie"
+#: includes/class-simple-gdpr-cookie-compliance-rest-api.php:107
+msgid "Ooops, error saving settings!!!"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:102
-msgid "Style"
+#: includes/class-simple-gdpr-cookie-compliance-rest-api.php:118
+msgid "No settings to update."
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:110
-msgid "Colors"
+#: includes/class-simple-gdpr-cookie-compliance-rest-api.php:126
+msgid "Settings saved successfully"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:118
-msgid "Custom CSS"
+#: includes/class-simple-gdpr-cookie-compliance-rest-api.php:141
+msgid "Ooops, you are allowed to manage options."
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:140
-#: public/class-simple-gdpr-cookie-compliance-public.php:174
-msgid "Our website uses cookies to provide you the best experience. However, by continuing to use our website, you agree to our use of cookies. For more information, read our <a href=\"#\">Cookie Policy</a>."
+#: includes/setting-functions/fields/basic-options.php:21
+msgid "Enable cookie notice"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:142
-msgid "Accept"
+#: includes/setting-functions/fields/basic-options.php:23
+msgid "Enable this option to activate cookie notice."
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:152
-msgid "Message"
+#: includes/setting-functions/fields/basic-options.php:26
+msgid "Cookie expiry duration"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:170
-msgid "Accept Button Title"
+#: includes/setting-functions/fields/basic-options.php:32
+msgid "Set how long the notice should be hidden after the user accepts it. Set to 0 to to hide the cookie till the browser is closed."
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:175
-msgid "Display Close Button"
+#: includes/setting-functions/fields/basic-options.php:35
+msgid "Cookie notice message"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:179
-msgid "Display Cookie Icon"
+#: includes/setting-functions/fields/basic-options.php:37
+msgid "Actual content of the notice"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:196
-msgid "Cookie Expire Time"
+#: includes/setting-functions/fields/basic-options.php:41
+msgid "Display cookie icon"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:198
-msgid "Once the user clicks on Accept button, cookie notice will disappear. Expire Time sets the time duration for which cookie notice will disappear. Set &quot;0&quot; for SESSION cookie."
+#: includes/setting-functions/fields/basic-options.php:43
+msgid "Displays cookie icon in the cookie notice"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:230
-msgid "Width Style"
+#: includes/setting-functions/fields/button-options.php:21
+msgid "Accept button label"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:233
-msgid "Full Width"
+#: includes/setting-functions/fields/button-options.php:25
+msgid "Display close button"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:234
-msgid "Custom Width"
+#: includes/setting-functions/fields/button-options.php:29
+msgid "Accept button background color"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:235
-msgid "Pop Up"
+#: includes/setting-functions/fields/button-options.php:33
+msgid "Accept button background color on hover"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:250
-msgid "Width"
+#: includes/setting-functions/fields/button-options.php:37
+msgid "Accept button label color"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:255
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:274
-msgid "Position"
+#: includes/setting-functions/fields/button-options.php:41
+msgid "Accept button label color on hover"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:258
+#: includes/setting-functions/fields/button-options.php:45
+msgid "Accept button border color"
+msgstr ""
+
+#: includes/setting-functions/fields/button-options.php:49
+msgid "Accept button border color on hover"
+msgstr ""
+
+#: includes/setting-functions/fields/button-options.php:53
+msgid "Close button background color"
+msgstr ""
+
+#: includes/setting-functions/fields/button-options.php:60
+msgid "Close button background color on hover"
+msgstr ""
+
+#: includes/setting-functions/fields/button-options.php:67
+msgid "Close button label color"
+msgstr ""
+
+#: includes/setting-functions/fields/button-options.php:74
+msgid "Close button label color on hover"
+msgstr ""
+
+#: includes/setting-functions/fields/developer-options.php:23
+msgid "Add your custom CSS below if you want to style the notice further."
+msgstr ""
+
+#: includes/setting-functions/fields/layout-options.php:21
+msgid "Notice layout"
+msgstr ""
+
+#: includes/setting-functions/fields/layout-options.php:23
+msgid "Select the layout for the cookie notice. The layout options are bar, popup and custom width."
+msgstr ""
+
+#: includes/setting-functions/fields/layout-options.php:26
+msgid "Custom"
+msgstr ""
+
+#: includes/setting-functions/fields/layout-options.php:27
+msgid "Full width"
+msgstr ""
+
+#: includes/setting-functions/fields/layout-options.php:28
+msgid "Popup"
+msgstr ""
+
+#: includes/setting-functions/fields/layout-options.php:32
+msgid "Notice width"
+msgstr ""
+
+#: includes/setting-functions/fields/layout-options.php:38
+msgid "Notice width in pixels"
+msgstr ""
+
+#: includes/setting-functions/fields/layout-options.php:47
+msgid "Enaable background overlay"
+msgstr ""
+
+#: includes/setting-functions/fields/layout-options.php:49
+msgid "Enable or disable background overlay for the cookie notice"
+msgstr ""
+
+#: includes/setting-functions/fields/layout-options.php:55
+#: includes/setting-functions/fields/layout-options.php:75
+msgid "Position of the notice"
+msgstr ""
+
+#: includes/setting-functions/fields/layout-options.php:57
+#: includes/setting-functions/fields/layout-options.php:77
+msgid "Select where the notice should appear in the website."
+msgstr ""
+
+#: includes/setting-functions/fields/layout-options.php:59
 msgid "Top"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:259
+#: includes/setting-functions/fields/layout-options.php:60
 msgid "Bottom"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:277
-msgid "Top Left"
+#: includes/setting-functions/fields/layout-options.php:67
+msgid "Overlay background color"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:278
-msgid "Top Center"
+#: includes/setting-functions/fields/layout-options.php:79
+msgid "Top left"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:279
-msgid "Top Right"
+#: includes/setting-functions/fields/layout-options.php:80
+msgid "Top center"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:280
-msgid "Bottom Left"
+#: includes/setting-functions/fields/layout-options.php:81
+msgid "Top right"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:281
-msgid "Bottom Center"
+#: includes/setting-functions/fields/layout-options.php:82
+msgid "Bottom left"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:282
-msgid "Bottom Right"
+#: includes/setting-functions/fields/layout-options.php:83
+msgid "Bottom center"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:296
-msgid "Enable Background Overlay"
+#: includes/setting-functions/fields/layout-options.php:84
+msgid "Bottom right"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:302
-msgid "Top Offset (px)"
+#: includes/setting-functions/fields/layout-options.php:91
+msgid "Notice position offset (in pixels)"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:306
-msgid "Right Offset (px)"
+#: includes/setting-functions/fields/layout-options.php:103
+msgid "Notice background color"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:310
-msgid "Bottom Offset (px)"
+#: includes/setting-functions/fields/layout-options.php:107
+msgid "Cookie icon color"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:314
-msgid "Left Offset (px)"
+#: includes/setting-functions/fields/layout-options.php:111
+msgid "Text color inside the notice"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:370
-msgid "Overlay Color"
+#: includes/setting-functions/fields/layout-options.php:115
+msgid "Link color inside the notice"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:373
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:383
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:409
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:431
-msgid "Background"
+#: includes/setting-functions/fields/layout-options.php:119
+msgid "Link hover color inside the notice"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:380
-msgid "Notice Color"
+#: includes/setting-functions/settings-default.php:20
+msgid "We use cookies to ensure your best experience on our website. If you continue using our website, we'll assume you agree to our <a href='#'>cookie policy</a>"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:387
-#: public/partials/simple-gdpr-cookie-compliance-public-display.php:41
-#: public/partials/simple-gdpr-cookie-compliance-public-display.php:60
-msgid "Cookie Icon"
+#: includes/setting-functions/settings-default.php:21
+msgid "Accept"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:391
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:417
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:447
-msgid "Text"
+#: includes/setting-functions/settings.php:185
+msgid "Basic Options"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:395
-msgid "Link"
+#: includes/setting-functions/settings.php:190
+msgid "Layout Options"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:399
-msgid "Link - On Hover"
+#: includes/setting-functions/settings.php:194
+msgid "Button Options"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:406
-msgid "Close Button Color"
-msgstr ""
-
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:413
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:435
-msgid "Background - On Hover"
-msgstr ""
-
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:421
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:451
-msgid "Text - On Hover"
-msgstr ""
-
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:428
-msgid "Accept Button Color"
-msgstr ""
-
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:439
-msgid "Border"
-msgstr ""
-
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:443
-msgid "Border - On Hover"
-msgstr ""
-
-#: admin/class-simple-gdpr-cookie-compliance-settings.php:472
-msgid "CSS Codes"
-msgstr ""
-
-#: admin/partials/simple-gdpr-cookie-compliance-admin-page.php:24
-msgid "Simple GDPR Cookie Compliance is a simple and minimal WordPress plugin that helps you become GDPR compliant and notify users about your website&rsquo;s cookie policy or privacy policy. This plugin adds a small notice box at the bottom of right side of your website. You can easily set notify message as well as customize your notice with color options."
+#: includes/setting-functions/settings.php:198
+msgid "Developer"
 msgstr ""
 
 #: includes/udp/class-udp-agent.php:116
@@ -297,19 +331,24 @@ msgstr ""
 msgid "Later"
 msgstr ""
 
-#. translators: %s is link to plugin's setting page
-#: public/class-simple-gdpr-cookie-compliance-public.php:170
-msgid "Notice regarding cookie compliance is not set. Go to %s to set the notice."
+#. translators: %1$s: notice text, %2$s is a link to the plugin's settings page
+#: public/class-simple-gdpr-cookie-compliance-public.php:133
+msgid "Please update this notice from %1$s %2$s"
 msgstr ""
 
-#: public/class-simple-gdpr-cookie-compliance-public.php:171
-msgid "Dashboard > Simple GDPR"
+#: public/class-simple-gdpr-cookie-compliance-public.php:134
+msgid "Dashboard > Simple GDPR."
 msgstr ""
 
-#: public/partials/simple-gdpr-cookie-compliance-public-display.php:72
+#: public/partials/simple-gdpr-cookie-compliance-public-display.php:46
+#: public/partials/simple-gdpr-cookie-compliance-public-display.php:76
+msgid "Cookie icon"
+msgstr ""
+
+#: public/partials/simple-gdpr-cookie-compliance-public-display.php:89
 msgid "Accept Cookies"
 msgstr ""
 
-#: public/partials/simple-gdpr-cookie-compliance-public-display.php:86
-msgid "Close Cookie Compliance Notice"
+#: public/partials/simple-gdpr-cookie-compliance-public-display.php:104
+msgid "Cookie notice close button"
 msgstr ""

@@ -1,20 +1,44 @@
 /**
 =======================================================
 
-- Project : Simple GDPR Cookie Complience
+- Project : Simple GDPR Cookie Compliance
 
-- Author: Themebeez
+- Author: themebeez,addonify
 
-- Author url : https://themebeez.com/
+- Author url : https://themebeez.com/ or https://addonify.com/
 
 ======================================================================================
 */
+@use 'blocks/icon';
+@use 'blocks/notice';
+@use 'blocks/message';
+@use 'blocks/buttons';
+@use 'blocks/overlay';
+@use 'blocks/responsive';
 
-@import 'variable/variables';
+@use 'animation/keyframe';
 
-@import 'font/font';
+:root {
+	// notice box
+	--sgcc-text-color: #222222;
+	--sgcc-link-color: #2B7FFF;
+	--sgcc-link-hover-color: #00BC7D;
+	--sgcc-notice-background-color: #E4E4E4;
 
-@import 'custom/custom';
-@import 'custom/responsive';
+	// cookie icon
+	--sgcc-cookie-icon-color: #222222;
 
-@import 'custom/keyframe';
+	// close button
+	--sgcc-close-button-background-color: #222222;
+	--sgcc-close-button-hover-background-color: #00BC7D;
+	--sgcc-close-button-color: #FFFFFF;
+	--sgcc-close-button-hover-color: #FFFFFF;
+
+	// accept button
+	--sgcc-accept-button-background-color: #222222;
+	--sgcc-accept-button-hover-background-color: #00BC7D;
+	--sgcc-accept-button-color: #FFFFFF;
+	--sgcc-accept-button-hover-color: #FFFFFF;
+	--sgcc-accept-button-border-color: #222222;
+	--sgcc-accept-button-hover-border-color: #00BC7D;
+}

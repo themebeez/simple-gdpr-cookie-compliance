@@ -1,12 +1,12 @@
 === Simple GDPR Cookie Compliance ===
 
 Contributors: themebeez, addonify
-Donate link: https://creamcode.org/contact
-Tags: gdpr, cookie, cookies, notice, notification, notify, notifier, gdpr compliance, privacy, privacy directive, cookie notice, simple notice, cookie compliance
-Requires at least: 6.0.0
-Tested up to: 6.7.1.
+Donate link: https://donation.creamcode.org
+Tags: cookie notice, GDPR, CCPA, cookie privacy, cookie consent
+Requires at least: 5.6
+Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.1.10
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,16 +15,16 @@ Simple GDPR Cookie Compliance is a simple plugin that helps to display cookie no
 
 == Description ==
 
-Simple GDPR Cookie Compliance is a simple plugin that helps to display cookie notice on your WordPress website. It helps to show your complies with EU GDPR cookie law and CCPA regulations. It is a lightweight plugin that comes with three different layouts. 
+Simple GDPR Cookie Compliance is a simple plugin that helps to display cookie notice on your WordPress website. It helps to show your complies with EU GDPR cookie law and CCPA regulations. It is a lightweight plugin that comes with three different layouts.
 
-> *Simple yet powerful plugin. Display cookie notice with just in few clicks. Adds just 2KB of pure vanilla JavaScript!* 
+> *Simple yet powerful plugin. Display cookie notice with just in few clicks. Adds just 2KB of pure vanilla JavaScript!*
 
 💁 Note: Installing this plugin alone does not make your site GDPR compliant. Since each site uses different cookies, you may need to ensure you have necessary configurations in place.
 
 
 == 🦄 Main Features ==
 
-* Simple & light-weight.
+* Simple & light-weight (no dependencies).
 * Three different layouts.
 * Choose placement to display notice.
 * Custom message support.
@@ -45,23 +45,18 @@ Simple GDPR Cookie Compliance is a simple plugin that helps to display cookie no
 * After successful installation of the plugin, click on Activate button to activate plugin
 
 
-== 🎭 Get Involved  == 
+== 💰 Donation/Sponsor ==
+
+This plugin will remain ❤️ Forever Free project (No pro/premium versions will be made). If you wish to support the development of this plugin, please feel free to [donate or sponsor this project](https://donation.creamcode.org). Your donation will help encourage and support the plugin's continued development and better user support.
+
+== 🎭 Get Involved  ==
 
 * If you're a developer and want to contribute, you can do on [Github](https://github.com/themebeez/simple-gdpr-cookie-compliance).
 * If you love this plugin, and you want the plugin to be translated in your local language. Feel free to contribute on this [translation page](https://translate.wordpress.org/projects/wp-plugins/simple-gdpr-cookie-compliance/) for translation.
 * If you're a user and you need support or find any issues related to the plugin, please raise it on [Github](https://github.com/themebeez/simple-gdpr-cookie-compliance/issues) or post it on [our support forum.](https://themebeez.com/support-forum/simple-gdpr-cookie-compliance-support/)
 
 
-== 💰 Financial Contributors & Sponsors == 
-
-Following are the list of financial contributors & sponsors who have contributed to this plugin.
-
-* [Darko Pečanac](http://www.zadarko.hr/)
-
-Become a financial contributor/sponsor and help us sustain Simple GDPR Cookie Compliance plugin. Interested?  Contact us to [Contribute](https://creamcode.org/contact/).
-
-
-== Important Links == 
+== Important Links ==
 
 * Source code - [Github](https://github.com/themebeez/simple-gdpr-cookie-compliance)
 * Feedback - [Here](https://wordpress.org/support/plugin/simple-gdpr-cookie-compliance/reviews/)
@@ -79,20 +74,44 @@ Click on Simple GDPR on your dashboard. It will lead you to the plugin's page wh
 
 = Do you provide free support? =
 
-Yes, we do. Kindly visit us at [support page](https://themebeez.com/support-forum/simple-gdpr-cookie-compliance-support/) & ask for support. 
+Yes, we do. Kindly visit us at [support page](https://themebeez.com/support-forum/simple-gdpr-cookie-compliance-support/) & ask for support.
 
 
 == Screenshots ==
 
-1. Simple GDPR cookie compliance plugin at dashboard.
-2. Simple GDPR cookie compliance plugin page at dashboard.
-3. Simple GDPR cookie compliance plugin at dashboard.
-4. Simple GDPR cookie compliance default notice.
-5. Simple GDPR cookie compliance default notice layout 2.
-6. Simple GDPR cookie compliance default notice layout 3.
+1. Full width notice layout.
+2. Custom width notice layout.
+3. Popup notice layout.
+4. Full width notice layout in Japanese language.
+5. Plugins setting page in admin dashboard.
+6. Plugins setting page in admin dashboard - 2.
 
 
 == Changelog ==
+
+= 2.0.0 - 06 February, 2025 =
+
+- Added: Rest API support to fetch and update the setting page option data.
+- Added: New modern plugin's setting page in admin dashboard.
+- Added: Option to disable the cookie notice even while the plugin is active.
+- Tweak: Plugin's setting page in admin dashboard now uses React 19 to render the page.
+- Tweak: Full width notice layout. Now the close button is hidden in the full width layout and full width layout container is rounded.
+- Tweak: Pubic CSS is now being applied using the CSS root variables.
+- Tweak: Pubic facing template's HTML structure and class names.
+- Tweak: Public CSS and JavaScript assets file name and path of build files.
+- Tweak: Cookie icon in the notice is now a SVG icon.
+- Tweak: Notice cookie name.
+- Tweak: Donate link.
+- Removed: Simple GDPR Cookie Compliance web font that had cookie icon and close icon.
+- Dev: Added Vite to compile assets in dashboard setting page.
+- Dev: Added Rollup for public assets compilation.
+- Dev: Removed Gulp for public assets compilation.
+- Improvements: Code improvements.
+
+= 1.1.11 - 15 January, 2025 =
+
+- Updated: Cookie expire time setting field's description.
+- Updated: Plugin Tags.
 
 = 1.1.10 - 26 December, 2024 =
 
@@ -100,7 +119,7 @@ Yes, we do. Kindly visit us at [support page](https://themebeez.com/support-foru
 
 = 1.1.9 - 13 December, 2024 =
 
-- Tested: WordPress version 6.7.1.
+- Tested: WordPress version 6.7
 
 = 1.1.8 - 29 October, 2024 =
 
@@ -135,11 +154,11 @@ Yes, we do. Kindly visit us at [support page](https://themebeez.com/support-foru
 - Update: WPCS implemented.
 - Fix: Minor PHP error.
 
-= 1.1.2 - 03 March, 2023 = 
+= 1.1.2 - 03 March, 2023 =
 
 - Updated: UDP agent to version 1.0.1.
 
-= 1.1.1 - 20 February, 2023 = 
+= 1.1.1 - 20 February, 2023 =
 
 - Added: Basic CSS style for the notice overlay.
 - Added: UDP agent support.
@@ -181,7 +200,7 @@ Yes, we do. Kindly visit us at [support page](https://themebeez.com/support-foru
 - Fix: Other minor issues
 
 
-= 1.0.3 - August 13, 2020 = 
+= 1.0.3 - August 13, 2020 =
 
 - Testing: Tested on WordPress version 5.5
 

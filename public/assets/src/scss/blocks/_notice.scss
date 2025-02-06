@@ -1,0 +1,238 @@
+.sgcc-main-wrapper {
+	--width: 450px;
+	--top: auto;
+	--left: auto;
+	--right: 30px;
+	--bottom: 30px;
+	width: var(--width);
+	position: fixed;
+	top: var(--top);
+	left: var(--left);
+	right: var(--right);
+	bottom: var(--bottom);
+	opacity: 1;
+	z-index: 1000000000;
+	visibility: visible;
+	border-radius: 10px;
+	animation: 0.8s 0.7s sgccFadeInUp both;
+	box-shadow: 0 10px 40px 10px rgba(0, 0, 0, 0.05);
+	background-color: var(--sgcc-notice-background-color);
+	transition: opacity 0.2s linear 1s, visibility .2s linear 1s;
+
+	&.hidden {
+		opacity: 0;
+		display: none;
+		visibility: hidden;
+	}
+
+	.sgcc-container {
+		position: relative;
+		padding: 30px 30px 30px 55px;
+		color: var(--sgcc-text-color);
+	}
+
+	&.hide-cookie-icon {
+		.sgcc-container {
+			padding-left: 30px;
+		}
+	}
+}
+
+/**--------------------------------------
+*  Custom layout
+*-----------------------------------------------*/
+.sgcc-main-wrapper {
+	&[data-layout="custom_width"] {
+		--width: 450px;
+		width: var(--width);
+	}
+}
+
+.sgcc-main-wrapper {
+	&[data-layout="custom_width"] {
+		&.position-top-right {
+			--top: 30px;
+			--right: 30px;
+			--left: auto;
+			--bottom: auto;
+			top: var(--top);
+			right: var(--right);
+			left: var(--left);
+			bottom: var(--bottom);
+		}
+
+		&.position-top-left {
+			--top: 30px;
+			--right: auto;
+			--left: 30px;
+			--bottom: auto;
+			top: var(--top);
+			right: var(--right);
+			left: var(--left);
+			bottom: var(--bottom);
+		}
+
+		&.position-top-center {
+			--top: 30px;
+			--right: auto;
+			--left: 50%;
+			--bottom: auto;
+			top: var(--top);
+			right: var(--right);
+			left: var(--left);
+			bottom: var(--bottom);
+			transform: translateX(-50%);
+			animation: sgccFadeIn 0.8s 0.7s both;
+		}
+
+		&.position-bottom-right {
+			--top: auto;
+			--right: 30px;
+			--left: auto;
+			--bottom: 30px;
+			top: var(--top);
+			right: var(--right);
+			left: var(--left);
+			bottom: var(--bottom);
+		}
+
+		&.position-bottom-left {
+			--top: auto;
+			--right: auto;
+			--left: 30px;
+			--bottom: 30px;
+			top: var(--top);
+			right: var(--right);
+			left: var(--left);
+			bottom: var(--bottom);
+		}
+
+		&.position-bottom-center {
+			--top: auto;
+			--right: auto;
+			--left: 50%;
+			--bottom: 30px;
+			top: var(--top);
+			right: var(--right);
+			left: var(--left);
+			bottom: var(--bottom);
+			transform: translateX(-50%);
+			animation: sgccFadeIn 0.8s 0.7s both;
+		}
+	}
+}
+
+/**--------------------------------------
+*  Full width layout
+*-----------------------------------------------*/
+.sgcc-main-wrapper {
+	&[data-layout="full_width"] {
+		--right: 0;
+		--left: 0;
+		--width: max-content;
+		width: var(--width);
+		max-width: calc(100% - 20px);
+		right: var(--right);
+		left: var(--left);
+		margin: 0 auto;
+		border-radius: 9999px;
+
+		.sgcc-container {
+			padding: 10px 15px;
+
+			.sgcc-notice-content {
+				display: flex;
+				gap: 10px;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.cookie-icon {
+				margin: 0;
+				position: relative;
+				top: unset;
+				right: unset;
+				bottom: unset;
+				left: unset;
+
+				svg {
+					width: 22px;
+					height: 22px;
+				}
+			}
+
+			.message-block {
+				margin: 0;
+
+				p {
+					margin: 0;
+				}
+			}
+
+			#close-sgcc-button {
+				display: none;
+			}
+
+			.cookie-compliance-button-block #sgcc-accept-button {
+				border-radius: 9999px;
+			}
+		}
+	}
+}
+
+.sgcc-main-wrapper {
+	&[data-layout="full_width"] {
+		&.position-top {
+			--top: 20px;
+			--bottom: auto;
+			top: var(--top);
+			bottom: var(--bottom);
+		}
+
+		&.position-bottom {
+			--top: auto;
+			--bottom: 20px;
+			top: var(--top);
+			bottom: var(--bottom);
+		}
+	}
+}
+
+/**--------------------------------------
+*  Popup layout
+*-----------------------------------------------*/
+.sgcc-main-wrapper {
+	&[data-layout="pop_up"] {
+		--width: 450px;
+		--top: 50%;
+		--left: 50%;
+		--right: auto;
+		--bottom: auto;
+		width: var(--width);
+		position: fixed;
+		top: var(--top);
+		left: var(--left);
+		right: var(--right);
+		bottom: var(--bottom);
+		transform: translate(-50%, -50%);
+		opacity: 1;
+		z-index: 1000000000;
+		visibility: visible;
+		border-radius: 10px;
+		animation: 0.8s 0s sgccFadeIn both;
+		box-shadow: 0 10px 40px 10px rgba(0, 0, 0, 0.05);
+		background-color: var(--sgcc-notice-background-color);
+		transition: opacity 0.2s linear 1s, visibility .2s linear 1s;
+
+		&.hidden {
+			display: none;
+		}
+
+		.sgcc-container {
+			position: relative;
+			padding: 30px 30px 30px 55px;
+			color: var(--sgcc-text-color);
+		}
+	}
+}
+

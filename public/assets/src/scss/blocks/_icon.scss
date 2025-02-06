@@ -1,0 +1,21 @@
+.sgcc-main-wrapper  {
+	.sgcc-container {
+		.cookie-icon {
+			position: absolute;
+			left: 15px;
+			right: auto;
+			top: 35px;
+			bottom: auto;
+			font-size: 26px;
+			color: currentColor;
+			fill: var(--sgcc-cookie-icon-color);
+
+			svg {
+				display: inline-flex;
+				line-height: 1;
+				width: 28px;
+				height: 28px;
+			}
+		}
+	}
+}

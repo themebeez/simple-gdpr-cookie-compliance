@@ -54,98 +54,6 @@ class Simple_GDPR_Cookie_Compliance_Admin {
 	}
 
 	/**
-	 * Register the stylesheets for the admin area.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_styles() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Simple_GDPR_Cookie_Compliance_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Simple_GDPR_Cookie_Compliance_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		global $pagenow;
-
-		if (
-			'admin.php' === $pagenow &&
-			(
-				isset( $_GET['page'] ) && // phpcs:ignore
-				'simple-gdpr-cookie-compliance' == sanitize_text_field( wp_unslash( $_GET['page'] ) ) // phpcs:ignore
-			)
-		) {
-
-			wp_enqueue_style( 'wp-color-picker' );
-
-			wp_enqueue_style(
-				$this->plugin_name,
-				plugin_dir_url( __FILE__ ) . 'css/simple-gdpr-cookie-compliance-admin.css',
-				array(),
-				$this->version,
-				'all'
-			);
-		}
-	}
-
-	/**
-	 * Register the JavaScript for the admin area.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Simple_GDPR_Cookie_Compliance_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Simple_GDPR_Cookie_Compliance_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		global $pagenow;
-
-		if (
-			'admin.php' === $pagenow &&
-			(
-				isset( $_GET['page'] ) && // phpcs:ignore
-				'simple-gdpr-cookie-compliance' == sanitize_text_field( wp_unslash( $_GET['page'] ) ) // phpcs:ignore
-			)
-		) {
-
-			wp_enqueue_editor();
-
-			wp_enqueue_script( 'wp-color-picker' );
-
-			wp_enqueue_script(
-				'wp-color-picker-alpha',
-				plugin_dir_url( __FILE__ ) . 'js/wp-color-picker-alpha.js',
-				array( 'jquery', 'wp-color-picker' ),
-				$this->version,
-				true
-			);
-
-			wp_enqueue_script(
-				$this->plugin_name,
-				plugin_dir_url( __FILE__ ) . 'js/simple-gdpr-cookie-compliance-admin.js',
-				array( 'jquery' ),
-				$this->version,
-				true
-			);
-		}
-	}
-
-	/**
 	 * Register plugin menu in dashboard.
 	 *
 	 * @since    1.0.0
@@ -169,7 +77,19 @@ class Simple_GDPR_Cookie_Compliance_Admin {
 	 */
 	public function plugin_page() {
 
-		require_once plugin_dir_path( __FILE__ ) . 'partials/simple-gdpr-cookie-compliance-admin-page.php';
+		global $pagenow;
+
+		if (
+			'admin.php' === $pagenow &&
+			(
+				isset( $_GET['page'] ) && // phpcs:ignore
+				'simple-gdpr-cookie-compliance' == sanitize_text_field( wp_unslash( $_GET['page'] ) ) // phpcs:ignore
+			)
+		) {
+			?>
+			<div id="simple-gdpr-cookie-compliance-app"></div>
+			<?php
+		}
 	}
 
 	/**

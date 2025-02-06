@@ -1,0 +1,21 @@
+.sgcc-overlay-mask {
+	--index: 1000000000;
+	--background: rgba(255, 255, 255, 0.6);
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	transition: all 0.5s ease;
+	backdrop-filter: blur(4px);
+	z-index: calc(var(--index) - 10);
+	background-color: var(--background);
+
+	&.hidden {
+		opacity: 0;
+		display: none;
+		visibility: hidden;
+	}
+}
