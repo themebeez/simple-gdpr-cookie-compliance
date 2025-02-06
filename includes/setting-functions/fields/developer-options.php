@@ -17,13 +17,13 @@ if ( ! function_exists( 'simple_gdpr_developer_options' ) ) {
 	 */
 	function simple_gdpr_developer_options() {
 		return array(
-				'custom_css' => array(
-					'type'        => 'textarea',
-					'label'       => 'Custom CSS',
-					'description' => esc_html__( 'Add your custom CSS below if you want to style the notice further.', 'simple-gdpr-cookie-compliance' ),
-					'placeholder' => '.app { background-color: #fde047; }',
-					'full_width'  => true,
-				),
+			'custom_css' => array(
+				'type'        => 'textarea',
+				'label'       => 'Custom CSS',
+				'description' => esc_html__( 'Add your custom CSS below if you want to style the notice further.', 'simple-gdpr-cookie-compliance' ),
+				'placeholder' => '.app { background-color: #fde047; }',
+				'full_width'  => true,
+			),
 		);
 	}
 }
