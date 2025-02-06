@@ -9,14 +9,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-05T10:47:33+00:00\n"
+"POT-Creation-Date: 2025-02-06T11:55:19+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: simple-gdpr-cookie-compliance\n"
 
 #. Plugin Name of the plugin
 #: simple-gdpr-cookie-compliance.php
-#: admin/class-simple-gdpr-cookie-compliance-admin.php:82
+#: admin/class-simple-gdpr-cookie-compliance-admin.php:64
 msgid "Simple GDPR Cookie Compliance"
 msgstr ""
 
@@ -40,48 +40,52 @@ msgstr ""
 msgid "https://themebeez.com/"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-admin.php:83
+#: admin/class-simple-gdpr-cookie-compliance-admin.php:65
 msgid "Simple GDPR"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-admin.php:124
+#: admin/class-simple-gdpr-cookie-compliance-admin.php:106
 msgid "Settings"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-admin.php:145
+#: admin/class-simple-gdpr-cookie-compliance-admin.php:127
 msgid "View Simple GDPR Cookie Compliance GitHub link"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-admin.php:145
+#: admin/class-simple-gdpr-cookie-compliance-admin.php:127
 msgid "GitHub"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-admin.php:146
+#: admin/class-simple-gdpr-cookie-compliance-admin.php:128
 msgid "Visit community forums"
 msgstr ""
 
-#: admin/class-simple-gdpr-cookie-compliance-admin.php:146
+#: admin/class-simple-gdpr-cookie-compliance-admin.php:128
 msgid "Community support"
 msgstr ""
 
-#: includes/class-simple-gdpr-cookie-compliance-rest-api.php:88
+#: includes/class-simple-gdpr-cookie-compliance-rest-api.php:87
 msgid "Oops, error getting settings!!!"
 msgstr ""
 
-#: includes/class-simple-gdpr-cookie-compliance-rest-api.php:92
+#: includes/class-simple-gdpr-cookie-compliance-rest-api.php:91
 msgid "successfully fetched data."
 msgstr ""
 
-#: includes/class-simple-gdpr-cookie-compliance-rest-api.php:108
+#: includes/class-simple-gdpr-cookie-compliance-rest-api.php:107
 msgid "Ooops, error saving settings!!!"
 msgstr ""
 
-#: includes/class-simple-gdpr-cookie-compliance-rest-api.php:119
+#: includes/class-simple-gdpr-cookie-compliance-rest-api.php:118
 msgid "No settings to update."
 msgstr ""
 
-#: includes/class-simple-gdpr-cookie-compliance-rest-api.php:127
+#: includes/class-simple-gdpr-cookie-compliance-rest-api.php:126
 msgid "Settings saved successfully"
+msgstr ""
+
+#: includes/class-simple-gdpr-cookie-compliance-rest-api.php:141
+msgid "Ooops, you are allowed to manage options."
 msgstr ""
 
 #: includes/setting-functions/fields/basic-options.php:21
@@ -274,27 +278,27 @@ msgstr ""
 msgid "Link hover color inside the notice"
 msgstr ""
 
-#: includes/setting-functions/settings-default.php:19
+#: includes/setting-functions/settings-default.php:20
 msgid "We use cookies to ensure your best experience on our website. If you continue using our website, we'll assume you agree to our <a href='#'>cookie policy</a>"
 msgstr ""
 
-#: includes/setting-functions/settings-default.php:20
+#: includes/setting-functions/settings-default.php:21
 msgid "Accept"
 msgstr ""
 
-#: includes/setting-functions/settings.php:168
+#: includes/setting-functions/settings.php:185
 msgid "Basic Options"
 msgstr ""
 
-#: includes/setting-functions/settings.php:173
+#: includes/setting-functions/settings.php:190
 msgid "Layout Options"
 msgstr ""
 
-#: includes/setting-functions/settings.php:177
+#: includes/setting-functions/settings.php:194
 msgid "Button Options"
 msgstr ""
 
-#: includes/setting-functions/settings.php:181
+#: includes/setting-functions/settings.php:198
 msgid "Developer"
 msgstr ""
 
@@ -328,11 +332,11 @@ msgid "Later"
 msgstr ""
 
 #. translators: %1$s: notice text, %2$s is a link to the plugin's settings page
-#: public/class-simple-gdpr-cookie-compliance-public.php:136
+#: public/class-simple-gdpr-cookie-compliance-public.php:133
 msgid "Please update this notice from %1$s %2$s"
 msgstr ""
 
-#: public/class-simple-gdpr-cookie-compliance-public.php:137
+#: public/class-simple-gdpr-cookie-compliance-public.php:134
 msgid "Dashboard > Simple GDPR."
 msgstr ""
 

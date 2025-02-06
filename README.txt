@@ -89,7 +89,7 @@ Yes, we do. Kindly visit us at [support page](https://themebeez.com/support-foru
 
 == Changelog ==
 
-= 2.0.0 - 05 February, 2025 =
+= 2.0.0 - 06 February, 2025 =
 
 - Added: Rest API support to fetch and update the setting page option data.
 - Added: New modern plugin's setting page in admin dashboard.
