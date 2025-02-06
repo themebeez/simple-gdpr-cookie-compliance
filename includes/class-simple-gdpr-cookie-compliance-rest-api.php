@@ -10,7 +10,7 @@
  * @author     Addonify <contact@addonify.com>
  */
 
-if ( ! class_exists( 'Class_Simple_GDPR_Cookie_Compliance_Rest_API' ) ) {
+if ( ! class_exists( 'Simple_GDPR_Cookie_Compliance_Rest_API' ) ) {
 	/**
 	 * Register rest api.
 	 *
@@ -18,7 +18,7 @@ if ( ! class_exists( 'Class_Simple_GDPR_Cookie_Compliance_Rest_API' ) ) {
 	 * @subpackage simple-gdpr-cookie-compliance/includes
 	 * @author     Adodnify <contact@addonify.com>
 	 */
-	class Class_Simple_GDPR_Cookie_Compliance_Rest_API {
+	class Simple_GDPR_Cookie_Compliance_Rest_API {
 
 		/**
 		 * The namespace of the Rest API.

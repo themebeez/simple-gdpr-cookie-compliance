@@ -127,92 +127,86 @@ class Simple_GDPR_Cookie_Compliance_Public {
 
 		$options = get_option( 'simple_gdpr_cookie_compliance_options' );
 
-		if (
-			isset( $settings_values['enable_plugin'] ) &&
-			true === $settings_values['enable_plugin']
-		) {
-
-			if ( ( ! isset( $options['notice_text'] ) && empty( $options['notice_text'] ) ) && ( is_admin() || current_user_can( 'manage_options' ) ) ) {
-				$settings_values['notice_text'] = sprintf(
-					/* translators: %1$s: notice text, %2$s is a link to the plugin's settings page */
-					__( 'Please update this notice from %1$s %2$s', 'simple-gdpr-cookie-compliance' ),
-					'<a href="' . esc_url( admin_url( 'admin.php?page=simple-gdpr-cookie-compliance' ) ) . '">' . esc_html__( 'Dashboard > Simple GDPR.', 'simple-gdpr-cookie-compliance' ) . '</a>',
-					$settings_values['notice_text']
-				);
-			}
-
-			if ( $settings_values ) {
-				$class = '';
-				if ( isset( $settings_values['style'] ) ) {
-
-					switch ( $settings_values['style'] ) {
-						case 'full_width':
-							if ( isset( $settings_values['fullwidth_position'] ) ) {
-								$class = 'layout-full ';
-
-								$fullwidth_position = $settings_values['fullwidth_position'];
-
-								if ( 'top' === $fullwidth_position ) {
-									$class .= 'position-top';
-								} else {
-									$class .= 'position-bottom';
-								}
-							}
-							break;
-						case 'custom_width':
-							if ( isset( $settings_values['customwidth_position'] ) ) {
-								$class = 'layout-custom-width ';
-
-								$customwidth_position = $settings_values['customwidth_position'];
-
-								switch ( $customwidth_position ) {
-									case 'top_left':
-										$class .= 'position-top-left';
-										break;
-									case 'top_center':
-										$class .= 'position-top-center';
-										break;
-									case 'top_right':
-										$class .= 'position-top-right';
-										break;
-									case 'bottom_left':
-										$class .= 'position-bottom-left';
-										break;
-									case 'bottom_center':
-										$class .= 'position-bottom-center';
-										break;
-									case 'bottom_right':
-										$class .= 'position-bottom-right';
-										break;
-									default:
-										break;
-								}
-							}
-							break;
-						default:
-							$class = 'layout-popup';
-					}
-				}
-
-				if (
-					isset( $settings_values['show_close_btn'] ) &&
-					false === $settings_values['show_close_btn']
-				) {
-					$class .= ' hide-close-btn';
-				}
-
-				if (
-					isset( $settings_values['show_cookie_icon'] ) &&
-					false === $settings_values['show_cookie_icon']
-				) {
-					$class .= ' hide-cookie-icon';
-				}
-
-				$settings_values['wrapper_class'] = $class;
-			}
-
-			load_template( plugin_dir_path( __FILE__ ) . 'partials/simple-gdpr-cookie-compliance-public-display.php', true, $settings_values );
+		if ( ( ! isset( $options['notice_text'] ) && empty( $options['notice_text'] ) ) && ( is_admin() || current_user_can( 'manage_options' ) ) ) {
+			$settings_values['notice_text'] = sprintf(
+				/* translators: %1$s: notice text, %2$s is a link to the plugin's settings page */
+				__( 'Please update this notice from %1$s %2$s', 'simple-gdpr-cookie-compliance' ),
+				'<a href="' . esc_url( admin_url( 'admin.php?page=simple-gdpr-cookie-compliance' ) ) . '">' . esc_html__( 'Dashboard > Simple GDPR.', 'simple-gdpr-cookie-compliance' ) . '</a>',
+				$settings_values['notice_text']
+			);
 		}
+
+		if ( $settings_values ) {
+			$class = '';
+			if ( isset( $settings_values['style'] ) ) {
+
+				switch ( $settings_values['style'] ) {
+					case 'full_width':
+						if ( isset( $settings_values['fullwidth_position'] ) ) {
+							$class = 'layout-full ';
+
+							$fullwidth_position = $settings_values['fullwidth_position'];
+
+							if ( 'top' === $fullwidth_position ) {
+								$class .= 'position-top';
+							} else {
+								$class .= 'position-bottom';
+							}
+						}
+						break;
+					case 'custom_width':
+						if ( isset( $settings_values['customwidth_position'] ) ) {
+							$class = 'layout-custom-width ';
+
+							$customwidth_position = $settings_values['customwidth_position'];
+
+							switch ( $customwidth_position ) {
+								case 'top_left':
+									$class .= 'position-top-left';
+									break;
+								case 'top_center':
+									$class .= 'position-top-center';
+									break;
+								case 'top_right':
+									$class .= 'position-top-right';
+									break;
+								case 'bottom_left':
+									$class .= 'position-bottom-left';
+									break;
+								case 'bottom_center':
+									$class .= 'position-bottom-center';
+									break;
+								case 'bottom_right':
+									$class .= 'position-bottom-right';
+									break;
+								default:
+									break;
+							}
+						}
+						break;
+					default:
+						$class = 'layout-popup';
+				}
+			}
+
+			if (
+				isset( $settings_values['show_close_btn'] ) &&
+				false === $settings_values['show_close_btn']
+			) {
+				$class .= ' hide-close-btn';
+			}
+
+			if (
+				isset( $settings_values['show_cookie_icon'] ) &&
+				false === $settings_values['show_cookie_icon']
+			) {
+				$class .= ' hide-cookie-icon';
+			}
+
+			$settings_values['wrapper_class'] = $class;
+		}
+
+		load_template( plugin_dir_path( __FILE__ ) . 'partials/simple-gdpr-cookie-compliance-public-display.php', true, $settings_values );
 	}
 
 
