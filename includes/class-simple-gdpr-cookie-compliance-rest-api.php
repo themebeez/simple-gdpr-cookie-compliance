@@ -55,7 +55,7 @@ if ( ! class_exists( 'Class_Simple_GDPR_Cookie_Compliance_Rest_API' ) ) {
 					array(
 						'methods'             => \WP_REST_Server::READABLE,
 						'callback'            => array( $this, 'rest_handler_get_setting_fields' ),
-						'permission_callback' => '__return_true',//array( $this, 'permission_callback' ),
+						'permission_callback' => array( $this, 'permission_callback' ),
 					),
 				)
 			);
@@ -65,9 +65,9 @@ if ( ! class_exists( 'Class_Simple_GDPR_Cookie_Compliance_Rest_API' ) ) {
 				'/options',
 				array(
 					array(
-						'methods'             =>'PATCH',
+						'methods'             => 'PATCH',
 						'callback'            => array( $this, 'rest_handler_update_setting_fields' ),
-						'permission_callback' => '__return_true',//array( $this, 'permission_callback' ),
+						'permission_callback' => array( $this, 'permission_callback' ),
 					),
 				)
 			);
@@ -78,7 +78,6 @@ if ( ! class_exists( 'Class_Simple_GDPR_Cookie_Compliance_Rest_API' ) ) {
 		 *
 		 * @since 1.2.17
 		 *
-		 * @param \WP_REST_Request $request    The request object.
 		 * @return \WP_REST_Response $return_data   The response object.
 		 */
 		public function rest_handler_get_setting_fields() {
@@ -105,7 +104,7 @@ if ( ! class_exists( 'Class_Simple_GDPR_Cookie_Compliance_Rest_API' ) ) {
 		public function rest_handler_update_setting_fields( $request ) {
 			$return_data = array(
 				'success' => false,
-				'message' => __( 'Ooops, error saving settings!!!', 'simple-gdpr-cookie-compliance' ),
+				'message' => esc_html__( 'Ooops, error saving settings!!!', 'simple-gdpr-cookie-compliance' ),
 			);
 
 			$params = $request->get_params();
@@ -116,7 +115,7 @@ if ( ! class_exists( 'Class_Simple_GDPR_Cookie_Compliance_Rest_API' ) ) {
 			if ( ! isset( $values ) ) {
 				return new WP_Error(
 					'rest_post_not_found',
-					__( 'No settings to update.', 'simple-gdpr-cookie-compliance' ),
+					esc_html__( 'No settings to update.', 'simple-gdpr-cookie-compliance' ),
 					array( 'status' => 404 )
 				);
 			}
@@ -124,7 +123,7 @@ if ( ! class_exists( 'Class_Simple_GDPR_Cookie_Compliance_Rest_API' ) ) {
 			if ( simple_gdpr_cookie_compliance_update_settings( $values ) === true ) {
 
 				$return_data['success'] = true;
-				$return_data['message'] = __( 'Settings saved successfully', 'simple-gdpr-cookie-compliance' );
+				$return_data['message'] = esc_html__( 'Settings saved successfully', 'simple-gdpr-cookie-compliance' );
 			}
 
 			return rest_ensure_response( $return_data );
@@ -139,7 +138,7 @@ if ( ! class_exists( 'Class_Simple_GDPR_Cookie_Compliance_Rest_API' ) ) {
 
 			if ( ! current_user_can( 'manage_options' ) ) {
 
-				return new WP_Error( 'rest_forbidden', esc_html__( 'Ooops, you are allowed to manage options.', 'simple_gdpr_cookie_compliance' ), array( 'status' => 401 ) );
+				return new WP_Error( 'rest_forbidden', esc_html__( 'Ooops, you are allowed to manage options.', 'simple-gdpr-cookie-compliance' ), array( 'status' => 401 ) );
 			}
 			return true;
 		}

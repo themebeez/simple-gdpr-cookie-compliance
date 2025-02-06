@@ -111,7 +111,9 @@ class Simple_GDPR_Cookie_Compliance_Public {
 
 		$dynamic_css = $this->get_dynamic_css();
 
-		wp_add_inline_style( $this->plugin_name, $dynamic_css );
+		$dynamic_css .= $this->add_custom_css();
+
+		wp_add_inline_style( $this->plugin_name, $this->minify_css( $dynamic_css ) );
 	}
 
 	/**
@@ -316,12 +318,7 @@ class Simple_GDPR_Cookie_Compliance_Public {
 	public function add_custom_css() {
 		$dynamic_options = get_option( 'simple_gdpr_cookie_compliance_options' );
 		if ( isset( $dynamic_options['custom_css'] ) ) {
-			$custom_css = $this->minify_css( $dynamic_options['custom_css'] );
-			?>
-			<style>
-				<?php echo esc_html( $custom_css ); ?>
-			</style>
-			<?php
+			return $dynamic_options['custom_css'];
 		}
 	}
 

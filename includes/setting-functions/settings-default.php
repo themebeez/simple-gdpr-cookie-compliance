@@ -3,9 +3,10 @@
  * Helper functions.
  *
  * @since 1.1.11
+ * @package Simple_GDPR_Cookie_Compliance
  */
 
-if ( ! function_exists( 'simple_gdpr_get_setting_defaults' ) ) {
+if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_setting_defaults' ) ) {
 
 	/**
 	 * Get setting defaults.
@@ -13,11 +14,11 @@ if ( ! function_exists( 'simple_gdpr_get_setting_defaults' ) ) {
 	 * @since 1.1.11
 	 * @return array
 	 */
-	function simple_gdpr_get_setting_defaults() {
+	function simple_gdpr_cookie_compliance_get_setting_defaults() {
 		$settings_default = array(
 			'enable_plugin'                               => true,
-			'notice_text'                                 => __( "We use cookies to ensure your best experience on our website. If you continue using our website, we'll assume you agree to our <a href='#'>cookie policy</a>", 'simple-gdpr-cookie-compliance' ),
-			'accept_btn_title'                            => __( 'Accept', 'simple-gdpr-cookie-compliance' ),
+			'notice_text'                                 => esc_html__( "We use cookies to ensure your best experience on our website. If you continue using our website, we'll assume you agree to our <a href='#'>cookie policy</a>", 'simple-gdpr-cookie-compliance' ),
+			'accept_btn_title'                            => esc_html__( 'Accept', 'simple-gdpr-cookie-compliance' ),
 			'show_close_btn'                              => true,
 			'show_cookie_icon'                            => true,
 			'cookie_expire_time'                          => 0,

@@ -1,6 +1,6 @@
 <?php
 /**
- * The class to define REST API endpoints used in settings page.
+ * Functions related to settings page to get and update settings values.
  * This is used to define REST API endpoints used in admin settings page to get and update settings values.
  *
  * @since      1.1.11
@@ -26,7 +26,7 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_fields_values' ) ) {
 	 */
 	function simple_gdpr_cookie_compliance_get_fields_values() {
 
-		$settings_default = simple_gdpr_get_setting_defaults();
+		$settings_default = simple_gdpr_cookie_compliance_get_setting_defaults();
 
 		$settings_values = array();
 		if ( get_option( 'simple_gdpr_cookie_compliance_options' ) ) {
@@ -49,10 +49,18 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_fields_values' ) ) {
 						case 'switch':
 							// special case for enable_bg_overlay because it is saved inside the style array.
 							if ( 'enable_bg_overlay' === $id ) {
-								$settings_values[ $id ] = ( isset( $saved_settings['style'][ $id ] ) && '1' === $saved_settings['style'][ $id ] ) ? true : ( ( isset( $saved_settings['style'][ $id ] ) && '1' !== $saved_settings['style'][ $id ] ) ? false : $settings_default[ $id ] );
+								$settings_values[ $id ] = (
+									isset( $saved_settings['style'][ $id ] ) && '1' === $saved_settings['style'][ $id ] ) ? true :
+									( ( isset( $saved_settings['style'][ $id ] ) && '1' !== $saved_settings['style'][ $id ] ) ? false :
+									$settings_default[ $id ] );
 								break;
 							}
-							$settings_values[ $id ] = ( isset( $saved_settings[ $id ] ) && '1' === $saved_settings[ $id ] ) ? true : ( ( isset( $saved_settings[ $id ] ) && '1' !== $saved_settings[ $id ] ) ? false : $settings_default[ $id ] );
+							$settings_values[ $id ] = (
+								isset( $saved_settings[ $id ] ) && '1' === $saved_settings[ $id ] ) ?
+								true :
+								( ( isset( $saved_settings[ $id ] ) && '1' !== $saved_settings[ $id ] ) ?
+								false :
+								$settings_default[ $id ] );
 							break;
 
 						case 'radio':
@@ -122,10 +130,10 @@ function simple_gdpr_cookie_compliance_add_setting_fields( $fields ) {
 		'simple_gdpr_cookie_compliance_add_setting_fields',
 		array_merge(
 			$fields,
-			simple_gdpr_basic_options(),
-			simple_gdpr_layout_options(),
-			simple_gdpr_button_options(),
-			simple_gdpr_developer_options(),
+			simple_gdpr_cookie_compliance_basic_options(),
+			simple_gdpr_cookie_compliance_layout_options(),
+			simple_gdpr_cookie_compliance_button_options(),
+			simple_gdpr_cookie_compliance_developer_options(),
 		),
 	);
 }
@@ -197,7 +205,7 @@ if ( ! function_exists( 'simple_gdpr_cookie_compliance_get_settings_sections_fie
  * @return bool true on success, false otherwise.
  */
 function simple_gdpr_cookie_compliance_update_settings( $settings = '' ) {
-	$settings_default = simple_gdpr_get_setting_defaults();
+	$settings_default = simple_gdpr_cookie_compliance_get_setting_defaults();
 	if (
 		is_array( $settings ) &&
 		count( $settings ) > 0
