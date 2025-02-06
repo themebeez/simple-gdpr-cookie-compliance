@@ -130,10 +130,10 @@ function simple_gdpr_cookie_compliance_add_setting_fields( $fields ) {
 		'simple_gdpr_cookie_compliance_add_setting_fields',
 		array_merge(
 			$fields,
-			simple_gdpr_basic_options(),
-			simple_gdpr_layout_options(),
-			simple_gdpr_button_options(),
-			simple_gdpr_developer_options(),
+			simple_gdpr_cookie_compliance_basic_options(),
+			simple_gdpr_cookie_compliance_layout_options(),
+			simple_gdpr_cookie_compliance_button_options(),
+			simple_gdpr_cookie_compliance_developer_options(),
 		),
 	);
 }

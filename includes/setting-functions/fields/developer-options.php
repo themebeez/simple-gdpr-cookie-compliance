@@ -9,13 +9,13 @@
  * @subpackage simple-gdpr-cookie-compliance/includes/setting-functions/fields
  */
 
-if ( ! function_exists( 'simple_gdpr_developer_options' ) ) {
+if ( ! function_exists( 'simple_gdpr_cookie_compliance_developer_options' ) ) {
 	/**
 	 * General options.
 	 *
 	 * @return array
 	 */
-	function simple_gdpr_developer_options() {
+	function simple_gdpr_cookie_compliance_developer_options() {
 		return array(
 			'custom_css' => array(
 				'type'        => 'textarea',
@@ -27,4 +27,4 @@ if ( ! function_exists( 'simple_gdpr_developer_options' ) ) {
 		);
 	}
 }
-add_filter( 'simple_gdpr_developer_options', 'simple_gdpr_developer_options' );
+add_filter( 'simple_gdpr_developer_options', 'simple_gdpr_cookie_compliance_developer_options' );
