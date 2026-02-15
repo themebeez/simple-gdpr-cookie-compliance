@@ -4,9 +4,9 @@ Contributors: themebeez, addonify
 Donate link: https://donation.creamcode.org
 Tags: cookie notice, GDPR, CCPA, cookie privacy, cookie consent
 Requires at least: 5.6
-Tested up to: 6.7
+Tested up to: 6.9.1
 Requires PHP: 7.4
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -92,6 +92,10 @@ Yes, we do. Kindly visit us at [support page](https://themebeez.com/support-foru
 
 
 == Changelog ==
+
+= 2.0.1 - 15 February, 2026 =
+
+- Fix: Broken Access Control in UDP Agent (CVSS 5.3). Credits to Legion Hunter. Unauthenticated attacker can update option value for "udp_agent_allow_tracking" via "init" hook due to missing authorization and nonce check in it's callback function "on_init".
 
 = 2.0.0 - 06 February, 2025 =
 
