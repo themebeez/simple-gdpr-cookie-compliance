@@ -78,10 +78,7 @@ class Simple_GDPR_Cookie_Compliance {
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
-		$options = simple_gdpr_cookie_compliance_get_fields_values();
-		if ( $options && true === $options['enable_plugin'] ) {
-			$this->define_public_hooks();
-		}
+		$this->define_public_hooks();
 		$this->rest_api();
 	}
 
@@ -169,7 +166,7 @@ class Simple_GDPR_Cookie_Compliance {
 
 		$plugin_i18n = new Simple_GDPR_Cookie_Compliance_i18n();
 
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
+		$this->loader->add_action( 'init', $plugin_i18n, 'load_plugin_textdomain' );
 	}
 
 	/**
@@ -204,14 +201,10 @@ class Simple_GDPR_Cookie_Compliance {
 
 		$plugin_public = new Simple_GDPR_Cookie_Compliance_Public( $this->get_plugin_name(), $this->get_version() );
 
-		$option_values = simple_gdpr_cookie_compliance_get_fields_values();
-
-		if ( ! isset( $_COOKIE['sgcc-cookie-notice'] ) || true === $option_values['enable_plugin'] ) {
-			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-			$this->loader->add_action( 'wp_footer', $plugin_public, 'display_notice' );
-			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'print_dynamic_style' );
-		}
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_action( 'wp_footer', $plugin_public, 'display_notice' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'print_dynamic_style' );
 	}
 
 	/**

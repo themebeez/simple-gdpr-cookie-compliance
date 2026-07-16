@@ -4,9 +4,9 @@ Contributors: themebeez, addonify
 Donate link: https://donation.creamcode.org
 Tags: cookie notice, GDPR, CCPA, cookie privacy, cookie consent
 Requires at least: 5.6
-Tested up to: 6.9.1
+Tested up to: 7.0.1
 Requires PHP: 7.4
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -92,6 +92,11 @@ Yes, we do. Kindly visit us at [support page](https://themebeez.com/support-foru
 
 
 == Changelog ==
+
+= 2.0.2 - 16 July, 2026 =
+
+- Fixed: PHP Notice:  Function _load_textdomain_just_in_time was called icorrectly.
+- Fixed: Fatal error in UDP agent.
 
 = 2.0.1 - 15 February, 2026 =
 
