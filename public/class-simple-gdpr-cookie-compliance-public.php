@@ -55,13 +55,18 @@ class Simple_GDPR_Cookie_Compliance_Public {
 	 */
 	public function enqueue_styles() {
 
-		wp_enqueue_style(
-			$this->plugin_name,
-			plugin_dir_url( __FILE__ ) . 'assets/dist/public.min.css',
-			array(),
-			$this->version,
-			'all'
-		);
+		$option_values = simple_gdpr_cookie_compliance_get_fields_values();
+
+		if ( ! isset( $_COOKIE['sgcc-cookie-notice'] ) || true === $option_values['enable_plugin'] ) {
+
+			wp_enqueue_style(
+				$this->plugin_name,
+				plugin_dir_url( __FILE__ ) . 'assets/dist/public.min.css',
+				array(),
+				$this->version,
+				'all'
+			);
+		}
 	}
 
 	/**
@@ -71,35 +76,40 @@ class Simple_GDPR_Cookie_Compliance_Public {
 	 */
 	public function enqueue_scripts() {
 
-		wp_register_script(
-			$this->plugin_name,
-			plugin_dir_url( __FILE__ ) . 'assets/dist/public.min.js',
-			array(),
-			$this->version,
-			true
-		);
+		$option_values = simple_gdpr_cookie_compliance_get_fields_values();
 
-		$simple_gdpr_cookie_compliance_options = get_option( 'simple_gdpr_cookie_compliance_options' );
+		if ( ! isset( $_COOKIE['sgcc-cookie-notice'] ) || true === $option_values['enable_plugin'] ) {
 
-		$notice_obj_array = array(
-			'cookieExpireTime' => isset( $simple_gdpr_cookie_compliance_options['cookie_expire_time'] ) ? (int) $simple_gdpr_cookie_compliance_options['cookie_expire_time'] : 0,
-		);
+			wp_register_script(
+				$this->plugin_name,
+				plugin_dir_url( __FILE__ ) . 'assets/dist/public.min.js',
+				array(),
+				$this->version,
+				true
+			);
 
-		if ( is_multisite() ) {
-			$notice_obj_array['isMultisite'] = true;
-			if ( SUBDOMAIN_INSTALL === false ) {
-				$notice_obj_array['subdomainInstall'] = false;
-				$notice_obj_array['path']             = get_site()->path;
+			$simple_gdpr_cookie_compliance_options = get_option( 'simple_gdpr_cookie_compliance_options' );
+
+			$notice_obj_array = array(
+				'cookieExpireTime' => isset( $simple_gdpr_cookie_compliance_options['cookie_expire_time'] ) ? (int) $simple_gdpr_cookie_compliance_options['cookie_expire_time'] : 0,
+			);
+
+			if ( is_multisite() ) {
+				$notice_obj_array['isMultisite'] = true;
+				if ( SUBDOMAIN_INSTALL === false ) {
+					$notice_obj_array['subdomainInstall'] = false;
+					$notice_obj_array['path']             = get_site()->path;
+				} else {
+					$notice_obj_array['subdomainInstall'] = true;
+				}
 			} else {
-				$notice_obj_array['subdomainInstall'] = true;
+				$notice_obj_array['isMultisite'] = false;
 			}
-		} else {
-			$notice_obj_array['isMultisite'] = false;
+
+			wp_localize_script( $this->plugin_name, 'simpleGDPRCCJsObj', $notice_obj_array );
+
+			wp_enqueue_script( $this->plugin_name );
 		}
-
-		wp_localize_script( $this->plugin_name, 'simpleGDPRCCJsObj', $notice_obj_array );
-
-		wp_enqueue_script( $this->plugin_name );
 	}
 
 	/**
@@ -109,11 +119,16 @@ class Simple_GDPR_Cookie_Compliance_Public {
 	 */
 	public function print_dynamic_style() {
 
-		$dynamic_css = $this->get_dynamic_css();
+		$option_values = simple_gdpr_cookie_compliance_get_fields_values();
 
-		$dynamic_css .= $this->add_custom_css();
+		if ( ! isset( $_COOKIE['sgcc-cookie-notice'] ) || true === $option_values['enable_plugin'] ) {
 
-		wp_add_inline_style( $this->plugin_name, $this->minify_css( $dynamic_css ) );
+			$dynamic_css = $this->get_dynamic_css();
+
+			$dynamic_css .= $this->add_custom_css();
+
+			wp_add_inline_style( $this->plugin_name, $this->minify_css( $dynamic_css ) );
+		}
 	}
 
 	/**
@@ -123,90 +138,95 @@ class Simple_GDPR_Cookie_Compliance_Public {
 	 */
 	public function display_notice() {
 
-		$settings_values = simple_gdpr_cookie_compliance_get_fields_values();
+		$option_values = simple_gdpr_cookie_compliance_get_fields_values();
 
-		$options = get_option( 'simple_gdpr_cookie_compliance_options' );
+		if ( ! isset( $_COOKIE['sgcc-cookie-notice'] ) || true === $option_values['enable_plugin'] ) {
 
-		if ( ( ! isset( $options['notice_text'] ) && empty( $options['notice_text'] ) ) && ( is_admin() || current_user_can( 'manage_options' ) ) ) {
-			$settings_values['notice_text'] = sprintf(
-				/* translators: %1$s: notice text, %2$s is a link to the plugin's settings page */
-				__( 'Please update this notice from %1$s %2$s', 'simple-gdpr-cookie-compliance' ),
-				'<a href="' . esc_url( admin_url( 'admin.php?page=simple-gdpr-cookie-compliance' ) ) . '">' . esc_html__( 'Dashboard > Simple GDPR.', 'simple-gdpr-cookie-compliance' ) . '</a>',
-				$settings_values['notice_text']
-			);
-		}
+			$settings_values = simple_gdpr_cookie_compliance_get_fields_values();
 
-		if ( $settings_values ) {
-			$class = '';
-			if ( isset( $settings_values['style'] ) ) {
+			$options = get_option( 'simple_gdpr_cookie_compliance_options' );
 
-				switch ( $settings_values['style'] ) {
-					case 'full_width':
-						if ( isset( $settings_values['fullwidth_position'] ) ) {
-							$class = 'layout-full ';
+			if ( ( ! isset( $options['notice_text'] ) && empty( $options['notice_text'] ) ) && ( is_admin() || current_user_can( 'manage_options' ) ) ) {
+				$settings_values['notice_text'] = sprintf(
+					/* translators: %1$s: notice text, %2$s is a link to the plugin's settings page */
+					__( 'Please update this notice from %1$s %2$s', 'simple-gdpr-cookie-compliance' ),
+					'<a href="' . esc_url( admin_url( 'admin.php?page=simple-gdpr-cookie-compliance' ) ) . '">' . esc_html__( 'Dashboard > Simple GDPR.', 'simple-gdpr-cookie-compliance' ) . '</a>',
+					$settings_values['notice_text']
+				);
+			}
 
-							$fullwidth_position = $settings_values['fullwidth_position'];
+			if ( $settings_values ) {
+				$class = '';
+				if ( isset( $settings_values['style'] ) ) {
 
-							if ( 'top' === $fullwidth_position ) {
-								$class .= 'position-top';
-							} else {
-								$class .= 'position-bottom';
+					switch ( $settings_values['style'] ) {
+						case 'full_width':
+							if ( isset( $settings_values['fullwidth_position'] ) ) {
+								$class = 'layout-full ';
+
+								$fullwidth_position = $settings_values['fullwidth_position'];
+
+								if ( 'top' === $fullwidth_position ) {
+									$class .= 'position-top';
+								} else {
+									$class .= 'position-bottom';
+								}
 							}
-						}
-						break;
-					case 'custom_width':
-						if ( isset( $settings_values['customwidth_position'] ) ) {
-							$class = 'layout-custom-width ';
+							break;
+						case 'custom_width':
+							if ( isset( $settings_values['customwidth_position'] ) ) {
+								$class = 'layout-custom-width ';
 
-							$customwidth_position = $settings_values['customwidth_position'];
+								$customwidth_position = $settings_values['customwidth_position'];
 
-							switch ( $customwidth_position ) {
-								case 'top_left':
-									$class .= 'position-top-left';
-									break;
-								case 'top_center':
-									$class .= 'position-top-center';
-									break;
-								case 'top_right':
-									$class .= 'position-top-right';
-									break;
-								case 'bottom_left':
-									$class .= 'position-bottom-left';
-									break;
-								case 'bottom_center':
-									$class .= 'position-bottom-center';
-									break;
-								case 'bottom_right':
-									$class .= 'position-bottom-right';
-									break;
-								default:
-									break;
+								switch ( $customwidth_position ) {
+									case 'top_left':
+										$class .= 'position-top-left';
+										break;
+									case 'top_center':
+										$class .= 'position-top-center';
+										break;
+									case 'top_right':
+										$class .= 'position-top-right';
+										break;
+									case 'bottom_left':
+										$class .= 'position-bottom-left';
+										break;
+									case 'bottom_center':
+										$class .= 'position-bottom-center';
+										break;
+									case 'bottom_right':
+										$class .= 'position-bottom-right';
+										break;
+									default:
+										break;
+								}
 							}
-						}
-						break;
-					default:
-						$class = 'layout-popup';
+							break;
+						default:
+							$class = 'layout-popup';
+					}
 				}
+
+				if (
+					isset( $settings_values['show_close_btn'] ) &&
+					false === $settings_values['show_close_btn']
+				) {
+					$class .= ' hide-close-btn';
+				}
+
+				if (
+					isset( $settings_values['show_cookie_icon'] ) &&
+					false === $settings_values['show_cookie_icon']
+				) {
+					$class .= ' hide-cookie-icon';
+				}
+
+				$settings_values['wrapper_class'] = $class;
 			}
 
-			if (
-				isset( $settings_values['show_close_btn'] ) &&
-				false === $settings_values['show_close_btn']
-			) {
-				$class .= ' hide-close-btn';
-			}
-
-			if (
-				isset( $settings_values['show_cookie_icon'] ) &&
-				false === $settings_values['show_cookie_icon']
-			) {
-				$class .= ' hide-cookie-icon';
-			}
-
-			$settings_values['wrapper_class'] = $class;
+			load_template( plugin_dir_path( __FILE__ ) . 'partials/simple-gdpr-cookie-compliance-public-display.php', true, $settings_values );
 		}
-
-		load_template( plugin_dir_path( __FILE__ ) . 'partials/simple-gdpr-cookie-compliance-public-display.php', true, $settings_values );
 	}
 
 

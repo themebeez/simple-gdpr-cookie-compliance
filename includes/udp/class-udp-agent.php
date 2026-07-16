@@ -186,9 +186,6 @@ class Udp_Agent {
 
 		// Add data into database.
 		update_option( 'udp_agent_allow_tracking', $users_choice );
-		if ( 'yes' === $users_choice ) {
-			$this->do_handshake();
-		}
 		update_option( 'udp_agent_tracking_msg_last_shown_at', time() );
 
 		// Redirect back to dashboard.
@@ -210,9 +207,16 @@ class Udp_Agent {
 		if ( ! class_exists( 'WP_Debug_Data' ) ) {
 			require_once ABSPATH . 'wp-admin/includes/class-wp-debug-data.php';
 			require_once ABSPATH . 'wp-includes/load.php';
-			require_once ABSPATH . 'wp-admin/includes/update.php';
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 			require_once ABSPATH . 'wp-admin/includes/misc.php';
+		}
+
+		if ( ! function_exists( 'get_core_updates' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/update.php';
+		}
+
+		if ( ! function_exists( 'get_home_path' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/file.php';
 		}
 
 		if ( ! class_exists( 'WP_Site_Health' ) ) {
@@ -246,30 +250,13 @@ class Udp_Agent {
 		return $data;
 	}
 
-
-
 	/**
-	 * Authorize this agent to send data to engine.
-	 * get secret key from engine
-	 * run on agent activation.
+	 * Does nothing. This is only here to avoid conflicts with other plugins or themes.
 	 *
 	 * @since    1.0.0
+	 * @updated  1.0.3
 	 */
 	public function do_handshake() {
-
-		$track_user = get_option( 'udp_agent_allow_tracking' );
-
-		if ( 'yes' !== $track_user ) {
-			// Do not send data.
-			return;
-		}
-
-		$data['agent_data'] = serialize( $this->get_data() ); //phpcs:ignore
-		$url                = untrailingslashit( $this->engine_url ) . '/wp-json/udp-engine/v1/handshake';
-
-		$this->do_curl( $url, $data );
-
-		return true;
 	}
 
 	// ------------------------------------------------
@@ -311,7 +298,7 @@ class Udp_Agent {
 		}
 
 		$data_to_send['agent_data'] = serialize( $this->get_data() ); //phpcs:ignore
-		$url                        = untrailingslashit( $this->engine_url ) . '/wp-json/udp-engine/v1/process-data';
+		$url                        = untrailingslashit( $this->engine_url );
 		$this->do_curl( $url, $data_to_send );
 		exit;
 	}
